@@ -1,32 +1,33 @@
 ******************************************************************************
                   TI ARM Linker PC v5.2.8                      
 ******************************************************************************
->> Linked Mon Oct 03 09:31:28 2016
+>> Linked Mon Oct 03 10:48:09 2016
 
 OUTPUT FILE NAME:   <GyroTest.out>
-ENTRY POINT SYMBOL: "_c_int00"  address: 00000685
+ENTRY POINT SYMBOL: "_c_int00"  address: 00004ec9
 
 
 MEMORY CONFIGURATION
 
          name            origin    length      used     unused   attr    fill
 ----------------------  --------  ---------  --------  --------  ----  --------
-  FLASH                 00000000   00040000  00000926  0003f6da  R  X
-  SRAM                  20000000   00008000  00004430  00003bd0  RW X
+  FLASH                 00000000   00040000  000064fa  00039b06  R  X
+  SRAM                  20000000   00008000  00006618  000019e8  RW X
 
 
 SEGMENT ALLOCATION MAP
 
 run origin  load origin   length   init length attrs members
 ----------  ----------- ---------- ----------- ----- -------
-00000000    00000000    00000928   00000928    r-x
-  00000000    00000000    000008b4   000008b4    r-x .text
-  000008b4    000008b4    0000003a   0000003a    r-- .const
-  000008f0    000008f0    00000038   00000038    r-- .cinit
-20000000    20000000    00004430   00000000    rw-
+00000000    00000000    00006500   00006500    r-x
+  00000000    00000000    0000026c   0000026c    r-- .intvecs
+  0000026c    0000026c    00005dfc   00005dfc    r-x .text
+  00006068    00006068    000003da   000003da    r-- .const
+  00006448    00006448    000000b8   000000b8    r-- .cinit
+20000000    20000000    0000661c   00000000    rw-
   20000000    20000000    00004000   00000000    rw- .stack
-  20004000    20004000    00000404   00000000    rw- .bss
-  20004404    20004404    0000002c   00000000    rw- .data
+  20004000    20004000    00002414   00000000    rw- .bss
+  20006418    20006418    00000204   00000000    rw- .data
 
 
 SECTION ALLOCATION MAP
@@ -34,49 +35,252 @@ SECTION ALLOCATION MAP
  output                                  attributes/
 section   page    origin      length       input sections
 --------  ----  ----------  ----------   ----------------
-.text      0    00000000    000008b4     
-                  00000000    000001ea     uartstdio.obj (.text:UARTvprintf)
-                  000001ea    00000002     rtsv7M4_T_le_v4SPD16_eabi.lib : i_div0.obj (.text)
-                  000001ec    000000b0     uartstdio.obj (.text:UARTStdioConfig)
-                  0000029c    000000a8     uartstdio.obj (.text:UARTwrite)
-                  00000344    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.obj (.text)
-                  000003e0    0000008c     uartstdio.obj (.text:UARTPrimeTransmit)
-                  0000046c    0000007a     rtsv7M4_T_le_v4SPD16_eabi.lib : memset_t2.obj (.text)
-                  000004e6    00000002     --HOLE-- [fill = 0]
-                  000004e8    0000006c                                   : autoinit.obj (.text)
-                  00000554    0000006a                                   : copy_decompress_rle.obj (.text)
-                  000005be    00000002     --HOLE-- [fill = 0]
-                  000005c0    00000064     airmouse.obj (.text:ConfigureUART)
-                  00000624    00000060     airmouse.obj (.text:main)
-                  00000684    00000050     rtsv7M4_T_le_v4SPD16_eabi.lib : boot.obj (.text)
-                  000006d4    0000004c                                   : cpy_tbl.obj (.text)
-                  00000720    00000044                                   : exit.obj (.text)
-                  00000764    00000040                                   : u_divt2.obj (.text)
-                  000007a4    0000003c     uartstdio.obj (.text:UARTFlushTx)
-                  000007e0    0000002c     uartstdio.obj (.text:UARTFlushRx)
-                  0000080c    0000001a     uartstdio.obj (.text:UARTprintf)
-                  00000826    00000018     uartstdio.obj (.text:IsBufferFull)
-                  0000083e    00000002     --HOLE-- [fill = 0]
-                  00000840    00000018     rtsv7M4_T_le_v4SPD16_eabi.lib : args_main.obj (.text)
-                  00000858    00000014                                   : _lock.obj (.text)
-                  0000086c    00000010     driverlib.lib : fpu.obj (.text:FPULazyStackingEnable)
-                  0000087c    0000000e     uartstdio.obj (.text:IsBufferEmpty)
-                  0000088a    0000000e     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_none.obj (.text:decompress:none)
-                  00000898    0000000c                                   : copy_zero_init.obj (.text:decompress:ZI)
-                  000008a4    00000006     driverlib.lib : uart.obj (.text:UARTClockSourceSet)
-                  000008aa    00000006     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_rle.obj (.text:decompress:rle24)
-                  000008b0    00000004                                   : pre_init.obj (.text)
+.intvecs   0    00000000    0000026c     
+                  00000000    0000026c     startup_ccs.obj (.intvecs)
 
-.const     0    000008b4    0000003a     
-                  000008b4    00000028     uartstdio.obj (.const)
-                  000008dc    00000012     uartstdio.obj (.const:.string)
+.text      0    0000026c    00005dfc     
+                  0000026c    000010ba     rtsv7M4_T_le_v4SPD16_eabi.lib : _printfi.obj (.text)
+                  00001326    00000002     startup_ccs.obj (.text:FaultISR)
+                  00001328    00000290     sensorlib.lib : comp_dcm.obj (.text:CompDCMUpdate)
+                  000015b8    00000248     motion.obj (.text:GestureEmitClassify)
+                  00001800    000001f4     rtsv7M4_T_le_v4SPD16_eabi.lib : ull_div_t2.obj (.text)
+                  000019f4    000001ea     uartstdio.obj (.text:UARTvprintf)
+                  00001bde    00000002     startup_ccs.obj (.text:IntDefaultHandler)
+                  00001be0    000001b8     motion.obj (.text:MotionInit)
+                  00001d98    000001b6     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_add_t2.obj (.text)
+                  00001f4e    00000002     startup_ccs.obj (.text:NmiSR)
+                  00001f50    00000194     sensorlib.lib : mpu9150.obj (.text:MPU9150Callback)
+                  000020e4    00000170     motion.obj (.text:MotionMain)
+                  00002254    00000160     uartstdio.obj (.text:UARTStdioIntHandler)
+                  000023b4    00000150     usblib.lib : usbdenum.obj (.text:USBDEP0StateTxConfig)
+                  00002504    00000150                : usbdenum.obj (.text:USBDeviceIntHandlerInternal)
+                  00002654    00000148                : usbdconfig.obj (.text:USBDeviceConfig)
+                  0000279c    00000136     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_div_t2.obj (.text)
+                  000028d2    00000132     driverlib.lib : gpio.obj (.text:GPIOPadConfigSet)
+                  00002a04    00000118     rtsv7M4_T_le_v4SPD16_eabi.lib : atan2f.obj (.text)
+                  00002b1c    00000110                                   : xdscale.obj (.text)
+                  00002c2c    00000108     remoti_uart.obj (.text:RemoTIUARTRxHandler)
+                  00002d34    00000104     motion.obj (.text:MotionCallback)
+                  00002e38    00000100     rgb.obj (.text:RGBInit)
+                  00002f38    000000fc     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_mul_t2.obj (.text)
+                  00003034    000000f2     sensorlib.lib : i2cm_drv.obj (.text:I2CMIntHandler)
+                  00003126    00000002     rtsv7M4_T_le_v4SPD16_eabi.lib : i_div0.obj (.text)
+                  00003128    000000e4     usblib.lib : usbdenum.obj (.text:USBDGetDescriptor)
+                  0000320c    000000e4     airmouse.obj (.text:main)
+                  000032f0    000000d8     motion.obj (.text:GestureUpdate)
+                  000033c8    000000d8     usblib.lib : usbdenum.obj (.text:USBDeviceEnumHandler)
+                  000034a0    000000c0     rgb.obj (.text:RGBEnable)
+                  00003560    000000be     rtsv7M4_T_le_v4SPD16_eabi.lib : xdnorm.obj (.text)
+                  0000361e    00000002     --HOLE-- [fill = 0]
+                  00003620    000000b4                                   : asinf.obj (.text)
+                  000036d4    000000b0     sensorlib.lib : comp_dcm.obj (.text:CompDCMStart)
+                  00003784    000000b0     uartstdio.obj (.text:UARTStdioConfig)
+                  00003834    000000a8     uartstdio.obj (.text:UARTwrite)
+                  000038dc    000000a8     rtsv7M4_T_le_v4SPD16_eabi.lib : xfatan.obj (.text)
+                  00003984    0000009c     sensorlib.lib : mpu9150.obj (.text:MPU9150DataMagnetoGetFloat)
+                  00003a20    0000009c                   : mpu9150.obj (.text:MPU9150Write)
+                  00003abc    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.obj (.text)
+                  00003b58    00000098     sensorlib.lib : i2cm_drv.obj (.text:I2CMStateIdle)
+                  00003bf0    00000098     usblib.lib : usbdenum.obj (.text:USBDSetInterface)
+                  00003c88    00000094     remoti_uart.obj (.text:RemoTIUARTIntHandler)
+                  00003d1c    00000090     rgb.obj (.text:RGBColorSet)
+                  00003dac    00000090     usblib.lib : usbdenum.obj (.text:USBDSetConfiguration)
+                  00003e3c    0000008c     buttons.obj (.text:ButtonsPoll)
+                  00003ec8    0000008c     uartstdio.obj (.text:UARTPrimeTransmit)
+                  00003f54    0000008c     usblib.lib : usbdconfig.obj (.text:USBDeviceConfigAlternate)
+                  00003fe0    00000088     sensorlib.lib : i2cm_drv.obj (.text:I2CMCommand)
+                  00004068    00000088     motion.obj (.text:MotionErrorHandler)
+                  000040f0    00000086     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_cmp_t2.obj (.text:__aeabi_cdcmple)
+                  00004176    00000086                                   : fd_cmp_t2.obj (.text:__aeabi_cdrcmple)
+                  000041fc    00000080     usblib.lib : usbdenum.obj (.text:USBDClearFeature)
+                  0000427c    0000007c     motion.obj (.text:GestureInit)
+                  000042f8    0000007c     sensorlib.lib : mpu9150.obj (.text:MPU9150DataAccelGetFloat)
+                  00004374    0000007c                   : mpu9150.obj (.text:MPU9150DataGyroGetFloat)
+                  000043f0    0000007a     driverlib.lib : usb.obj (.text:USBDevEndpointConfigSet)
+                  0000446a    0000007a     rtsv7M4_T_le_v4SPD16_eabi.lib : memset_t2.obj (.text)
+                  000044e4    00000078     usblib.lib : usbdenum.obj (.text:USBDGetStatus)
+                  0000455c    00000070                : usbdenum.obj (.text:USBDEP0StateTx)
+                  000045cc    0000006e     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_tos_t2.obj (.text)
+                  0000463a    00000002     --HOLE-- [fill = 0]
+                  0000463c    0000006c     sensorlib.lib : mpu9150.obj (.text:MPU9150Init)
+                  000046a8    0000006c     usblib.lib : usbdenum.obj (.text:USBDSetFeature)
+                  00004714    0000006c     rtsv7M4_T_le_v4SPD16_eabi.lib : autoinit.obj (.text)
+                  00004780    0000006a                                   : copy_decompress_rle.obj (.text)
+                  000047ea    00000002     --HOLE-- [fill = 0]
+                  000047ec    00000068     driverlib.lib : interrupt.obj (.text:IntDisable)
+                  00004854    00000068                   : interrupt.obj (.text:IntEnable)
+                  000048bc    00000068     rgb.obj (.text:RGBDisable)
+                  00004924    00000066     rtsv7M4_T_le_v4SPD16_eabi.lib : xdunscal.obj (.text)
+                  0000498a    00000002     --HOLE-- [fill = 0]
+                  0000498c    00000064     airmouse.obj (.text:ConfigureUART)
+                  000049f0    00000064     driverlib.lib : interrupt.obj (.text:IntIsEnabled)
+                  00004a54    00000060     sensorlib.lib : mpu9150.obj (.text:MPU9150DataRead)
+                  00004ab4    00000060     usblib.lib : usbdenum.obj (.text:USBDReadAndDispatchRequest)
+                  00004b14    00000060     rtsv7M4_T_le_v4SPD16_eabi.lib : sprintf.obj (.text)
+                  00004b74    0000005e     sensorlib.lib : i2cm_drv.obj (.text:I2CMStateWritePause)
+                  00004bd2    0000005e     driverlib.lib : usb.obj (.text:USBDevEndpointStatusClear)
+                  00004c30    00000056     sensorlib.lib : vector.obj (.text:VectorCrossProduct)
+                  00004c86    00000056     rtsv7M4_T_le_v4SPD16_eabi.lib : ltoa.obj (.text)
+                  00004cdc    00000054     motion.obj (.text:GestureNormalize)
+                  00004d30    00000054     sensorlib.lib : i2cm_drv.obj (.text:I2CMWrite8)
+                  00004d84    00000052     rtsv7M4_T_le_v4SPD16_eabi.lib : ldexp.obj (.text)
+                  00004dd6    00000050     sensorlib.lib : i2cm_drv.obj (.text:I2CMStateWriteFinal)
+                  00004e26    00000050     usblib.lib : usbdcdesc.obj (.text:USBDCDConfigDescGet)
+                  00004e76    00000002     --HOLE-- [fill = 0]
+                  00004e78    00000050                : usbdenum.obj (.text:USBDeviceResumeTickHandler)
+                  00004ec8    00000050     rtsv7M4_T_le_v4SPD16_eabi.lib : boot.obj (.text)
+                  00004f18    0000004c     usblib.lib : usbdconfig.obj (.text:GetEPDescriptorType)
+                  00004f64    0000004c     driverlib.lib : i2c.obj (.text:I2CMasterInitExpClk)
+                  00004fb0    0000004c     usblib.lib : usbdenum.obj (.text:USBDStringIndexFromRequest)
+                  00004ffc    0000004c     rtsv7M4_T_le_v4SPD16_eabi.lib : atoi.obj (.text)
+                  00005048    0000004c                                   : cpy_tbl.obj (.text)
+                  00005094    0000004a     usblib.lib : usbdcdesc.obj (.text:ConfigAlternateInterfaceGet)
+                  000050de    0000004a     sensorlib.lib : i2cm_drv.obj (.text:I2CMStateReadNext)
+                  00005128    0000004a     driverlib.lib : usb.obj (.text:USBDevEndpointStallClear)
+                  00005172    00000048     sensorlib.lib : i2cm_drv.obj (.text:I2CMStateWriteNext)
+                  000051ba    00000002     --HOLE-- [fill = 0]
+                  000051bc    00000048     usblib.lib : usbdenum.obj (.text:USBDeviceEnumResetHandler)
+                  00005204    00000048     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_toi_t2.obj (.text)
+                  0000524c    00000046     driverlib.lib : usb.obj (.text:USBEndpointDataGet)
+                  00005292    00000002     --HOLE-- [fill = 0]
+                  00005294    00000044     sensorlib.lib : comp_dcm.obj (.text:CompDCMInit)
+                  000052d8    00000044                   : i2cm_drv.obj (.text:I2CMStateCallback)
+                  0000531c    00000044     motion.obj (.text:MatrixVectorMul)
+                  00005360    00000044     airmouse.obj (.text:SysTickIntHandler)
+                  000053a4    00000044     usblib.lib : usbdenum.obj (.text:USBDGetInterface)
+                  000053e8    00000044     rtsv7M4_T_le_v4SPD16_eabi.lib : exit.obj (.text)
+                  0000542c    00000042     sensorlib.lib : comp_dcm.obj (.text:CompDCMComputeEulers)
+                  0000546e    00000042                   : i2cm_drv.obj (.text:I2CMStateReadFinal)
+                  000054b0    00000040                   : i2cm_drv.obj (.text:I2CMWrite8Callback)
+                  000054f0    00000040     motion.obj (.text:MotionI2CWait)
+                  00005530    00000040     rtsv7M4_T_le_v4SPD16_eabi.lib : signal.obj (.text)
+                  00005570    00000040                                   : u_divt2.obj (.text)
+                  000055b0    0000003e     sensorlib.lib : i2cm_drv.obj (.text:I2CMStateReadPause)
+                  000055ee    00000002     --HOLE-- [fill = 0]
+                  000055f0    0000003c     uartstdio.obj (.text:UARTFlushTx)
+                  0000562c    0000003a     driverlib.lib : usb.obj (.text:USBFIFOConfigSet)
+                  00005666    00000002     --HOLE-- [fill = 0]
+                  00005668    00000038     usblib.lib : usbtick.obj (.text:InternalUSBStartOfFrameTick)
+                  000056a0    00000038     rgb.obj (.text:RGBBlinkIntHandler)
+                  000056d8    00000038     usblib.lib : usbdcdesc.obj (.text:USBDCDConfigGetInterfaceEndpoint)
+                  00005710    00000038     driverlib.lib : usb.obj (.text:USBIntStatusControl)
+                  00005748    00000038     rtsv7M4_T_le_v4SPD16_eabi.lib : fs_tod_t2.obj (.text)
+                  00005780    00000036     driverlib.lib : usb.obj (.text:USBEndpointDataPut)
+                  000057b6    00000034     sensorlib.lib : i2cm_drv.obj (.text:I2CMInit)
+                  000057ea    00000002     --HOLE-- [fill = 0]
+                  000057ec    00000034     motion.obj (.text:IntGPIOb)
+                  00005820    00000034     driverlib.lib : usb.obj (.text:USBEndpointDataSend)
+                  00005854    00000034     rtsv7M4_T_le_v4SPD16_eabi.lib : feraiseexcept.obj (.text)
+                  00005888    00000032     usblib.lib : usbdcdesc.obj (.text:NextConfigDescGet)
+                  000058ba    00000032     driverlib.lib : usb.obj (.text:USBDevEndpointStall)
+                  000058ec    00000032     sensorlib.lib : vector.obj (.text:VectorAdd)
+                  0000591e    00000030                   : i2cm_drv.obj (.text:I2CMTransferResume)
+                  0000594e    00000002     --HOLE-- [fill = 0]
+                  00005950    00000030     usblib.lib : usbdenum.obj (.text:USBDGetConfiguration)
+                  00005980    00000030     ringbuf.obj (.text:UpdateIndexAtomic)
+                  000059b0    00000030     rtsv7M4_T_le_v4SPD16_eabi.lib : xdclass.obj (.text)
+                  000059e0    00000030                                   : xferaise.obj (.text)
+                  00005a10    0000002e                                   : i_tofd_t2.obj (.text)
+                  00005a3e    0000002e                                   : raise.obj (.text)
+                  00005a6c    0000002c     uartstdio.obj (.text:UARTFlushRx)
+                  00005a98    0000002c     usblib.lib : usbdesc.obj (.text:USBDescGet)
+                  00005ac4    0000002c     rtsv7M4_T_le_v4SPD16_eabi.lib : xfdclass.obj (.text)
+                  00005af0    0000002a     driverlib.lib : gpio.obj (.text:GPIODirModeSet)
+                  00005b1a    0000002a     sensorlib.lib : i2cm_drv.obj (.text:I2CMStateReadFirst)
+                  00005b44    0000002a     usblib.lib : usbdcdesc.obj (.text:USBDCDConfigDescGetNum)
+                  00005b6e    0000002a                : usbdesc.obj (.text:USBDescGetNum)
+                  00005b98    0000002a     driverlib.lib : usb.obj (.text:USBDevEndpointDataAck)
+                  00005bc2    0000002a     rtsv7M4_T_le_v4SPD16_eabi.lib : frexp.obj (.text)
+                  00005bec    00000028     usblib.lib : usbdenum.obj (.text:USBDSetAddress)
+                  00005c14    00000026     sensorlib.lib : comp_dcm.obj (.text:CompDCMMatrixGet)
+                  00005c3a    00000026                   : vector.obj (.text:VectorDotProduct)
+                  00005c60    00000026                   : vector.obj (.text:VectorScale)
+                  00005c86    00000002     --HOLE-- [fill = 0]
+                  00005c88    00000024     rtsv7M4_T_le_v4SPD16_eabi.lib : sqrtf.obj (.text)
+                  00005cac    00000020     usblib.lib : usbdconfig.obj (.text:GetEndpointFIFOSize)
+                  00005ccc    00000020     sensorlib.lib : i2cm_drv.obj (.text:I2CMStateReadOne)
+                  00005cec    00000020     ringbuf.obj (.text:RingBufAdvanceRead)
+                  00005d0c    0000001c     usblib.lib : usbdcdesc.obj (.text:USBDCDConfigGetInterface)
+                  00005d28    0000001c                : usbdenum.obj (.text:USBDCDStallEP0)
+                  00005d44    0000001c     rtsv7M4_T_le_v4SPD16_eabi.lib : memccpy.obj (.text)
+                  00005d60    0000001a     sensorlib.lib : i2cm_drv.obj (.text:I2CMStateReadWait)
+                  00005d7a    0000001a     uartstdio.obj (.text:UARTprintf)
+                  00005d94    0000001a     usblib.lib : usbdcdesc.obj (.text:USBDCDConfigDescGetSize)
+                  00005dae    00000018     uartstdio.obj (.text:IsBufferFull)
+                  00005dc6    00000002     --HOLE-- [fill = 0]
+                  00005dc8    00000018     usblib.lib : usbdhandler.obj (.text:USB0DeviceIntHandler)
+                  00005de0    00000018                : usbdenum.obj (.text:USBDSetDescriptor)
+                  00005df8    00000018                : usbdenum.obj (.text:USBDSyncFrame)
+                  00005e10    00000018     rtsv7M4_T_le_v4SPD16_eabi.lib : args_main.obj (.text)
+                  00005e28    00000016     ringbuf.obj (.text:RingBufReadOne)
+                  00005e3e    00000016     ringbuf.obj (.text:RingBufUsed)
+                  00005e54    00000016     rtsv7M4_T_le_v4SPD16_eabi.lib : strchr.obj (.text)
+                  00005e6a    00000014     driverlib.lib : usb.obj (.text:USBHostResume)
+                  00005e7e    00000014                   : usb.obj (.text:_USBIndexWrite)
+                  00005e92    00000002     --HOLE-- [fill = 0]
+                  00005e94    00000014     rtsv7M4_T_le_v4SPD16_eabi.lib : _lock.obj (.text)
+                  00005ea8    00000014                                   : strlen.obj (.text)
+                  00005ebc    00000012     driverlib.lib : gpio.obj (.text:GPIOPinTypeI2CSCL)
+                  00005ece    00000002     --HOLE-- [fill = 0]
+                  00005ed0    00000010                   : fpu.obj (.text:FPULazyStackingEnable)
+                  00005ee0    00000010                   : interrupt.obj (.text:IntMasterDisable)
+                  00005ef0    00000010                   : interrupt.obj (.text:IntMasterEnable)
+                  00005f00    00000010     ringbuf.obj (.text:RingBufWriteOne)
+                  00005f10    00000010     driverlib.lib : usb.obj (.text:USBEndpointStatus)
+                  00005f20    0000000e     sensorlib.lib : comp_dcm.obj (.text:CompDCMAccelUpdate)
+                  00005f2e    0000000e                   : comp_dcm.obj (.text:CompDCMGyroUpdate)
+                  00005f3c    0000000e                   : comp_dcm.obj (.text:CompDCMMagnetoUpdate)
+                  00005f4a    0000000e     driverlib.lib : gpio.obj (.text:GPIOIntStatus)
+                  00005f58    0000000e     uartstdio.obj (.text:IsBufferEmpty)
+                  00005f66    0000000e     driverlib.lib : uart.obj (.text:UARTCharGetNonBlocking)
+                  00005f74    0000000e                   : uart.obj (.text:UARTCharPutNonBlocking)
+                  00005f82    0000000e                   : usb.obj (.text:USBDevLPMEnable)
+                  00005f90    0000000e     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_none.obj (.text:decompress:none)
+                  00005f9e    0000000c     driverlib.lib : cpu.obj (.text:CPUcpsid)
+                  00005faa    0000000c                   : cpu.obj (.text:CPUcpsie)
+                  00005fb6    0000000c                   : gpio.obj (.text:GPIOIntEnable)
+                  00005fc2    00000002     --HOLE-- [fill = 0]
+                  00005fc4    0000000c                   : interrupt.obj (.text:IntTrigger)
+                  00005fd0    0000000c     motion.obj (.text:MotionI2CIntHandler)
+                  00005fdc    0000000c     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_zero_init.obj (.text:decompress:ZI)
+                  00005fe8    0000000a     driverlib.lib : i2c.obj (.text:I2CMasterEnable)
+                  00005ff2    0000000a                   : uart.obj (.text:UARTIntDisable)
+                  00005ffc    0000000a                   : uart.obj (.text:UARTIntStatus)
+                  00006006    0000000a                   : usb.obj (.text:USBDevDisconnect)
+                  00006010    0000000a                   : usb.obj (.text:USBIntStatusEndpoint)
+                  0000601a    00000008                   : i2c.obj (.text:I2CMasterIntClear)
+                  00006022    00000008                   : i2c.obj (.text:I2CMasterIntEnableEx)
+                  0000602a    00000008                   : i2c.obj (.text:I2CMasterSlaveAddrSet)
+                  00006032    00000006                   : gpio.obj (.text:GPIOIntClear)
+                  00006038    00000006     startup_ccs.obj (.text:ResetISR)
+                  0000603e    00000006     driverlib.lib : uart.obj (.text:UARTClockSourceSet)
+                  00006044    00000006                   : usb.obj (.text:USBLPMIntStatus)
+                  0000604a    00000006     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_rle.obj (.text:decompress:rle24)
+                  00006050    00000004     driverlib.lib : i2c.obj (.text:I2CMasterControl)
+                  00006054    00000004                   : i2c.obj (.text:I2CMasterDataGet)
+                  00006058    00000004                   : i2c.obj (.text:I2CMasterDataPut)
+                  0000605c    00000004                   : uart.obj (.text:UARTIntClear)
+                  00006060    00000004                   : usb.obj (.text:USBDevAddrSet)
+                  00006064    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.obj (.text)
 
-.cinit     0    000008f0    00000038     
-                  000008f0    00000012     (.cinit..data.load) [load image, compression = rle]
-                  00000902    00000002     --HOLE-- [fill = 0]
-                  00000904    0000000c     (__TI_handler_table)
-                  00000910    00000008     (.cinit..bss.load) [load image, compression = zero_init]
-                  00000918    00000010     (__TI_cinit_table)
+.const     0    00006068    000003da     
+                  00006068    00000101     rtsv7M4_T_le_v4SPD16_eabi.lib : ctype.obj (.const:.string:_ctypes_)
+                  00006169    00000003     --HOLE-- [fill = 0]
+                  0000616c    000000c4     motion.obj (.const:g_ppfEmitProb)
+                  00006230    000000c4     motion.obj (.const:g_ppfTransitionProb)
+                  000062f4    00000070     driverlib.lib : interrupt.obj (.const)
+                  00006364    00000034     usblib.lib : usbdenum.obj (.const:g_psUSBDStdRequests)
+                  00006398    00000034     rtsv7M4_T_le_v4SPD16_eabi.lib : xfatan.obj (.const)
+                  000063cc    00000028     uartstdio.obj (.const)
+                  000063f4    00000020     sensorlib.lib : mpu9150.obj (.const)
+                  00006414    0000001c     motion.obj (.const)
+                  00006430    00000012     uartstdio.obj (.const:.string)
+
+.cinit     0    00006448    000000b8     
+                  00006448    00000094     (.cinit..data.load) [load image, compression = rle]
+                  000064dc    0000000c     (__TI_handler_table)
+                  000064e8    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  000064f0    00000010     (__TI_cinit_table)
 
 .init_array 
 *          0    00000000    00000000     UNINITIALIZED
@@ -84,34 +288,82 @@ section   page    origin      length       input sections
 .stack     0    20000000    00004000     UNINITIALIZED
                   20000000    00004000     --HOLE--
 
-.bss       0    20004000    00000404     UNINITIALIZED
-                  20004000    00000400     uartstdio.obj (.bss:g_pcUARTTxBuffer)
-                  20004400    00000004     (.common:g_ui32PortNum)
+.bss       0    20004000    00002414     UNINITIALIZED
+                  20004000    00001c00     motion.obj (.bss:g_ppfPath)
+                  20005c00    00000400     uartstdio.obj (.bss:g_pcUARTTxBuffer)
+                  20006000    00000124     motion.obj (.bss:g_sI2CInst)
+                  20006124    00000080     uartstdio.obj (.bss:g_pcUARTRxBuffer)
+                  200061a4    0000006c     motion.obj (.bss:g_sMPU9150Inst)
+                  20006210    00000058     motion.obj (.bss:g_sCompDCMInst)
+                  20006268    00000050     usblib.lib : usbdenum.obj (.bss:g_psDCDInst)
+                  200062b8    00000040                : usbdenum.obj (.bss:g_pui8DataBufferIn)
+                  200062f8    00000038     motion.obj (.bss:g_sGestureInst)
+                  20006330    00000018     (.common:g_pfnTickHandlers)
+                  20006348    00000018     (.common:g_pvTickInstance)
+                  20006360    00000010     (.common:g_rbRemoTIRxRingBuf)
+                  20006370    00000010     (.common:g_rbRemoTITxRingBuf)
+                  20006380    0000000c     (.common:g_pfAccel)
+                  2000638c    0000000c     (.common:g_pfEulers)
+                  20006398    0000000c     (.common:g_pfGyro)
+                  200063a4    0000000c     (.common:g_pfMag)
+                  200063b0    0000000c     (.common:g_pui32RGBColors)
+                  200063bc    0000000c     (.common:g_ui32Colors)
+                  200063c8    00000004     (.common:g_fAccelMagnitudePrevious)
+                  200063cc    00000004     (.common:g_pfnErrCallback)
+                  200063d0    00000004     (.common:g_pfnRxCallback)
+                  200063d4    00000004     (.common:g_pfnTxCallback)
+                  200063d8    00000004     (.common:g_ppsDevInfo)
+                  200063dc    00000004     (.common:g_ui16RxMsgCount)
+                  200063e0    00000004     (.common:g_ui32Events)
+                  200063e4    00000004     (.common:g_ui32PortNum)
+                  200063e8    00000004     (.common:g_ui32RGBMotionBlinkCounter)
+                  200063ec    00000004     (.common:g_ui32SysTickCount)
+                  200063f0    00000004     (.common:g_ui32UARTBase)
+                  200063f4    00000004     (.common:g_ui8Buttons)
+                  200063f8    00000004     (.common:g_ui8MotionState)
+                  200063fc    00000004     (.common:g_vui8ErrorFlag)
+                  20006400    00000004     (.common:ui16Counter$3)
+                  20006404    00000004     (.common:ui16Length$2)
+                  20006408    00000004     (.common:ui8SOFFlag$1)
+                  2000640c    00000004     (.common:ulFlags$1)
+                  20006410    00000001     (.common:g_bDisableEcho)
+                  20006411    00000001     (.common:g_bTxBusy)
+                  20006412    00000001     (.common:ui8Command0$5)
+                  20006413    00000001     (.common:ui8FrameCheck$4)
 
 .TI.noinit 
 *          0    20004000    00000000     UNINITIALIZED
 
-.data      0    20004404    0000002c     UNINITIALIZED
-                  20004404    00000015     uartstdio.obj (.data)
-                  20004419    00000003     --HOLE--
-                  2000441c    00000008     rtsv7M4_T_le_v4SPD16_eabi.lib : _lock.obj (.data)
-                  20004424    00000008                                   : exit.obj (.data)
-                  2000442c    00000004                                   : stkdepth_vars.obj (.data)
+.data      0    20006418    00000204     UNINITIALIZED
+                  20006418    000000b0     rtsv7M4_T_le_v4SPD16_eabi.lib : signal.obj (.data:sigtable)
+                  200064c8    00000080                                   : xvalues.obj (.data)
+                  20006548    00000068                                   : xfvalues.obj (.data)
+                  200065b0    0000001c     motion.obj (.data)
+                  200065cc    00000015     uartstdio.obj (.data)
+                  200065e1    00000003     buttons.obj (.data)
+                  200065e4    0000000c     usblib.lib : usbtick.obj (.data)
+                  200065f0    00000008     rtsv7M4_T_le_v4SPD16_eabi.lib : _lock.obj (.data)
+                  200065f8    00000008                                   : exit.obj (.data)
+                  20006600    00000008                                   : feraiseexcept.obj (.data)
+                  20006608    00000008     usblib.lib : usbdenum.obj (.data)
+                  20006610    00000004     rgb.obj (.data)
+                  20006614    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : errno.obj (.data)
+                  20006618    00000004                                   : stkdepth_vars.obj (.data)
 
 .TI.persistent 
-*          0    20004404    00000000     UNINITIALIZED
+*          0    20006418    00000000     UNINITIALIZED
 
 
 LINKER GENERATED COPY TABLES
 
-__TI_cinit_table @ 00000918 records: 2, size/record: 8, table size: 16
-	.data: load addr=000008f0, load size=00000012 bytes, run addr=20004404, run size=0000002c bytes, compression=rle
-	.bss: load addr=00000910, load size=00000008 bytes, run addr=20004000, run size=00000404 bytes, compression=zero_init
+__TI_cinit_table @ 000064f0 records: 2, size/record: 8, table size: 16
+	.data: load addr=00006448, load size=00000094 bytes, run addr=20006418, run size=00000204 bytes, compression=rle
+	.bss: load addr=000064e8, load size=00000008 bytes, run addr=20004000, run size=00002414 bytes, compression=zero_init
 
 
 LINKER GENERATED HANDLER TABLE
 
-__TI_handler_table @ 00000904 records: 3, size/record: 4, table size: 12
+__TI_handler_table @ 000064dc records: 3, size/record: 4, table size: 12
 	index: 0, handler: __TI_decompress_rle24
 	index: 1, handler: __TI_decompress_none
 	index: 2, handler: __TI_zero_init
@@ -119,127 +371,527 @@ __TI_handler_table @ 00000904 records: 3, size/record: 4, table size: 12
 
 GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
 
-address   name                    
--------   ----                    
-00000721  C$$EXIT                 
-000005c1  ConfigureUART           
-0000086d  FPULazyStackingEnable   
-UNDEFED   SHT$$INIT_ARRAY$$Base   
-UNDEFED   SHT$$INIT_ARRAY$$Limit  
-000008a5  UARTClockSourceSet      
-000007e1  UARTFlushRx             
-000007a5  UARTFlushTx             
-000001ed  UARTStdioConfig         
-0000080d  UARTprintf              
-00000001  UARTvprintf             
-0000029d  UARTwrite               
-20004000  __STACK_END             
-00004000  __STACK_SIZE            
-20004000  __STACK_TOP             
-00000918  __TI_CINIT_Base         
-00000928  __TI_CINIT_Limit        
-00000904  __TI_Handler_Table_Base 
-00000910  __TI_Handler_Table_Limit
-000004e9  __TI_auto_init          
-20004424  __TI_cleanup_ptr        
-0000088b  __TI_decompress_none    
-000008ab  __TI_decompress_rle24   
-20004428  __TI_dtors_ptr          
-00000000  __TI_static_base__      
-00000899  __TI_zero_init          
-000001eb  __aeabi_idiv0           
-0000046d  __aeabi_memclr          
-0000046d  __aeabi_memclr4         
-0000046d  __aeabi_memclr8         
-00000345  __aeabi_memcpy          
-00000345  __aeabi_memcpy4         
-00000345  __aeabi_memcpy8         
-0000046f  __aeabi_memset          
-0000046f  __aeabi_memset4         
-0000046f  __aeabi_memset8         
-00000765  __aeabi_uidiv           
-00000765  __aeabi_uidivmod        
-ffffffff  __binit__               
-ffffffff  __c_args__              
-20000000  __stack                 
-00000841  _args_main              
-00000685  _c_int00                
-2000441c  _lock                   
-00000867  _nop                    
-0000085f  _register_lock          
-00000859  _register_unlock        
-000008b1  _system_pre_init        
-20004420  _unlock                 
-00000725  abort                   
-ffffffff  binit                   
-000006d5  copy_in                 
-0000072d  exit                    
-00000625  main                    
-2000442c  main_func_sp            
-00000345  memcpy                  
-00000475  memset                  
+address   name                            
+-------   ----                            
+00003e3d  ButtonsPoll                     
+000053e9  C$$EXIT                         
+00005f9f  CPUcpsid                        
+00005fab  CPUcpsie                        
+00005f21  CompDCMAccelUpdate              
+0000542d  CompDCMComputeEulers            
+00005f2f  CompDCMGyroUpdate               
+00005295  CompDCMInit                     
+00005f3d  CompDCMMagnetoUpdate            
+00005c15  CompDCMMatrixGet                
+000036d5  CompDCMStart                    
+00001329  CompDCMUpdate                   
+0000498d  ConfigureUART                   
+00005ed1  FPULazyStackingEnable           
+00005af1  GPIODirModeSet                  
+00006033  GPIOIntClear                    
+00005fb7  GPIOIntEnable                   
+00005f4b  GPIOIntStatus                   
+000028d3  GPIOPadConfigSet                
+00005ebd  GPIOPinTypeI2CSCL               
+000015b9  GestureEmitClassify             
+0000427d  GestureInit                     
+00004cdd  GestureNormalize                
+000032f1  GestureUpdate                   
+00003fe1  I2CMCommand                     
+000057b7  I2CMInit                        
+00003035  I2CMIntHandler                  
+0000591f  I2CMTransferResume              
+00004d31  I2CMWrite8                      
+00006051  I2CMasterControl                
+00006055  I2CMasterDataGet                
+00006059  I2CMasterDataPut                
+00005fe9  I2CMasterEnable                 
+00004f65  I2CMasterInitExpClk             
+0000601b  I2CMasterIntClear               
+00006023  I2CMasterIntEnableEx            
+0000602b  I2CMasterSlaveAddrSet           
+000047ed  IntDisable                      
+00004855  IntEnable                       
+000057ed  IntGPIOb                        
+000049f1  IntIsEnabled                    
+00005ee1  IntMasterDisable                
+00005ef1  IntMasterEnable                 
+00005fc5  IntTrigger                      
+00005669  InternalUSBStartOfFrameTick     
+000042f9  MPU9150DataAccelGetFloat        
+00004375  MPU9150DataGyroGetFloat         
+00003985  MPU9150DataMagnetoGetFloat      
+00004a55  MPU9150DataRead                 
+0000463d  MPU9150Init                     
+00003a21  MPU9150Write                    
+00002d35  MotionCallback                  
+00004069  MotionErrorHandler              
+00005fd1  MotionI2CIntHandler             
+000054f1  MotionI2CWait                   
+00001be1  MotionInit                      
+000020e5  MotionMain                      
+000056a1  RGBBlinkIntHandler              
+00003d1d  RGBColorSet                     
+000048bd  RGBDisable                      
+000034a1  RGBEnable                       
+00002e39  RGBInit                         
+00003c89  RemoTIUARTIntHandler            
+00006039  ResetISR                        
+00005ced  RingBufAdvanceRead              
+00005e29  RingBufReadOne                  
+00005e3f  RingBufUsed                     
+00005f01  RingBufWriteOne                 
+UNDEFED   SHT$$INIT_ARRAY$$Base           
+UNDEFED   SHT$$INIT_ARRAY$$Limit          
+00005361  SysTickIntHandler               
+00005f67  UARTCharGetNonBlocking          
+00005f75  UARTCharPutNonBlocking          
+0000603f  UARTClockSourceSet              
+00005a6d  UARTFlushRx                     
+000055f1  UARTFlushTx                     
+0000605d  UARTIntClear                    
+00005ff3  UARTIntDisable                  
+00005ffd  UARTIntStatus                   
+00003785  UARTStdioConfig                 
+00002255  UARTStdioIntHandler             
+00005d7b  UARTprintf                      
+000019f5  UARTvprintf                     
+00003835  UARTwrite                       
+00005dc9  USB0DeviceIntHandler            
+00004e27  USBDCDConfigDescGet             
+00005b45  USBDCDConfigDescGetNum          
+00005d95  USBDCDConfigDescGetSize         
+00005d0d  USBDCDConfigGetInterface        
+000056d9  USBDCDConfigGetInterfaceEndpoint
+00005d29  USBDCDStallEP0                  
+00005a99  USBDescGet                      
+00005b6f  USBDescGetNum                   
+00006061  USBDevAddrSet                   
+00006007  USBDevDisconnect                
+000043f1  USBDevEndpointConfigSet         
+00005b99  USBDevEndpointDataAck           
+000058bb  USBDevEndpointStall             
+00005129  USBDevEndpointStallClear        
+00004bd3  USBDevEndpointStatusClear       
+00005f83  USBDevLPMEnable                 
+00002655  USBDeviceConfig                 
+00003f55  USBDeviceConfigAlternate        
+000033c9  USBDeviceEnumHandler            
+000051bd  USBDeviceEnumResetHandler       
+00002505  USBDeviceIntHandlerInternal     
+00004e79  USBDeviceResumeTickHandler      
+0000524d  USBEndpointDataGet              
+00005781  USBEndpointDataPut              
+00005821  USBEndpointDataSend             
+00005f11  USBEndpointStatus               
+0000562d  USBFIFOConfigSet                
+00005e6b  USBHostResume                   
+00005711  USBIntStatusControl             
+00006011  USBIntStatusEndpoint            
+00006045  USBLPMIntStatus                 
+000058ed  VectorAdd                       
+00004c31  VectorCrossProduct              
+00005c3b  VectorDotProduct                
+00005c61  VectorScale                     
+000059b1  _Dclass                         
+200064c8  _Denorm                         
+00003561  _Dnorm                          
+00002b1d  _Dscale                         
+00004925  _Dunscale                       
+200064d8  _Eps                            
+20006614  _Errno                          
+000038dd  _FAtan                          
+00005ac5  _FDclass                        
+20006548  _FDenorm                        
+20006558  _FEps                           
+20006568  _FInf                           
+20006578  _FNan                           
+20006598  _FRteps                         
+20006588  _FSnan                          
+200065a8  _FXbig                          
+200065ac  _FZero                          
+20006600  _Fenv                           
+000059e1  _Feraise                        
+200064e8  _Hugeval                        
+200064f8  _Inf                            
+20006508  _Nan                            
+20006528  _Rteps                          
+20006518  _Snan                           
+20006604  _Tls_setup__Fenv                
+20006538  _Xbig                           
+20006540  _Zero                           
+20004000  __STACK_END                     
+00004000  __STACK_SIZE                    
+20004000  __STACK_TOP                     
+000064f0  __TI_CINIT_Base                 
+00006500  __TI_CINIT_Limit                
+000064dc  __TI_Handler_Table_Base         
+000064e8  __TI_Handler_Table_Limit        
+00004715  __TI_auto_init                  
+200065f8  __TI_cleanup_ptr                
+00005f91  __TI_decompress_none            
+0000604b  __TI_decompress_rle24           
+200065fc  __TI_dtors_ptr                  
+00001021  __TI_printfi                    
+00000000  __TI_static_base__              
+00005fdd  __TI_zero_init                  
+000040f1  __aeabi_cdcmpeq                 
+000040f1  __aeabi_cdcmple                 
+00004177  __aeabi_cdrcmple                
+000045cd  __aeabi_d2f                     
+00005205  __aeabi_d2iz                    
+00001da3  __aeabi_dadd                    
+0000279d  __aeabi_ddiv                    
+00002f39  __aeabi_dmul                    
+00001d99  __aeabi_dsub                    
+00005749  __aeabi_f2d                     
+00005a11  __aeabi_i2d                     
+00003127  __aeabi_idiv0                   
+0000446b  __aeabi_memclr                  
+0000446b  __aeabi_memclr4                 
+0000446b  __aeabi_memclr8                 
+00003abd  __aeabi_memcpy                  
+00003abd  __aeabi_memcpy4                 
+00003abd  __aeabi_memcpy8                 
+0000446d  __aeabi_memset                  
+0000446d  __aeabi_memset4                 
+0000446d  __aeabi_memset8                 
+00005571  __aeabi_uidiv                   
+00005571  __aeabi_uidivmod                
+00001801  __aeabi_uldivmod                
+ffffffff  __binit__                       
+ffffffff  __c_args__                      
+20000000  __stack                         
+00005e11  _args_main                      
+00004ec9  _c_int00                        
+00006068  _ctypes_                        
+200065f0  _lock                           
+00005ea3  _nop                            
+00005e9b  _register_lock                  
+00005e95  _register_unlock                
+00006065  _system_pre_init                
+200065f4  _unlock                         
+000053ed  abort                           
+00003621  asinf                           
+00002a05  atan2f                          
+00004ffd  atoi                            
+ffffffff  binit                           
+00005049  copy_in                         
+000053f5  exit                            
+00005855  feraiseexcept                   
+00005bc3  frexp                           
+20006411  g_bTxBusy                       
+200065e4  g_bUSBTimerInitialized          
+200063c8  g_fAccelMagnitudePrevious       
+20006380  g_pfAccel                       
+2000638c  g_pfEulers                      
+20006398  g_pfGyro                        
+00006414  g_pfInitProb                    
+200063a4  g_pfMag                         
+200063cc  g_pfnErrCallback                
+200063d0  g_pfnRxCallback                 
+20006330  g_pfnTickHandlers               
+200063d4  g_pfnTxCallback                 
+00000000  g_pfnVectors                    
+0000616c  g_ppfEmitProb                   
+20004000  g_ppfPath                       
+00006230  g_ppfTransitionProb             
+200063d8  g_ppsDevInfo                    
+20006268  g_psDCDInst                     
+200063b0  g_pui32RGBColors                
+20006348  g_pvTickInstance                
+20006360  g_rbRemoTIRxRingBuf             
+20006370  g_rbRemoTITxRingBuf             
+20006210  g_sCompDCMInst                  
+200062f8  g_sGestureInst                  
+20006000  g_sI2CInst                      
+200061a4  g_sMPU9150Inst                  
+200065b0  g_ui16DeadBands                 
+200063dc  g_ui16RxMsgCount                
+200065e8  g_ui32CurrentUSBTick            
+200063e0  g_ui32Events                    
+200063e8  g_ui32RGBMotionBlinkCounter     
+200063ec  g_ui32SysTickCount              
+200063f0  g_ui32UARTBase                  
+200065ec  g_ui32USBSOFCount               
+200063f4  g_ui8Buttons                    
+200063f8  g_ui8MotionState                
+200063fc  g_vui8ErrorFlag                 
+00004d85  ldexp                           
+00004c87  ltoa                            
+0000320d  main                            
+20006618  main_func_sp                    
+00005d45  memccpy                         
+00003abd  memcpy                          
+00004473  memset                          
+00005a3f  raise                           
+00005531  signal                          
+00004b15  sprintf                         
+00005c89  sqrtf                           
+00005e55  strchr                          
+00005ea9  strlen                          
 
 
 GLOBAL SYMBOLS: SORTED BY Symbol Address 
 
-address   name                    
--------   ----                    
-00000000  __TI_static_base__      
-00000001  UARTvprintf             
-000001eb  __aeabi_idiv0           
-000001ed  UARTStdioConfig         
-0000029d  UARTwrite               
-00000345  __aeabi_memcpy          
-00000345  __aeabi_memcpy4         
-00000345  __aeabi_memcpy8         
-00000345  memcpy                  
-0000046d  __aeabi_memclr          
-0000046d  __aeabi_memclr4         
-0000046d  __aeabi_memclr8         
-0000046f  __aeabi_memset          
-0000046f  __aeabi_memset4         
-0000046f  __aeabi_memset8         
-00000475  memset                  
-000004e9  __TI_auto_init          
-000005c1  ConfigureUART           
-00000625  main                    
-00000685  _c_int00                
-000006d5  copy_in                 
-00000721  C$$EXIT                 
-00000725  abort                   
-0000072d  exit                    
-00000765  __aeabi_uidiv           
-00000765  __aeabi_uidivmod        
-000007a5  UARTFlushTx             
-000007e1  UARTFlushRx             
-0000080d  UARTprintf              
-00000841  _args_main              
-00000859  _register_unlock        
-0000085f  _register_lock          
-00000867  _nop                    
-0000086d  FPULazyStackingEnable   
-0000088b  __TI_decompress_none    
-00000899  __TI_zero_init          
-000008a5  UARTClockSourceSet      
-000008ab  __TI_decompress_rle24   
-000008b1  _system_pre_init        
-00000904  __TI_Handler_Table_Base 
-00000910  __TI_Handler_Table_Limit
-00000918  __TI_CINIT_Base         
-00000928  __TI_CINIT_Limit        
-00004000  __STACK_SIZE            
-20000000  __stack                 
-20004000  __STACK_END             
-20004000  __STACK_TOP             
-2000441c  _lock                   
-20004420  _unlock                 
-20004424  __TI_cleanup_ptr        
-20004428  __TI_dtors_ptr          
-2000442c  main_func_sp            
-ffffffff  __binit__               
-ffffffff  __c_args__              
-ffffffff  binit                   
-UNDEFED   SHT$$INIT_ARRAY$$Base   
-UNDEFED   SHT$$INIT_ARRAY$$Limit  
+address   name                            
+-------   ----                            
+00000000  __TI_static_base__              
+00000000  g_pfnVectors                    
+00001021  __TI_printfi                    
+00001329  CompDCMUpdate                   
+000015b9  GestureEmitClassify             
+00001801  __aeabi_uldivmod                
+000019f5  UARTvprintf                     
+00001be1  MotionInit                      
+00001d99  __aeabi_dsub                    
+00001da3  __aeabi_dadd                    
+000020e5  MotionMain                      
+00002255  UARTStdioIntHandler             
+00002505  USBDeviceIntHandlerInternal     
+00002655  USBDeviceConfig                 
+0000279d  __aeabi_ddiv                    
+000028d3  GPIOPadConfigSet                
+00002a05  atan2f                          
+00002b1d  _Dscale                         
+00002d35  MotionCallback                  
+00002e39  RGBInit                         
+00002f39  __aeabi_dmul                    
+00003035  I2CMIntHandler                  
+00003127  __aeabi_idiv0                   
+0000320d  main                            
+000032f1  GestureUpdate                   
+000033c9  USBDeviceEnumHandler            
+000034a1  RGBEnable                       
+00003561  _Dnorm                          
+00003621  asinf                           
+000036d5  CompDCMStart                    
+00003785  UARTStdioConfig                 
+00003835  UARTwrite                       
+000038dd  _FAtan                          
+00003985  MPU9150DataMagnetoGetFloat      
+00003a21  MPU9150Write                    
+00003abd  __aeabi_memcpy                  
+00003abd  __aeabi_memcpy4                 
+00003abd  __aeabi_memcpy8                 
+00003abd  memcpy                          
+00003c89  RemoTIUARTIntHandler            
+00003d1d  RGBColorSet                     
+00003e3d  ButtonsPoll                     
+00003f55  USBDeviceConfigAlternate        
+00003fe1  I2CMCommand                     
+00004000  __STACK_SIZE                    
+00004069  MotionErrorHandler              
+000040f1  __aeabi_cdcmpeq                 
+000040f1  __aeabi_cdcmple                 
+00004177  __aeabi_cdrcmple                
+0000427d  GestureInit                     
+000042f9  MPU9150DataAccelGetFloat        
+00004375  MPU9150DataGyroGetFloat         
+000043f1  USBDevEndpointConfigSet         
+0000446b  __aeabi_memclr                  
+0000446b  __aeabi_memclr4                 
+0000446b  __aeabi_memclr8                 
+0000446d  __aeabi_memset                  
+0000446d  __aeabi_memset4                 
+0000446d  __aeabi_memset8                 
+00004473  memset                          
+000045cd  __aeabi_d2f                     
+0000463d  MPU9150Init                     
+00004715  __TI_auto_init                  
+000047ed  IntDisable                      
+00004855  IntEnable                       
+000048bd  RGBDisable                      
+00004925  _Dunscale                       
+0000498d  ConfigureUART                   
+000049f1  IntIsEnabled                    
+00004a55  MPU9150DataRead                 
+00004b15  sprintf                         
+00004bd3  USBDevEndpointStatusClear       
+00004c31  VectorCrossProduct              
+00004c87  ltoa                            
+00004cdd  GestureNormalize                
+00004d31  I2CMWrite8                      
+00004d85  ldexp                           
+00004e27  USBDCDConfigDescGet             
+00004e79  USBDeviceResumeTickHandler      
+00004ec9  _c_int00                        
+00004f65  I2CMasterInitExpClk             
+00004ffd  atoi                            
+00005049  copy_in                         
+00005129  USBDevEndpointStallClear        
+000051bd  USBDeviceEnumResetHandler       
+00005205  __aeabi_d2iz                    
+0000524d  USBEndpointDataGet              
+00005295  CompDCMInit                     
+00005361  SysTickIntHandler               
+000053e9  C$$EXIT                         
+000053ed  abort                           
+000053f5  exit                            
+0000542d  CompDCMComputeEulers            
+000054f1  MotionI2CWait                   
+00005531  signal                          
+00005571  __aeabi_uidiv                   
+00005571  __aeabi_uidivmod                
+000055f1  UARTFlushTx                     
+0000562d  USBFIFOConfigSet                
+00005669  InternalUSBStartOfFrameTick     
+000056a1  RGBBlinkIntHandler              
+000056d9  USBDCDConfigGetInterfaceEndpoint
+00005711  USBIntStatusControl             
+00005749  __aeabi_f2d                     
+00005781  USBEndpointDataPut              
+000057b7  I2CMInit                        
+000057ed  IntGPIOb                        
+00005821  USBEndpointDataSend             
+00005855  feraiseexcept                   
+000058bb  USBDevEndpointStall             
+000058ed  VectorAdd                       
+0000591f  I2CMTransferResume              
+000059b1  _Dclass                         
+000059e1  _Feraise                        
+00005a11  __aeabi_i2d                     
+00005a3f  raise                           
+00005a6d  UARTFlushRx                     
+00005a99  USBDescGet                      
+00005ac5  _FDclass                        
+00005af1  GPIODirModeSet                  
+00005b45  USBDCDConfigDescGetNum          
+00005b6f  USBDescGetNum                   
+00005b99  USBDevEndpointDataAck           
+00005bc3  frexp                           
+00005c15  CompDCMMatrixGet                
+00005c3b  VectorDotProduct                
+00005c61  VectorScale                     
+00005c89  sqrtf                           
+00005ced  RingBufAdvanceRead              
+00005d0d  USBDCDConfigGetInterface        
+00005d29  USBDCDStallEP0                  
+00005d45  memccpy                         
+00005d7b  UARTprintf                      
+00005d95  USBDCDConfigDescGetSize         
+00005dc9  USB0DeviceIntHandler            
+00005e11  _args_main                      
+00005e29  RingBufReadOne                  
+00005e3f  RingBufUsed                     
+00005e55  strchr                          
+00005e6b  USBHostResume                   
+00005e95  _register_unlock                
+00005e9b  _register_lock                  
+00005ea3  _nop                            
+00005ea9  strlen                          
+00005ebd  GPIOPinTypeI2CSCL               
+00005ed1  FPULazyStackingEnable           
+00005ee1  IntMasterDisable                
+00005ef1  IntMasterEnable                 
+00005f01  RingBufWriteOne                 
+00005f11  USBEndpointStatus               
+00005f21  CompDCMAccelUpdate              
+00005f2f  CompDCMGyroUpdate               
+00005f3d  CompDCMMagnetoUpdate            
+00005f4b  GPIOIntStatus                   
+00005f67  UARTCharGetNonBlocking          
+00005f75  UARTCharPutNonBlocking          
+00005f83  USBDevLPMEnable                 
+00005f91  __TI_decompress_none            
+00005f9f  CPUcpsid                        
+00005fab  CPUcpsie                        
+00005fb7  GPIOIntEnable                   
+00005fc5  IntTrigger                      
+00005fd1  MotionI2CIntHandler             
+00005fdd  __TI_zero_init                  
+00005fe9  I2CMasterEnable                 
+00005ff3  UARTIntDisable                  
+00005ffd  UARTIntStatus                   
+00006007  USBDevDisconnect                
+00006011  USBIntStatusEndpoint            
+0000601b  I2CMasterIntClear               
+00006023  I2CMasterIntEnableEx            
+0000602b  I2CMasterSlaveAddrSet           
+00006033  GPIOIntClear                    
+00006039  ResetISR                        
+0000603f  UARTClockSourceSet              
+00006045  USBLPMIntStatus                 
+0000604b  __TI_decompress_rle24           
+00006051  I2CMasterControl                
+00006055  I2CMasterDataGet                
+00006059  I2CMasterDataPut                
+0000605d  UARTIntClear                    
+00006061  USBDevAddrSet                   
+00006065  _system_pre_init                
+00006068  _ctypes_                        
+0000616c  g_ppfEmitProb                   
+00006230  g_ppfTransitionProb             
+00006414  g_pfInitProb                    
+000064dc  __TI_Handler_Table_Base         
+000064e8  __TI_Handler_Table_Limit        
+000064f0  __TI_CINIT_Base                 
+00006500  __TI_CINIT_Limit                
+20000000  __stack                         
+20004000  __STACK_END                     
+20004000  __STACK_TOP                     
+20004000  g_ppfPath                       
+20006000  g_sI2CInst                      
+200061a4  g_sMPU9150Inst                  
+20006210  g_sCompDCMInst                  
+20006268  g_psDCDInst                     
+200062f8  g_sGestureInst                  
+20006330  g_pfnTickHandlers               
+20006348  g_pvTickInstance                
+20006360  g_rbRemoTIRxRingBuf             
+20006370  g_rbRemoTITxRingBuf             
+20006380  g_pfAccel                       
+2000638c  g_pfEulers                      
+20006398  g_pfGyro                        
+200063a4  g_pfMag                         
+200063b0  g_pui32RGBColors                
+200063c8  g_fAccelMagnitudePrevious       
+200063cc  g_pfnErrCallback                
+200063d0  g_pfnRxCallback                 
+200063d4  g_pfnTxCallback                 
+200063d8  g_ppsDevInfo                    
+200063dc  g_ui16RxMsgCount                
+200063e0  g_ui32Events                    
+200063e8  g_ui32RGBMotionBlinkCounter     
+200063ec  g_ui32SysTickCount              
+200063f0  g_ui32UARTBase                  
+200063f4  g_ui8Buttons                    
+200063f8  g_ui8MotionState                
+200063fc  g_vui8ErrorFlag                 
+20006411  g_bTxBusy                       
+200064c8  _Denorm                         
+200064d8  _Eps                            
+200064e8  _Hugeval                        
+200064f8  _Inf                            
+20006508  _Nan                            
+20006518  _Snan                           
+20006528  _Rteps                          
+20006538  _Xbig                           
+20006540  _Zero                           
+20006548  _FDenorm                        
+20006558  _FEps                           
+20006568  _FInf                           
+20006578  _FNan                           
+20006588  _FSnan                          
+20006598  _FRteps                         
+200065a8  _FXbig                          
+200065ac  _FZero                          
+200065b0  g_ui16DeadBands                 
+200065e4  g_bUSBTimerInitialized          
+200065e8  g_ui32CurrentUSBTick            
+200065ec  g_ui32USBSOFCount               
+200065f0  _lock                           
+200065f4  _unlock                         
+200065f8  __TI_cleanup_ptr                
+200065fc  __TI_dtors_ptr                  
+20006600  _Fenv                           
+20006604  _Tls_setup__Fenv                
+20006614  _Errno                          
+20006618  main_func_sp                    
+ffffffff  __binit__                       
+ffffffff  __c_args__                      
+ffffffff  binit                           
+UNDEFED   SHT$$INIT_ARRAY$$Base           
+UNDEFED   SHT$$INIT_ARRAY$$Limit          
 
-[57 symbols]
+[257 symbols]

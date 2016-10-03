@@ -23,6 +23,7 @@ airmouse.obj: C:/ti/TivaWare_C_Series-2.1.3.156/driverlib/uart.h
 airmouse.obj: C:/ti/TivaWare_C_Series-2.1.3.156/utils/uartstdio.h
 airmouse.obj: C:/ti/ccsv6/tools/compiler/arm_5.2.8/include/stdarg.h
 airmouse.obj: C:/ti/TivaWare_C_Series-2.1.3.156/examples/boards/ek-tm4c123gxl-boostxl-senshub/drivers/rgb.h
+airmouse.obj: ../remoti_uart.h
 airmouse.obj: C:/ti/TivaWare_C_Series-2.1.3.156/examples/boards/ek-tm4c123gxl-boostxl-senshub/drivers/buttons.h
 airmouse.obj: C:/ti/TivaWare_C_Series-2.1.3.156/usblib/usblib.h
 airmouse.obj: C:/ti/TivaWare_C_Series-2.1.3.156/usblib/usbhid.h
@@ -33,6 +34,7 @@ airmouse.obj: C:/ti/TivaWare_C_Series-2.1.3.156/usblib/device/usbdhid.h
 airmouse.obj: C:/ti/TivaWare_C_Series-2.1.3.156/usblib/device/usbdhidmouse.h
 airmouse.obj: C:/ti/TivaWare_C_Series-2.1.3.156/usblib/device/usbdhidkeyb.h
 airmouse.obj: ../events.h
+airmouse.obj: ../motion.h
 
 ../airmouse.c: 
 C:/ti/ccsv6/tools/compiler/arm_5.2.8/include/stdint.h: 
@@ -57,6 +59,7 @@ C:/ti/TivaWare_C_Series-2.1.3.156/driverlib/uart.h:
 C:/ti/TivaWare_C_Series-2.1.3.156/utils/uartstdio.h: 
 C:/ti/ccsv6/tools/compiler/arm_5.2.8/include/stdarg.h: 
 C:/ti/TivaWare_C_Series-2.1.3.156/examples/boards/ek-tm4c123gxl-boostxl-senshub/drivers/rgb.h: 
+../remoti_uart.h: 
 C:/ti/TivaWare_C_Series-2.1.3.156/examples/boards/ek-tm4c123gxl-boostxl-senshub/drivers/buttons.h: 
 C:/ti/TivaWare_C_Series-2.1.3.156/usblib/usblib.h: 
 C:/ti/TivaWare_C_Series-2.1.3.156/usblib/usbhid.h: 
@@ -67,3 +70,4 @@ C:/ti/TivaWare_C_Series-2.1.3.156/usblib/device/usbdhid.h:
 C:/ti/TivaWare_C_Series-2.1.3.156/usblib/device/usbdhidmouse.h: 
 C:/ti/TivaWare_C_Series-2.1.3.156/usblib/device/usbdhidkeyb.h: 
 ../events.h: 
+../motion.h: 

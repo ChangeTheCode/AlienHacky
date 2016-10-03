@@ -22,6 +22,8 @@
 //
 //*****************************************************************************
 
+
+
 #include <stdint.h>
 #include <stdio.h>
 #include <stdbool.h>
@@ -38,7 +40,7 @@
 #include "driverlib/uart.h"
 #include "utils/uartstdio.h"
 #include "drivers/rgb.h"
-//#include "remoti_uart.h"
+#include "remoti_uart.h"
 //#include "remoti_npi.h"
 //#include "remoti_rti.h"
 //#include "remoti_rtis.h"
@@ -51,10 +53,54 @@
 #include "usblib/device/usbdhidmouse.h"
 #include "usblib/device/usbdhidkeyb.h"
 #include "events.h"
-//#include "motion.h"
+#include "motion.h"
 //#include "usb_structs.h"
 //#include "lprf.h"
 
+//*****************************************************************************
+//
+// Holds command bits used to signal the main loop to perform various tasks.
+//
+//*****************************************************************************
+volatile uint32_t g_pui32RGBColors[3];
+
+//*****************************************************************************
+//
+// Holds command bits used to signal the main loop to perform various tasks.
+//
+//*****************************************************************************
+volatile uint_fast32_t g_ui32Events;
+
+//*****************************************************************************
+//
+// Hold the state of the buttons on the board.
+//
+//*****************************************************************************
+volatile uint_fast8_t g_ui8Buttons;
+
+//*****************************************************************************
+//
+// Global system tick counter holds elapsed time since the application started
+// expressed in 100ths of a second.
+//
+//*****************************************************************************
+volatile uint_fast32_t g_ui32SysTickCount;
+
+//*****************************************************************************
+//
+// This is the interrupt handler for the SysTick interrupt.  It is called
+// periodically and updates a global tick counter then sets a flag to tell the
+// main loop to move the mouse.
+//
+//*****************************************************************************
+void
+SysTickIntHandler(void)
+{
+    g_ui32SysTickCount++;
+    HWREGBITW(&g_ui32Events, USB_TICK_EVENT) = 1;
+    HWREGBITW(&g_ui32Events, LPRF_TICK_EVENT) = 1;
+    g_ui8Buttons = ButtonsPoll(0, 0);
+}
 
 //*****************************************************************************
 //
@@ -144,7 +190,7 @@ main(void)
    //
    // User Interface Init
    //
-   ButtonsInit();
+//   ButtonsInit();
    RGBInit(0);
    RGBEnable();
 

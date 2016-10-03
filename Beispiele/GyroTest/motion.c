@@ -22,6 +22,9 @@
 //
 //*****************************************************************************
 
+#include <stdlib.h>
+#include <stdio.h>
+
 #include <float.h>
 #include <math.h>
 #include <stdbool.h>
@@ -985,6 +988,7 @@ MotionMain(void)
             g_pui32RGBColors[RED] = 0;
             RGBColorSet(g_pui32RGBColors);
 
+
             //
             // Finished
             //
@@ -1008,6 +1012,12 @@ MotionMain(void)
             // Pass the latest sensor data back to the Gesture system for
             // classification.  What state do i think i am in?
             //
+            char x[128];
+            sprintf(x, "Euler: %f, Accel: %f, Gyro: %f", (float)g_pfEulers[0], (float)g_pfAccel[0], (float)g_pfGyro[0]);
+
+            UARTprintf("%s\n",x);
+            int i;
+            for(i = 0; i<100000; i++){};
             GestureEmitClassify(&g_sGestureInst, g_pfEulers, g_pfAccel, g_pfGyro);
 
             //
