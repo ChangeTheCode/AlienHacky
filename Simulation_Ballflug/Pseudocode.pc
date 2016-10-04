@@ -22,8 +22,7 @@ int c; //Change of output depending on the state variable
 int d; //Change of output depending directly on the input (most definetely
         //zero in our case; just added for the sake of completeness)
 
-pointMH(r, phi, theta); //Order the moving head to point straight down in
-                        //spheric coordinates
+pointMH (0, 0, 0); //Giving phi, theta and the height (according to scetch)
 
 /*
 At this point the moving head is pointing downward vertically with the spot
@@ -40,7 +39,6 @@ while(1){
   speed = speed + acc * h;
   pos = c * speed + d * (footSpeed - speed) * sign( (footSpeed - speed) );
 
-  //Transform to spheric coordinates
-
   //Adjust the moving head
+  pointMH (atan(pos.y / pos.x), atan( sqrt(pos.x^2 + pos.y^2) / h), pos.z );
 }
