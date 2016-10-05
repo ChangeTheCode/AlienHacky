@@ -57,6 +57,16 @@
 //#include "usb_structs.h"
 //#include "lprf.h"
 
+#include "inc/hw_i2c.h"
+#include "inc/hw_memmap.h"
+#include "inc/hw_types.h"
+#include "driverlib/gpio.h"
+#include "driverlib/i2c.h"
+#include "driverlib/pin_map.h"
+#include "driverlib/sysctl.h"
+#include "inc/tm4c129xnczad.h"
+
+
 //*****************************************************************************
 //
 // Holds command bits used to signal the main loop to perform various tasks.
@@ -147,6 +157,12 @@ ConfigureUART(void)
 int
 main(void)
 {
+
+	SysCtlClockSet(SYSCTL_SYSDIV_1 | SYSCTL_USE_OSC | SYSCTL_OSC_MAIN |
+	                   SYSCTL_XTAL_16MHZ);
+	    SysCtlPeripheralEnable(SYSCTL_PERIPH_I2C0);
+
+
     //
     // Turn on stacking of FPU registers if FPU is used in the ISR.
     //
@@ -174,6 +190,8 @@ main(void)
     // Print the welcome message to the terminal.
     //
     UARTprintf("\033[2JAir Mouse Application\n");
+
+
 
     //
    // Configure desired interrupt priorities. This makes certain that the DCM
