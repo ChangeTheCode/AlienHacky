@@ -957,13 +957,10 @@ MotionMain(void)
                 // Get local copy of Accel and Mag data to feed to the DCM
                 // start.
                 //
-            	// Get floating point version of the Accel Data in m/s^2.
                 MPU9150DataAccelGetFloat(&g_sMPU9150Inst, g_pfAccel,
                                          g_pfAccel + 1, g_pfAccel + 2);
-                // Get floating point version of magnetic fields strength in tesla
                 MPU9150DataMagnetoGetFloat(&g_sMPU9150Inst, g_pfMag,
                                           g_pfMag + 1, g_pfMag + 2);
-                // Get floating point version of angular velocities in rad/sec
                 MPU9150DataGyroGetFloat(&g_sMPU9150Inst, g_pfGyro,
                                         g_pfGyro + 1, g_pfGyro + 2);
 

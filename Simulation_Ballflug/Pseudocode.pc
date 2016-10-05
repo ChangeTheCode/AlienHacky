@@ -1,0 +1,44 @@
+/*
+This document shall give an outline of how the flight trajectory of the
+virtual hacky sack shall be calculated. It is based upon
+"02_BasicsAndEulerSolvers.pdf", of which one can find a copy in the same
+directory. The used Forward Euler Solver's basic functioning approach can be
+seen in "Solver.png", which in itself is extracted from the aforementioned
+pdf. An example of a Forward
+Euler solver in Matlab Code can be seen in FE.m
+*/
+
+double pos[3] = {0}; //Position or output of system
+double speed[3] = {0}; //Speed --> state variable
+double acc[3] = {0}; //Acceleration --> first derivative of state variable
+extern double footSpeed; //The speed of the the affected sensor module as
+                          //delivered by itself
+
+//Parameters
+int A; //Change of first derivative of state variable depeding on the state
+        //variable itself
+int b; //Change of first derivative of state var depending on input
+int c; //Change of output depending on the state variable
+int d; //Change of output depending directly on the input (most definetely
+        //zero in our case; just added for the sake of completeness)
+
+pointMH (0, 0, 0); //Giving phi, theta and the height (according to scetch)
+
+/*
+At this point the moving head is pointing downward vertically with the spot
+diameter indicating minimal height; i.e. the virtual hacky sack is "lying" on
+the floor. Now we are continuously calculating the trajectory and adjust the
+moving head accordingly.
+*/
+
+int n = 0; //counter
+double h = qood question; //Step width
+while(1){
+  //Calculate the vars
+  acc = A * speed + b * (footSpeed - speed) * sign( (footSpeed - speed) );
+  speed = speed + acc * h;
+  pos = c * speed + d * (footSpeed - speed) * sign( (footSpeed - speed) );
+
+  //Adjust the moving head
+  pointMH (atan(pos.y / pos.x), atan( sqrt(pos.x^2 + pos.y^2) / h), pos.z );
+}
