@@ -1,8 +1,8 @@
 /******************************************************************************
  *
- * airmouse_ccs.cmd - CCS linker configuration file for airmouse.
+ * compdcm_mpu9150_ccs.cmd - CCS linker configuration file for compdcm_mpu9150.
  *
- * Copyright (c) 2012-2016 Texas Instruments Incorporated.  All rights reserved.
+ * Copyright (c) 2013-2016 Texas Instruments Incorporated.  All rights reserved.
  * Software License Agreement
  * 
  * Texas Instruments (TI) is supplying this software for use solely and
@@ -67,4 +67,4 @@ SECTIONS
     .stack  :   > SRAM
 }
 
-__STACK_TOP = __stack + 16384;
+__STACK_TOP = __stack + 1024;
