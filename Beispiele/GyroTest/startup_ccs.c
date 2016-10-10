@@ -2,7 +2,7 @@
 //
 // startup_ccs.c - Startup code for use with TI's Code Composer Studio.
 //
-// Copyright (c) 2012-2016 Texas Instruments Incorporated.  All rights reserved.
+// Copyright (c) 2013-2016 Texas Instruments Incorporated.  All rights reserved.
 // Software License Agreement
 // 
 // Texas Instruments (TI) is supplying this software for use solely and
@@ -57,11 +57,8 @@ extern uint32_t __STACK_TOP;
 //
 //*****************************************************************************
 extern void IntGPIOb(void);
-extern void MotionI2CIntHandler(void);
-extern void SysTickIntHandler(void);
+extern void MPU9150I2CIntHandler(void);
 extern void UARTStdioIntHandler(void);
-extern void RemoTIUARTIntHandler(void);
-extern void USB0DeviceIntHandler(void);
 extern void RGBBlinkIntHandler(void);
 
 //*****************************************************************************
@@ -90,14 +87,14 @@ void (* const g_pfnVectors[])(void) =
     IntDefaultHandler,                      // Debug monitor handler
     0,                                      // Reserved
     IntDefaultHandler,                      // The PendSV handler
-    SysTickIntHandler,                      // The SysTick handler
+    IntDefaultHandler,                      // The SysTick handler
     IntDefaultHandler,                      // GPIO Port A
     IntGPIOb,                               // GPIO Port B
     IntDefaultHandler,                      // GPIO Port C
     IntDefaultHandler,                      // GPIO Port D
     IntDefaultHandler,                      // GPIO Port E
     UARTStdioIntHandler,                    // UART0 Rx and Tx
-    RemoTIUARTIntHandler,                   // UART1 Rx and Tx
+    IntDefaultHandler,                      // UART1 Rx and Tx
     IntDefaultHandler,                      // SSI0 Rx and Tx
     IntDefaultHandler,                      // I2C0 Master and Slave
     IntDefaultHandler,                      // PWM Fault
@@ -135,7 +132,7 @@ void (* const g_pfnVectors[])(void) =
     0,                                      // Reserved
     0,                                      // Reserved
     IntDefaultHandler,                      // Hibernate
-    USB0DeviceIntHandler,                   // USB0
+    IntDefaultHandler,                      // USB0
     IntDefaultHandler,                      // PWM Generator 3
     IntDefaultHandler,                      // uDMA Software Transfer
     IntDefaultHandler,                      // uDMA Error
@@ -160,7 +157,7 @@ void (* const g_pfnVectors[])(void) =
     0,                                      // Reserved
     0,                                      // Reserved
     IntDefaultHandler,                      // I2C2 Master and Slave
-    MotionI2CIntHandler,                    // I2C3 Master and Slave
+    MPU9150I2CIntHandler,                   // I2C3 Master and Slave
     IntDefaultHandler,                      // Timer 4 subtimer A
     IntDefaultHandler,                      // Timer 4 subtimer B
     0,                                      // Reserved

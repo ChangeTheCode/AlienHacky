@@ -22,6 +22,8 @@
 //
 //*****************************************************************************
 
+#include <math.h>
+
 #include <stdint.h>
 #include <stdbool.h>
 #include "inc/hw_memmap.h"
@@ -336,10 +338,19 @@ ConfigureUART(void)
 int
 main(void)
 {
-    int_fast32_t i32IPart[16], i32FPart[16];
+    int_fast32_t i32IPart[20], i32FPart[20];
     uint_fast32_t ui32Idx, ui32CompDCMStarted;
-    float pfData[16];
+    float pfData[20];
     float *pfAccel, *pfGyro, *pfMag, *pfEulers, *pfQuaternion;
+
+    float eYaw, ePitch, eRoll;
+    float radVal = 3.14159265f/180.0f;
+
+    int c, d, k;
+    float sum = 0.0f;
+    float transMatrix[3][3], accelMatrix[3][1], newAccel[3][1];
+
+    float *pfAccel2;
 
     //
     // Initialize convenience pointers that clean up and clarify the code
@@ -351,6 +362,8 @@ main(void)
     pfMag = pfData + 6;
     pfEulers = pfData + 9;
     pfQuaternion = pfData + 12;
+
+    pfAccel2 = pfData + 16;
 
     //
     // Setup the system clock to run at 40 Mhz from PLL with crystal reference
@@ -496,7 +509,8 @@ main(void)
     UARTprintf("\033[2J\033[H");
     UARTprintf("MPU9150 9-Axis Simple Data Application Example\n\n");
     UARTprintf("\033[20GX\033[31G|\033[43GY\033[54G|\033[66GZ\n\n");
-    UARTprintf("Accel\033[8G|\033[31G|\033[54G|\n\n");
+    UARTprintf("Accel\033[8G|\033[31G|\033[54G|\n");
+    UARTprintf("Accel2\033[8G|\033[31G|\033[54G|\n");
     UARTprintf("Gyro\033[8G|\033[31G|\033[54G|\n\n");
     UARTprintf("Mag\033[8G|\033[31G|\033[54G|\n\n");
     UARTprintf("\n\033[20GRoll\033[31G|\033[43GPitch\033[54G|\033[66GYaw\n\n");
@@ -621,11 +635,59 @@ main(void)
             }
 
             //
+            // Transform the Acceleration of the board coordinates to the world coordinate
+            //
+            accelMatrix[0][0] = pfAccel[0];
+            accelMatrix[1][0] = pfAccel[1];
+            accelMatrix[2][0] = pfAccel[2];
+
+            // Psi 		= 	Yaw
+            // Theta 	= 	Pitch
+			// Phi 		= 	Roll
+
+            eRoll = *pfEulers * radVal;
+            ePitch = *(pfEulers + 1) * radVal;
+            eYaw = *(pfEulers + 2) * radVal;
+
+            transMatrix[0][0] = cosf(ePitch)*cosf(eYaw);
+            transMatrix[0][1] = sinf(eRoll)*sinf(ePitch)*cosf(eYaw) - cosf(eRoll)*sinf(eYaw);
+            transMatrix[0][2] = cosf(eRoll)*sinf(ePitch)*cosf(eYaw) + sinf(eRoll)*sinf(eYaw);
+
+            transMatrix[1][0] = cosf(ePitch)*sinf(eYaw);
+            transMatrix[1][1] = sinf(eRoll)*sinf(ePitch)*sinf(eYaw) + cosf(eRoll)*cosf(eYaw);
+            transMatrix[1][2] = cosf(eRoll)*sinf(ePitch)*sinf(eYaw) - sinf(eRoll)*cosf(eYaw);
+
+            transMatrix[2][0] = sinf(ePitch)*(-1);
+            transMatrix[2][1] = sinf(eRoll)*cosf(ePitch);
+            transMatrix[2][2] = cosf(eRoll)*cosf(ePitch);
+
+
+            for (c = 0; c < 3; c++)
+            {
+				for (d = 0; d < 1; d++)
+				{
+					for (k = 0; k < 3; k++)
+					{
+						sum = sum + transMatrix[c][k]*accelMatrix[k][d];
+					}
+
+					newAccel[c][d] = sum;
+					sum = 0;
+				}
+            }
+
+            pfAccel2[0] = newAccel[0][0];
+            pfAccel2[1] = newAccel[1][0];
+            pfAccel2[2] = newAccel[2][0];
+
+
+
+            //
             // Now drop back to using the data as a single array for the
             // purpose of decomposing the float into a integer part and a
             // fraction (decimal) part.
             //
-            for(ui32Idx = 0; ui32Idx < 16; ui32Idx++)
+            for(ui32Idx = 0; ui32Idx < 19; ui32Idx++)
             {
                 //
                 // Conver float value to a integer truncating the decimal part.
@@ -660,6 +722,10 @@ main(void)
             UARTprintf("\033[5;17H%3d.%03d", i32IPart[0], i32FPart[0]);
             UARTprintf("\033[5;40H%3d.%03d", i32IPart[1], i32FPart[1]);
             UARTprintf("\033[5;63H%3d.%03d", i32IPart[2], i32FPart[2]);
+
+            UARTprintf("\033[6;17H%3d.%03d", i32IPart[16], i32FPart[16]);
+            UARTprintf("\033[6;40H%3d.%03d", i32IPart[17], i32FPart[17]);
+            UARTprintf("\033[6;63H%3d.%03d", i32IPart[18], i32FPart[18]);
 
             //
             // Print the angular velocities in the table.
