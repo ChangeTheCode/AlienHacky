@@ -15,14 +15,14 @@ extern double footSpeed; //The speed of the the affected sensor module as
                           //delivered by itself
 
 //Parameters
-int A; //Change of first derivative of state variable depeding on the state
+int A; //Change of first derivative of state variable depending on the state
         //variable itself
 int b; //Change of first derivative of state var depending on input
 int c; //Change of output depending on the state variable
 int d; //Change of output depending directly on the input (most definetely
         //zero in our case; just added for the sake of completeness)
 
-pointMH (0, 0, 0); //Giving phi, theta and the height (according to scetch)
+pointMH (0, 0, 0); //Giving phi, theta and the height (according to sketch)
 
 /*
 At this point the moving head is pointing downward vertically with the spot

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?fileVersion 3.1.0?>
+
+<ManagedProjectBuildInfo>
+<project id="spectrum_analyzer-srf05_ccmsp2618_cc2520.com.ti.ccstudio.buildDefinitions.MSP430.executableProjectType.580746764" name="MSP430 Executable" projectType="com.ti.ccstudio.buildDefinitions.MSP430.executableProjectType">
+<configuration artifactExtension="out" artifactName="spectrum_analyzer-srf05_ccmsp2618_cc2520" cleanCommand="${CCE_INSTALL_ROOT}/utils/Cygwin/rm -rf" description="" id="com.ti.ccstudio.buildDefinitions.MSP430.exe.debug.1816350722" name="Debug" parent="com.ti.ccstudio.buildDefinitions.MSP430.exe.debug">
+
+<toolChain id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.DebugToolchain.620105457" name="TI Code Generation Tools" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.DebugToolchain" targetTool="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.linkerDebug.861107470">
+<option id="com.ti.ccstudio.buildDefinitions.core.OPT_CODEGEN_VERSION.1944858282" superClass="com.ti.ccstudio.buildDefinitions.core.OPT_CODEGEN_VERSION" value="3.0.1" valueType="string"/>
+<option id="com.ti.ccstudio.buildDefinitions.core.OPT_TAGS.559136775" superClass="com.ti.ccstudio.buildDefinitions.core.OPT_TAGS" valueType="stringList">
+<listOptionValue builtIn="false" value="DEVICE_CONFIGURATION_ID=MSP430F2618"/>
+<listOptionValue builtIn="false" value="DEVICE_ENDIANNESS=little"/>
+<listOptionValue builtIn="false" value="LINKER_COMMAND_FILE=lnk_msp430f2618.cmd"/>
+<listOptionValue builtIn="false" value="RUNTIME_SUPPORT_LIBRARY=rts430x.lib"/>
+<listOptionValue builtIn="false" value="IS_ASSEMBLY_ONLY=false"/>
+</option>
+<tool id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131" name="MSP430 Compiler v3.0" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug">
+<option id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.SILICON_VERSION.1224428134" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.SILICON_VERSION" value="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.SILICON_VERSION.mspx" valueType="enumerated"/>
+<option id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.PRINTF_SUPPORT.1992914370" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.PRINTF_SUPPORT" value="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.PRINTF_SUPPORT.nofloat" valueType="enumerated"/>
+<option id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.DEFINE.577715415" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.DEFINE" valueType="definedSymbols">
+<listOptionValue builtIn="false" value="ASSY_CCMSP2618_CC2520"/>
+</option>
+<option id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.INCLUDE_PATH.656212678" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.INCLUDE_PATH" valueType="includePath">
+<listOptionValue builtIn="false" value="&quot;${MSP430_CG_ROOT}/include&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${WorkspaceDirPath}/../source/Components/utils&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${WorkspaceDirPath}/../source/Components/common&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${WorkspaceDirPath}/../source/Components/targets/interface&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${WorkspaceDirPath}/../source/Components/assembly&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${WorkspaceDirPath}/../source/Components/common/msp430&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${WorkspaceDirPath}/../source/Components/targets/srf05_ccmsp2618&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${WorkspaceDirPath}/../source/Components/radios/cc2520&quot;"/>
+</option>
+<option id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.OPT_LEVEL.802689785" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.OPT_LEVEL" value="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.OPT_LEVEL._none" valueType="enumerated"/>
+<option id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.DISPLAY_ERROR_NUMBER.438336642" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.DISPLAY_ERROR_NUMBER" value="true" valueType="boolean"/>
+<option id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.DIAG_SUPPRESS.2078890149" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.DIAG_SUPPRESS" valueType="stringList">
+<listOptionValue builtIn="false" value="11"/>
+<listOptionValue builtIn="false" value="230"/>
+<listOptionValue builtIn="false" value="552"/>
+<listOptionValue builtIn="false" value="77"/>
+<listOptionValue builtIn="false" value="1"/>
+<listOptionValue builtIn="false" value="163"/>
+<listOptionValue builtIn="false" value="179"/>
+</option>
+</tool>
+<tool command="&quot;${MSP430_CG_ROOT}/bin/cl430&quot; -z" id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.linkerDebug.861107470" name="MSP430 Linker v3.0" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.linkerDebug">
+<option id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.linkerID.LIBRARY.1219845069" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.linkerID.LIBRARY" valueType="stringList">
+<listOptionValue builtIn="false" value="&quot;rts430x.lib&quot;"/>
+</option>
+<option id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.linkerID.HEAP_SIZE.1901126485" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.linkerID.HEAP_SIZE" value="80" valueType="string"/>
+<option id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.linkerID.STACK_SIZE.818158229" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.linkerID.STACK_SIZE" value="80" valueType="string"/>
+<option id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.linkerID.USE_HW_MPY.572479656" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.linkerID.USE_HW_MPY" value="com.ti.ccstudio.buildDefinitions.MSP430_3.0.linkerID.USE_HW_MPY.16" valueType="enumerated"/>
+<option id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.linkerID.linkerCommandFiles.620924952" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.linkerID.linkerCommandFiles" valueType="stringList">
+<listOptionValue builtIn="false" value="../lnk_msp430f2618.cmd"/>
+</option>
+<option id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.linkerID.GENERATE_DEAD_FUNCS_LIST.1331094190" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.linkerID.GENERATE_DEAD_FUNCS_LIST" value="" valueType="string"/>
+</tool>
+<macros expandEnvironmentMacros="true"/>
+</toolChain>
+<resourceConfiguration exclude="false" id="com.ti.ccstudio.buildDefinitions.MSP430.exe.debug.1816350722./spectrum_analyzer-srf05_ccmsp2618_cc2520/application/spectrum_analyzer.c" name="spectrum_analyzer.c" rcbsApplicability="disable" resourcePath="/spectrum_analyzer-srf05_ccmsp2618_cc2520/application/spectrum_analyzer.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131./spectrum_analyzer-srf05_ccmsp2618_cc2520/application/spectrum_analyzer.c">
+<tool id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131./spectrum_analyzer-srf05_ccmsp2618_cc2520/application/spectrum_analyzer.c" name="MSP430 Compiler v3.0" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131">
+<option id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.OBJ_DIRECTORY.2085822977" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.OBJ_DIRECTORY" value="&quot;application&quot;" valueType="string"/>
+</tool>
+</resourceConfiguration>
+<resourceConfiguration exclude="false" id="com.ti.ccstudio.buildDefinitions.MSP430.exe.debug.1816350722./spectrum_analyzer-srf05_ccmsp2618_cc2520/utilities/util_lcd.c" name="util_lcd.c" rcbsApplicability="disable" resourcePath="/spectrum_analyzer-srf05_ccmsp2618_cc2520/utilities/util_lcd.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131./spectrum_analyzer-srf05_ccmsp2618_cc2520/utilities/util_lcd.c">
+<tool id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131./spectrum_analyzer-srf05_ccmsp2618_cc2520/utilities/util_lcd.c" name="MSP430 Compiler v3.0" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131">
+<option id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.OBJ_DIRECTORY.2085822977" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.OBJ_DIRECTORY" value="&quot;utilities&quot;" valueType="string"/>
+</tool>
+</resourceConfiguration>
+<resourceConfiguration exclude="false" id="com.ti.ccstudio.buildDefinitions.MSP430.exe.debug.1816350722./spectrum_analyzer-srf05_ccmsp2618_cc2520/utilities/util.c" name="util.c" rcbsApplicability="disable" resourcePath="/spectrum_analyzer-srf05_ccmsp2618_cc2520/utilities/util.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131./spectrum_analyzer-srf05_ccmsp2618_cc2520/utilities/util.c">
+<tool id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131./spectrum_analyzer-srf05_ccmsp2618_cc2520/utilities/util.c" name="MSP430 Compiler v3.0" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131">
+<option id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.OBJ_DIRECTORY.2085822977" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.OBJ_DIRECTORY" value="&quot;utilities&quot;" valueType="string"/>
+</tool>
+</resourceConfiguration>
+<resourceConfiguration exclude="false" id="com.ti.ccstudio.buildDefinitions.MSP430.exe.debug.1816350722./spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/common/hal_int.c" name="hal_int.c" rcbsApplicability="disable" resourcePath="/spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/common/hal_int.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131./spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/common/hal_int.c">
+<tool id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131./spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/common/hal_int.c" name="MSP430 Compiler v3.0" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131">
+<option id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.OBJ_DIRECTORY.2085822977" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.OBJ_DIRECTORY" value="&quot;hal/common&quot;" valueType="string"/>
+</tool>
+</resourceConfiguration>
+<resourceConfiguration exclude="false" id="com.ti.ccstudio.buildDefinitions.MSP430.exe.debug.1816350722./spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/rf/cc2520/hal_cc2520.c" name="hal_cc2520.c" rcbsApplicability="disable" resourcePath="/spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/rf/cc2520/hal_cc2520.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131./spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/rf/cc2520/hal_cc2520.c">
+<tool id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131./spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/rf/cc2520/hal_cc2520.c" name="MSP430 Compiler v3.0" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131">
+<option id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.OBJ_DIRECTORY.2085822977" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.OBJ_DIRECTORY" value="&quot;hal/rf/cc2520&quot;" valueType="string"/>
+</tool>
+</resourceConfiguration>
+<resourceConfiguration exclude="false" id="com.ti.ccstudio.buildDefinitions.MSP430.exe.debug.1816350722./spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/rf/cc2520/hal_rf.c" name="hal_rf.c" rcbsApplicability="disable" resourcePath="/spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/rf/cc2520/hal_rf.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131./spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/rf/cc2520/hal_rf.c">
+<tool id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131./spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/rf/cc2520/hal_rf.c" name="MSP430 Compiler v3.0" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131">
+<option id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.OBJ_DIRECTORY.2085822977" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.OBJ_DIRECTORY" value="&quot;hal/rf/cc2520&quot;" valueType="string"/>
+</tool>
+</resourceConfiguration>
+<resourceConfiguration exclude="false" id="com.ti.ccstudio.buildDefinitions.MSP430.exe.debug.1816350722./spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/rf/cc2520/hal_rf_util.c" name="hal_rf_util.c" rcbsApplicability="disable" resourcePath="/spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/rf/cc2520/hal_rf_util.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131./spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/rf/cc2520/hal_rf_util.c">
+<tool id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131./spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/rf/cc2520/hal_rf_util.c" name="MSP430 Compiler v3.0" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131">
+<option id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.OBJ_DIRECTORY.2085822977" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.OBJ_DIRECTORY" value="&quot;hal/rf/cc2520&quot;" valueType="string"/>
+</tool>
+</resourceConfiguration>
+<resourceConfiguration exclude="false" id="com.ti.ccstudio.buildDefinitions.MSP430.exe.debug.1816350722./spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/ccmsp2618/hal_assert.c" name="hal_assert.c" rcbsApplicability="disable" resourcePath="/spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/ccmsp2618/hal_assert.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131./spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/ccmsp2618/hal_assert.c">
+<tool id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131./spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/ccmsp2618/hal_assert.c" name="MSP430 Compiler v3.0" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131">
+<option id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.OBJ_DIRECTORY.2085822977" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.OBJ_DIRECTORY" value="&quot;hal/ccmsp2618&quot;" valueType="string"/>
+</tool>
+</resourceConfiguration>
+<resourceConfiguration exclude="false" id="com.ti.ccstudio.buildDefinitions.MSP430.exe.debug.1816350722./spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/ccmsp2618/hal_board.c" name="hal_board.c" rcbsApplicability="disable" resourcePath="/spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/ccmsp2618/hal_board.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131./spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/ccmsp2618/hal_board.c">
+<tool id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131./spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/ccmsp2618/hal_board.c" name="MSP430 Compiler v3.0" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131">
+<option id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.OBJ_DIRECTORY.2085822977" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.OBJ_DIRECTORY" value="&quot;hal/ccmsp2618&quot;" valueType="string"/>
+</tool>
+</resourceConfiguration>
+<resourceConfiguration exclude="false" id="com.ti.ccstudio.buildDefinitions.MSP430.exe.debug.1816350722./spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/ccmsp2618/hal_digio.c" name="hal_digio.c" rcbsApplicability="disable" resourcePath="/spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/ccmsp2618/hal_digio.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131./spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/ccmsp2618/hal_digio.c">
+<tool id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131./spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/ccmsp2618/hal_digio.c" name="MSP430 Compiler v3.0" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131">
+<option id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.OBJ_DIRECTORY.2085822977" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.OBJ_DIRECTORY" value="&quot;hal/ccmsp2618&quot;" valueType="string"/>
+</tool>
+</resourceConfiguration>
+<resourceConfiguration exclude="false" id="com.ti.ccstudio.buildDefinitions.MSP430.exe.debug.1816350722./spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/ccmsp2618/hal_joystick.c" name="hal_joystick.c" rcbsApplicability="disable" resourcePath="/spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/ccmsp2618/hal_joystick.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131./spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/ccmsp2618/hal_joystick.c">
+<tool id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131./spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/ccmsp2618/hal_joystick.c" name="MSP430 Compiler v3.0" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131">
+<option id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.OBJ_DIRECTORY.2085822977" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.OBJ_DIRECTORY" value="&quot;hal/ccmsp2618&quot;" valueType="string"/>
+</tool>
+</resourceConfiguration>
+<resourceConfiguration exclude="false" id="com.ti.ccstudio.buildDefinitions.MSP430.exe.debug.1816350722./spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/ccmsp2618/hal_lcd.c" name="hal_lcd.c" rcbsApplicability="disable" resourcePath="/spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/ccmsp2618/hal_lcd.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131./spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/ccmsp2618/hal_lcd.c">
+<tool id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131./spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/ccmsp2618/hal_lcd.c" name="MSP430 Compiler v3.0" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131">
+<option id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.OBJ_DIRECTORY.2085822977" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.OBJ_DIRECTORY" value="&quot;hal/ccmsp2618&quot;" valueType="string"/>
+</tool>
+</resourceConfiguration>
+<resourceConfiguration exclude="false" id="com.ti.ccstudio.buildDefinitions.MSP430.exe.debug.1816350722./spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/ccmsp2618/hal_led.c" name="hal_led.c" rcbsApplicability="disable" resourcePath="/spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/ccmsp2618/hal_led.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131./spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/ccmsp2618/hal_led.c">
+<tool id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131./spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/ccmsp2618/hal_led.c" name="MSP430 Compiler v3.0" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131">
+<option id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.OBJ_DIRECTORY.2085822977" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.OBJ_DIRECTORY" value="&quot;hal/ccmsp2618&quot;" valueType="string"/>
+</tool>
+</resourceConfiguration>
+<resourceConfiguration exclude="false" id="com.ti.ccstudio.buildDefinitions.MSP430.exe.debug.1816350722./spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/ccmsp2618/hal_mcu.c" name="hal_mcu.c" rcbsApplicability="disable" resourcePath="/spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/ccmsp2618/hal_mcu.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131./spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/ccmsp2618/hal_mcu.c">
+<tool id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131./spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/ccmsp2618/hal_mcu.c" name="MSP430 Compiler v3.0" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131">
+<option id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.OBJ_DIRECTORY.2085822977" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.OBJ_DIRECTORY" value="&quot;hal/ccmsp2618&quot;" valueType="string"/>
+</tool>
+</resourceConfiguration>
+<resourceConfiguration exclude="false" id="com.ti.ccstudio.buildDefinitions.MSP430.exe.debug.1816350722./spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/ccmsp2618/hal_button.c" name="hal_button.c" rcbsApplicability="disable" resourcePath="/spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/ccmsp2618/hal_button.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131./spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/ccmsp2618/hal_button.c">
+<tool id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131./spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/ccmsp2618/hal_button.c" name="MSP430 Compiler v3.0" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131">
+<option id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.OBJ_DIRECTORY.2085822977" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.OBJ_DIRECTORY" value="&quot;hal/ccmsp2618&quot;" valueType="string"/>
+</tool>
+</resourceConfiguration>
+<resourceConfiguration exclude="false" id="com.ti.ccstudio.buildDefinitions.MSP430.exe.debug.1816350722./spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/cc2520em/assy_ccmsp2618_cc2520em.c" name="assy_ccmsp2618_cc2520em.c" rcbsApplicability="disable" resourcePath="/spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/cc2520em/assy_ccmsp2618_cc2520em.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131./spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/cc2520em/assy_ccmsp2618_cc2520em.c">
+<tool id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131./spectrum_analyzer-srf05_ccmsp2618_cc2520/hal/cc2520em/assy_ccmsp2618_cc2520em.c" name="MSP430 Compiler v3.0" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.exe.compilerDebug.1199021131">
+<option id="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.OBJ_DIRECTORY.2085822977" superClass="com.ti.ccstudio.buildDefinitions.MSP430_3.0.compilerID.OBJ_DIRECTORY" value="&quot;hal/cc2520em&quot;" valueType="string"/>
+</tool>
+</resourceConfiguration>
+</configuration>
+</project>
+</ManagedProjectBuildInfo>

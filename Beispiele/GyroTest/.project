@@ -26,19 +26,9 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>drivers/buttons.c</name>
-			<type>1</type>
-			<locationURI>SW_ROOT/examples/boards/ek-tm4c123gxl-boostxl-senshub/drivers/buttons.c</locationURI>
-		</link>
-		<link>
 			<name>drivers/rgb.c</name>
 			<type>1</type>
 			<locationURI>SW_ROOT/examples/boards/ek-tm4c123gxl-boostxl-senshub/drivers/rgb.c</locationURI>
-		</link>
-		<link>
-			<name>utils/ringbuf.c</name>
-			<type>1</type>
-			<locationURI>SW_ROOT/utils/ringbuf.c</locationURI>
 		</link>
 		<link>
 			<name>utils/uartstdio.c</name>
@@ -49,7 +39,7 @@
 	<variableList>
 		<variable>
 			<name>ORIGINAL_PROJECT_ROOT</name>
-			<value>file:/C:/ti/TivaWare_C_Series-2.1.3.156/examples/boards/ek-tm4c123gxl-boostxl-senshub/airmouse/ccs</value>
+			<value>file:/C:/ti/TivaWare_C_Series-2.1.3.156/examples/boards/ek-tm4c123gxl-boostxl-senshub/compdcm_mpu9150/ccs</value>
 		</variable>
 		<variable>
 			<name>SW_ROOT</name>
