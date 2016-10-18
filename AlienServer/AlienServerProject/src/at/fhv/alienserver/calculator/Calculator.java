@@ -1,6 +1,7 @@
-package at.fhv.alienserver.at.fhv.alienserver.calculator;
+package at.fhv.alienserver.calculator;
 
 import static java.lang.Math.sqrt;
+import at.fhv.alienserver.sockcomm.SockComm;
 
 /**
  * Created by thomas on 18.10.16.
@@ -17,12 +18,13 @@ public class Calculator implements Runnable {
     private final double d = 0; //Change of output depending directly on the input
     private final double h = 0.02; //Step width of sim
 
+    private SockComm sock;
 
     private int stubIteration = 0;
     private int iteration = 0;
 
-    Calculator(){
-
+    public Calculator(SockComm suppliedSock){
+        sock = suppliedSock;
     }
 
     private double[] getSenAcc(double[] arr){
@@ -89,6 +91,7 @@ public class Calculator implements Runnable {
         double senAcc[] = new double[3];
 
         while(true){
+            //senAcc = sock.getSenAcc(senAcc); TODO: Actually make this happen
             senAcc = getSenAcc(senAcc);
 
             if(senAcc == null){
