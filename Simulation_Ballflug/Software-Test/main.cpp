@@ -66,7 +66,7 @@ int main() {
     const double b = 0.5; //Change of the first derivative of state variable depending on input
     const double c = 1; //Change of output depending on state variable
     const double d = 0; //Change of output depending directly on the input
-    double h = 0.02; //Step width of sim
+    const double h = 0.02; //Step width of sim
 
     //Array to hold the acceleration values retrieved from the sensor
     double senAcc[3] = {0};
