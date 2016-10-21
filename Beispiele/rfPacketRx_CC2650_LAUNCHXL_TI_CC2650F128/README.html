@@ -36,21 +36,21 @@
 </ul>
 </div>
 <h2 id="example-summary">Example Summary</h2>
-<p>The Packet RX example illustrates how to do simple packet RX using the TI-RTOS RF driver. This example is meant to be used with the Packet TX example or SmartRF Studio. For every packet received, Board_LED2 is toggled. The frequency and other RF settings can be modified using SmartRF Studio.</p>
+<p>The Packet TX example illustrates how to do simple packet transmission using the TI-RTOS RF driver. This example is meant to be used with the Packet RX example or SmartRF Studio. For every packet transmitted, Board_LED1 is toggled. The frequency and other RF settings can be modified using SmartRF Studio.</p>
 <h2 id="peripherals-exercised">Peripherals Exercised</h2>
 <ul>
-<li><code>Board_LED2</code> - Toggled when data is received over the RF interface</li>
+<li><code>Board_LED1</code> - Toggled when data is transmitted over the RF interface</li>
 </ul>
 <h2 id="resources-jumper-settings">Resources &amp; Jumper Settings</h2>
 <p>Please refer to the development board’s specific “Settings and Resources” section in the Getting Started Guide (http://www.ti.com/lit/SPRUHU7C). For convenience, a short summary is also shown below.</p>
 <pre><code>| Development Boards | Notes                                               |
 | ================== | =================================================== |
-| CC1310DK           | Board_LED2 is the &quot;LED2&quot; LED                        |
+| CC1310DK           | Board_LED1 is the &quot;LED1&quot; LED                        |
 | ------------------ | --------------------------------------------------- |
-| CC1310_LAUNCHXL    | Board_LED2 is the &quot;Red&quot; LED                         |
+| CC1310_LAUNCHXL    | Board_LED1 is the &quot;Green&quot; LED                       |
 | ------------------ | --------------------------------------------------- |</code></pre>
 <h2 id="example-usage">Example Usage</h2>
-<p>Run the example. On another board, run the EasyLink TX example. Board_LED2 is toggled when data with CRC OK is received.</p>
+<p>Run the example. On another board, run the Packet RX example. Board_LED1 is toggled when data is transmitted.</p>
 <h2 id="application-design-details">Application Design Details</h2>
 <p>This examples consists of a single task and the exported SmartRF Studio radio settings.</p>
 <p>The default frequency is 868.0 MHz. In order to change frequency, modify the smartrf_settings file. This can be done using the code export feature in Smart RF Studio, or directly in the file.</p>
@@ -60,10 +60,13 @@
 <li>Configures the radio for Proprietary mode</li>
 <li>Gets access to the radio via the RF drivers RF_open</li>
 <li>Sets up the radio using CMD_PROP_RADIO_DIV_SETUP command</li>
-<li>Defines a data queue to handle received data</li>
+<li>Set the output power to 14 dBm (requires that CCFG_FORCE_VDDR_HH = 1 in ccfg.c)</li>
 <li>Sets the frequency using CMD_FS command</li>
-<li>Sends the CMD_PROP_RX command to start receiving data</li>
-<li>Once data with CRC OK is received we toggle the Board_LED2 and re-enter RX with the CMD_PROP_RX command</li>
+<li>Create packet (with increasing sequence number and random content)</li>
+<li>Set absolute TX time to utilize automatic power management</li>
+<li>Transmit packet using CMD_PROP_TX command with blocking RF driver call</li>
+<li>Toggle Board_LED1 to indicate packet transmitted</li>
+<li>Transmit packets forever by repeating step 6-9</li>
 </ol>
 <p>Note for IAR users: When using the CC1310DK, the TI XDS110v3 USB Emulator must be selected. For the CC1310_LAUNCHXL, select TI XDS110 Emulator. In both cases, select the cJTAG interface.</p>
 <h2 id="references">References</h2>
