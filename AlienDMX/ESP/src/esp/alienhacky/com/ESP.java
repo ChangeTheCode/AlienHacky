@@ -1,3 +1,10 @@
+/*
+ * ESP (DMX over ETHERNET)
+ * 
+ * @author	Ursus Schneider
+ * @version	24.10.2016
+ * 
+ */
 package esp.alienhacky.com;
 
 import java.io.IOException;
@@ -7,13 +14,6 @@ import java.net.InetAddress;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
-/*
- * ESP (DMX over ETHERNET)
- * 
- * @author	Ursus Schneider
- * @version	24.10.2016
- * 
- */
 public class ESP {
 	
 	public static final int POLL_HEARTBEAT = 0;

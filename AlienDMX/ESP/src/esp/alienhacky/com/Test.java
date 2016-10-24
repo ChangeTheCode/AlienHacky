@@ -1,3 +1,10 @@
+/*
+ * Test DMX over ETHERNET
+ * 
+ * @author	Ursus Schneider
+ * @version	24.10.2016
+ * 
+ */
 package esp.alienhacky.com;
 
 import java.io.IOException;
