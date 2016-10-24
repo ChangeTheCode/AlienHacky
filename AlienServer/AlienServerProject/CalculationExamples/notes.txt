@@ -1,0 +1,15 @@
+image.jpg:
+A = -0.3
+b = 1.5
+c = 1
+d = 0
+h = 0.2
+acc bis iteration = 20
+
+image1.jpg:
+A = -0.3
+b = 1.5
+c = 1
+d = 0
+h = 0.1
+acc bis iteration = 20
