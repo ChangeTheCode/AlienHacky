@@ -14,11 +14,11 @@ public class Calculator implements Runnable {
      * values are not meant to be perfect (or let alone final), they merely serve as a placeholder until testing
      * with the physical unit can be picked up.
      */
-    private final double A = -0.3; //Change of first derivative of state variable depending on the state variable itself
+    private final double A = -1.7; //Change of first derivative of state variable depending on the state variable itself
     private final double b = 1.5; //Change of the first derivative of state variable depending on input
     private final double c = 1; //Change of output depending on state variable
     private final double d = 0; //Change of output depending directly on the input
-    private final double h = 0.1; //Step width of sim
+    private final double h = 0.01; //Step width of sim
 
     private SockComm sock;
 
@@ -68,7 +68,7 @@ public class Calculator implements Runnable {
             return null;
         }
         */
-        if(stubIteration < 20){
+        if(stubIteration < 50){
             arr[0] = 5;
             arr[1] = 0;
             arr[2] = 4;
@@ -155,7 +155,7 @@ public class Calculator implements Runnable {
                 writer.println("SenAcc0 = " + senAcc[0] + "\tSenAcc1 = " + senAcc[1] + "\tSenAcc2 = " + senAcc[2]);
                 writer.println("---------------------------------");
 
-                writer2.println(iteration + ";" + pos[2]);
+                writer2.println(iteration + ";" + pos[0]);
             }
 
             iteration++;
