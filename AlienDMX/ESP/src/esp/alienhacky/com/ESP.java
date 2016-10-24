@@ -6,84 +6,122 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-import java.util.Random;
 
+/*
+ * ESP (DMX over ETHERNET)
+ * 
+ * @author	Ursus Schneider
+ * @version	24.10.2016
+ * 
+ */
 public class ESP {
-
-	public static final String ESP_VERSION = "19.10.2016";
-	public static final String ESP_DEFAULT_IP = "10.0.0.200";
-	public static final int ESP_DEFAULT_PORT = 3333;
-
+	
 	public static final int POLL_HEARTBEAT = 0;
 	public static final int POLL_FULL_INFO = 1;
 	public static final int POLL_NODE_INFO = 2;
 
-	private static byte universe = 0;
+	public static final int ESP_DEFAULT_PORT = 3333;
+	
+	private static final String ESP_DEFAULT_IP = "10.0.0.200";
+	private static final int MAX_PACKET = 512;
+	private static final int OVERHEAD = 9;
 
-	public byte getUniverse() {
-		return ESP.universe;
+	// michael: is this better than having a constructor? do you do a constructor for each parameter pair?
+	private byte universe;
+	private String ip;
+	private int port; 
+
+	/*
+	 * constructor with default parameters
+	 */
+	ESP () {
+		this.universe = 0;
+		this.ip = ESP_DEFAULT_IP;
+		this.port = ESP_DEFAULT_PORT;
 	}
-
-	public void setUniverse(byte universe) {
-		ESP.universe = universe;
+	/*
+	 * constructor
+	 * @params	universe	we are using universe 0 -> gets set in the config untility?
+	 * @params	ip			IP we are sending to
+	 * @params	port		Port for the communication
+	 */
+	ESP (byte universe, String ip, int port) {
+		
+		this.universe = universe;
+		this.ip = ip;
+		this.port = port;
 	}
+	/*
+	 * sendPackets 			Send packet of data to the moving heads
+	 * 						Just add as may DMX instances as you have 
+	 * 
+	 * @param	dmxs		variable number of DMX objects
+	 * @return  boolean		true if data sent, else false
+	 * 
+	 */
+	public boolean sendPackets (DMX...dmxs ) throws IOException {
 
-	public static void main(String[] args) throws InterruptedException {
-
-		// Just a message so you know what is happening 
-		System.out.println ("ESP Protokoll Version " + ESP_VERSION);
-		System.out.println ("IP: " + ESP_DEFAULT_IP);
-		System.out.println ("Port: " + ESP_DEFAULT_PORT);
-
-		// just test
-		try {
-			
-			DMX head = new DMX ();
-			head.pan = 100;
-			head.tilt = 100;  // winkel
-			head.fine_pan = 0;
-			head.fine_tilt = 0;
-			head.speed_pan_tilt = 0;
-			head.color = 39; // red
-			head.shutter = (byte) 218; // on
-			head.dimmer = (byte) 255; 
-			head.gobo_wheel = 7; // open
-			head.gobo_rotation = 0; // fixed postition
-			head.special_functions = 16; // no blackout
-			head.build_in_functions = 0; // no not in use
-			
-			sendPollPacket (POLL_FULL_INFO);
-			sendDataPacket (head, 2);
-					
-			Random rand = new Random();  ;
-			
-			for (int i = 0; i < 200; i++) {
-				head.tilt = (byte) rand.nextInt(256);
-				head.pan = (byte) rand.nextInt(256);
-				head.color = (byte) rand.nextInt(256);
-				head.shutter = (byte) 216;
-				sendDataPacket (head, 2);
-			    Thread.sleep (500);
-			}
-		//		head.color = (byte) i;
-			//	sendDataPacket (head, 2);
-				// Thread.sleep (1000);
-		//		System.out.println("i = " + i);
-			//	if ((i % 20) == 0) {
-				//	System.out.println("Sleep 5 sec");
-//					Thread.sleep (5000);
-	//			}
-			//}
-			
-		} catch (IOException e) {
-			e.printStackTrace();
+		// check if you have too many DMX objects
+		int DMXCount = 0;
+		int DMXSize = 0;
+		for (DMX dmx : dmxs) { 
+			DMXCount++;
+			DMXSize = dmx.size;
 		}
+		
+		// check you have enought space in your structure
+		if ((MAX_PACKET - OVERHEAD - (DMXCount * DMXSize)) >= 0) return false;
+		
+		// check if you have any data to actually send
+		if (0 == DMXCount) return false;
+		
+		// DMX512 has a max of 512 bytes of data
+		byte[] dataPacket = new byte [OVERHEAD + (DMXCount * DMXSize)];
 
+		// we are sending data
+		dataPacket [0] = (byte) 'E';
+		dataPacket [1] = (byte) 'S';
+		dataPacket [2] = (byte) 'D';
+		dataPacket [3] = (byte) 'D';
+		dataPacket [4] = (byte) universe; 
+		dataPacket [5] = (byte) 0;  // DMX Start code
+		dataPacket [6] = (byte) 1; // Send up-to 512 bytes of DMX Data
+		
+		// now add the parameters one at a time
+		int i = OVERHEAD;
+		int dataSize = 0;
+		for (DMX dmx : dmxs) {
+			dataSize = dataSize + dmx.size; // needed later for the size of the array
+			dataPacket [i++] = dmx.pan;
+			dataPacket [i++] = dmx.tilt;
+			dataPacket [i++] = dmx.fine_pan;
+			dataPacket [i++] = dmx.fine_tilt;
+			dataPacket [i++] = dmx.speed_pan_tilt;
+			dataPacket [i++] = dmx.color;
+			dataPacket [i++] = dmx.shutter;
+			dataPacket [i++] = dmx.dimmer; 
+			dataPacket [i++] = dmx.gobo_wheel;
+			dataPacket [i++] = dmx.gobo_rotation;
+			dataPacket [i++] = dmx.special_functions;
+			dataPacket [i++] = dmx.build_in_functions;
+		}
+				
+		// get the length of the data  
+		byte[] endianSize = getBytesInBigEndian (dataSize);
+		dataPacket [7] = endianSize [2];
+		dataPacket [8] = endianSize [3];
+
+		// send the data
+		return sendPacket (dataPacket);		
 	}
-
-	private static boolean sendPollPacket (int replyType) throws IOException {
-
-		// ToDo: check parameters - maybe enums?
+	/*
+	 * sendPollPacket 		Send a poll packet to the ESP - unfortunatly I have not been able to get a return from the head
+	 * 						We do not seem to get any RC on the line at all
+	 * @params	 int		one of the following three commands: POLL_HEARTBEAT, POLL_FULL_INFO or POLL_NODE_INFO
+	 * @returns	 boolean	true
+	 */
+	// send a Poll packet
+	public boolean sendPollPacket (int replyType) throws IOException {
 
 		// setup the packet
 		byte[] dataPacket = new byte [5];
@@ -98,14 +136,19 @@ public class ESP {
 		
 		return true;
 	}
-
-	private static boolean sendPacket (byte [] data) throws IOException {
+	/*
+	 * sendPacket				Send the byte array via UPD
+	 * @params		byte array	Data to send
+	 * @returns		boolean		true if no exception
+	 * 
+	 */
+	private boolean sendPacket (byte [] data) throws IOException {
 		
 		// Get the internet address of the specified host (IP also by name)
-		InetAddress address = InetAddress.getByName (ESP_DEFAULT_IP);
+		InetAddress address = InetAddress.getByName (this.ip);
 
 		// Initialize a datagram packet with data and address
-		DatagramPacket packet = new DatagramPacket (data, data.length, address, ESP_DEFAULT_PORT);
+		DatagramPacket packet = new DatagramPacket (data, data.length, address, this.port);
 		DatagramSocket dsocket = new DatagramSocket ();
 		dsocket.send(packet);
 
@@ -115,92 +158,42 @@ public class ESP {
 		// finished
 		return true;
 	}
-	
-	private static boolean sendDataPacket (DMX head, int headNumber) throws IOException {
-
-		// setup the packet
-		byte[] dataPacket = new byte [9 + (head.size * headNumber)];
-		dataPacket [0] = (byte) 'E';
-		dataPacket [1] = (byte) 'S';
-		dataPacket [2] = (byte) 'D';
-		dataPacket [3] = (byte) 'D';
-		dataPacket [4] = (byte) universe; 
-		dataPacket [5] = (byte) 0;  // DMX Start code
-		dataPacket [6] = (byte) 1; // Send up-to 512 bytes of DMX Data
-		
-		// get the length of the data  
-		byte[] dataSize = getBytesInBigEndian (head.size * headNumber);
-		dataPacket [7] = dataSize [2];
-		dataPacket [8] = dataSize [3];
-		
-		// clear the first head
-		for (int dataPos = 0; dataPos < 12; dataPos++) {
-			dataPacket [9 + dataPos] = 0;
-		};
-		
-		// now copy my stuff  => 9 header + 12 first head = 21
-		dataPacket [21] = head.pan;
-		dataPacket [22] = head.tilt;
-		dataPacket [23] = head.fine_pan;
-		dataPacket [24] = head.fine_tilt;
-		dataPacket [25] = head.speed_pan_tilt;
-		dataPacket [26] = head.color;
-		dataPacket [27] = head.shutter;
-		dataPacket [28] = head.dimmer; 
-		dataPacket [29] = head.gobo_wheel;
-		dataPacket [30] = head.gobo_rotation;
-		dataPacket [31] = head.special_functions;
-		dataPacket [32] = head.build_in_functions;
-
-		
-		// send the data
-		sendPacket (dataPacket);
-
-		// fin
-		return true;
-	}
-
-	// return an int in a byte array in big endian format
-	public static byte[] getBytesInBigEndian (int value) {
+	/*
+	 * getBytesInBigEndian	Convert a length into a 4 byte big endian length
+	 * @params	value		int we need to convert to a big endian 4 byte value
+	 * @return	byte array	4 byte array that contains int in big endian
+	 */
+	private static byte[] getBytesInBigEndian (int value) {
 	    ByteBuffer buffer = ByteBuffer.allocate(4).order(ByteOrder.BIG_ENDIAN);
 	    buffer.putInt(value);
 	    return buffer.array();
 	}
-	
-//	public  fillArray (byte [] outArray, DMX head) {
-//
-//		head.pan = 100;
-//		head.tilt = 100;
-//		head.fine_pan = 0;
-//		head.fine_tilt = 0;
-//		head.speed_pan_tilt = 0;
-//		head.color = 9; // yellow
-//		head.shutter = 100; // strobe
-//		head.dimmer = 100; 
-//		head.gobo_wheel = 0; // open
-//		head.gobo_rotation = 0; // fixed postition
-//		head.special_functions = 16; // no blackout
-//		head.build_in_functions = 0; // no not in use
-//
-//	}
-//
-}
+	/*
+	 * 
+	 * Getters and Setters
+	 * 
+	 */
+	public byte getUniverse() {
+		return universe;
+	}
 
-class DMX {
-	
-	public byte pan = 0;
-	public byte tilt = 0;
-	public byte fine_pan = 0;
-	public byte fine_tilt = 0;
-	public byte speed_pan_tilt = 0;
-	public byte color = 0;
-	public byte shutter = 0;
-	public byte dimmer = 0;
-	public byte gobo_wheel = 0;
-	public byte gobo_rotation = 0;
-	public byte special_functions = 0;
-	public byte build_in_functions = 0;
-	
-	public int size = 12;
-	
+	public void setUniverse(byte universe) {
+		this.universe = universe;
+	}
+
+	public String getIp() {
+		return ip;
+	}
+
+	public void setIp(String ip) {
+		this.ip = ip;
+	}
+
+	public int getPort() {
+		return port;
+	}
+
+	public void setPort(int port) {
+		this.port = port;
+	}
 }
