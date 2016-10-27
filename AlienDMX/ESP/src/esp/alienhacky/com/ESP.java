@@ -70,7 +70,7 @@ public class ESP {
 		}
 		
 		// check you have enought space in your structure
-		if ((MAX_PACKET - OVERHEAD - (DMXCount * DMXSize)) >= 0) return false;
+		if ((MAX_PACKET - OVERHEAD - (DMXCount * DMXSize)) < 0) return false;
 		
 		// check if you have any data to actually send
 		if (0 == DMXCount) return false;
