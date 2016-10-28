@@ -77,7 +77,7 @@ Void taskFxn(UArg arg0, UArg arg1)
 {
     unsigned int    i;
     uint16_t        temperature;
-    uint8_t         txBuffer[1];
+    uint8_t         txBuffer[2];
     uint8_t         rxBuffer[2];
     I2C_Handle      i2c;
     I2C_Params      i2cParams;
@@ -85,7 +85,7 @@ Void taskFxn(UArg arg0, UArg arg1)
 
     /* Create I2C for usage */
     I2C_Params_init(&i2cParams);
-    i2cParams.bitRate = I2C_400kHz;
+    i2cParams.bitRate = I2C_100kHz;//I2C_400kHz;
     i2c = I2C_open(Board_I2C_TMP, &i2cParams);
     if (i2c == NULL) {
         System_abort("Error Initializing I2C\n");
@@ -95,16 +95,25 @@ Void taskFxn(UArg arg0, UArg arg1)
     }
 
     /* Point to the T ambient register and read its 2 bytes */
-    txBuffer[0] = TMP007_OBJ_TEMP;
-    i2cTransaction.slaveAddress = Board_TMP007_ADDR;
+    //txBuffer[0] = TMP007_OBJ_TEMP;
+    txBuffer[0] = 0x00; // test register
+    txBuffer[1] = 0x00; // test register
+    i2cTransaction.slaveAddress = 136;//Board_TMP007_ADDR, Lightsensor read slave adress ;
     i2cTransaction.writeBuf = txBuffer;
-    i2cTransaction.writeCount = 1;
+    i2cTransaction.writeCount = 2;
     i2cTransaction.readBuf = rxBuffer;
     i2cTransaction.readCount = 2;
 
     /* Take 20 samples and print them out onto the console */
-    for (i = 0; i < 20; i++) {
-        if (I2C_transfer(i2c, &i2cTransaction)) {  // fail, debugger never come back !
+    for (i = 135; i < 140; i++) {
+
+        txBuffer[0] = 0x01; // test register
+        txBuffer[1] = 0xaa; // test register
+    	i2cTransaction.slaveAddress = i; //136;//Board_TMP007_ADDR, Lightsensor read slave adress ;
+
+    	//int k = I2C_transfer(i2c, &i2cTransaction);
+
+        if (I2C_transfer(i2c, &i2cTransaction)) {
 
             /* Extract degrees C from the received data; see TMP102 datasheet */
             temperature = (rxBuffer[0] << 6) | (rxBuffer[1] >> 2);
@@ -125,7 +134,11 @@ Void taskFxn(UArg arg0, UArg arg1)
             System_printf("Sample %u: %d (C)\n", i, temperature);
         }
         else {
-            System_printf("I2C Bus fault\n");
+            System_printf("I2C Bus fault \n" );
+            System_printf("I2C Werte Slave Adresse %d ",i2cTransaction.slaveAddress );
+            System_printf("I2C Werte TX %d, %d \n", txBuffer[0], txBuffer[1] );
+            System_printf("I2C Werte RX %d, %d \n", rxBuffer[0], rxBuffer[1] );
+            Task_sleep(20000);
         }
 
         System_flush();
@@ -145,6 +158,8 @@ Void taskFxn(UArg arg0, UArg arg1)
 int main(void)
 {
     PIN_Handle ledPinHandle;
+    PIN_Handle green_Pin_handle;
+
     Task_Params taskParams;
 
     /* Call board init functions */
@@ -157,12 +172,19 @@ int main(void)
     taskParams.stack = &task0Stack;
     Task_construct(&task0Struct, (Task_FuncPtr)taskFxn, &taskParams, NULL);
 
+
     /* Open LED pins */
     ledPinHandle = PIN_open(&ledPinState, ledPinTable);
     if(!ledPinHandle) {
         System_abort("Error initializing board LED pins\n");
     }
 
+   /* green_Pin_handle  = PIN_open(&ledPinState, ledPinTable );
+    if(!green_Pin_handle) {
+		System_abort("Error initializing board green LED pins\n");
+	}*/
+
+    PIN_setOutputValue(ledPinHandle, Board_LED0, 1);
     PIN_setOutputValue(ledPinHandle, Board_LED1, 1);
 
 
