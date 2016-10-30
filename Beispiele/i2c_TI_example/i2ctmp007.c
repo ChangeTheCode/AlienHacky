@@ -85,7 +85,7 @@ Void taskFxn(UArg arg0, UArg arg1)
 
     /* Create I2C for usage */
     I2C_Params_init(&i2cParams);
-    i2cParams.bitRate = I2C_100kHz;//I2C_400kHz;
+    i2cParams.bitRate = I2C_400kHz;
     i2c = I2C_open(Board_I2C_TMP, &i2cParams);
     if (i2c == NULL) {
         System_abort("Error Initializing I2C\n");
@@ -105,11 +105,11 @@ Void taskFxn(UArg arg0, UArg arg1)
     i2cTransaction.readCount = 2;
 
     /* Take 20 samples and print them out onto the console */
-    for (i = 135; i < 140; i++) {
+    for (i = 135; i < 170; i++) {
 
         txBuffer[0] = 0x01; // test register
         txBuffer[1] = 0xaa; // test register
-    	i2cTransaction.slaveAddress = i; //136;//Board_TMP007_ADDR, Lightsensor read slave adress ;
+    	i2cTransaction.slaveAddress = 137; //136;//Board_TMP007_ADDR, Lightsensor read slave adress ;
 
     	//int k = I2C_transfer(i2c, &i2cTransaction);
 

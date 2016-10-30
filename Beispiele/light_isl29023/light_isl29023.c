@@ -427,12 +427,12 @@ main(void)
 
     // Enable the GPIO port that is used for the on-board LED.
 	//
-	SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOG);
+	/*SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOG);
 	// Check if the peripheral access is enabled.
 	while(!SysCtlPeripheralReady(SYSCTL_PERIPH_GPIOG))
 	{
 	}
-
+*/
     //
     // Initialize the UART and its pins.
     //
@@ -597,7 +597,7 @@ main(void)
  //   RGBBlinkRateSet(1.0f);
 
     // Set PA 2 to Output
-    GPIOPinTypeGPIOOutput(GPIO_PORTG_BASE, GPIO_PIN_2);
+    //GPIOPinTypeGPIOOutput(GPIO_PORTG_BASE, GPIO_PIN_2);
 
     //
     // Loop Forever
@@ -612,7 +612,7 @@ main(void)
             g_vui8DataFlag = 0;
 
             state ^= 1;
-            GPIOPinWrite(GPIO_PORTG_BASE, GPIO_PIN_2, 1);
+            //GPIOPinWrite(GPIO_PORTG_BASE, GPIO_PIN_2, 1);
 
             //
             // Get a local floating point copy of the latest light data
@@ -633,9 +633,9 @@ main(void)
             //
             // Print the temperature as integer and fraction parts.
             //
-            //UARTprintf("Visible Lux: %3d.%03d\n", i32IntegerPart, i32FractionPart);
+            UARTprintf("Visible Lux: %3d.%03d\n", i32IntegerPart, i32FractionPart);
 
-            GPIOPinWrite(GPIO_PORTG_BASE, GPIO_PIN_2, 0);
+            //GPIOPinWrite(GPIO_PORTG_BASE, GPIO_PIN_2, 0);
 
             //
             // Check if the intensity of light has crossed a threshold. If so
