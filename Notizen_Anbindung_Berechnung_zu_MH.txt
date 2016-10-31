@@ -57,4 +57,8 @@ Scheinwerfer aufholen zu lassen). Dies ist zwar wesentlich komplexer zu
 implementieren, dafür jedoch funktional überlegen.
 Da selbstnatürlich alle Mitglieder der Aliens nur auf hochwertige Lösungen,
 unabhängig vom Arbeitsaufwand, aus sind und sie alle übelst 1337 sind, wurde
-zweitere Variante vorgezogen.
+zweitere Variante vorgezogen. Die vom Berechner generierten Daten werden dazu
+in eine sog. "ArrayBlockingQueue" (Unterklasse von BlockingQueue) geschrieben,
+wo sie vom Scheinwerfer Thread konsumiert werden, um den MH nachzustellen. Das
+Füllen dieser BlockingQueue erfolgt dabei nur "auf Wunsch" des Scheinwerfer-
+Threads, da dieser das langsamste Glied in der Kette ist

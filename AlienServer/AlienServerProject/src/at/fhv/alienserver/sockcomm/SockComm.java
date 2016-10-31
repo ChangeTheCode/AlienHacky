@@ -1,10 +1,13 @@
 package at.fhv.alienserver.sockcomm;
 
-/**
- * Created by thomas on 18.10.16.
- */
+import at.fhv.alienserver.AccelerationContainer;
 
-// TODO: Basically this entire source file
+/**
+ * Class for communication with AlienSock
+ *
+ * @author tri7484
+ * @version 31.10.2016
+ */
 
 public class SockComm implements Runnable {
     public SockComm(){
@@ -12,9 +15,9 @@ public class SockComm implements Runnable {
     }
 
     //getSenAcc --> get-sensor-acceleration-values
-    public double[] getSenAcc(double[] arr){
-        //magically acquire the current values of acceleration imposed on the hacky sack and return them
-        return arr;
+    public AccelerationContainer getSenAcc(){
+        //TODO: magically acquire the current values of acceleration imposed on the hacky sack and return them
+        return new AccelerationContainer();
     }
 
     public void run(){

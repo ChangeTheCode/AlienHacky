@@ -1,4 +1,4 @@
-package at.fhv.alienserver.esp;
+package at.fhv.alienserver.movingHead;
 
 /*
  * ESP (DMX over ETHERNET)
@@ -15,7 +15,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.concurrent.BlockingQueue;
 
-public class ESP implements Runnable{
+public class ESP {
 
     public static final int POLL_HEARTBEAT = 0;
     public static final int POLL_FULL_INFO = 1;
@@ -31,17 +31,13 @@ public class ESP implements Runnable{
     private byte universe;
     private String ip;
     private int port;
-
-    private BlockingQueue q;
-
     /*
      * constructor with default parameters
      */
-    public ESP (BlockingQueue q) {
+    public ESP () {
         this.universe = 0;
         this.ip = ESP_DEFAULT_IP;
         this.port = ESP_DEFAULT_PORT;
-        this.q = q;
     }
     /*
      * constructor
@@ -49,12 +45,11 @@ public class ESP implements Runnable{
      * @params	ip			IP we are sending to
      * @params	port		Port for the communication
      */
-    public ESP (BlockingQueue q, byte universe, String ip, int port) {
+    public ESP (byte universe, String ip, int port) {
 
         this.universe = universe;
         this.ip = ip;
         this.port = port;
-        this.q = q;
     }
     /*
      * sendPackets 			Send packet of data to the moving heads
@@ -64,11 +59,6 @@ public class ESP implements Runnable{
      * @return  boolean		true if data sent, else false
      *
      */
-    public void run(){
-        /**
-         * TODO: Put magic here
-         */
-    }
 
     public boolean sendPackets (DMX...dmxs ) throws IOException {
 
@@ -81,7 +71,7 @@ public class ESP implements Runnable{
         }
 
         // check you have enought space in your structure
-        if ((MAX_PACKET - OVERHEAD - (DMXCount * DMXSize)) >= 0) return false;
+        if ((MAX_PACKET - OVERHEAD - (DMXCount * DMXSize)) < 0) return false;
 
         // check if you have any data to actually send
         if (0 == DMXCount) return false;

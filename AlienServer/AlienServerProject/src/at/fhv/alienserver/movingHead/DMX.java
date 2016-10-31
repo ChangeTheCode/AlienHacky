@@ -1,4 +1,4 @@
-package at.fhv.alienserver.esp;
+package at.fhv.alienserver.movingHead;
 
 /*
  * DMX Class
@@ -25,19 +25,19 @@ public class DMX {
 
     // constructor
     DMX () {
-        this.pan = 0;
-        this.pan = 0;
-        this.tilt = 0;
+        //TODO: Check these first two values
+        this.pan = (byte)270; //Set pointing straight to the ground
+        this.tilt = (byte)135; //Set pointing straight to the ground
         this.fine_pan = 0;
         this.fine_tilt = 0;
         this.speed_pan_tilt = 0;
-        this.color = 0;
-        this.shutter = 0;
-        this.dimmer = 0;
-        this.gobo_wheel = 0;
-        this.gobo_rotation = 0;
-        this.special_functions = 0;
-        this.build_in_functions = 0;
+        this.color = 39; //red, TODO: Change to pink
+        this.shutter = (byte)218; //on
+        this.dimmer = (byte)255;
+        this.gobo_wheel = 7; // open
+        this.gobo_rotation = 0; // fixed position
+        this.special_functions = 16; // no blackout
+        this.build_in_functions = 0; // no not in use
         this.size = 12;
     }
 

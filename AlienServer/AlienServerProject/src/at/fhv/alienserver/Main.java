@@ -1,30 +1,36 @@
 package at.fhv.alienserver;
 
 import at.fhv.alienserver.calculator.Calculator;
-import at.fhv.alienserver.esp.ESP;
+import at.fhv.alienserver.movingHead.MHControl;
 import at.fhv.alienserver.sockcomm.SockComm;
 
 import java.util.concurrent.ArrayBlockingQueue;
 
+
 public class Main {
+    //TODO: Check again if controls to the moving head happen in accordance to handwritten notes and the txt-file
+
+    public static final int POS_CONTAINER_SIZE = 50;
 
     public static void main(String[] args) {
-        ArrayBlockingQueue<CoordinateContainer> pointContainer = new ArrayBlockingQueue<CoordinateContainer>(50);
+        ArrayBlockingQueue<CoordinateContainer> pointContainer = new ArrayBlockingQueue<>(POS_CONTAINER_SIZE);
 
         SockComm mySock = new SockComm();
         Calculator myCalc = new Calculator(mySock, pointContainer);
-        ESP myESP = new ESP(pointContainer);
+        MHControl mhControl = new MHControl(pointContainer);
 
         Thread sockThread = new Thread(mySock);
         Thread calcThread = new Thread(myCalc);
-
+        Thread mhThread = new Thread(mhControl);
 
         sockThread.start();
         calcThread.start();
+        mhThread.start();
 
         try {
             sockThread.join();
             calcThread.join();
+            mhThread.join();
         } catch (InterruptedException e){
             System.out.println("Thread(s) got interrupted: " + e);
             e.printStackTrace();
@@ -34,6 +40,8 @@ public class Main {
             sockThread.stop();
             //noinspection deprecation
             calcThread.stop();
+            //noinspection deprecation
+            mhThread.stop();
         }
 
     }
