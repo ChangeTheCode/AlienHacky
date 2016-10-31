@@ -7,14 +7,15 @@ package at.fhv.alienserver.esp;
  * @version	24.10.2016
  *
  */
-        import java.io.IOException;
-        import java.net.DatagramPacket;
-        import java.net.DatagramSocket;
-        import java.net.InetAddress;
-        import java.nio.ByteBuffer;
-        import java.nio.ByteOrder;
+import java.io.IOException;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.util.concurrent.BlockingQueue;
 
-public class ESP {
+public class ESP implements Runnable{
 
     public static final int POLL_HEARTBEAT = 0;
     public static final int POLL_FULL_INFO = 1;
@@ -31,13 +32,16 @@ public class ESP {
     private String ip;
     private int port;
 
+    private BlockingQueue q;
+
     /*
      * constructor with default parameters
      */
-    ESP () {
+    public ESP (BlockingQueue q) {
         this.universe = 0;
         this.ip = ESP_DEFAULT_IP;
         this.port = ESP_DEFAULT_PORT;
+        this.q = q;
     }
     /*
      * constructor
@@ -45,11 +49,12 @@ public class ESP {
      * @params	ip			IP we are sending to
      * @params	port		Port for the communication
      */
-    ESP (byte universe, String ip, int port) {
+    public ESP (BlockingQueue q, byte universe, String ip, int port) {
 
         this.universe = universe;
         this.ip = ip;
         this.port = port;
+        this.q = q;
     }
     /*
      * sendPackets 			Send packet of data to the moving heads
@@ -59,6 +64,12 @@ public class ESP {
      * @return  boolean		true if data sent, else false
      *
      */
+    public void run(){
+        /**
+         * TODO: Put magic here
+         */
+    }
+
     public boolean sendPackets (DMX...dmxs ) throws IOException {
 
         // check if you have too many DMX objects

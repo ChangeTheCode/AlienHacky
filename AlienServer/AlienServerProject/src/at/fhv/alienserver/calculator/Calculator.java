@@ -1,9 +1,13 @@
 package at.fhv.alienserver.calculator;
 
 import static java.lang.Math.sqrt;
+
+import at.fhv.alienserver.CoordinateContainer;
+import at.fhv.alienserver.accelerationContainer;
 import at.fhv.alienserver.sockcomm.SockComm;
 
 import java.io.PrintWriter;
+import java.util.concurrent.BlockingQueue;
 
 /**
  * Created by thomas on 18.10.16.
@@ -25,14 +29,14 @@ public class Calculator implements Runnable {
     private int stubIteration = 0;
     private int iteration = 0;
 
-    public Calculator(SockComm suppliedSock){
+    private BlockingQueue<CoordinateContainer> q;
+
+    public Calculator(SockComm suppliedSock, BlockingQueue<CoordinateContainer> q){
         sock = suppliedSock;
+        this.q = q;
     }
 
-    private double[] getSenAcc(double[] arr){
-        if(arr.length != 3){
-            return null;
-        }
+    private accelerationContainer getSenAcc(accelerationContainer arr){
         /*
         if(stubIteration < 80){
             arr[0] = 0;
@@ -69,15 +73,15 @@ public class Calculator implements Runnable {
         }
         */
         if(stubIteration < 50){
-            arr[0] = 5;
-            arr[1] = 0;
-            arr[2] = 4;
+            arr.x = 5;
+            arr.y = 0;
+            arr.z = 4;
             stubIteration++;
             return arr;
         } else {
-            arr[0] = 0;
-            arr[1] = 0;
-            arr[2] = -9.81;
+            arr.x = 0;
+            arr.y = 0;
+            arr.z = -9.81;
             stubIteration++;
             return arr;
         }
@@ -112,16 +116,11 @@ public class Calculator implements Runnable {
         double acc[] = new double[3];
 
         //Array to hold the acceleration values retrieved from the sock-unit
-        double senAcc[] = new double[3];
+        accelerationContainer senAcc = new accelerationContainer();
 
         while(true){
             //senAcc = sock.getSenAcc(senAcc); TODO: Actually make this happen
             senAcc = getSenAcc(senAcc);
-
-            if(senAcc == null){
-                //Something somewhere went terribly wrong :(
-                break;
-            }
 
             //Maybe we have to use this to stop the sack when it gets kicked???
             /*
@@ -135,24 +134,24 @@ public class Calculator implements Runnable {
              }
              */
 
-            acc[0] = signum(acc[0]) * signum(A) * sqrt(A * A * speed[0] * speed[0]) + b * senAcc[0];
-            acc[1] = signum(acc[1]) * signum(A) * sqrt(A * A * speed[1] * speed[1]) + b * senAcc[1];
-            acc[2] = signum(acc[2]) * signum(A) * sqrt(A * A * speed[2] * speed[2]) + b * senAcc[2];
+            acc[0] = signum(acc[0]) * signum(A) * sqrt(A * A * speed[0] * speed[0]) + b * senAcc.x;
+            acc[1] = signum(acc[1]) * signum(A) * sqrt(A * A * speed[1] * speed[1]) + b * senAcc.y;
+            acc[2] = signum(acc[2]) * signum(A) * sqrt(A * A * speed[2] * speed[2]) + b * senAcc.z;
 
             speed[0] = speed[0] + acc[0] * h;
             speed[1] = speed[1] + acc[1] * h;
             speed[2] = speed[2] + acc[2] * h;
 
-            pos[0] = pos[0] + c * speed[0] * h + d * senAcc[0];
-            pos[1] = pos[1] + c * speed[1] * h + d * senAcc[1];
-            pos[2] = pos[2] + c * speed[2] * h + d * senAcc[2];
+            pos[0] = pos[0] + c * speed[0] * h + d * senAcc.x;
+            pos[1] = pos[1] + c * speed[1] * h + d * senAcc.y;
+            pos[2] = pos[2] + c * speed[2] * h + d * senAcc.z;
 
             if(iteration % 2 == 0) {
                 writer.println("Iteration #" + iteration);
                 writer.println("Acc0 = " + acc[0] + "\tAcc1 = " + acc[1] + "\tAcc2 = " + acc[2]);
                 writer.println("Speed0 = " + speed[0] + "\tSpeed1 = " + speed[1] + "\tspeed2 = " + speed[2]);
                 writer.println("Pos0 = " + pos[0] + "\tPos1 = " + pos[1] + "\tPos2 = " + pos[2]);
-                writer.println("SenAcc0 = " + senAcc[0] + "\tSenAcc1 = " + senAcc[1] + "\tSenAcc2 = " + senAcc[2]);
+                writer.println("SenAcc0 = " + senAcc.x + "\tSenAcc1 = " + senAcc.y + "\tSenAcc2 = " + senAcc.z);
                 writer.println("---------------------------------");
 
                 writer2.println(iteration + ";" + pos[0]);
