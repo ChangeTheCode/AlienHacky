@@ -5,7 +5,7 @@
  * @version	24.10.2016
  * 
  */
-package esp.alienhacky.com;
+///package esp.alienhacky.com;
 
 import java.io.IOException;
 
@@ -49,8 +49,8 @@ public class Test {
 
 		// setup head 2
 		DMX head = new DMX ();
-		head.pan = 100;
-		head.tilt = 100;  // winkel
+		head.pan = (byte)150;
+		head.tilt = (byte)150;  // winkel
 		head.fine_pan = 0;
 		head.fine_tilt = 0;
 		head.speed_pan_tilt = 0;
