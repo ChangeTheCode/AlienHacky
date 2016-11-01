@@ -1,5 +1,6 @@
 package at.fhv.alienserver.calculator;
 
+import static java.lang.Math.signum;
 import static java.lang.Math.sqrt;
 
 import at.fhv.alienserver.CoordinateContainer;
@@ -10,23 +11,45 @@ import at.fhv.alienserver.sockcomm.SockComm;
 import java.io.PrintWriter;
 import java.util.concurrent.BlockingQueue;
 
+//TODO: Add support for java-thread-interrupts to allow for kicks to happen, or think of another way of how to implement these
+
 /**
- * Calculator class
+ * Class implementing the ball flight simulation for the AlienHacky Project.
+ * <p>
+ * The class itself implements "Runnable" so it is supposed to be poured into a Thread object. The simulation itself
+ * is based on a state space representation of a point mass (used as our hacky sack) and a forward euler solver. This
+ * solver was chosen because it is very simple and needs to know very little data in order to properly function.
  *
  * @author tri7484
- * @version 31.10.2016
- */
+ * @version 1.11.2016
+  */
 public class Calculator implements Runnable {
     /*
      * The following vars give the parameters for the calculation in state space. Please note that as of now, these
      * values are not meant to be perfect (or let alone final), they merely serve as a placeholder until testing
      * with the physical unit can be picked up.
      */
-    private final double A = -1.7; //Change of first derivative of state variable depending on the state variable itself
-    private final double b = 1.5; //Change of the first derivative of state variable depending on input
-    private final double c = 1; //Change of output depending on state variable
-    private final double d = 0; //Change of output depending directly on the input
-    private final double h = 0.01; //Step width of sim
+
+    /**
+     * Change of first derivative of state variable depending on the state variable itself
+     */
+    private final double A = -1.7;
+    /**
+     * Change of the first derivative of state variable depending on input
+     */
+    private final double b = 1.5;
+    /**
+     * Change of output depending on state variable
+     */
+    private final double c = 1;
+    /**
+     * Change of output depending directly on the input
+     */
+    private final double d = 0;
+    /**
+     * Step width of simulation in seconds
+     */
+    private final double h = 0.01;
 
     private SockComm sock;
 
@@ -98,20 +121,6 @@ public class Calculator implements Runnable {
 
     }
 
-    private int signum(double d){
-        boolean bigger = 0 < d;
-        boolean smaller = d < 0;
-        if(!bigger && !smaller){
-            return 0;
-        } else if (bigger){
-            return 1;
-        } else{
-            return -1;
-        }
-    }
-
-
-
     public void run(){
         PrintWriter writer;
         PrintWriter writer2;
@@ -121,15 +130,11 @@ public class Calculator implements Runnable {
         } catch (Exception e){
             return;
         }
-        //Arrays to hold acceleration, speed and position of the hacky sack
-//        double pos[] = new double[3];
-//        double speed[] = new double[3];
-//        double acc[] = new double[3];
+
         CoordinateContainer pos = new CoordinateContainer();
         SpeedContainer speed = new SpeedContainer();
         AccelerationContainer acc = new AccelerationContainer();
 
-        //Array to hold the acceleration values retrieved from the sock-unit
         AccelerationContainer senAcc = new AccelerationContainer();
 
         while(true){

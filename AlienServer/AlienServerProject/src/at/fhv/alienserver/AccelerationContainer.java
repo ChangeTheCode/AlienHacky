@@ -10,4 +10,10 @@ public class AccelerationContainer {
         this.y = 0;
         this.z = 0;
     }
+
+    public AccelerationContainer(AccelerationContainer source){
+        this.x = source.x;
+        this.y = source.y;
+        this.z = source.z;
+    }
 }

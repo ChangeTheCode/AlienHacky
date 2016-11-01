@@ -6,10 +6,22 @@ import at.fhv.alienserver.sockcomm.SockComm;
 
 import java.util.concurrent.ArrayBlockingQueue;
 
-
+/**
+ * Class holding the main routine.
+ * <p>
+ * The main routine instantiates the other necessary components of the AlienServer, assigns Thread-Objects to them,
+ * starts these and then waits until they all exit.
+ *
+ * @author tri7484
+ * @version 1.11.2016
+ */
 public class Main {
-    //TODO: Check again if controls to the moving head happen in accordance to handwritten notes and the txt-file
-
+    /**
+     * A constant used to hold the number of positions stored in the according container before the calculator-thread
+     * gets blocked again.
+     * <p>
+     * Number is saved in this awkward way because the author couldn't find a replacement for the good old #define.
+     */
     public static final int POS_CONTAINER_SIZE = 20;
 
     public static void main(String[] args) {
@@ -34,7 +46,11 @@ public class Main {
         } catch (InterruptedException e){
             System.out.println("Thread(s) got interrupted: " + e);
             e.printStackTrace();
-            //In this very specific case we're screwed anyways so we can just kill our threads and exit the AlienServer
+            /*
+             * Yes, I know that using the "stop()" call is considered deprecated but in this very specific case the
+             * threads are definitely not meant to be interrupted so we're screwed anyways
+             * and hence we can just kill our threads and exit the AlienServer
+             */
 
             //noinspection deprecation
             sockThread.stop();

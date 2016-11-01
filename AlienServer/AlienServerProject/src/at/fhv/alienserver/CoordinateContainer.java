@@ -10,4 +10,10 @@ public class CoordinateContainer {
         this.y = 0;
         this.z = 0;
     }
+
+    public CoordinateContainer(CoordinateContainer source){
+        this.x = source.x;
+        this.y = source.y;
+        this.z = source.z;
+    }
 }

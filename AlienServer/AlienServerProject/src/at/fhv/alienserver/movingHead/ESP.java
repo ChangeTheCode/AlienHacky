@@ -14,13 +14,13 @@ import java.net.InetAddress;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
-public class ESP {
+class ESP {
 
-    public static final int POLL_HEARTBEAT = 0;
-    public static final int POLL_FULL_INFO = 1;
-    public static final int POLL_NODE_INFO = 2;
+    private static final int POLL_HEARTBEAT = 0;
+    private static final int POLL_FULL_INFO = 1;
+    private static final int POLL_NODE_INFO = 2;
 
-    public static final int ESP_DEFAULT_PORT = 3333;
+    private static final int ESP_DEFAULT_PORT = 3333;
 
     private static final String ESP_DEFAULT_IP = "10.0.0.200";
     private static final int MAX_PACKET = 512;
@@ -33,7 +33,7 @@ public class ESP {
     /*
      * constructor with default parameters
      */
-    public ESP () {
+    ESP() {
         this.universe = 0;
         this.ip = ESP_DEFAULT_IP;
         this.port = ESP_DEFAULT_PORT;
@@ -44,7 +44,7 @@ public class ESP {
      * @params	ip			IP we are sending to
      * @params	port		Port for the communication
      */
-    public ESP (byte universe, String ip, int port) {
+    ESP (byte universe, String ip, int port) {
 
         this.universe = universe;
         this.ip = ip;
@@ -59,7 +59,7 @@ public class ESP {
      *
      */
 
-    public boolean sendPackets (DMX...dmxs ) throws IOException {
+    boolean sendPackets(DMX... dmxs) throws IOException {
 
         // check if you have too many DMX objects
         int DMXCount = 0;
@@ -121,7 +121,7 @@ public class ESP {
      * @returns	 boolean	true
      */
     // send a Poll packet
-    public boolean sendPollPacket (int replyType) throws IOException {
+    boolean sendPollPacket (int replyType) throws IOException {
 
         // setup the packet
         byte[] dataPacket = new byte [5];
@@ -173,27 +173,27 @@ public class ESP {
      * Getters and Setters
      *
      */
-    public byte getUniverse() {
+    byte getUniverse() {
         return universe;
     }
 
-    public void setUniverse(byte universe) {
+    void setUniverse(byte universe) {
         this.universe = universe;
     }
 
-    public String getIp() {
+    String getIp() {
         return ip;
     }
 
-    public void setIp(String ip) {
+    void setIp(String ip) {
         this.ip = ip;
     }
 
-    public int getPort() {
+    int getPort() {
         return port;
     }
 
-    public void setPort(int port) {
+    void setPort(int port) {
         this.port = port;
     }
 }
