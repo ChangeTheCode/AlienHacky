@@ -10,7 +10,7 @@ import java.util.concurrent.ArrayBlockingQueue;
 public class Main {
     //TODO: Check again if controls to the moving head happen in accordance to handwritten notes and the txt-file
 
-    public static final int POS_CONTAINER_SIZE = 50;
+    public static final int POS_CONTAINER_SIZE = 20;
 
     public static void main(String[] args) {
         ArrayBlockingQueue<CoordinateContainer> pointContainer = new ArrayBlockingQueue<>(POS_CONTAINER_SIZE);

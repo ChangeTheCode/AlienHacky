@@ -41,21 +41,23 @@ public class DMX {
         this.size = 12;
     }
 
-//    public byte getPan() {
-//        return pan;
-//    }
-//
-//    public void setPan(byte pan) {
-//        this.pan = pan;
-//    }
-//
-//    public byte getTilt() {
-//        return tilt;
-//    }
-//
-//    public void setTilt(byte tilt) {
-//        this.tilt = tilt;
-//    }
+    //TODO: Revise this function
+    public byte getPan() {
+        return pan;
+    }
+
+    public void setPan(double pan) {
+        this.pan = (byte)(255.0 / 540.0 * pan);
+    }
+
+    //TODO: Revise this function
+    public byte getTilt() {
+        return tilt;
+    }
+
+    public void setTilt(double tilt) {
+        this.tilt = (byte)(255.0 / 270.0 * tilt);
+    }
 //
 //    public byte getFine_pan() {
 //        return fine_pan;

@@ -40,7 +40,7 @@ public class Calculator implements Runnable {
         this.positionValuesDump = positionValuesDump;
     }
 
-    private AccelerationContainer getSenAcc(AccelerationContainer arr){
+    private AccelerationContainer stub_getSenAcc(AccelerationContainer arr){
         /*
         if(stubIteration < 80){
             arr[0] = 0;
@@ -76,7 +76,13 @@ public class Calculator implements Runnable {
             return null;
         }
         */
-        if(stubIteration < 50){
+        if(stubIteration < 40){
+            arr.x = 0;
+            arr.y = 0;
+            arr.z = 0;
+            stubIteration ++;
+            return arr;
+        } else if(stubIteration < 90){
             arr.x = 5;
             arr.y = 0;
             arr.z = 4;
@@ -89,6 +95,7 @@ public class Calculator implements Runnable {
             stubIteration++;
             return arr;
         }
+
     }
 
     private int signum(double d){
@@ -127,7 +134,7 @@ public class Calculator implements Runnable {
 
         while(true){
             //senAcc = sock.getSenAcc(senAcc); TODO: Actually make this happen
-            senAcc = getSenAcc(senAcc);
+            senAcc = stub_getSenAcc(senAcc);
 
             //Maybe we have to use this to stop the sack when it gets kicked???
             /*

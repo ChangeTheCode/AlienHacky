@@ -9,6 +9,8 @@ import at.fhv.alienserver.AccelerationContainer;
  * @version 31.10.2016
  */
 
+//TODO: Just implement anything here!!!
+
 public class SockComm implements Runnable {
     public SockComm(){
         //Nothing of interest here ;-)
