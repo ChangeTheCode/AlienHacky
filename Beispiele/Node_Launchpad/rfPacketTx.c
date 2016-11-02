@@ -172,6 +172,8 @@ uint8_t button_pressed = 0;
 
 uint8_t uart_text[] = "packet gesendet\n";
 
+RF_CmdHandle rxHandle;
+
 
 /***** Function definitions *****/
 void RxTask_init(PIN_Handle ledPinHandle) {
@@ -191,6 +193,12 @@ static void rxTaskFunction(UArg arg0, UArg arg1)
 	//rx init
     RF_Params rfParams;
     RF_Params_init(&rfParams);
+
+    rfParams.nInactivityTimeout = 200; // 200us
+
+    RF_ScheduleCmdParams schParams;
+    schParams.priority = RF_PriorityNormal;
+    schParams.endTime = 0;
 
     if( RFQueue_defineQueue(&dataQueue,
                             rxDataEntryBuffer,
@@ -220,10 +228,16 @@ static void rxTaskFunction(UArg arg0, UArg arg1)
 		RF_postCmd(rfHandle, (RF_Op*)&RF_cmdFs, RF_PriorityNormal, NULL, 0);
 	}
 
+
+    ////////////////
+    txTaskFunction(0,0);
+    ////////////////////////////
     while(1)
     {
 		/* Enter RX mode and stay forever in RX */
+
 		RF_runCmd(rfHandle, (RF_Op*)&RF_cmdPropRx, RF_PriorityNormal, &callback, IRQ_RX_ENTRY_DONE);
+//    	rxHandle = RF_postCmd(rfHandle, (RF_Op*)&RF_cmdPropRx, RF_PriorityNormal, &callback, IRQ_RX_ENTRY_DONE);
 		Semaphore_pend(semRxHandle, BIOS_WAIT_FOREVER);
     }
 
@@ -231,6 +245,7 @@ static void rxTaskFunction(UArg arg0, UArg arg1)
 
 void callback(RF_Handle h, RF_CmdHandle ch, RF_EventMask e)
 {
+	int i = e & RF_EventRxEntryDone;
     if (e & RF_EventRxEntryDone)
     {
         /* Toggle pin to indicate RX */
@@ -254,8 +269,11 @@ void callback(RF_Handle h, RF_CmdHandle ch, RF_EventMask e)
 			PIN_setOutputValue(pinHandle, Board_LED1,!PIN_getOutputValue(Board_LED1));
         }
 
+
+
         RFQueue_nextEntry();
     }
+
 }
 
 void TxTask_init(PIN_Handle inPinHandle)
@@ -297,6 +315,11 @@ static void txTaskFunction(UArg arg0, UArg arg1)
 	// rf init
     RF_Params rfParams;
     RF_Params_init(&rfParams);
+    rfParams.nInactivityTimeout = 200; // 200us
+
+    RF_ScheduleCmdParams schParams;
+    schParams.priority = RF_PriorityNormal;
+    schParams.endTime = 0;
 
     RF_cmdPropTx.pktLen = PAYLOAD_LENGTH;
     RF_cmdPropTx.pPkt = packet;
@@ -348,13 +371,16 @@ static void txTaskFunction(UArg arg0, UArg arg1)
 	int y;
 	for(y = 0; y < 8; y++) macAddress[y] = macAddressInt >> (8-1-y)*8;
 
-    while(1)
-    {
-    	Semaphore_pend(semTxHandle, BIOS_WAIT_FOREVER);
+	button_pressed = 1;
 
-//    	if(button_pressed == 1)
-//    	{
-//			button_pressed = 0;
+//    while(1)
+//    {
+//    	Semaphore_pend(semTxHandle, BIOS_WAIT_FOREVER);
+
+
+    	if(button_pressed == 1)
+    	{
+			button_pressed = 0;
 
 
 
@@ -379,17 +405,21 @@ static void txTaskFunction(UArg arg0, UArg arg1)
 			}
 
 			/* Send packet */
-			RF_EventMask result = RF_runCmd(rfHandle, (RF_Op*)&RF_cmdPropTx, RF_PriorityNormal, NULL, 0);
+//			RF_Stat r = RF_cancelCmd(rfHandle, rxHandle, 1);
+			RF_EventMask result = RF_runCmd(rfHandle, (RF_Op*)&RF_cmdPropTx, RF_PriorityHighest, NULL, 0);
 			if (!(result & RF_EventLastCmdDone))
 			{
 				/* Error */
 				while(1);
 			}
+//			RF_CmdHandle tx = RF_postCmd(rfHandle, (RF_Op*)&RF_cmdPropTx, RF_PriorityHighest, NULL, 0);
+//			RF_Stat tx2 = RF_runDirectCmd(rfHandle, tx);
+			//RF_EventMask tx2 = RF_pendCmd(rfHandle, tx, RF_EventCmdDone | RF_EventLastCmdDone | RF_EventTxDone);
 			UART_write(uart, &uart_text, 16);
 
-//    	}
+    	}
 		Semaphore_post(semRxHandle);
-    }
+//    }
 }
 
 void buttonCallbackFxn(PIN_Handle handle, PIN_Id pinId) {
@@ -404,16 +434,18 @@ void buttonCallbackFxn(PIN_Handle handle, PIN_Id pinId) {
                 currVal =  PIN_getOutputValue(Board_LED0);
                 PIN_setOutputValue(ledPinHandle, Board_LED0, !currVal);
                 button_pressed = 1;
-    			Semaphore_post(semTxHandle);
+//    			Semaphore_post(semTxHandle);
                 break;
 
             case Board_BUTTON1:
                 currVal =  PIN_getOutputValue(Board_LED1);
                 PIN_setOutputValue(ledPinHandle, Board_LED1, !currVal);
+//                Semaphore_post(semRxHandle);
                 break;
 
             default:
                 /* Do nothing */
+//            	Semaphore_post(semRxHandle);
                 break;
         }
     }
@@ -425,6 +457,7 @@ void buttonCallbackFxn(PIN_Handle handle, PIN_Id pinId) {
 int main(void)
 {
 	Semaphore_Params semParams;
+//	semParams.mode = ti_sysbios_knl_Semaphore_Mode_BINARY;
 
     /* Call board init functions. */
     Board_initGeneral();
@@ -458,7 +491,7 @@ int main(void)
 	semRxHandle = Semaphore_handle(&semRxStruct);
 
     /* Initialize task */
-    TxTask_init(ledPinHandle);
+//    TxTask_init(ledPinHandle);
     RxTask_init(ledPinHandle);
 
     /* Start BIOS */
