@@ -96,11 +96,9 @@ Void taskFxn(UArg arg0, UArg arg1)
 
     /* Point to the T ambient register and read its 2 bytes */
     //txBuffer[0] = TMP007_OBJ_TEMP;
-    txBuffer[0] = 0x00; // test register
-    txBuffer[1] = 0x00; // test register
     i2cTransaction.slaveAddress = 136;//Board_TMP007_ADDR, Lightsensor read slave adress ;
     i2cTransaction.writeBuf = txBuffer;
-    i2cTransaction.writeCount = 2;
+    i2cTransaction.writeCount = 1;
     i2cTransaction.readBuf = rxBuffer;
     i2cTransaction.readCount = 2;
 
@@ -108,7 +106,7 @@ Void taskFxn(UArg arg0, UArg arg1)
     for (i = 135; i < 170; i++) {
 
         txBuffer[0] = 0x01; // test register
-        txBuffer[1] = 0xaa; // test register
+        //txBuffer[1] = 0xaa; // test register
     	i2cTransaction.slaveAddress = 137; //136;//Board_TMP007_ADDR, Lightsensor read slave adress ;
 
     	//int k = I2C_transfer(i2c, &i2cTransaction);
