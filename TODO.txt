@@ -1,0 +1,2 @@
+Das System sei momentan kein Echtzeitsystem; sollte entsprechend umgebaut werden, dass der aktuelle Status vom Producer stets in ein Statusobjekt geschrieben wird, wo der Consumer ihn
+abholen kann. Die Simulationszeit sollte der echten Zeit angepasst sein. Die aktuelle Lösung sei ein Hack und schlecht ausbaubar.
