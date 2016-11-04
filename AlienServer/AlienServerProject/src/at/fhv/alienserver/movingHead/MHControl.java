@@ -41,7 +41,8 @@ public class MHControl implements Runnable{
     /**
      * Offset of the moving head relative to center of game coordinate system in x - direction
      */
-    private final double mhOffsetX = 1.35;
+    //private final double mhOffsetX = 1.35;
+    private final double mhOffsetX = 0;
     /**
      * Offset of the moving head relative to center of game coordinate system in y - direction
      */
@@ -55,7 +56,7 @@ public class MHControl implements Runnable{
      * NOTE: With the current setup in U325 (1.11.2016) a value of about 300 is where movement of the light point along
      * the floor just starts lagging a tiny little bit; so this should be pretty close to the ideal waiting time.
      */
-    private final double waitTimeConversionFactor = 300;
+    private final double waitTimeConversionFactor = 150;
 
     public MHControl(BlockingQueue<CoordinateContainer> q){
         this.coordsFromCalc = q;
@@ -137,7 +138,6 @@ public class MHControl implements Runnable{
                 dmxPacket.setTilt((-1) * Math.atan(Math.sqrt(c.x * c.x + c.y * c.y) / h) * 180 / Math.PI + offset_theta);
             }
             exaggeratedDmxPacket = DMX.getExaggeratedDmx(dmxPacket, oldDmxPacket);
-
 
             //Set the moving head to the last point in our array
             try {

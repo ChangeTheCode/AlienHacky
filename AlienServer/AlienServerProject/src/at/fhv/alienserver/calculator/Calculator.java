@@ -107,7 +107,7 @@ public class Calculator implements Runnable {
             return arr;
         } else if(stubIteration < 90){
             arr.x = 5;
-            arr.y = 0;
+            arr.y = 2;
             arr.z = 4;
             stubIteration++;
             return arr;
