@@ -50,6 +50,11 @@
 /* Example/Board Header files */
 #include "Board.h"
 
+// include alien types
+#include "AlienHacky_datatypes.h"
+#include "Sensor_lib/light_sensor.h"
+
+
 #define TASKSTACKSIZE       1024
 #define TMP007_OBJ_TEMP     0x0003  /* Object Temp Result Register */
 
@@ -69,6 +74,7 @@ PIN_Config ledPinTable[] = {
 Task_Struct task0Struct;
 Char task0Stack[TASKSTACKSIZE];
 
+
 /*
  *  ======== echoFxn ========
  *  Task for this function is created statically. See the project's .cfg file.
@@ -76,7 +82,6 @@ Char task0Stack[TASKSTACKSIZE];
 Void taskFxn(UArg arg0, UArg arg1)
 {
     unsigned int    i;
-    uint16_t        temperature;
     uint8_t         txBuffer[2];
     uint8_t         rxBuffer[2];
     I2C_Handle      i2c;
@@ -94,8 +99,18 @@ Void taskFxn(UArg arg0, UArg arg1)
         System_printf("I2C Initialized!\n");
     }
 
+    if( ! config_light_sensor(i2c) ){
+    	return;   // config of the light sensor failed Break
+    }
+
+    if( ! config_light_sensor_reg2 ){
+		return;   // config of the light sensor failed Break
+	}
+
+
+    //TODO Send routine in light sensor file
+
     /* Point to the T ambient register and read its 2 bytes */
-    //txBuffer[0] = TMP007_OBJ_TEMP;
     // Slave adresse 1 bit shift nach rechts machen !
     i2cTransaction.slaveAddress = 0x44;//Board_TMP007_ADDR, Lightsensor read slave adress ; 136 = schreiben 137 lesen
     i2cTransaction.writeBuf = txBuffer;
@@ -110,23 +125,8 @@ Void taskFxn(UArg arg0, UArg arg1)
         //txBuffer[1] = 0xaa; // test register
         if (I2C_transfer(i2c, &i2cTransaction)) {
 
-            /* Extract degrees C from the received data; see TMP102 datasheet */
-            temperature = (rxBuffer[0] << 6) | (rxBuffer[1] >> 2);
 
-            /*
-             * If the MSB is set '1', then we have a 2's complement
-             * negative value which needs to be sign extended
-             */
-            if (rxBuffer[0] & 0x80) {
-                temperature |= 0xF000;
-            }
-           /*
-            * For simplicity, divide the temperature value by 32 to get rid of
-            * the decimal precision; see TI's TMP007 datasheet
-            */
-            temperature /= 32;
-
-            System_printf("Sample %u: %d (C)\n", i, temperature);
+            System_printf("Sample %u: %d , %d (RAW)\n", i, rxBuffer[0], rxBuffer[1]);
         }
         else {
             System_printf("I2C Bus fault \n" );
@@ -137,7 +137,7 @@ Void taskFxn(UArg arg0, UArg arg1)
         }
 
         System_flush();
-        Task_sleep(1000000 / Clock_tickPeriod);
+        //Task_sleep(1000000 / Clock_tickPeriod);
     }
 
     /* Deinitialized I2C */
@@ -153,7 +153,6 @@ Void taskFxn(UArg arg0, UArg arg1)
 int main(void)
 {
     PIN_Handle ledPinHandle;
-    PIN_Handle green_Pin_handle;
 
     Task_Params taskParams;
 
