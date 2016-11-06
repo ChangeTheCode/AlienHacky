@@ -172,7 +172,7 @@ uint8_t button_pressed = 0;
 
 uint8_t uart_text[] = "packet gesendet\n";
 
-RF_CmdHandle rxHandle;
+RF_CmdHandle rx_cmd;
 
 
 /***** Function definitions *****/
@@ -230,14 +230,14 @@ static void rxTaskFunction(UArg arg0, UArg arg1)
 
 
     ////////////////
-    txTaskFunction(0,0);
+    //txTaskFunction(0,0);
     ////////////////////////////
     while(1)
     {
 		/* Enter RX mode and stay forever in RX */
 
-		RF_runCmd(rfHandle, (RF_Op*)&RF_cmdPropRx, RF_PriorityNormal, &callback, IRQ_RX_ENTRY_DONE);
-//    	rxHandle = RF_postCmd(rfHandle, (RF_Op*)&RF_cmdPropRx, RF_PriorityNormal, &callback, IRQ_RX_ENTRY_DONE);
+//		RF_runCmd(rfHandle, (RF_Op*)&RF_cmdPropRx, RF_PriorityNormal, &callback, IRQ_RX_ENTRY_DONE);
+    	rx_cmd = RF_postCmd(rfHandle, (RF_Op*)&RF_cmdPropRx, RF_PriorityNormal, &callback, IRQ_RX_ENTRY_DONE);
 		Semaphore_pend(semRxHandle, BIOS_WAIT_FOREVER);
     }
 
@@ -373,9 +373,9 @@ static void txTaskFunction(UArg arg0, UArg arg1)
 
 	button_pressed = 1;
 
-//    while(1)
-//    {
-//    	Semaphore_pend(semTxHandle, BIOS_WAIT_FOREVER);
+    while(1)
+    {
+    	Semaphore_pend(semTxHandle, BIOS_WAIT_FOREVER);
 
 
     	if(button_pressed == 1)
@@ -405,21 +405,22 @@ static void txTaskFunction(UArg arg0, UArg arg1)
 			}
 
 			/* Send packet */
-//			RF_Stat r = RF_cancelCmd(rfHandle, rxHandle, 1);
-			RF_EventMask result = RF_runCmd(rfHandle, (RF_Op*)&RF_cmdPropTx, RF_PriorityHighest, NULL, 0);
-			if (!(result & RF_EventLastCmdDone))
-			{
-				/* Error */
-				while(1);
-			}
-//			RF_CmdHandle tx = RF_postCmd(rfHandle, (RF_Op*)&RF_cmdPropTx, RF_PriorityHighest, NULL, 0);
+			RF_Stat r = RF_cancelCmd(rfHandle, rx_cmd, 1);
+//			RF_EventMask result = RF_runCmd(rfHandle, (RF_Op*)&RF_cmdPropTx, RF_PriorityHighest, NULL, 0);
+//			if (!(result & RF_EventLastCmdDone))
+//			{
+//				/* Error */
+//				while(1);
+//			}
+			RF_CmdHandle tx_cmd = RF_postCmd(rfHandle, (RF_Op*)&RF_cmdPropTx, RF_PriorityHighest, NULL, 0);
+
 //			RF_Stat tx2 = RF_runDirectCmd(rfHandle, tx);
-			//RF_EventMask tx2 = RF_pendCmd(rfHandle, tx, RF_EventCmdDone | RF_EventLastCmdDone | RF_EventTxDone);
+			RF_EventMask tx2 = RF_pendCmd(rfHandle, tx_cmd, (RF_EventLastCmdDone | RF_EventCmdAborted | RF_EventCmdStopped | RF_EventCmdCancelled));
 			UART_write(uart, &uart_text, 16);
 
     	}
 		Semaphore_post(semRxHandle);
-//    }
+    }
 }
 
 void buttonCallbackFxn(PIN_Handle handle, PIN_Id pinId) {
@@ -434,7 +435,7 @@ void buttonCallbackFxn(PIN_Handle handle, PIN_Id pinId) {
                 currVal =  PIN_getOutputValue(Board_LED0);
                 PIN_setOutputValue(ledPinHandle, Board_LED0, !currVal);
                 button_pressed = 1;
-//    			Semaphore_post(semTxHandle);
+    			Semaphore_post(semTxHandle);
                 break;
 
             case Board_BUTTON1:
@@ -491,7 +492,7 @@ int main(void)
 	semRxHandle = Semaphore_handle(&semRxStruct);
 
     /* Initialize task */
-//    TxTask_init(ledPinHandle);
+    TxTask_init(ledPinHandle);
     RxTask_init(ledPinHandle);
 
     /* Start BIOS */
