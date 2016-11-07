@@ -51,10 +51,10 @@
 
 #include <stdint.h>
 
-#define TASKSTACKSIZE     768
+#define UART_TASK_STACK_SIZE     768
 
 Task_Struct task0Struct;
-Char task0Stack[TASKSTACKSIZE];
+Char task0Stack[UART_TASK_STACK_SIZE];
 
 /* Global memory storage for a PIN_Config table */
 static PIN_State ledPinState;
@@ -116,7 +116,7 @@ int main(void)
 
     /* Construct BIOS objects */
     Task_Params_init(&taskParams);
-    taskParams.stackSize = TASKSTACKSIZE;
+    taskParams.stackSize = UART_TASK_STACK_SIZE;
     taskParams.stack = &task0Stack;
     Task_construct(&task0Struct, (Task_FuncPtr)echoFxn, &taskParams, NULL);
 

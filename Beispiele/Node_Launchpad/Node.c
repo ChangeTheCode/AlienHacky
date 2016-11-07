@@ -33,7 +33,6 @@
 /***** Includes *****/
 #include <stdlib.h>
 #include <xdc/std.h>
-#include <xdc/cfg/global.h>
 #include <xdc/runtime/System.h>
 
 #include <ti/sysbios/BIOS.h>
@@ -44,34 +43,55 @@
 #include <ti/drivers/PIN.h>
 #include <driverlib/rf_prop_mailbox.h>
 
+#include <ti/drivers/UART.h>
+
+#include <inc/hw_fcfg1.h>
+
 /* Board Header files */
 #include "Board.h"
 
 #include "RFQueue.h"
+
 #include "smartrf_settings/smartrf_settings.h"
 
-#include <ti/drivers/UART.h>
-
-#include <stdlib.h>
-
-/* Pin driver handle */
+/* Pin driver handles */
+static PIN_Handle buttonPinHandle;
 static PIN_Handle ledPinHandle;
+
+/* Global memory storage for a PIN_Config table */
+static PIN_State buttonPinState;
 static PIN_State ledPinState;
 
+
 /*
- * Application LED pin configuration table:
- *   - All LEDs board LEDs are off.
+ * Initial LED pin configuration table
+ *   - LEDs Board_LED0 is on.
+ *   - LEDs Board_LED1 is off.
  */
-PIN_Config pinTable[] =
-{
-    Board_LED2 | PIN_GPIO_OUTPUT_EN | PIN_GPIO_LOW | PIN_PUSHPULL | PIN_DRVSTR_MAX,
+PIN_Config ledPinTable[] = {
+    Board_LED0 | PIN_GPIO_OUTPUT_EN | PIN_GPIO_HIGH | PIN_PUSHPULL | PIN_DRVSTR_MAX,
+    Board_LED1 | PIN_GPIO_OUTPUT_EN | PIN_GPIO_LOW  | PIN_PUSHPULL | PIN_DRVSTR_MAX,
+    PIN_TERMINATE
+};
+
+/*
+ * Application button pin configuration table:
+ *   - Buttons interrupts are configured to trigger on falling edge.
+ */
+PIN_Config buttonPinTable[] = {
+    Board_BUTTON0  | PIN_INPUT_EN | PIN_PULLUP | PIN_IRQ_NEGEDGE,
+    Board_BUTTON1  | PIN_INPUT_EN | PIN_PULLUP | PIN_IRQ_NEGEDGE,
     PIN_TERMINATE
 };
 
 
 /***** Defines *****/
+#define TX_TASK_STACK_SIZE 1024
+#define TX_TASK_PRIORITY   2
+
+/***** Defines *****/
 #define RX_TASK_STACK_SIZE 1024
-#define RX_TASK_PRIORITY   2
+#define RX_TASK_PRIORITY   1
 
 /* Packet RX Configuration */
 #define DATA_ENTRY_HEADER_SIZE 8  /* Constant header size of a Generic Data Entry */
@@ -85,11 +105,19 @@ PIN_Config pinTable[] =
 /* Packet TX Configuration */
 #define PAYLOAD_LENGTH      19
 
+
 /***** Prototypes *****/
+static void txTaskFunction(UArg arg0, UArg arg1);
 static void rxTaskFunction(UArg arg0, UArg arg1);
 static void callback(RF_Handle h, RF_CmdHandle ch, RF_EventMask e);
 
+
+
 /***** Variable declarations *****/
+static Task_Params txTaskParams;
+Task_Struct txTask;    /* not static so you can see in ROV */
+static uint8_t txTaskStack[TX_TASK_STACK_SIZE];
+
 static Task_Params rxTaskParams;
 Task_Struct rxTask;    /* not static so you can see in ROV */
 static uint8_t rxTaskStack[RX_TASK_STACK_SIZE];
@@ -103,6 +131,9 @@ Semaphore_Handle semTxHandle;
 Semaphore_Struct semRxStruct;
 Semaphore_Handle semRxHandle;
 
+uint32_t time;
+uint8_t payload[] = "HelloBigWord";
+uint8_t packet[PAYLOAD_LENGTH];
 
 /* Buffer which contains all Data Entries for receiving data.
  * Pragmas are needed to make sure this buffer is 4 byte aligned (requirement from the RF Core) */
@@ -128,19 +159,16 @@ static dataQueue_t dataQueue;
 static rfc_dataEntryGeneral_t* currentDataEntry;
 static uint8_t packetLength;
 static uint8_t* packetDataPointer;
+static uint8_t packetRx[MAX_LENGTH + NUM_APPENDED_BYTES - 1]; /* The length byte is stored in a separate variable */
 
 static PIN_Handle pinHandle;
 
-static uint8_t packet[MAX_LENGTH + NUM_APPENDED_BYTES - 1]; /* The length byte is stored in a separate variable */
 
-#define TASKSTACKSIZE     768
+uint8_t button_pressed = 0;
 
-Task_Struct taskUartStruct;
-Char taskUartStack[TASKSTACKSIZE];
+uint8_t uart_text[] = "packet gesendet\n";
 
-uint8_t input = 0;
-
-uint8_t packetTX[PAYLOAD_LENGTH];
+RF_CmdHandle rx_cmd;
 
 
 /***** Function definitions *****/
@@ -162,6 +190,8 @@ static void rxTaskFunction(UArg arg0, UArg arg1)
     RF_Params rfParams;
     RF_Params_init(&rfParams);
 
+    rfParams.nInactivityTimeout = 200; // 200us
+
     if( RFQueue_defineQueue(&dataQueue,
                             rxDataEntryBuffer,
                             sizeof(rxDataEntryBuffer),
@@ -177,8 +207,6 @@ static void rxTaskFunction(UArg arg0, UArg arg1)
     RF_cmdPropRx.rxConf.bAutoFlushIgnored = 1;  /* Discard ignored packets from Rx queue */
     RF_cmdPropRx.rxConf.bAutoFlushCrcErr = 1;   /* Discard packets with CRC error from Rx queue */
     RF_cmdPropRx.maxPktLen = MAX_LENGTH;        /* Implement packet length filtering to avoid PROP_ERROR_RXBUF */
-//    RF_cmdPropRx.pktConf.bRepeatOk = 1;
-//    RF_cmdPropRx.pktConf.bRepeatNok = 1;
     RF_cmdPropRx.pktConf.bRepeatOk = 0;
     RF_cmdPropRx.pktConf.bRepeatNok = 0;
 
@@ -192,8 +220,8 @@ static void rxTaskFunction(UArg arg0, UArg arg1)
 
     while(1)
     {
-		/* Enter RX mode and stay forever in RX */
-		RF_runCmd(rfHandle, (RF_Op*)&RF_cmdPropRx, RF_PriorityNormal, &callback, IRQ_RX_ENTRY_DONE);
+		/* Enter RX mode and stay in RX until a packet arrives */
+    	rx_cmd = RF_postCmd(rfHandle, (RF_Op*)&RF_cmdPropRx, RF_PriorityNormal, &callback, IRQ_RX_ENTRY_DONE);
 		Semaphore_pend(semRxHandle, BIOS_WAIT_FOREVER);
     }
 
@@ -204,7 +232,7 @@ void callback(RF_Handle h, RF_CmdHandle ch, RF_EventMask e)
     if (e & RF_EventRxEntryDone)
     {
         /* Toggle pin to indicate RX */
-        PIN_setOutputValue(pinHandle, Board_LED2,!PIN_getOutputValue(Board_LED2));
+        PIN_setOutputValue(pinHandle, Board_LED2,!PIN_getOutputValue(Board_LED2));	// Red LED
 
         /* Get current unhandled data entry */
         currentDataEntry = RFQueue_getDataEntry();
@@ -216,22 +244,38 @@ void callback(RF_Handle h, RF_CmdHandle ch, RF_EventMask e)
         packetDataPointer = (uint8_t*)(&currentDataEntry->data + 1);
 
         /* Copy the payload + the status byte to the packet variable */
-        memcpy(packet, packetDataPointer, (packetLength + 1));
+        memcpy(packetRx, packetDataPointer, (packetLength + 1));
 
-        Semaphore_post(semTxHandle);
+        if(packetRx[0] == 2)
+        {
+        	/* Toggle pin to indicate OK */
+			PIN_setOutputValue(pinHandle, Board_LED1,!PIN_getOutputValue(Board_LED1));	// Green LED
+        }
 
         RFQueue_nextEntry();
     }
 }
 
-void uartTask(UArg arg0, UArg arg1)
+void TxTask_init(PIN_Handle inPinHandle)
 {
+    pinHandle = inPinHandle;
 
+    Task_Params_init(&txTaskParams);
+    txTaskParams.stackSize = TX_TASK_STACK_SIZE;
+    txTaskParams.priority = TX_TASK_PRIORITY;
+    txTaskParams.stack = &txTaskStack;
+    txTaskParams.arg0 = (UInt)1000000;
+
+    Task_construct(&txTask, txTaskFunction, &txTaskParams, NULL);
+}
+
+static void txTaskFunction(UArg arg0, UArg arg1)
+{
 	// uart init
-    UART_Handle uart;
-    UART_Params uartParams;
+	UART_Handle uart;
+	UART_Params uartParams;
 
-    const char echoPrompt[] = "\fEchoing characters:\r\n";
+	const char uartOk[] = "UART init ok\n";
 
 	/* Create a UART with data processing off. */
 	UART_Params_init(&uartParams);
@@ -246,47 +290,99 @@ void uartTask(UArg arg0, UArg arg1)
 		System_abort("Error opening the UART");
 	}
 
-	UART_write(uart, echoPrompt, sizeof(echoPrompt));
+	UART_write(uart, uartOk, sizeof(uartOk));
 
-	// tx-init
-	RF_Params rfParams;
-	RF_Params_init(&rfParams);
+	// rf init
+    RF_Params rfParams;
+    RF_Params_init(&rfParams);
+    rfParams.nInactivityTimeout = 200; // 200us
 
-	RF_cmdPropTx.pktLen = PAYLOAD_LENGTH;
-	RF_cmdPropTx.pPkt = packetTX;
-	//RF_cmdPropTx.startTrigger.triggerType = TRIG_ABSTIME;
-	RF_cmdPropTx.startTrigger.triggerType = TRIG_NOW;
-	RF_cmdPropTx.startTrigger.pastTrig = 1;
-	RF_cmdPropTx.startTime = 0;
+    RF_cmdPropTx.pktLen = PAYLOAD_LENGTH;
+    RF_cmdPropTx.pPkt = packet;
+    RF_cmdPropTx.startTrigger.triggerType = TRIG_NOW;
+    RF_cmdPropTx.startTrigger.pastTrig = 1;
+    RF_cmdPropTx.startTime = 0;
 
     if (!rfHandle) {
-    	/* Request access to the radio */
-    	rfHandle = RF_open(&rfObject, &RF_prop, (RF_RadioSetup*)&RF_cmdPropRadioDivSetup, &rfParams);
+		/* Request access to the radio */
+		rfHandle = RF_open(&rfObject, &RF_prop, (RF_RadioSetup*)&RF_cmdPropRadioDivSetup, &rfParams);
 
-    	/* Set the frequency */
-    	RF_postCmd(rfHandle, (RF_Op*)&RF_cmdFs, RF_PriorityNormal, NULL, 0);
-    }
+		/* Set the frequency */
+		RF_postCmd(rfHandle, (RF_Op*)&RF_cmdFs, RF_PriorityNormal, NULL, 0);
+	}
+
+    // get MAC-Address
+	uint64_t macAddressInt = *((uint64_t *)(FCFG1_BASE + FCFG1_O_MAC_15_4_0)) & 0xFFFFFFFFFFFF;
+	uint8_t macAddress[8];
+	int y;
+	for(y = 0; y < 8; y++) macAddress[y] = macAddressInt >> (8-1-y)*8;
 
     while(1)
     {
     	Semaphore_pend(semTxHandle, BIOS_WAIT_FOREVER);
 
-		UART_write(uart, &packet, packetLength);
-		if(packet[0] == 1)
-		{
-			packetTX[0] = 2;
-			RF_EventMask result = RF_runCmd(rfHandle, (RF_Op*)&RF_cmdPropTx, RF_PriorityNormal, NULL, 0);
-			if (!(result & RF_EventLastCmdDone))
+
+    	if(button_pressed == 1)
+    	{
+			button_pressed = 0;
+
+			/* Create packet with command number, 6 Byte Mac, max of 12 Byte payload */
+			packet[0] = (uint8_t)(1);  //Login
+
+			// add mac address to packet
+			uint8_t j;
+			for (j = 2; j < 8; j++)
 			{
-				/* Error */
-				while(1);
+				packet[j-1] = macAddress[j];
 			}
-			else
-				UART_write(uart, "OK gesendet\n", 13);
-		}
+
+			// add payload to packet (normally the 3 Accel Floats)
+			uint8_t i;
+			for (i = 7; i < PAYLOAD_LENGTH; i++)
+			{
+				//packet[i] = rand();
+				packet[i] = payload[i-7];
+			}
+
+			/* Send packet */
+			// stop RX CMD
+			RF_Stat r = RF_cancelCmd(rfHandle, rx_cmd, 1);
+
+			// post TX CMD
+			RF_CmdHandle tx_cmd = RF_postCmd(rfHandle, (RF_Op*)&RF_cmdPropTx, RF_PriorityHighest, NULL, 0);
+
+			// wait for TX CMD to complete
+			RF_EventMask tx2 = RF_pendCmd(rfHandle, tx_cmd, (RF_EventLastCmdDone | RF_EventCmdAborted | RF_EventCmdStopped | RF_EventCmdCancelled));
+			UART_write(uart, &uart_text, 16);
+    	}
 		Semaphore_post(semRxHandle);
+    }
+}
 
+void buttonCallbackFxn(PIN_Handle handle, PIN_Id pinId) {
+    uint32_t currVal = 0;
 
+    /* Debounce logic, only toggle if the button is still pushed (low) */
+    CPUdelay(8000*50);
+    if (!PIN_getInputValue(pinId)) {
+        /* Toggle LED based on the button pressed */
+        switch (pinId) {
+            case Board_BUTTON0:
+                currVal =  PIN_getOutputValue(Board_LED0);
+                PIN_setOutputValue(ledPinHandle, Board_LED0, !currVal);
+                button_pressed = 1;
+    			Semaphore_post(semTxHandle);
+                break;
+
+            case Board_BUTTON1:
+                currVal =  PIN_getOutputValue(Board_LED1);
+                PIN_setOutputValue(ledPinHandle, Board_LED1, !currVal);
+                break;
+
+            default:
+                /* Do nothing */
+                break;
+        }
     }
 }
 
@@ -296,38 +392,41 @@ void uartTask(UArg arg0, UArg arg1)
 int main(void)
 {
 	Semaphore_Params semParams;
-
-    Task_Params taskParams;
+//	semParams.mode = ti_sysbios_knl_Semaphore_Mode_BINARY;
 
     /* Call board init functions. */
     Board_initGeneral();
     Board_initUART();
 
-    /* Construct BIOS objects */
-    Task_Params_init(&taskParams);
-    taskParams.stackSize = TASKSTACKSIZE;
-    taskParams.stack = &taskUartStack;
-    taskParams.priority = 1;
-    Task_construct(&taskUartStruct, (Task_FuncPtr)uartTask, &taskParams, NULL);
-
     /* Open LED pins */
-    ledPinHandle = PIN_open(&ledPinState, pinTable);
+    ledPinHandle = PIN_open(&ledPinState, ledPinTable);
     if(!ledPinHandle)
     {
         System_abort("Error initializing board LED pins\n");
     }
 
-    /* Construct a Semaphore object to be used as a resource lock, inital count 0 */
-    Semaphore_Params_init(&semParams);
-    Semaphore_construct(&semTxStruct, 0, &semParams);
-    Semaphore_construct(&semRxStruct, 0, &semParams);
+    buttonPinHandle = PIN_open(&buttonPinState, buttonPinTable);
+	if(!buttonPinHandle) {
+		System_abort("Error initializing button pins\n");
+	}
+
+	/* Setup callback for button pins */
+	if (PIN_registerIntCb(buttonPinHandle, &buttonCallbackFxn) != 0) {
+		System_abort("Error registering button callback function");
+	}
+
+	/* Construct a Semaphore object to be used as a resource lock, inital count 0 */
+	Semaphore_Params_init(&semParams);
+	Semaphore_construct(&semTxStruct, 0, &semParams);
+	Semaphore_construct(&semRxStruct, 0, &semParams);
 
 
-    /* Obtain instance handle */
-    semTxHandle = Semaphore_handle(&semTxStruct);
-    semRxHandle = Semaphore_handle(&semRxStruct);
+	/* Obtain instance handle */
+	semTxHandle = Semaphore_handle(&semTxStruct);
+	semRxHandle = Semaphore_handle(&semRxStruct);
 
     /* Initialize task */
+    TxTask_init(ledPinHandle);
     RxTask_init(ledPinHandle);
 
     /* Start BIOS */
