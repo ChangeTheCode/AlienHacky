@@ -170,6 +170,9 @@ uint8_t uart_text[] = "packet gesendet\n";
 
 RF_CmdHandle rx_cmd;
 
+int start_time = 0;
+int end_time = 0;
+
 
 /***** Function definitions *****/
 void RxTask_init(PIN_Handle ledPinHandle) {
@@ -246,10 +249,44 @@ void callback(RF_Handle h, RF_CmdHandle ch, RF_EventMask e)
         /* Copy the payload + the status byte to the packet variable */
         memcpy(packetRx, packetDataPointer, (packetLength + 1));
 
-        if(packetRx[0] == 2)
+        // TODO: maybe run mac check first
+
+        switch(packetRx[0])
         {
-        	/* Toggle pin to indicate OK */
-			PIN_setOutputValue(pinHandle, Board_LED1,!PIN_getOutputValue(Board_LED1));	// Green LED
+			case 1:
+				// login of other device (ignore)
+				break;
+			case 2:
+				// login OK
+				// to measure the roundtrip time of a packet
+				PIN_setOutputValue(ledPinHandle, Board_DIO15, 1);
+
+				/* Toggle pin to indicate OK */  // only for debug purposes ( later only turn on the green LED )
+				PIN_setOutputValue(pinHandle, Board_LED1,!PIN_getOutputValue(Board_LED1));	// Green LED
+				break;
+			case 3:
+				// login not OK
+				PIN_setOutputValue(pinHandle, Board_LED0, 1);
+				// sleep(30); retry login
+				break;
+			case 4:
+				// Heartbeat of other device (ignore)
+				break;
+			case 5:
+				// Heartbeat ok
+				// reset heartbeat packet counter;
+				break;
+			case 6:
+				// Kick of other device (ignore)
+				break;
+			case 7:
+				// Kick ok
+				// reset kick packet counter + clock
+				// light red + green LED for 3 seconds
+				break;
+			default:
+				break;
+
         }
 
         RFQueue_nextEntry();
@@ -283,7 +320,7 @@ static void txTaskFunction(UArg arg0, UArg arg1)
 	uartParams.readDataMode = UART_DATA_BINARY;
 	uartParams.readReturnMode = UART_RETURN_FULL;
 	uartParams.readEcho = UART_ECHO_OFF;
-	uartParams.baudRate = 9600;
+	uartParams.baudRate = 115200;
 	uart = UART_open(Board_UART0, &uartParams);
 
 	if (uart == NULL) {
@@ -370,6 +407,10 @@ void buttonCallbackFxn(PIN_Handle handle, PIN_Id pinId) {
             case Board_BUTTON0:
                 currVal =  PIN_getOutputValue(Board_LED0);
                 PIN_setOutputValue(ledPinHandle, Board_LED0, !currVal);
+
+                // to measure the roundtrip time of a packet
+				PIN_setOutputValue(ledPinHandle, Board_DIO15, 1);
+
                 button_pressed = 1;
     			Semaphore_post(semTxHandle);
                 break;

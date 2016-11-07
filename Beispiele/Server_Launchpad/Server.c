@@ -223,6 +223,8 @@ void callback(RF_Handle h, RF_CmdHandle ch, RF_EventMask e)
         /* Copy the payload + the status byte to the packet variable */
         memcpy(packet, packetDataPointer, (packetLength + 1));
 
+        // TODO: send packet via uart to the computer or do a switch case here
+
         Semaphore_post(semTxHandle);
 
         RFQueue_nextEntry();
@@ -254,7 +256,7 @@ void uartTask(UArg arg0, UArg arg1)
 	uartParams.readDataMode = UART_DATA_BINARY;
 	uartParams.readReturnMode = UART_RETURN_FULL;
 	uartParams.readEcho = UART_ECHO_OFF;
-	uartParams.baudRate = 9600;
+	uartParams.baudRate = 115200;
 	uart = UART_open(Board_UART0, &uartParams);
 
 	if (uart == NULL) {
@@ -292,10 +294,14 @@ void uartTask(UArg arg0, UArg arg1)
     {
     	Semaphore_pend(semTxHandle, BIOS_WAIT_FOREVER);
 
+    	// write the packet payload to the uart
 		UART_write(uart, &packet, packetLength);
 		if(packet[0] == 1)
 		{
 			packetTX[0] = 2;
+
+			// TODO: add mac Address
+
 			/* Send packet */
 			// stop RX CMD
 			RF_Stat r = RF_cancelCmd(rfHandle, rx_cmd, 1);
