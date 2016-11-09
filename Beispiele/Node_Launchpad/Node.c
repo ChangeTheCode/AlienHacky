@@ -202,7 +202,7 @@ static void rxTaskFunction(UArg arg0, UArg arg1)
                             MAX_LENGTH + NUM_APPENDED_BYTES))
     {
         /* Failed to allocate space for all data entries */
-        while(1);
+        while(1); //TODO
     }
 
     /* Modify CMD_PROP_RX command for application needs */

@@ -1,0 +1,2 @@
+Aufteilen in rx.c tx.c und uart.c
+
