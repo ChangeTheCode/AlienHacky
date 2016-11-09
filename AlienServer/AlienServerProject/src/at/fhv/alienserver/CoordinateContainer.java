@@ -11,6 +11,12 @@ public class CoordinateContainer {
         this.z = 0;
     }
 
+    public CoordinateContainer(double x, double y, double z){
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
+
     public CoordinateContainer(CoordinateContainer source){
         this.x = source.x;
         this.y = source.y;

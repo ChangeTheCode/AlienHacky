@@ -29,7 +29,7 @@ public class Main {
 
         SockComm mySock = new SockComm();
         Calculator myCalc = new Calculator(mySock, pointContainer);
-        MHControl mhControl = new MHControl(pointContainer);
+        MHControl mhControl = new MHControl(pointContainer, POS_CONTAINER_SIZE);
 
         Thread sockThread = new Thread(mySock);
         Thread calcThread = new Thread(myCalc);

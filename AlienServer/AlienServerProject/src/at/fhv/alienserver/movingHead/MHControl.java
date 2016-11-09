@@ -2,6 +2,7 @@ package at.fhv.alienserver.movingHead;
 
 import at.fhv.alienserver.CoordinateContainer;
 import java.io.IOException;
+import java.util.LinkedList;
 import java.util.concurrent.BlockingQueue;
 
 import static at.fhv.alienserver.Main.POS_CONTAINER_SIZE;
@@ -23,6 +24,11 @@ public class MHControl implements Runnable{
     @SuppressWarnings("SpellCheckingInspection")
     private BlockingQueue<CoordinateContainer> coordsFromCalc;
     private Object[] localCopyOfCoordinates;
+    /**
+     * Integer that determines for what queue size the MH - Control will wait to be available. This directly sets which
+     * number of coordinates is actually set with the MH - X25 (e.g. every 20th position)
+     */
+    private int queueSize;
 
     private ESP esp = new ESP();
     //TODO: Move all of the following to config.file
@@ -58,8 +64,8 @@ public class MHControl implements Runnable{
      */
     private final double waitTimeConversionFactor = 150;
 
-    public MHControl(BlockingQueue<CoordinateContainer> q){
-        this.coordsFromCalc = q;
+    public MHControl(BlockingQueue<CoordinateContainer> q, int queueSize){
+        this.coordsFromCalc = q;this.queueSize = queueSize;
     }
 
     /**
@@ -86,7 +92,10 @@ public class MHControl implements Runnable{
     }
 
     public void run(){
-        CoordinateContainer c;
+        CoordinateContainer c = new CoordinateContainer();
+        CoordinateContainer oldC;
+
+        LinkedList<DMX> packets = new LinkedList<>();
         //ArrayList<Long> waitTimes = new ArrayList<>();
 
         /*
@@ -98,7 +107,12 @@ public class MHControl implements Runnable{
         DMX oldDmxPacket;
         DMX exaggeratedDmxPacket;
 
+        double direction;
+        double oldDirection;
+
         do{
+            packets.clear();
+
             /*
              * In the insanely unlikely case of this thread being faster than the calculator, we wait until the
              * calculator is ready; We do this to set the MH-X25 to a precise interval of points.
@@ -117,6 +131,7 @@ public class MHControl implements Runnable{
             /*
              * Grab the last point in the array and interpret it through the next statements.
              */
+            oldC = new CoordinateContainer(c);
             c = (CoordinateContainer) localCopyOfCoordinates[localCopyOfCoordinates.length - 1];
             c.x += mhOffsetX;
             c.y += mhOffsetY;
@@ -137,13 +152,33 @@ public class MHControl implements Runnable{
             } else {
                 dmxPacket.setTilt((-1) * Math.atan(Math.sqrt(c.x * c.x + c.y * c.y) / h) * 180 / Math.PI + offset_theta);
             }
-            exaggeratedDmxPacket = DMX.getExaggeratedDmx(dmxPacket, oldDmxPacket);
+
+            packets.add(dmxPacket);
+
+            /*
+             * At this place we use oldC and c to determine, how much the angle of movement has changed. If it has
+             * changed more than a certain threshold, we use an exaggerated-packet. This calculation can be set up
+             * using the DMX packets (with pan and tilt) themselves, however this is not done at the moment since the
+             * hardware setup is known to change in the future (as of 7.11.2016); once the final setup is used, we can
+             * change the calculation and optimise variable usage.
+             * TODO: Change the calculation to used oldDmxPacket and dmxPacket.
+             */
+            direction = Math.atan(c.y / c.x);
+            oldDirection = Math.atan(oldC.y / oldC.x);
+            if( abs(direction - oldDirection) > 10) {
+                exaggeratedDmxPacket = DMX.getExaggeratedDmx(dmxPacket, oldDmxPacket);
+                packets.addFirst(exaggeratedDmxPacket);
+            }
 
             //Set the moving head to the last point in our array
             try {
-                esp.sendPackets(dummy, exaggeratedDmxPacket);
-                sleep(100);
-                esp.sendPackets(dummy, dmxPacket);
+//                esp.sendPackets(dummy, exaggeratedDmxPacket);
+//                sleep(100);
+//                esp.sendPackets(dummy, dmxPacket);
+                for(DMX packet : packets){
+                    esp.sendPackets(dummy, packet);
+                    sleep(100);
+                }
             } catch (IOException e) {
                 System.err.println("Couldn't transmit ESP-packet for shit!");
                 System.err.println(e.toString());
