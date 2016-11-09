@@ -71,6 +71,7 @@ static PIN_State ledPinState;
 PIN_Config ledPinTable[] = {
     Board_LED0 | PIN_GPIO_OUTPUT_EN | PIN_GPIO_HIGH | PIN_PUSHPULL | PIN_DRVSTR_MAX,
     Board_LED1 | PIN_GPIO_OUTPUT_EN | PIN_GPIO_LOW  | PIN_PUSHPULL | PIN_DRVSTR_MAX,
+	Board_DIO15 | PIN_GPIO_OUTPUT_EN | PIN_GPIO_LOW | PIN_PUSHPULL | PIN_DRVSTR_MAX,
     PIN_TERMINATE
 };
 
@@ -263,6 +264,7 @@ void callback(RF_Handle h, RF_CmdHandle ch, RF_EventMask e)
 
 				/* Toggle pin to indicate OK */  // only for debug purposes ( later only turn on the green LED )
 				PIN_setOutputValue(pinHandle, Board_LED1,!PIN_getOutputValue(Board_LED1));	// Green LED
+				Semaphore_post(semTxHandle);
 				break;
 			case 3:
 				// login not OK
@@ -385,11 +387,14 @@ static void txTaskFunction(UArg arg0, UArg arg1)
 			// stop RX CMD
 			RF_Stat r = RF_cancelCmd(rfHandle, rx_cmd, 1);
 
+			PIN_setOutputValue(ledPinHandle, Board_DIO15, 0);
+
 			// post TX CMD
 			RF_CmdHandle tx_cmd = RF_postCmd(rfHandle, (RF_Op*)&RF_cmdPropTx, RF_PriorityHighest, NULL, 0);
 
 			// wait for TX CMD to complete
 			RF_EventMask tx2 = RF_pendCmd(rfHandle, tx_cmd, (RF_EventLastCmdDone | RF_EventCmdAborted | RF_EventCmdStopped | RF_EventCmdCancelled));
+
 			UART_write(uart, &uart_text, 16);
     	}
 		Semaphore_post(semRxHandle);
@@ -409,7 +414,7 @@ void buttonCallbackFxn(PIN_Handle handle, PIN_Id pinId) {
                 PIN_setOutputValue(ledPinHandle, Board_LED0, !currVal);
 
                 // to measure the roundtrip time of a packet
-				PIN_setOutputValue(ledPinHandle, Board_DIO15, 1);
+				//PIN_setOutputValue(ledPinHandle, Board_DIO15, 1);
 
                 button_pressed = 1;
     			Semaphore_post(semTxHandle);

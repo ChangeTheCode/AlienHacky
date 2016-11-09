@@ -67,7 +67,7 @@ static PIN_State ledPinState;
 PIN_Config pinTable[] =
 {
     Board_LED2 | PIN_GPIO_OUTPUT_EN | PIN_GPIO_LOW | PIN_PUSHPULL | PIN_DRVSTR_MAX,
-    PIN_TERMINATE
+	Board_DIO15 | PIN_GPIO_OUTPUT_EN | PIN_GPIO_LOW | PIN_PUSHPULL | PIN_DRVSTR_MAX, PIN_TERMINATE
 };
 
 
@@ -224,6 +224,7 @@ void callback(RF_Handle h, RF_CmdHandle ch, RF_EventMask e)
         memcpy(packet, packetDataPointer, (packetLength + 1));
 
         // TODO: send packet via uart to the computer or do a switch case here
+        PIN_setOutputValue(ledPinHandle, Board_DIO15, 1);
 
         Semaphore_post(semTxHandle);
 
@@ -306,11 +307,14 @@ void uartTask(UArg arg0, UArg arg1)
 			// stop RX CMD
 			RF_Stat r = RF_cancelCmd(rfHandle, rx_cmd, 1);
 
+			PIN_setOutputValue(ledPinHandle, Board_DIO15, 0);
+
 			// post TX CMD
 			RF_CmdHandle tx_cmd = RF_postCmd(rfHandle, (RF_Op*)&RF_cmdPropTx, RF_PriorityHighest, NULL, 0);
 
 			// wait for TX CMD to complete
 			RF_EventMask tx2 = RF_pendCmd(rfHandle, tx_cmd, (RF_EventLastCmdDone | RF_EventCmdAborted | RF_EventCmdStopped | RF_EventCmdCancelled));
+
 			UART_write(uart, "OK gesendet\n", 13);
 		}
 		Semaphore_post(semRxHandle);
