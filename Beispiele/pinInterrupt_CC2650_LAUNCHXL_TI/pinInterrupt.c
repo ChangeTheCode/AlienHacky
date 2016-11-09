@@ -31,7 +31,7 @@
  */
 
 /*
- *  ======== uartecho.c ========
+ *  ======== pinInterrupt.c ========
  */
 
 /* XDCtools Header files */
@@ -40,65 +40,73 @@
 
 /* BIOS Header files */
 #include <ti/sysbios/BIOS.h>
-#include <ti/sysbios/knl/Task.h>
+#include <ti/drivers/Power.h>
+#include <ti/drivers/power/PowerCC26XX.h>
 
 /* TI-RTOS Header files */
 #include <ti/drivers/PIN.h>
-#include <ti/drivers/UART.h>
+#include <ti/drivers/pin/PINCC26XX.h>
 
 /* Example/Board Header files */
 #include "Board.h"
 
-#include <stdint.h>
-
-#define UART_TASK_STACK_SIZE     768
-
-Task_Struct task0Struct;
-Char task0Stack[UART_TASK_STACK_SIZE];
+/* Pin driver handles */
+static PIN_Handle buttonPinHandle;
+static PIN_Handle ledPinHandle;
 
 /* Global memory storage for a PIN_Config table */
+static PIN_State buttonPinState;
 static PIN_State ledPinState;
 
 /*
- * Application LED pin configuration table:
- *   - All LEDs board LEDs are off.
+ * Initial LED pin configuration table
+ *   - LEDs Board_LED0 is on.
+ *   - LEDs Board_LED1 is off.
  */
 PIN_Config ledPinTable[] = {
-    Board_LED1 | PIN_GPIO_OUTPUT_EN | PIN_GPIO_LOW | PIN_PUSHPULL | PIN_DRVSTR_MAX,
-    Board_LED2 | PIN_GPIO_OUTPUT_EN | PIN_GPIO_LOW | PIN_PUSHPULL | PIN_DRVSTR_MAX,
+    Board_LED0 | PIN_GPIO_OUTPUT_EN | PIN_GPIO_HIGH | PIN_PUSHPULL | PIN_DRVSTR_MAX,
+    Board_LED1 | PIN_GPIO_OUTPUT_EN | PIN_GPIO_LOW  | PIN_PUSHPULL | PIN_DRVSTR_MAX,
     PIN_TERMINATE
 };
 
 /*
- *  ======== echoFxn ========
- *  Task for this function is created statically. See the project's .cfg file.
+ * Application button pin configuration table:
+ *   - Buttons interrupts are configured to trigger on falling edge.
  */
-Void echoFxn(UArg arg0, UArg arg1)
-{
-    char input;
-    UART_Handle uart;
-    UART_Params uartParams;
-    const char echoPrompt[] = "\fEchoing characters:\r\n";
+PIN_Config buttonPinTable[] = {
+    Board_BUTTON0  | PIN_INPUT_EN | PIN_PULLUP | PIN_IRQ_NEGEDGE,
+    Board_BUTTON1  | PIN_INPUT_EN | PIN_PULLUP | PIN_IRQ_NEGEDGE,
+    PIN_TERMINATE
+};
 
-    /* Create a UART with data processing off. */
-    UART_Params_init(&uartParams);
-    uartParams.writeDataMode = UART_DATA_BINARY;
-    uartParams.readDataMode = UART_DATA_BINARY;
-    uartParams.readReturnMode = UART_RETURN_FULL;
-    uartParams.readEcho = UART_ECHO_OFF;
-    uartParams.baudRate = 9600;
-    uart = UART_open(Board_UART0, &uartParams);
+/*
+ *  ======== buttonCallbackFxn ========
+ *  Pin interrupt Callback function board buttons configured in the pinTable.
+ *  If Board_LED3 and Board_LED4 are defined, then we'll add them to the PIN
+ *  callback function.
+ */
+void buttonCallbackFxn(PIN_Handle handle, PIN_Id pinId) {
+    uint32_t currVal = 0;
 
-    if (uart == NULL) {
-        System_abort("Error opening the UART");
-    }
+    /* Debounce logic, only toggle if the button is still pushed (low) */
+    CPUdelay(8000*50);
+    if (!PIN_getInputValue(pinId)) {
+        /* Toggle LED based on the button pressed */
+        switch (pinId) {
+            case Board_BUTTON0:
+                currVal =  PIN_getOutputValue(Board_LED0);
+                PIN_setOutputValue(ledPinHandle, Board_LED0, !currVal);
+                break;
 
-    UART_write(uart, echoPrompt, sizeof(echoPrompt));
+            case Board_BUTTON1:
+                currVal =  PIN_getOutputValue(Board_LED1);
+                PIN_setOutputValue(ledPinHandle, Board_LED1, !currVal);
+                break;
 
-    /* Loop forever echoing */
-    while (1) {
-        UART_read(uart, &input, 1);
-        UART_write(uart, &input, 1);
+            default:
+                /* Do nothing */
+                break;
+        }
     }
 }
 
@@ -107,18 +115,8 @@ Void echoFxn(UArg arg0, UArg arg1)
  */
 int main(void)
 {
-    PIN_Handle ledPinHandle;
-    Task_Params taskParams;
-
     /* Call board init functions */
     Board_initGeneral();
-    Board_initUART();
-
-    /* Construct BIOS objects */
-    Task_Params_init(&taskParams);
-    taskParams.stackSize = UART_TASK_STACK_SIZE;
-    taskParams.stack = &task0Stack;
-    Task_construct(&task0Struct, (Task_FuncPtr)echoFxn, &taskParams, NULL);
 
     /* Open LED pins */
     ledPinHandle = PIN_open(&ledPinState, ledPinTable);
@@ -126,20 +124,17 @@ int main(void)
         System_abort("Error initializing board LED pins\n");
     }
 
-    PIN_setOutputValue(ledPinHandle, Board_LED1, 1);
+    buttonPinHandle = PIN_open(&buttonPinState, buttonPinTable);
+    if(!buttonPinHandle) {
+        System_abort("Error initializing button pins\n");
+    }
 
-    /* This example has logging and many other debug capabilities enabled */
-    System_printf("This example does not attempt to minimize code or data "
-                  "footprint\n");
-    System_flush();
+    /* Setup callback for button pins */
+    if (PIN_registerIntCb(buttonPinHandle, &buttonCallbackFxn) != 0) {
+        System_abort("Error registering button callback function");
+    }
 
-    System_printf("Starting the UART Echo example\nSystem provider is set to "
-                  "SysMin. Halt the target to view any SysMin contents in "
-                  "ROV.\n");
-    /* SysMin will only print to the console when you call flush or exit */
-    System_flush();
-
-    /* Start BIOS */
+    /* Start kernel. */
     BIOS_start();
 
     return (0);

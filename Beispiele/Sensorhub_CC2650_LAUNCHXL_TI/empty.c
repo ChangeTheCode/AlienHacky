@@ -61,13 +61,13 @@
 //for the mpu9150
 tMPU9150 g_sMPU9150Inst;
 
-#define TASKSTACKSIZE   768
+#define UART_TASK_STACK_SIZE   768
 
 Task_Struct task0Struct;
-Char task0Stack[TASKSTACKSIZE];
+Char task0Stack[UART_TASK_STACK_SIZE];
 
 Task_Struct taskUartStruct;
-Char taskUartStack[TASKSTACKSIZE];
+Char taskUartStack[UART_TASK_STACK_SIZE];
 
 /* Pin driver handle */
 static PIN_Handle ledPinHandle;
@@ -206,13 +206,13 @@ int main(void)
     /* Construct heartBeat Task  thread */
     Task_Params_init(&taskParams);
     taskParams.arg0 = 1000000 / Clock_tickPeriod;
-    taskParams.stackSize = TASKSTACKSIZE;
+    taskParams.stackSize = UART_TASK_STACK_SIZE;
     taskParams.stack = &task0Stack;
     Task_construct(&task0Struct, (Task_FuncPtr)heartBeatFxn, &taskParams, NULL);
 
     /* Construct uart Task  thread */
 	Task_Params_init(&taskUartParams);
-	taskUartParams.stackSize = TASKSTACKSIZE;
+	taskUartParams.stackSize = UART_TASK_STACK_SIZE;
 	taskUartParams.stack = &taskUartStack;
 	Task_construct(&taskUartStruct, (Task_FuncPtr)echoFxn, &taskUartParams, NULL);
 
