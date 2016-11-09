@@ -3,13 +3,18 @@ package at.fhv.alienserver.movingHead;
 import at.fhv.alienserver.CoordinateContainer;
 
 import javax.swing.*;
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 import java.awt.*;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.TimeUnit;
 
 /**
  * Created by thomas on 07.11.16.
+ * TODO: Fix race condition at shutdown
+ * TODO: Send initial packet to set the MH to position (0,0) (for reasons of beauty :-) )
+ * TODO: Fix deadlock when queue overfills
+ * TODO: Implement exception handling at character reading
+ * TODO: Make continuous movement by holding down a key possible
+ * TODO: Replace the stubs for saving etc. with real file write entries
  */
 public class Calibrator {
 
@@ -60,22 +65,22 @@ public class Calibrator {
                 }
                 else if (c.charValue() == 'w') {
                     newCoordinates.x += 0.1;
-                    //coordinates.add(newCoordinates);
+                    coordinates.add(newCoordinates);
                     System.out.println("Pressed " + c);
                     c = null;
                 } else if (c.charValue() == 's') {
                     newCoordinates.x -= 0.1;
-                    //coordinates.add(newCoordinates);
+                    coordinates.add(newCoordinates);
                     System.out.println("Pressed " + c);
                     c = null;
                 } else if (c.charValue() == 'd') {
                     newCoordinates.y += 0.1;
-                    //coordinates.add(newCoordinates);
+                    coordinates.add(newCoordinates);
                     System.out.println("Pressed " + c);
                     c = null;
                 } else if (c.charValue() == 'a') {
                     newCoordinates.y -= 0.1;
-                    //coordinates.add(newCoordinates);
+                    coordinates.add(newCoordinates);
                     System.out.println("Pressed " + c);
                     c = null;
                 } else if(c.charValue() == '1'){
@@ -96,10 +101,6 @@ public class Calibrator {
                 //TODO: Implement exception handling
             }
         }
-        /*
-         * TODO: Fix race condition! The message from the AlienWindowListener is sometimes not displayed because
-         * there's a race here!
-         */
         System.exit(0);
     }
 

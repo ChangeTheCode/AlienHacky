@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.concurrent.BlockingQueue;
 
-import static at.fhv.alienserver.Main.POS_CONTAINER_SIZE;
 import static java.lang.Math.abs;
 import static java.lang.Thread.sleep;
 import static java.lang.Thread.yield;
@@ -21,14 +20,13 @@ import static java.lang.Thread.yield;
  * @version 1.11.2016
  */
 public class MHControl implements Runnable{
-    @SuppressWarnings("SpellCheckingInspection")
-    private BlockingQueue<CoordinateContainer> coordsFromCalc;
+    private BlockingQueue<CoordinateContainer> coordinatesFromCalculator;
     private Object[] localCopyOfCoordinates;
     /**
      * Integer that determines for what queue size the MH - Control will wait to be available. This directly sets which
      * number of coordinates is actually set with the MH - X25 (e.g. every 20th position)
      */
-    private int queueSize;
+    private int QUEUE_SIZE;
 
     private ESP esp = new ESP();
     //TODO: Move all of the following to config.file
@@ -64,8 +62,9 @@ public class MHControl implements Runnable{
      */
     private final double waitTimeConversionFactor = 150;
 
-    public MHControl(BlockingQueue<CoordinateContainer> q, int queueSize){
-        this.coordsFromCalc = q;this.queueSize = queueSize;
+    public MHControl(BlockingQueue<CoordinateContainer> q, int QUEUE_SIZE){
+        this.coordinatesFromCalculator = q;
+        this.QUEUE_SIZE = QUEUE_SIZE;
     }
 
     /**
@@ -117,7 +116,7 @@ public class MHControl implements Runnable{
              * In the insanely unlikely case of this thread being faster than the calculator, we wait until the
              * calculator is ready; We do this to set the MH-X25 to a precise interval of points.
              */
-            while(coordsFromCalc.size() < POS_CONTAINER_SIZE){
+            while(coordinatesFromCalculator.size() < QUEUE_SIZE){
                 yield();
             }
 
@@ -126,7 +125,7 @@ public class MHControl implements Runnable{
               Using the "toArray()" call here 'cause it does NOT empty the container --> calculator stays blocked
               This enables us to do some other stuff before the calc runs again or change the order things
              */
-            localCopyOfCoordinates = coordsFromCalc.toArray();
+            localCopyOfCoordinates = coordinatesFromCalculator.toArray();
 
             /*
              * Grab the last point in the array and interpret it through the next statements.
@@ -189,7 +188,7 @@ public class MHControl implements Runnable{
             }
 
             //Let the calculator PURPOSEFULLY run again
-            coordsFromCalc.clear();
+            coordinatesFromCalculator.clear();
 
             try {
                 //long debug3 = getTimeToSleep(oldDmxPacket, dmxPacket);
