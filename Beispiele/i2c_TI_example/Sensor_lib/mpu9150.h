@@ -8,11 +8,14 @@
 #ifndef SENSOR_LIB_MPU9150_H_
 #define SENSOR_LIB_MPU9150_H_
 
+#include <xdc/std.h>
+#include <ti/drivers/I2C.h>
+
 // "MPU-9150 Register Map and Descriptions Revision 4.0",
 
 #define MPU9150_SELF_TEST_X        0x0D   // R/W
 #define MPU9150_SELF_TEST_Y        0x0E   // R/W
-#define MPU9150_SELF_TEST_X        0x0F   // R/W
+//#define MPU9150_SELF_TEST_X        0x0F   // R/W
 #define MPU9150_SELF_TEST_A        0x10   // R/W
 #define MPU9150_SMPLRT_DIV         0x19   // R/W
 #define MPU9150_CONFIG             0x1A   // R/W
@@ -114,10 +117,9 @@
 int MPU9150_I2C_ADDRESS = 0x69;
 
 
-BOOL mpu9150_write(int reg_address, int value);
+BOOL mpu9150_write(I2C_Handle i2c, uint8_t reg_address, uint8_t value);
 
- mpu9150_read(int reg_address, int count_of_bytes);
-
+BOOL mpu9150_read(I2C_Handle i2c, uint8_t reg_address, uint8_t count_of_bytes, uint8_t* read_buffer);
 
 
 

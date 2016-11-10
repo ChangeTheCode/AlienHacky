@@ -68,6 +68,7 @@ static PIN_State ledPinState;
 PIN_Config ledPinTable[] = {
     Board_LED1 | PIN_GPIO_OUTPUT_EN | PIN_GPIO_LOW | PIN_PUSHPULL | PIN_DRVSTR_MAX,
     Board_LED2 | PIN_GPIO_OUTPUT_EN | PIN_GPIO_LOW | PIN_PUSHPULL | PIN_DRVSTR_MAX,
+// Pin einbinden für Toggel
     PIN_TERMINATE
 };
 
@@ -108,7 +109,7 @@ Void taskFxn(UArg arg0, UArg arg1)
 	}
 
 
-    //TODO Send routine in light sensor file
+    //TODO Send routine
 
     /* Point to the T ambient register and read its 2 bytes */
     // Slave adresse 1 bit shift nach rechts machen !
@@ -125,6 +126,7 @@ Void taskFxn(UArg arg0, UArg arg1)
         //txBuffer[1] = 0xaa; // test register
         if (I2C_transfer(i2c, &i2cTransaction)) {
 
+        	// pin toggle
 
             System_printf("Sample %u: %d , %d (RAW)\n", i, rxBuffer[0], rxBuffer[1]);
         }
@@ -139,6 +141,7 @@ Void taskFxn(UArg arg0, UArg arg1)
         System_flush();
         //Task_sleep(1000000 / Clock_tickPeriod);
     }
+
 
     /* Deinitialized I2C */
     I2C_close(i2c);
