@@ -27,4 +27,12 @@ public class CoordinateContainer {
     public String toString(){
         return String.valueOf(this.x) + '|' + String.valueOf(this.y);
     }
+
+    public CoordinateContainer fromString(String input){
+        int pipeIndex = input.indexOf('|');
+        double x = Double.parseDouble(input.substring(0, pipeIndex - 1));
+        double y = Double.parseDouble(input.substring(pipeIndex + 1, input.length() - 1));
+        double z = 0;
+        return new CoordinateContainer(x, y, z);
+    }
 }

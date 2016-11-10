@@ -5,8 +5,8 @@ import java.awt.event.WindowListener;
 
 /**
  * Created by thomas on 09.11.16.
- * Implements an extra minimal WindowsListener. Used for nothing more than detecting that the input window is closed
- * by the user and trigger the saving of the dimensions that were elaborated in the run. Cheers.
+ * Implements an extra minimal WindowListener. Used for nothing more than detecting that the input window is closed
+ * by the user and trigger stopping of the app. Cheers.
  */
 class AlienWindowListener implements WindowListener {
     AlienWindowListener(){/*super boring ctor*/}
@@ -18,14 +18,14 @@ class AlienWindowListener implements WindowListener {
 
     @Override
     public void windowClosing(WindowEvent e) {
-        //don't care
+        //System.out.println("Saving playing field dimensions in a super hacky binary file");
+        //System.out.flush();
+        Calibrator.setRunning(false);
     }
 
     @Override
     public void windowClosed(WindowEvent e) {
-        System.out.println("Saving playfield dimensions in a super hacky binary file");
-        System.out.flush();
-        Calibrator.setRunning(false);
+        //don't care
     }
 
     @Override

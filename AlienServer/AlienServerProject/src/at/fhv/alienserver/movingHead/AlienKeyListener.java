@@ -10,7 +10,7 @@ import java.util.concurrent.ArrayBlockingQueue;
 class AlienKeyListener implements java.awt.event.KeyListener {
     private ArrayBlockingQueue<Character> KeyQueue;
 
-    public AlienKeyListener(ArrayBlockingQueue<Character> queue){
+    AlienKeyListener(ArrayBlockingQueue<Character> queue){
         KeyQueue = queue;
     }
 
@@ -25,16 +25,10 @@ class AlienKeyListener implements java.awt.event.KeyListener {
     @Override
     public void keyReleased(KeyEvent e){
         //don't care
-        int dummy = 5;
-        dummy++;
-        dummy--;
     }
 
     @Override
     public void keyTyped(KeyEvent e){
         //care even less
-        int dubbel = 13;
-        dubbel++;
-        dubbel--;
     }
 }

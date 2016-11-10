@@ -18,9 +18,9 @@ public class Config {
         Config.prop = new Properties();
         Config.out = new FileOutputStream("config.properties");
         Config.in = new FileInputStream("config.properties");
-        Config.propertyEnum2propertyString = new HashMap<AlienServerProperties, String>(){
+        /*Config.propertyEnum2propertyString = new HashMap<AlienServerProperties, String>(){
 
-        };
+        };*/
         Config.initialised = true;
     }
 
@@ -28,7 +28,7 @@ public class Config {
         Config.out = null;
         Config.in = null;
         Config.prop = null;
-        Config.propertyEnum2propertyString = null;
+        /*Config.propertyEnum2propertyString = null;*/
         Config.initialised = false;
     }
 
@@ -36,7 +36,13 @@ public class Config {
         //we're building a Singleton here!
     }
 
-    private static Map<AlienServerProperties, String> propertyEnum2propertyString;
+    private static final Map<AlienServerProperties, String> propertyEnum2propertyString = new HashMap<>();
+    static {
+        propertyEnum2propertyString.put(AlienServerProperties.quadrant1Limit, "Quadrant1Limit");
+        propertyEnum2propertyString.put(AlienServerProperties.quadrant2Limit, "Quadrant2Limit");
+        propertyEnum2propertyString.put(AlienServerProperties.quadrant3Limit, "Quadrant3Limit");
+        propertyEnum2propertyString.put(AlienServerProperties.quadrant4Limit, "Quadrant4Limit");
+    }
 
     public enum AlienServerProperties{
         quadrant1Limit,
@@ -45,7 +51,7 @@ public class Config {
         quadrant4Limit
     }
 
-    public static boolean  setProperty(AlienServerProperties property){
+    public static boolean  setProperty(AlienServerProperties property, String value){
         boolean returnValue = true;
 
         if(!Config.initialised){
@@ -61,14 +67,34 @@ public class Config {
 
         String propertyString = Config.propertyEnum2propertyString.get(property);
 
-        /*
-        Storage magic here
-         */
+        try {
+            prop.setProperty(propertyString, value);
+            prop.store(Config.out, null);
+            returnValue = true;
+        } catch (IOException e){
+            Config.teardown();
+            returnValue = false;
+        }
 
         return returnValue;
     }
 
-    public static boolean getProperty(AlienServerProperties property){
-        return true;
+    public static String getProperty(AlienServerProperties property) {
+        boolean returnValue = true;
+
+        if(!Config.initialised){
+            try {
+                Config.initialise();
+                returnValue = true;
+            } catch (IOException e){
+                e.printStackTrace();
+                Config.teardown();
+                returnValue = false;
+            }
+        }
+
+        String propertyString = Config.propertyEnum2propertyString.get(property);
+
+        return prop.getProperty(propertyString);
     }
 }
