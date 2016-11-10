@@ -136,24 +136,18 @@ tMPU9150;
 //
 //*****************************************************************************
 extern uint_fast8_t MPU9150Init(tMPU9150 *psInst, I2C_Handle *psI2CInst,
-                                uint_fast8_t ui8I2CAddr,
-                                tSensorCallback *pfnCallback,
-                                void *pvCallbackData);
+        				uint_fast8_t ui8I2CAddr, void *pvCallbackData);
 extern tAK8975 *MPU9150InstAK8975Get(tMPU9150 *psInst);
 extern uint_fast8_t MPU9150Read(tMPU9150 *psInst, uint_fast8_t ui8Reg,
-                                uint8_t *pui8Data, uint_fast16_t ui16Count,
-                                /*tSensorCallback *pfnCallback,*/
-                                void *pvCallbackData);
+                                uint8_t *pui8Data, uint_fast16_t ui16Count, void *pvCallbackData);
 extern uint_fast8_t MPU9150Write(tMPU9150 *psInst, uint_fast8_t ui8Reg,
                                  const uint8_t *pui8Data,
                                  uint_fast16_t ui16Count,
-                                 /*tSensorCallback *pfnCallback,*/
                                  void *pvCallbackData);
 extern uint_fast8_t MPU9150ReadModifyWrite(tMPU9150 *psInst,
                                            uint_fast8_t ui8Reg,
                                            uint_fast8_t ui8Mask,
                                            uint_fast8_t ui8Value,
-                                           /*tSensorCallback *pfnCallback,*/
                                            void *pvCallbackData);
 extern uint_fast8_t MPU9150DataRead(tMPU9150 *psInst,
                                     /*tSensorCallback *pfnCallback,*/

@@ -133,8 +133,7 @@ AK8975Callback(void *pvCallbackData, uint_fast8_t ui8Status)
 //
 //*****************************************************************************
 uint_fast8_t
-AK8975Init(tAK8975 *psInst, I2C_Handle *psI2CInst, uint_fast8_t ui8I2CAddr,
-           tSensorCallback *pfnCallback, void *pvCallbackData)
+AK8975Init(tAK8975 *psInst, I2C_Handle *psI2CInst, uint_fast8_t ui8I2CAddr, void *pvCallbackData)
 {
     //
     // Initialize the AK8975 instance structure.
@@ -179,8 +178,7 @@ AK8975Init(tAK8975 *psInst, I2C_Handle *psI2CInst, uint_fast8_t ui8I2CAddr,
 //*****************************************************************************
 uint_fast8_t
 AK8975Read(tAK8975 *psInst, uint_fast8_t ui8Reg, uint8_t *pui8Data,
-           uint_fast16_t ui16Count, tSensorCallback *pfnCallback,
-           void *pvCallbackData)
+           uint_fast16_t ui16Count, void *pvCallbackData)
 {
     //
     // Return a failure if the AK8975 driver is not idle (in other words, there
@@ -194,7 +192,7 @@ AK8975Read(tAK8975 *psInst, uint_fast8_t ui8Reg, uint8_t *pui8Data,
     //
     // Save the callback information.
     //
-    psInst->pfnCallback = pfnCallback;
+    //psInst->pfnCallback = pfnCallback;
     psInst->pvCallbackData = pvCallbackData;
 
     //
@@ -247,8 +245,7 @@ AK8975Read(tAK8975 *psInst, uint_fast8_t ui8Reg, uint8_t *pui8Data,
 //*****************************************************************************
 uint_fast8_t
 AK8975Write(tAK8975 *psInst, uint_fast8_t ui8Reg, uint8_t *pui8Data,
-            uint_fast16_t ui16Count, tSensorCallback *pfnCallback,
-            void *pvCallbackData)
+            uint_fast16_t ui16Count, void *pvCallbackData)
 {
     //
     // Return a failure if the AK8975 driver is not idle (in other words, there
@@ -262,7 +259,7 @@ AK8975Write(tAK8975 *psInst, uint_fast8_t ui8Reg, uint8_t *pui8Data,
     //
     // Save the callback information.
     //
-    psInst->pfnCallback = pfnCallback;
+    //psInst->pfnCallback = pfnCallback;
     psInst->pvCallbackData = pvCallbackData;
 
     //
@@ -273,7 +270,7 @@ AK8975Write(tAK8975 *psInst, uint_fast8_t ui8Reg, uint8_t *pui8Data,
     //
     // Write the requested registers to the AK8975.
     //
-    if(I2CMWrite8(&(psInst->uCommand.sWriteState), psInst->psI2CInst,
+    /*if(I2CMWrite8(&(psInst->uCommand.sWriteState), psInst->psI2CInst,
                   psInst->ui8Addr, ui8Reg, pui8Data, ui16Count, AK8975Callback,
                   psInst) == 0)
     {
@@ -283,7 +280,7 @@ AK8975Write(tAK8975 *psInst, uint_fast8_t ui8Reg, uint8_t *pui8Data,
         //
         psInst->ui8State = AK8975_STATE_IDLE;
         return(0);
-    }
+    }*/
 
     //
     // Success.
@@ -317,8 +314,7 @@ AK8975Write(tAK8975 *psInst, uint_fast8_t ui8Reg, uint8_t *pui8Data,
 //*****************************************************************************
 uint_fast8_t
 AK8975ReadModifyWrite(tAK8975 *psInst, uint_fast8_t ui8Reg,
-                      uint_fast8_t ui8Mask, uint_fast8_t ui8Value,
-                      tSensorCallback *pfnCallback, void *pvCallbackData)
+                      uint_fast8_t ui8Mask, uint_fast8_t ui8Value, void *pvCallbackData)
 {
     //
     // Return a failure if the AK8975 driver is not idle (in other words, there
@@ -332,7 +328,7 @@ AK8975ReadModifyWrite(tAK8975 *psInst, uint_fast8_t ui8Reg,
     //
     // Save the callback information.
     //
-    psInst->pfnCallback = pfnCallback;
+    //psInst->pfnCallback = pfnCallback;
     psInst->pvCallbackData = pvCallbackData;
 
     //
@@ -343,7 +339,7 @@ AK8975ReadModifyWrite(tAK8975 *psInst, uint_fast8_t ui8Reg,
     //
     // Submit the read-modify-write request to the AK8975.
     //
-    if(I2CMReadModifyWrite8(&(psInst->uCommand.sReadModifyWriteState),
+   /* if(I2CMReadModifyWrite8(&(psInst->uCommand.sReadModifyWriteState),
                             psInst->psI2CInst, psInst->ui8Addr, ui8Reg,
                             ui8Mask, ui8Value, AK8975Callback, psInst) == 0)
     {
@@ -353,7 +349,7 @@ AK8975ReadModifyWrite(tAK8975 *psInst, uint_fast8_t ui8Reg,
         //
         psInst->ui8State = AK8975_STATE_IDLE;
         return(0);
-    }
+    }*/
 
     //
     // Success.
@@ -381,8 +377,7 @@ AK8975ReadModifyWrite(tAK8975 *psInst, uint_fast8_t ui8Reg,
 //
 //*****************************************************************************
 uint_fast8_t
-AK8975DataRead(tAK8975 *psInst, tSensorCallback *pfnCallback,
-               void *pvCallbackData)
+AK8975DataRead(tAK8975 *psInst, void *pvCallbackData)
 {
     //
     // Return a failure if the AK8975 driver is not idle (in other words, there
@@ -396,7 +391,7 @@ AK8975DataRead(tAK8975 *psInst, tSensorCallback *pfnCallback,
     //
     // Save the callback information.
     //
-    psInst->pfnCallback = pfnCallback;
+    //psInst->pfnCallback = pfnCallback;
     psInst->pvCallbackData = pvCallbackData;
 
     //
@@ -410,7 +405,7 @@ AK8975DataRead(tAK8975 *psInst, tSensorCallback *pfnCallback,
     // ST1 + (HXL + HXH) + (HYL + HYH) + (HZL + HZH) + ST2 = 8 bytes
     //
     psInst->pui8Data[0] = AK8975_O_ST1;
-    if(I2CMRead(psInst->psI2CInst, psInst->ui8Addr, psInst->pui8Data, 1,
+  /*  if(I2CMRead(psInst->psI2CInst, psInst->ui8Addr, psInst->pui8Data, 1,
                 psInst->pui8Data, 8, AK8975Callback, psInst) == 0)
     {
         //
@@ -418,7 +413,7 @@ AK8975DataRead(tAK8975 *psInst, tSensorCallback *pfnCallback,
         //
         psInst->ui8State = AK8975_STATE_IDLE;
         return(0);
-    }
+    }*/
 
     //
     // Success.

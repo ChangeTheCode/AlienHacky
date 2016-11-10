@@ -106,26 +106,16 @@ tAK8975;
 // Function prototypes.
 //
 //*****************************************************************************
-extern uint_fast8_t AK8975Init(tAK8975 *psInst, tI2CMInstance *psI2CInst,
+extern uint_fast8_t AK8975Init(tAK8975 *psInst, I2C_Handle *psI2CInst,
                                uint_fast8_t ui8I2CAddr,
-                               tSensorCallback *pfnCallback,
                                void *pvCallbackData);
 extern uint_fast8_t AK8975Read(tAK8975 *psInst, uint_fast8_t ui8Reg,
-                               uint8_t *pui8Data, uint_fast16_t ui16Count,
-                               tSensorCallback *pfnCallback,
-                               void *pvCallbackData);
-extern uint_fast8_t AK8975Write(tAK8975 *psInst, uint_fast8_t ui8Reg,
-                                uint8_t *pui8Data, uint_fast16_t ui16Count,
-                                tSensorCallback *pfnCallback,
-                                void *pvCallbackData);
-extern uint_fast8_t AK8975ReadModifyWrite(tAK8975 *psInst,
-                                          uint_fast8_t ui8Reg,
-                                          uint_fast8_t ui8Mask,
-                                          uint_fast8_t ui8Value,
-                                          tSensorCallback *pfnCallback,
-                                          void *pvCallbackData);
+                               uint8_t *pui8Data, uint_fast16_t ui16Count, void *pvCallbackData);
+extern uint_fast8_t AK8975Write(tAK8975 *psInst, uint_fast8_t ui8Reg, uint8_t *pui8Data,
+        						uint_fast16_t ui16Count, void *pvCallbackData);
+extern uint_fast8_t AK8975ReadModifyWrite(tAK8975 *psInst, uint_fast8_t ui8Reg,
+        						uint_fast8_t ui8Mask, uint_fast8_t ui8Value, void *pvCallbackData);
 extern uint_fast8_t AK8975DataRead(tAK8975 *psInst,
-                                   tSensorCallback *pfnCallback,
                                    void *pvCallbackData);
 extern void AK8975DataMagnetoGetRaw(tAK8975 *psInst,
                                     uint_fast16_t *pui16MagnetoX,

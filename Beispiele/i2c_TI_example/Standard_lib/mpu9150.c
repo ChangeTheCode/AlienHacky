@@ -112,8 +112,7 @@ static const float g_fMPU9150GyroFactors[] =
 // MPU9150 have completed.
 //
 //*****************************************************************************
-static void
-MPU9150Callback(void *pvCallbackData, uint_fast8_t ui8Status)
+static void MPU9150Callback(void *pvCallbackData, uint_fast8_t ui8Status)
 {
     tMPU9150 *psInst;
 
@@ -191,7 +190,7 @@ MPU9150Callback(void *pvCallbackData, uint_fast8_t ui8Status)
             // its internal reset.  Keep polling until we verify device is 
             // ready.
             //
-            if((psInst->pui8Data[0] != MPU9150_PWR_MGMT_1_SLEEP) || 
+           /* if((psInst->pui8Data[0] != MPU9150_PWR_MGMT_1_SLEEP) ||
                (ui8Status == I2CM_STATUS_ADDR_NACK))
             {
                 //
@@ -222,7 +221,7 @@ MPU9150Callback(void *pvCallbackData, uint_fast8_t ui8Status)
                 // power management 1 regs.
                 //
                 psInst->ui8State = MPU9150_STATE_INIT_PWR_MGMT;
-            }
+            }*/
             break;
         }
 
@@ -233,10 +232,10 @@ MPU9150Callback(void *pvCallbackData, uint_fast8_t ui8Status)
         {
             psInst->uCommand.pui8Buffer[0] = MPU9150_O_USER_CTRL;
             psInst->uCommand.pui8Buffer[1] = MPU9150_USER_CTRL_I2C_MST_EN;
-            I2CMWrite(psInst->psI2CInst, psInst->ui8Addr,
+      /*      I2CMWrite(psInst->psI2CInst, psInst->ui8Addr,
                       psInst->uCommand.pui8Buffer, 2, MPU9150Callback,
                       psInst);
-
+	*/
             //
             // Update state to show we are modifing user control and
             // power management 1 regs.
@@ -261,7 +260,7 @@ MPU9150Callback(void *pvCallbackData, uint_fast8_t ui8Status)
             //
             psInst->uCommand.pui8Buffer[1] = 19;
 
-            I2CMWrite(psInst->psI2CInst, psInst->ui8Addr,
+     /*       I2CMWrite(psInst->psI2CInst, psInst->ui8Addr,
                       psInst->uCommand.pui8Buffer, 2, MPU9150Callback, psInst);
 
             //
@@ -270,7 +269,7 @@ MPU9150Callback(void *pvCallbackData, uint_fast8_t ui8Status)
             psInst->ui8State = MPU9150_STATE_INIT_SAMPLE_RATE_CFG;
             break;
         }
-
+	*/
         //
         // Sensor configuration is complete.
         //
@@ -285,9 +284,9 @@ MPU9150Callback(void *pvCallbackData, uint_fast8_t ui8Status)
             psInst->uCommand.pui8Buffer[1] =
                 (MPU9150_I2C_MST_DELAY_CTRL_I2C_SLV0_DLY_EN |
                  MPU9150_I2C_MST_DELAY_CTRL_I2C_SLV4_DLY_EN);
-            I2CMWrite(psInst->psI2CInst, psInst->ui8Addr,
+       /*     I2CMWrite(psInst->psI2CInst, psInst->ui8Addr,
                       psInst->uCommand.pui8Buffer, 2, MPU9150Callback, psInst);
-
+		*/
             //
             // Update state to show we are configuring i2c slave delay between
             // slave events.  Slave 0 and Slave 4 transaction only occur every
@@ -319,9 +318,9 @@ MPU9150Callback(void *pvCallbackData, uint_fast8_t ui8Status)
             psInst->uCommand.pui8Buffer[2] = MPU9150_I2C_SLV0_ADDR_RW | 0x0C;
             psInst->uCommand.pui8Buffer[3] = AK8975_O_ST1;
             psInst->uCommand.pui8Buffer[4] = MPU9150_I2C_SLV0_CTRL_EN | 0x08;
-            I2CMWrite(psInst->psI2CInst, psInst->ui8Addr,
+        /*    I2CMWrite(psInst->psI2CInst, psInst->ui8Addr,
                       psInst->uCommand.pui8Buffer, 5, MPU9150Callback, psInst);
-
+		*/
             //
             // Update state.  Now in process of configuring slave 0.
             //
@@ -351,9 +350,9 @@ MPU9150Callback(void *pvCallbackData, uint_fast8_t ui8Status)
             // will run every fifth accel/gyro sample.
             //
             psInst->uCommand.pui8Buffer[4] = MPU9150_I2C_SLV4_CTRL_EN | 0x04;
-            I2CMWrite(psInst->psI2CInst, psInst->ui8Addr,
+        /*    I2CMWrite(psInst->psI2CInst, psInst->ui8Addr,
                       psInst->uCommand.pui8Buffer, 5, MPU9150Callback, psInst);
-
+		*/
             //
             // Update state.  Now in the final init state.
             //
@@ -399,7 +398,7 @@ MPU9150Callback(void *pvCallbackData, uint_fast8_t ui8Status)
                 //
                 // See if a soft reset has been issued.
                 //
-                if(psInst->uCommand.sReadModifyWriteState.pui8Buffer[1] &
+          /*      if(psInst->uCommand.sReadModifyWriteState.pui8Buffer[1] &
                    MPU9150_PWR_MGMT_1_DEVICE_RESET)
                 {
                     //
@@ -414,6 +413,7 @@ MPU9150Callback(void *pvCallbackData, uint_fast8_t ui8Status)
                     psInst->ui8GyroFsSel = 0;
                     psInst->ui8NewGyroFsSel = 0;
                 }
+                */
             }
 
             //
@@ -468,8 +468,8 @@ MPU9150Callback(void *pvCallbackData, uint_fast8_t ui8Status)
         //
         psInst->pfnCallback(psInst->pvCallbackData, ui8Status);
     }*/
+    }
 }
-
 //*****************************************************************************
 //
 //! Initializes the MPU9150 driver.
@@ -487,15 +487,13 @@ MPU9150Callback(void *pvCallbackData, uint_fast8_t ui8Status)
 //! if it was not.
 //
 //*****************************************************************************
-uint_fast8_t
-MPU9150Init(tMPU9150 *psInst, I2C_Handle *psI2CInst,
-            uint_fast8_t ui8I2CAddr, tSensorCallback *pfnCallback,
-            void *pvCallbackData)
+uint_fast8_t MPU9150Init(tMPU9150 *psInst, I2C_Handle *psI2CInst,
+            uint_fast8_t ui8I2CAddr, void *pvCallbackData)
 {
     //
     // Initialize the MPU9150 instance structure.
     //
-    psInst->psI2CInst = psI2CInst;
+//    psInst->psI2CInst = psI2CInst;
     psInst->ui8Addr = ui8I2CAddr;
 
     //
@@ -530,12 +528,13 @@ MPU9150Init(tMPU9150 *psInst, I2C_Handle *psI2CInst,
     //
     psInst->uCommand.pui8Buffer[0] = MPU9150_O_PWR_MGMT_1;
     psInst->uCommand.pui8Buffer[1] = MPU9150_PWR_MGMT_1_DEVICE_RESET;
-    if(I2CMWrite(psInst->psI2CInst, psInst->ui8Addr,
+/*    if(I2CMWrite(psInst->psI2CInst, psInst->ui8Addr,
                  psInst->uCommand.pui8Buffer, 2, MPU9150Callback, psInst) == 0)
     {
         psInst->ui8State = MPU9150_STATE_IDLE;
         return(0);
     }
+*/
 
     //
     // Success
@@ -556,8 +555,7 @@ MPU9150Init(tMPU9150 *psInst, I2C_Handle *psI2CInst,
 //! \return Returns the pointer to the tAK8975 object
 //
 //*****************************************************************************
-tAK8975 *
-MPU9150MagnetoInstGet(tMPU9150 *psInst)
+tAK8975 * MPU9150MagnetoInstGet(tMPU9150 *psInst)
 {
     return(&(psInst->sAK8975Inst));
 }
@@ -582,10 +580,8 @@ MPU9150MagnetoInstGet(tMPU9150 *psInst)
 //! not.
 //
 //*****************************************************************************
-uint_fast8_t
-MPU9150Read(tMPU9150 *psInst, uint_fast8_t ui8Reg, uint8_t *pui8Data,
-            uint_fast16_t ui16Count, tSensorCallback *pfnCallback,
-            void *pvCallbackData)
+uint_fast8_t MPU9150Read(tMPU9150 *psInst, uint_fast8_t ui8Reg, uint8_t *pui8Data,
+            uint_fast16_t ui16Count, void *pvCallbackData)
 {
     //
     // Return a failure if the MPU9150 driver is not idle (in other words,
@@ -611,8 +607,7 @@ MPU9150Read(tMPU9150 *psInst, uint_fast8_t ui8Reg, uint8_t *pui8Data,
     // Read the requested registers from the MPU9150.
     //
     psInst->uCommand.pui8Buffer[0] = ui8Reg;
-    if(I2CMRead(psInst->psI2CInst, psInst->ui8Addr,
-                psInst->uCommand.pui8Buffer, 1, pui8Data, ui16Count,
+/*    if(I2CMRead(psInst->psI2CInst, psInst->ui8Addr, psInst->uCommand.pui8Buffer, 1, pui8Data, ui16Count,
                 MPU9150Callback, psInst) == 0)
     {
         //
@@ -622,7 +617,7 @@ MPU9150Read(tMPU9150 *psInst, uint_fast8_t ui8Reg, uint8_t *pui8Data,
         psInst->ui8State = MPU9150_STATE_IDLE;
         return(0);
     }
-
+*/
     //
     // Success.
     //
@@ -650,10 +645,8 @@ MPU9150Read(tMPU9150 *psInst, uint_fast8_t ui8Reg, uint8_t *pui8Data,
 //! not.
 //
 //*****************************************************************************
-uint_fast8_t
-MPU9150Write(tMPU9150 *psInst, uint_fast8_t ui8Reg, const uint8_t *pui8Data,
-             uint_fast16_t ui16Count, tSensorCallback *pfnCallback,
-             void *pvCallbackData)
+uint_fast8_t MPU9150Write(tMPU9150 *psInst, uint_fast8_t ui8Reg, const uint8_t *pui8Data,
+             uint_fast16_t ui16Count, void *pvCallbackData)
 {
     //
     // Return a failure if the MPU9150 driver is not idle (in other words,
@@ -731,7 +724,7 @@ MPU9150Write(tMPU9150 *psInst, uint_fast8_t ui8Reg, const uint8_t *pui8Data,
     //
     // Write the requested registers to the MPU9150.
     //
-    if(I2CMWrite8(&(psInst->uCommand.sWriteState), psInst->psI2CInst,
+/*    if(I2CMWrite8(&(psInst->uCommand.sWriteState), psInst->psI2CInst,
                   psInst->ui8Addr, ui8Reg, pui8Data, ui16Count,
                   MPU9150Callback, psInst) == 0)
     {
@@ -742,7 +735,7 @@ MPU9150Write(tMPU9150 *psInst, uint_fast8_t ui8Reg, const uint8_t *pui8Data,
         psInst->ui8State = MPU9150_STATE_IDLE;
         return(0);
     }
-
+*/
     //
     // Success.
     //
@@ -775,8 +768,7 @@ MPU9150Write(tMPU9150 *psInst, uint_fast8_t ui8Reg, const uint8_t *pui8Data,
 //*****************************************************************************
 uint_fast8_t
 MPU9150ReadModifyWrite(tMPU9150 *psInst, uint_fast8_t ui8Reg,
-                       uint_fast8_t ui8Mask, uint_fast8_t ui8Value,
-                       tSensorCallback *pfnCallback, void *pvCallbackData)
+                       uint_fast8_t ui8Mask, uint_fast8_t ui8Value, void *pvCallbackData)
 {
     //
     // Return a failure if the MPU9150 driver is not idle (in other words,
@@ -801,7 +793,7 @@ MPU9150ReadModifyWrite(tMPU9150 *psInst, uint_fast8_t ui8Reg,
     //
     // Submit the read-modify-write request to the MPU9150.
     //
-    if(I2CMReadModifyWrite8(&(psInst->uCommand.sReadModifyWriteState),
+   /* if(I2CMReadModifyWrite8(&(psInst->uCommand.sReadModifyWriteState),
                             psInst->psI2CInst, psInst->ui8Addr, ui8Reg,
                             ui8Mask, ui8Value, MPU9150Callback, psInst) == 0)
     {
@@ -811,7 +803,7 @@ MPU9150ReadModifyWrite(tMPU9150 *psInst, uint_fast8_t ui8Reg,
         //
         psInst->ui8State = MPU9150_STATE_IDLE;
         return(0);
-    }
+    }*/
 
     //
     // Success.
@@ -844,8 +836,7 @@ MPU9150ReadModifyWrite(tMPU9150 *psInst, uint_fast8_t ui8Reg,
 //
 //*****************************************************************************
 uint_fast8_t
-MPU9150DataRead(tMPU9150 *psInst, tSensorCallback *pfnCallback,
-                void *pvCallbackData)
+MPU9150DataRead(tMPU9150 *psInst, void *pvCallbackData)
 {
     //
     // Return a failure if the MPU9150 driver is not idle (in other words,
