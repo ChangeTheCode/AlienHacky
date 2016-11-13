@@ -1,0 +1,40 @@
+
+FUNCTIONS NAMEN:
+
+	unterstrich trennen wörter und klein schreiben ausgeschlossen sind Abkürzungen 
+		
+		void the_function_name (void);
+		void LED_init (void);
+
+	device kommt vorne
+	
+		void scheduler_get_pid (void);
+		
+STRUCTS:
+
+	member variablen fangen mit ( _ ) an
+	Struct name = typedef führender unterstrich
+	Typedef enden mit unterstrich t 
+		
+		typedef struct _LED_info {
+			int _stuct_id;		// contains the global struct id so we can be sure we are getting the correct
+								//    structs when passing parameters
+			LED_name_e _name; 	// contains LED1 oder LED2
+			int _value;			//
+			int _errorState;	//
+		} LED_info_t ;
+
+	
+ENUM:
+
+	Typedef enden mit unterstricht e 
+	Werte sind groß geschrieben und ohne unterstriche 
+	
+	typedef enum {LED1, LED2} LED_name_e;
+		
+VARIABLEN NAMEN:
+
+	alle namen Klein aussgenommen sind Abkürzungen 
+	Trennung durch unterstrich ( _ ) 
+	
+	
