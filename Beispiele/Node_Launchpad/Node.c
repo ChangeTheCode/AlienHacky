@@ -38,8 +38,7 @@
 /* Drivers */
 #include <driverlib/rf_prop_mailbox.h>
 
-#include "tx.h"
-#include "rx.h"
+#include "RF.h"
 
 /* Pin driver handles */
 PIN_Handle buttonPinHandle;

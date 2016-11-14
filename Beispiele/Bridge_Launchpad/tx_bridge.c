@@ -1,11 +1,11 @@
 /*
- * tx.c
+ * tx_bridge.c
  *
- *  Created on: 13. Nov. 2016
+ *  Created on: 14. Nov. 2016
  *      Author: Tobias
  */
 
-#include "tx.h"
+#include "RF.h"
 #include "uart.h"
 
 /***** Variable declarations *****/
@@ -14,41 +14,39 @@ Task_Struct txTask;    /* not static so you can see in ROV */
 static uint8_t txTaskStack[TX_TASK_STACK_SIZE];
 
 uint8_t payload[] = "HelloBigWord";
-uint8_t packet[PAYLOAD_LENGTH];
+uint8_t packetTx[PAYLOAD_LENGTH];
 
 uint8_t uart_text[] = "packet gesendet\n";
 
 static void txTaskFunction(UArg arg0, UArg arg1);
 
-void TxTask_init(PIN_Handle inPinHandle)
+void TxTask_init (PIN_Handle ledPinHandle)
 {
-    //pinHandle = inPinHandle;
+	//pinHandle = ledPinHandle;
 
     Task_Params_init(&txTaskParams);
     txTaskParams.stackSize = TX_TASK_STACK_SIZE;
-    txTaskParams.priority = TX_TASK_PRIORITY;
     txTaskParams.stack = &txTaskStack;
-    txTaskParams.arg0 = (UInt)1000000;
-
-    Task_construct(&txTask, txTaskFunction, &txTaskParams, NULL);
+    txTaskParams.priority = TX_TASK_PRIORITY;
+    Task_construct(&txTask, (Task_FuncPtr)txTaskFunction, &txTaskParams, NULL);
 }
 
-static void txTaskFunction(UArg arg0, UArg arg1)
+void txTaskFunction(UArg arg0, UArg arg1)
 {
 	uart_init();
 
 	// rf init
-    RF_Params rfParams;
-    RF_Params_init(&rfParams);
-    rfParams.nInactivityTimeout = 200; // 200us
+	RF_Params rfParams;
+	RF_Params_init(&rfParams);
+	rfParams.nInactivityTimeout = 200; // 200us
 
-    RF_cmdPropTx.pktLen = PAYLOAD_LENGTH;
-    RF_cmdPropTx.pPkt = packet;
-    RF_cmdPropTx.startTrigger.triggerType = TRIG_NOW;
-    RF_cmdPropTx.startTrigger.pastTrig = 1;
-    RF_cmdPropTx.startTime = 0;
+	RF_cmdPropTx.pktLen = PAYLOAD_LENGTH;
+	RF_cmdPropTx.pPkt = packetTx;
+	RF_cmdPropTx.startTrigger.triggerType = TRIG_NOW;
+	RF_cmdPropTx.startTrigger.pastTrig = 1;
+	RF_cmdPropTx.startTime = 0;
 
-    if (!rfHandle) {
+	if (!rfHandle) {
 		/* Request access to the radio */
 		rfHandle = RF_open(&rfObject, &RF_prop, (RF_RadioSetup*)&RF_cmdPropRadioDivSetup, &rfParams);
 
@@ -66,28 +64,13 @@ static void txTaskFunction(UArg arg0, UArg arg1)
     {
     	Semaphore_pend(semTxHandle, BIOS_WAIT_FOREVER);
 
+    	// write the packet payload to the uart
+		UART_write(uart, &packetRx, packetRxLength);
+		if(packetRx[0] == 1)
+		{
+			packetTx[0] = 2;
 
-    	if(button_pressed == 1)
-    	{
-			button_pressed = 0;
-
-			/* Create packet with command number, 6 Byte Mac, max of 12 Byte payload */
-			packet[0] = (uint8_t)(1);  //Login
-
-			// add mac address to packet
-			uint8_t j;
-			for (j = 2; j < 8; j++)
-			{
-				packet[j-1] = macAddress[j];
-			}
-
-			// add payload to packet (normally the 3 Accel Floats)
-			uint8_t i;
-			for (i = 7; i < PAYLOAD_LENGTH; i++)
-			{
-				//packet[i] = rand();
-				packet[i] = payload[i-7];
-			}
+			// TODO: add mac Address
 
 			/* Send packet */
 			// stop RX CMD
@@ -101,8 +84,8 @@ static void txTaskFunction(UArg arg0, UArg arg1)
 			// wait for TX CMD to complete
 			RF_EventMask tx2 = RF_pendCmd(rfHandle, tx_cmd, (RF_EventLastCmdDone | RF_EventCmdAborted | RF_EventCmdStopped | RF_EventCmdCancelled));
 
-			UART_write(uart, &uart_text, 16);
-    	}
+			UART_write(uart, "OK gesendet\n", 13);
+		}
 		Semaphore_post(semRxHandle);
     }
 }

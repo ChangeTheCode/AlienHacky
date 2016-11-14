@@ -5,7 +5,7 @@
  *      Author: Tobias
  */
 
-#include "rx.h"
+#include "RF.h"
 
 static Task_Params rxTaskParams;
 Task_Struct rxTask;    /* not static so you can see in ROV */
@@ -14,9 +14,9 @@ static uint8_t rxTaskStack[RX_TASK_STACK_SIZE];
 /* Receive dataQueue for RF Core to fill in data */
 static dataQueue_t dataQueue;
 static rfc_dataEntryGeneral_t* currentDataEntry;
-static uint8_t packetLength;
-static uint8_t* packetDataPointer;
-static uint8_t packetRx[MAX_LENGTH + NUM_APPENDED_BYTES - 1]; /* The length byte is stored in a separate variable */
+uint8_t packetRxLength;
+static uint8_t* packetRxDataPointer;
+uint8_t packetRx[MAX_PACKET_LENGTH]; /* The length byte is stored in a separate variable */
 
 static void rxTaskFunction(UArg arg0, UArg arg1);
 static void callback(RF_Handle h, RF_CmdHandle ch, RF_EventMask e);
@@ -111,11 +111,11 @@ void callback(RF_Handle h, RF_CmdHandle ch, RF_EventMask e)
         /* Handle the packet data, located at &currentDataEntry->data:
          * - Length is the first byte with the current configuration
          * - Data starts from the second byte */
-        packetLength      = *(uint8_t*)(&currentDataEntry->data);
-        packetDataPointer = (uint8_t*)(&currentDataEntry->data + 1);
+        packetRxLength      = *(uint8_t*)(&currentDataEntry->data);
+        packetRxDataPointer = (uint8_t*)(&currentDataEntry->data + 1);
 
         /* Copy the payload + the status byte to the packet variable */
-        memcpy(packetRx, packetDataPointer, (packetLength + 1));
+        memcpy(packetRx, packetRxDataPointer, (packetRxLength + 1));
 
         // TODO: maybe run mac check first
 
