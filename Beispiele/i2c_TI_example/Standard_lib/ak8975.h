@@ -36,6 +36,8 @@ extern "C"
 {
 #endif
 
+#include <ti/drivers/I2C.h>
+
 //*****************************************************************************
 //
 // The structure that defines the internal state of the AK8975 driver.

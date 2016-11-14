@@ -37,6 +37,8 @@ extern "C"
 {
 #endif
 
+#include <ti/drivers/I2C.h>
+#include "ak8975.h"
 //*****************************************************************************
 //
 // The structure that defines the internal state of the MPU9150 driver.
@@ -142,8 +144,7 @@ extern uint_fast8_t MPU9150Read(tMPU9150 *psInst, uint_fast8_t ui8Reg,
                                 uint8_t *pui8Data, uint_fast16_t ui16Count, void *pvCallbackData);
 extern uint_fast8_t MPU9150Write(tMPU9150 *psInst, uint_fast8_t ui8Reg,
                                  const uint8_t *pui8Data,
-                                 uint_fast16_t ui16Count,
-                                 void *pvCallbackData);
+                                 uint_fast16_t ui16Count);
 extern uint_fast8_t MPU9150ReadModifyWrite(tMPU9150 *psInst,
                                            uint_fast8_t ui8Reg,
                                            uint_fast8_t ui8Mask,

@@ -23,7 +23,6 @@
 //*****************************************************************************
 
 #include <stdint.h>
-#include <ti/drivers/I2C.h>
 #include "hw_ak8975.h"
 #include "ak8975.h"
 

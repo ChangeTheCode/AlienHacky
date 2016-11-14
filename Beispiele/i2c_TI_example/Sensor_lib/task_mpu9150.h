@@ -5,11 +5,12 @@
  *      Author: Jim
  */
 
-#ifndef SENSOR_LIB_MPU9150_H_
-#define SENSOR_LIB_MPU9150_H_
+#ifndef SENSOR_LIB_TASK_MPU9150_H_
+#define SENSOR_LIB_TASK_MPU9150_H_
 
 #include <xdc/std.h>
 #include <ti/drivers/I2C.h>
+
 
 // "MPU-9150 Register Map and Descriptions Revision 4.0",
 
@@ -116,11 +117,6 @@
 // I2C address 0x69 could be 0x68 depends on your wiring.
 int MPU9150_I2C_ADDRESS = 0x69;
 
+void gyro_worker(I2C_Handle *i2c);
 
-BOOL mpu9150_write(I2C_Handle i2c, uint8_t reg_address, uint8_t value);
-
-BOOL mpu9150_read(I2C_Handle i2c, uint8_t reg_address, uint8_t count_of_bytes, uint8_t* read_buffer);
-
-
-
-#endif /* SENSOR_LIB_MPU9150_H_ */
+#endif /* SENSOR_LIB_TASK_MPU9150_H_ */

@@ -54,6 +54,7 @@
 #include "AlienHacky_datatypes.h"
 #include "Sensor_lib/light_sensor.h"
 
+//extern void gyro_worker(I2C_Handle *i2c);
 
 #define TASKSTACKSIZE       1024
 #define TMP007_OBJ_TEMP     0x0003  /* Object Temp Result Register */
@@ -107,6 +108,11 @@ Void taskFxn(UArg arg0, UArg arg1)
     if( ! config_light_sensor_reg2 ){
 		return;   // config of the light sensor failed Break
 	}
+
+
+
+    gyro_worker(&i2c);
+
 
 
     //TODO Send routine

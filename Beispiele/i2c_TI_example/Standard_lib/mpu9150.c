@@ -24,7 +24,6 @@
 //*****************************************************************************
 
 #include <stdint.h>
-#include <ti/drivers/I2C.h>
 #include "hw_ak8975.h"
 #include "hw_mpu9150.h"
 
@@ -528,13 +527,20 @@ uint_fast8_t MPU9150Init(tMPU9150 *psInst, I2C_Handle *psI2CInst,
     //
     psInst->uCommand.pui8Buffer[0] = MPU9150_O_PWR_MGMT_1;
     psInst->uCommand.pui8Buffer[1] = MPU9150_PWR_MGMT_1_DEVICE_RESET;
-/*    if(I2CMWrite(psInst->psI2CInst, psInst->ui8Addr,
-                 psInst->uCommand.pui8Buffer, 2, MPU9150Callback, psInst) == 0)
-    {
-        psInst->ui8State = MPU9150_STATE_IDLE;
-        return(0);
+
+    I2C_Transaction i2cTransaction;
+
+    i2cTransaction.slaveAddress = psInst->ui8Addr;//Board_TMP007_ADDR, Lightsensor read slave adress ; 136 = schreiben 137 lesen
+    i2cTransaction.writeBuf = psInst->uCommand.pui8Buffer;
+    i2cTransaction.writeCount = 2;
+    i2cTransaction.readBuf = NULL;
+    i2cTransaction.readCount = 0;
+
+
+    if (! I2C_transfer(*psI2CInst, &i2cTransaction)) { // can't send the message
+    	psInst->ui8State = MPU9150_STATE_IDLE;
+    	return(0);
     }
-*/
 
     //
     // Success
@@ -632,9 +638,6 @@ uint_fast8_t MPU9150Read(tMPU9150 *psInst, uint_fast8_t ui8Reg, uint8_t *pui8Dat
 //! \param ui8Reg is the first register to write.
 //! \param pui8Data is a pointer to the data to write.
 //! \param ui16Count is the number of data bytes to write.
-//! \param pfnCallback is the function to be called when the data has been
-//! written (can be \b NULL if a callback is not required).
-//! \param pvCallbackData is a pointer that is passed to the callback function.
 //!
 //! This function writes a sequence of data values to consecutive registers in
 //! the MPU9150.  The first byte of the \e pui8Data buffer contains the value
@@ -646,8 +649,19 @@ uint_fast8_t MPU9150Read(tMPU9150 *psInst, uint_fast8_t ui8Reg, uint8_t *pui8Dat
 //
 //*****************************************************************************
 uint_fast8_t MPU9150Write(tMPU9150 *psInst, uint_fast8_t ui8Reg, const uint8_t *pui8Data,
-             uint_fast16_t ui16Count, void *pvCallbackData)
+             uint_fast16_t ui16Count)
 {
+	uint8_t * data;
+	memset(data,0, ui16Count + 1);
+
+	*data = ui8Reg; // set first register to write
+	data++;
+	int i; // loop variable
+	for(i = 1; i < ui16Count +1 ; i++){
+		*data = *pui8Data;  		// append the data to write
+		data ++ ; pui8Data++;
+	}
+
     //
     // Return a failure if the MPU9150 driver is not idle (in other words,
     // there is already an outstanding request to the MPU9150).
@@ -656,12 +670,6 @@ uint_fast8_t MPU9150Write(tMPU9150 *psInst, uint_fast8_t ui8Reg, const uint8_t *
     {
         return(0);
     }
-
-    //
-    // Save the callback information.
-    //
-    //psInst->pfnCallback = pfnCallback;
-    psInst->pvCallbackData = pvCallbackData;
 
     //
     // See if the PWR_MGMT_1 register is being written.
@@ -724,18 +732,22 @@ uint_fast8_t MPU9150Write(tMPU9150 *psInst, uint_fast8_t ui8Reg, const uint8_t *
     //
     // Write the requested registers to the MPU9150.
     //
-/*    if(I2CMWrite8(&(psInst->uCommand.sWriteState), psInst->psI2CInst,
-                  psInst->ui8Addr, ui8Reg, pui8Data, ui16Count,
-                  MPU9150Callback, psInst) == 0)
-    {
-        //
-        // The I2C write failed, so move to the idle state and return a
-        // failure.
-        //
-        psInst->ui8State = MPU9150_STATE_IDLE;
-        return(0);
+    I2C_Transaction i2cTransaction;
+
+
+    i2cTransaction.slaveAddress = psInst->ui8Addr;//Board_TMP007_ADDR, Lightsensor read slave adress ; 136 = schreiben 137 lesen
+    i2cTransaction.writeBuf = pui8Data;
+    i2cTransaction.writeCount = ui16Count +1; // + 1 because the is missing the start of register to write
+    i2cTransaction.readBuf = NULL;
+    i2cTransaction.readCount = 0;
+
+
+
+    if (! I2C_transfer(psInst->i2c, &i2cTransaction)) { // can't send the message
+    	psInst->ui8State = MPU9150_STATE_IDLE;
+    	return(0);
     }
-*/
+
     //
     // Success.
     //
@@ -943,8 +955,7 @@ MPU9150DataAccelGetRaw(tMPU9150 *psInst, uint_fast16_t *pui16AccelX,
 //! \return None.
 //
 //*****************************************************************************
-void
-MPU9150DataAccelGetFloat(tMPU9150 *psInst, float *pfAccelX, float *pfAccelY,
+void MPU9150DataAccelGetFloat(tMPU9150 *psInst, float *pfAccelX, float *pfAccelY,
                          float *pfAccelZ)
 {
     float fFactor;
