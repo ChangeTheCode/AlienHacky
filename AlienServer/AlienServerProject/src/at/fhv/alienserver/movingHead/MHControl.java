@@ -1,9 +1,12 @@
 package at.fhv.alienserver.movingHead;
 
 import at.fhv.alienserver.CoordinateContainer;
+import at.fhv.alienserver.Tuple;
+
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.TimeUnit;
 
 import static java.lang.Math.abs;
 import static java.lang.Thread.sleep;
@@ -20,8 +23,9 @@ import static java.lang.Thread.yield;
  * @version 1.11.2016
  */
 public class MHControl implements Runnable{
-    private BlockingQueue<CoordinateContainer> coordinatesFromCalculator;
-    private Object[] localCopyOfCoordinates;
+    private BlockingQueue<Tuple<CoordinateContainer, Long>> coordinatesFromCalculator;
+    private Object[] localCopyOfCoordinatesArray;
+    private LinkedList<CoordinateContainer> localCopyOfCoordinates;
     /**
      * Integer that determines for what queue size the MH - Control will wait to be available. This directly sets which
      * number of coordinates is actually set with the MH - X25 (e.g. every 20th position)
@@ -62,7 +66,16 @@ public class MHControl implements Runnable{
      */
     private final double waitTimeConversionFactor = 150;
 
-    public MHControl(BlockingQueue<CoordinateContainer> q, int QUEUE_SIZE){
+    /**
+     * This boolean is used as a flag to signal the Runnable in this class, if it should be run or not.
+     * <p>
+     * The use of such a flag became necessary when it was obvious that sometimes during the execution of the AlienServer
+     * position setting of the MH - X25 should pause and all available computation power should be spent on internal
+     * data processing.
+     */
+    private boolean run = true;
+
+    public MHControl(BlockingQueue<Tuple<CoordinateContainer, Long>> q, int QUEUE_SIZE){
         this.coordinatesFromCalculator = q;
         this.QUEUE_SIZE = QUEUE_SIZE;
     }
@@ -106,97 +119,122 @@ public class MHControl implements Runnable{
         DMX oldDmxPacket;
         DMX exaggeratedDmxPacket;
 
+        long currentTime;
+        Tuple <CoordinateContainer, Long> localTupleBuffer;
+
         double direction;
         double oldDirection;
 
-        do{
-            packets.clear();
 
-            /*
-             * In the insanely unlikely case of this thread being faster than the calculator, we wait until the
-             * calculator is ready; We do this to set the MH-X25 to a precise interval of points.
-             */
-            while(coordinatesFromCalculator.size() < QUEUE_SIZE){
+        do{
+            if(run) {
+                packets.clear();
+
+                /*
+                 * In the insanely unlikely case of this thread being faster than the calculator, we wait until the
+                 * calculator is ready; We do this to set the MH-X25 to a precise interval of points.
+                 */
+                while (coordinatesFromCalculator.size() < QUEUE_SIZE) {
+                    yield();
+                }
+
+
+    //            coordinatesFromCalculator.drainTo(localCopyOfCoordinates, QUEUE_SIZE);
+    //            localCopyOfCoordinatesArray = localCopyOfCoordinates.toArray();
+    //
+    //            /*
+    //             * Grab the last point in the array and interpret it through the next statements.
+    //             */
+    //            oldC = new CoordinateContainer(c);
+    //            c = (CoordinateContainer) localCopyOfCoordinatesArray[localCopyOfCoordinatesArray.length - 1];
+    //            c.x += mhOffsetX;
+    //            c.y += mhOffsetY;
+
+                //Search the current position and grab the coordinates
+                //The current solution is arguably not beautiful, but was used for reasons of time constraints
+                currentTime = System.currentTimeMillis();
+                do {
+                    localTupleBuffer = coordinatesFromCalculator.poll();
+                    if (localTupleBuffer == null) {
+                        continue;
+                    }
+                } while (localTupleBuffer.b < currentTime);
+
+                oldC = new CoordinateContainer(c);
+                c = localTupleBuffer.a;
+                c.x += mhOffsetX;
+                c.y += mhOffsetY;
+
+                /*
+                 * First we remember the old DMX - packet to later use it to determine the time we have to wait for the
+                 * MH-X25 to complete its motion.
+                 */
+                oldDmxPacket = new DMX(dmxPacket);
+
+                //On first iteration the next statement yields 0 / 0 --> NaN!!!!
+                //TODO: Fix that crap
+                //double debug = Math.atan(c.y / c.x) * 180 / Math.PI + offset_phi;
+                dmxPacket.setPan(Math.atan(c.y / c.x) * 180 / Math.PI + offset_phi);
+                if (c.x >= 0) {
+                    //double debug2 = Math.atan(Math.sqrt(c.x * c.x + c.y * c.y) / h) * 180 / Math.PI + offset_theta;
+                    dmxPacket.setTilt(Math.atan(Math.sqrt(c.x * c.x + c.y * c.y) / h) * 180 / Math.PI + offset_theta);
+                } else {
+                    dmxPacket.setTilt((-1) * Math.atan(Math.sqrt(c.x * c.x + c.y * c.y) / h) * 180 / Math.PI + offset_theta);
+                }
+
+                packets.add(dmxPacket);
+
+                /*
+                 * At this place we use oldC and c to determine, how much the angle of movement has changed. If it has
+                 * changed more than a certain threshold, we use an exaggerated-packet. This calculation can be set up
+                 * using the DMX packets (with pan and tilt) themselves, however this is not done at the moment since the
+                 * hardware setup is known to change in the future (as of 7.11.2016); once the final setup is used, we can
+                 * change the calculation and optimise variable usage.
+                 * TODO: Change the calculation to used oldDmxPacket and dmxPacket.
+                 */
+                direction = Math.atan(c.y / c.x);
+                oldDirection = Math.atan(oldC.y / oldC.x);
+                if (abs(direction - oldDirection) > 10) {
+                    exaggeratedDmxPacket = DMX.getExaggeratedDmx(dmxPacket, oldDmxPacket);
+                    packets.addFirst(exaggeratedDmxPacket);
+                }
+
+                //Set the moving head to the last point in our array
+                try {
+                    for (DMX packet : packets) {
+                        esp.sendPackets(dummy, packet);
+                        sleep(100);
+                    }
+                } catch (IOException e) {
+                    System.err.println("Couldn't transmit ESP-packet for shit!");
+                    System.err.println(e.toString());
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    //We got interrupted!!! WTF?!?! This wasn't supposed to happen in our applicaiton
+                    e.printStackTrace();
+                }
+
+                //Let the calculator PURPOSEFULLY run again
+                coordinatesFromCalculator.clear();
+
+                try {
+                    //long debug3 = getTimeToSleep(oldDmxPacket, dmxPacket);
+                    //waitTimes.add(debug3);
+                    sleep(getTimeToSleep(oldDmxPacket, dmxPacket));
+                } catch (Exception e) {
+                    //Man just let me test :-(
+                }
+            } else {
                 yield();
             }
-
-            /*
-              Retrieve all coordinates the calculator provided us with
-              Using the "toArray()" call here 'cause it does NOT empty the container --> calculator stays blocked
-              This enables us to do some other stuff before the calc runs again or change the order things
-             */
-            localCopyOfCoordinates = coordinatesFromCalculator.toArray();
-
-            /*
-             * Grab the last point in the array and interpret it through the next statements.
-             */
-            oldC = new CoordinateContainer(c);
-            c = (CoordinateContainer) localCopyOfCoordinates[localCopyOfCoordinates.length - 1];
-            c.x += mhOffsetX;
-            c.y += mhOffsetY;
-
-            /*
-             * First we remember the old DMX - packet to later use it to determine the time we have to wait for the
-             * MH-X25 to complete its motion.
-             */
-            oldDmxPacket = new DMX(dmxPacket);
-
-            //On first iteration the next statement yields 0 / 0 --> NaN!!!!
-            //TODO: Fix that crap
-            //double debug = Math.atan(c.y / c.x) * 180 / Math.PI + offset_phi;
-            dmxPacket.setPan( Math.atan(c.y / c.x) * 180 / Math.PI + offset_phi );
-            if(c.x >= 0){
-                //double debug2 = Math.atan(Math.sqrt(c.x * c.x + c.y * c.y) / h) * 180 / Math.PI + offset_theta;
-                dmxPacket.setTilt( Math.atan(Math.sqrt(c.x * c.x + c.y * c.y) / h) * 180 / Math.PI + offset_theta );
-            } else {
-                dmxPacket.setTilt((-1) * Math.atan(Math.sqrt(c.x * c.x + c.y * c.y) / h) * 180 / Math.PI + offset_theta);
-            }
-
-            packets.add(dmxPacket);
-
-            /*
-             * At this place we use oldC and c to determine, how much the angle of movement has changed. If it has
-             * changed more than a certain threshold, we use an exaggerated-packet. This calculation can be set up
-             * using the DMX packets (with pan and tilt) themselves, however this is not done at the moment since the
-             * hardware setup is known to change in the future (as of 7.11.2016); once the final setup is used, we can
-             * change the calculation and optimise variable usage.
-             * TODO: Change the calculation to used oldDmxPacket and dmxPacket.
-             */
-            direction = Math.atan(c.y / c.x);
-            oldDirection = Math.atan(oldC.y / oldC.x);
-            if( abs(direction - oldDirection) > 10) {
-                exaggeratedDmxPacket = DMX.getExaggeratedDmx(dmxPacket, oldDmxPacket);
-                packets.addFirst(exaggeratedDmxPacket);
-            }
-
-            //Set the moving head to the last point in our array
-            try {
-//                esp.sendPackets(dummy, exaggeratedDmxPacket);
-//                sleep(100);
-//                esp.sendPackets(dummy, dmxPacket);
-                for(DMX packet : packets){
-                    esp.sendPackets(dummy, packet);
-                    sleep(100);
-                }
-            } catch (IOException e) {
-                System.err.println("Couldn't transmit ESP-packet for shit!");
-                System.err.println(e.toString());
-                e.printStackTrace();
-            } catch (InterruptedException e){
-                //We got interrupted!!! WTF?!?! This wasn't supposed to happen in our applicaiton
-                e.printStackTrace();
-            }
-
-            //Let the calculator PURPOSEFULLY run again
-            coordinatesFromCalculator.clear();
-
-            try {
-                //long debug3 = getTimeToSleep(oldDmxPacket, dmxPacket);
-                //waitTimes.add(debug3);
-                sleep( getTimeToSleep(oldDmxPacket, dmxPacket) );
-            } catch (Exception e){
-                //Man just let me test :-(
-            }
         } while (true); //Just let it run for now
+    }
+
+    public void pause(){
+        this.run = false;
+    }
+
+    public void resume(){
+        this.run = true;
     }
 }

@@ -1,15 +1,18 @@
 package at.fhv.alienserver.calculator;
 
-import static java.lang.Math.signum;
-import static java.lang.Math.sqrt;
-
-import at.fhv.alienserver.CoordinateContainer;
 import at.fhv.alienserver.AccelerationContainer;
+import at.fhv.alienserver.CoordinateContainer;
 import at.fhv.alienserver.SpeedContainer;
+import at.fhv.alienserver.Tuple;
+import at.fhv.alienserver.movingHead.MHControl;
 import at.fhv.alienserver.sockcomm.SockComm;
 
 import java.io.PrintWriter;
 import java.util.concurrent.BlockingQueue;
+
+import static at.fhv.alienserver.Main.GLOBAL_SIM_ZERO_TIME;
+import static java.lang.Math.signum;
+import static java.lang.Math.sqrt;
 
 //TODO: Add support for java-thread-interrupts to allow for kicks to happen, or think of another way of how to implement these
 
@@ -52,15 +55,17 @@ public class Calculator implements Runnable {
     private final double h = 0.01;
 
     private SockComm sock;
+    private MHControl mhControl;
 
     private int stubIteration = 0;
     private int iteration = 0;
 
-    private BlockingQueue<CoordinateContainer> positionValuesDump;
+    private BlockingQueue<Tuple<CoordinateContainer, Long>> positionValuesDump;
 
-    public Calculator(SockComm suppliedSock, BlockingQueue<CoordinateContainer> positionValuesDump){
+    public Calculator(SockComm suppliedSock, MHControl mhControl, BlockingQueue<Tuple<CoordinateContainer, Long>> positionValuesDump){
         sock = suppliedSock;
         this.positionValuesDump = positionValuesDump;
+        this.mhControl = mhControl;
     }
 
     private AccelerationContainer stub_getSenAcc(AccelerationContainer arr){
@@ -122,6 +127,9 @@ public class Calculator implements Runnable {
     }
 
     public void run(){
+        long currentTime;
+        CoordinateContainer coordinateBuffer;
+
         PrintWriter writer;
         PrintWriter writer2;
         try {
@@ -136,10 +144,30 @@ public class Calculator implements Runnable {
         AccelerationContainer acc = new AccelerationContainer();
 
         AccelerationContainer senAcc = new AccelerationContainer();
+        AccelerationContainer oldSenAcc;
 
         while(true){
             //senAcc = sock.getSenAcc(senAcc); TODO: Actually make this happen
+            oldSenAcc = new AccelerationContainer(senAcc);
             senAcc = stub_getSenAcc(senAcc);
+
+            if(delta(senAcc, oldSenAcc, 0.3)){
+                /*
+                 * Here we check if the accelerations delivered by the sensor have changed significantly. If so we have
+                 * a kick event (or something with similar effects on the system). This means we have to trash the
+                 * calculated values in positionValuesDump which no longer apply (remember we've been calculating into
+                 * the future) and restart calculations from there.
+                 */
+                currentTime = System.currentTimeMillis();
+                mhControl.pause();
+                for(Tuple<CoordinateContainer, Long> element : positionValuesDump){
+                    if(element.b > currentTime){
+                        positionValuesDump.remove(element);
+                    }
+                }
+
+                mhControl.resume();
+            }
 
             //Maybe we have to use this to stop the sack when it gets kicked???
             /*
@@ -179,7 +207,7 @@ public class Calculator implements Runnable {
             iteration++;
 
             try {
-                positionValuesDump.put(pos);
+                positionValuesDump.put(  new Tuple<>(pos, GLOBAL_SIM_ZERO_TIME + (iteration * 10))  );
             } catch (InterruptedException e){
                 System.err.println("Our calculator thread got interrupted, which clearly wasn't supposed to happen :-(");
                 e.printStackTrace();
@@ -192,6 +220,15 @@ public class Calculator implements Runnable {
                 writer2.close();
                 break;
             }
+        }
+    }
+
+    private boolean delta(AccelerationContainer acc1, AccelerationContainer acc2, double threshold){
+        if(Math.abs(acc1.x - acc2.x) > threshold || Math.abs(acc1.y - acc2.y) > threshold || Math.abs(acc1.z - acc2.z) > threshold){
+            return true;
+        } else
+        {
+            return false;
         }
     }
 }

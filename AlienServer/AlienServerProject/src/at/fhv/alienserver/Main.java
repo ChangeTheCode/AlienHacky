@@ -4,7 +4,12 @@ import at.fhv.alienserver.calculator.Calculator;
 import at.fhv.alienserver.movingHead.MHControl;
 import at.fhv.alienserver.sockcomm.SockComm;
 
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  * Class holding the main routine.
@@ -23,19 +28,21 @@ public class Main {
      * Number is saved in this awkward way because the author couldn't find a replacement for the good old #define.
      */
     public static final int POS_CONTAINER_SIZE = 20;
+    public static long GLOBAL_SIM_ZERO_TIME = 0;
 
     public static void main(String[] args) {
-        ArrayBlockingQueue<CoordinateContainer> pointContainer = new ArrayBlockingQueue<>(POS_CONTAINER_SIZE);
-
+        //ArrayBlockingQueue<CoordinateContainer> pointContainer = new ArrayBlockingQueue<>(10000);
+        LinkedBlockingQueue< Tuple<CoordinateContainer, Long> > pointContainer = new LinkedBlockingQueue<>(10000);
         SockComm mySock = new SockComm();
-        Calculator myCalc = new Calculator(mySock, pointContainer);
         MHControl mhControl = new MHControl(pointContainer, POS_CONTAINER_SIZE);
+        Calculator myCalc = new Calculator(mySock, mhControl, pointContainer);
 
         Thread sockThread = new Thread(mySock);
         Thread calcThread = new Thread(myCalc);
         Thread mhThread = new Thread(mhControl);
 
         sockThread.start();
+        GLOBAL_SIM_ZERO_TIME = System.currentTimeMillis();
         calcThread.start();
         mhThread.start();
 
