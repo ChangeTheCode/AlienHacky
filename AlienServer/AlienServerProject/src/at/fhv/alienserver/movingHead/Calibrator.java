@@ -1,6 +1,7 @@
 package at.fhv.alienserver.movingHead;
 
 import at.fhv.alienserver.CoordinateContainer;
+import at.fhv.alienserver.Tuple;
 import at.fhv.alienserver.config.Config;
 
 import javax.swing.*;
@@ -22,7 +23,7 @@ public class Calibrator {
     public static void main(String[] args){
 
         //A queue for holding the pressed keys
-        ArrayBlockingQueue<CoordinateContainer> coordinates = new ArrayBlockingQueue<>(1);
+        ArrayBlockingQueue<Tuple<CoordinateContainer, Long>> coordinates = new ArrayBlockingQueue<>(1);
 
         //Get MH - Control up and running
         MHControl myMH = new MHControl(coordinates, 1);
@@ -64,22 +65,22 @@ public class Calibrator {
                     //Currently there's no character present, so just don't do anything
                 } else if (c == 'w') {
                     newCoordinates.x += 0.1;
-                    coordinates.put(newCoordinates);
+                    coordinates.put(new Tuple<>(newCoordinates, 1l));
                     System.out.println("Pressed " + c);
                     c = null;
                 } else if (c == 's') {
                     newCoordinates.x -= 0.1;
-                    coordinates.add(newCoordinates);
+                    coordinates.add(new Tuple<>(newCoordinates, 1l));
                     System.out.println("Pressed " + c);
                     c = null;
                 } else if (c == 'd') {
                     newCoordinates.y += 0.1;
-                    coordinates.add(newCoordinates);
+                    coordinates.add(new Tuple<>(newCoordinates, 1l));
                     System.out.println("Pressed " + c);
                     c = null;
                 } else if (c == 'a') {
                     newCoordinates.y -= 0.1;
-                    coordinates.add(newCoordinates);
+                    coordinates.add(new Tuple<>(newCoordinates, 1l));
                     System.out.println("Pressed " + c);
                     c = null;
                 } else if(c == '1'){

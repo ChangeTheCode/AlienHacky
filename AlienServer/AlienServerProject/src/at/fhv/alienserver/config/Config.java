@@ -93,6 +93,7 @@ public class Config {
             }
         }
 
+        //TODO: Test the getProperty functionality
         String propertyString = Config.propertyEnum2propertyString.get(property);
 
         return prop.getProperty(propertyString);

@@ -107,19 +107,19 @@ public class Calculator implements Runnable {
         if(stubIteration < 40){
             arr.x = 0;
             arr.y = 0;
-            arr.z = 0;
+            //arr.z = 0;
             stubIteration ++;
             return arr;
         } else if(stubIteration < 90){
             arr.x = 5;
             arr.y = 2;
-            arr.z = 4;
+            //arr.z = 4;
             stubIteration++;
             return arr;
         } else {
             arr.x = 0;
             arr.y = 0;
-            arr.z = -9.81;
+            //arr.z = -9.81;
             stubIteration++;
             return arr;
         }
@@ -174,31 +174,31 @@ public class Calculator implements Runnable {
             if(senAcc[0] != 0 || senAcc[1] != 0 || senAcc[2] != -9.81){
                         acc[0] = 0;
                         acc[1] = 0;
-                        acc[2] = 0;
+                        //acc[2] = 0;
                         speed[0] = 0;
                         speed[1] = 0;
-                        speed[2] = 0;
+                        //speed[2] = 0;
              }
              */
 
             acc.x = signum(acc.x) * signum(A) * sqrt(A * A * speed.x * speed.x) + b * senAcc.x;
             acc.y = signum(acc.y) * signum(A) * sqrt(A * A * speed.y * speed.y) + b * senAcc.y;
-            acc.z = signum(acc.z) * signum(A) * sqrt(A * A * speed.z * speed.z) + b * senAcc.z;
+            //acc.z = signum(acc.z) * signum(A) * sqrt(A * A * speed.z * speed.z) + b * senAcc.z;
 
             speed.x = speed.x + acc.x * h;
             speed.y = speed.y + acc.y * h;
-            speed.z = speed.z + acc.z * h;
+            //speed.z = speed.z + acc.z * h;
 
             pos.x = pos.x + c * speed.x * h + d * senAcc.x;
             pos.y = pos.y + c * speed.y * h + d * senAcc.y;
-            pos.z = pos.z + c * speed.z * h + d * senAcc.z;
+            //pos.z = pos.z + c * speed.z * h + d * senAcc.z;
 
             if(iteration % 2 == 0) {
                 writer.println("Iteration #" + iteration);
-                writer.println("PosX = " + pos.x + "\tPosY = " + pos.y + "\tPosZ = " + pos.z);
-                writer.println("SpeedX = " + speed.x + "\tSpeedY = " + speed.y + "\tSpeedZ = " + speed.z);
-                writer.println("AccX = " + acc.x + "\tAccY = " + acc.y + "\tAccZ = " + acc.z);
-                writer.println("SenAccX = " + senAcc.x + "\tSenAccY = " + senAcc.y + "\tSenAccZ = " + senAcc.z);
+                writer.println("PosX = " + pos.x + "\tPosY = " + pos.y /*+ "\tPosZ = " + pos.z*/);
+                writer.println("SpeedX = " + speed.x + "\tSpeedY = " + speed.y /*+ "\tSpeedZ = " + speed.z*/);
+                writer.println("AccX = " + acc.x + "\tAccY = " + acc.y /*+ "\tAccZ = " + acc.z*/);
+                writer.println("SenAccX = " + senAcc.x + "\tSenAccY = " + senAcc.y /*+ "\tSenAccZ = " + senAcc.z*/);
                 writer.println("---------------------------------");
 
                 writer2.println(iteration + ";" + pos.x);
@@ -213,22 +213,18 @@ public class Calculator implements Runnable {
                 e.printStackTrace();
             }
 
-            if(iteration > 40000 || pos.z < 0){
-                writer.flush();
-                writer.close();
-                writer2.flush();
-                writer2.close();
-                break;
-            }
+//            if(iteration > 40000 || pos.z < 0){
+//                writer.flush();
+//                writer.close();
+//                writer2.flush();
+//                writer2.close();
+//                break;
+//            }
         }
     }
 
     private boolean delta(AccelerationContainer acc1, AccelerationContainer acc2, double threshold){
-        if(Math.abs(acc1.x - acc2.x) > threshold || Math.abs(acc1.y - acc2.y) > threshold || Math.abs(acc1.z - acc2.z) > threshold){
-            return true;
-        } else
-        {
-            return false;
-        }
+        /*|| Math.abs(acc1.z - acc2.z) > threshold*/
+        return Math.abs(acc1.x - acc2.x) > threshold || Math.abs(acc1.y - acc2.y) > threshold;
     }
 }
