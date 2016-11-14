@@ -17,7 +17,7 @@ class AlienKeyListener implements java.awt.event.KeyListener {
     @Override
     public void keyPressed(KeyEvent e){
         char c = e.getKeyChar();
-        if(c == 'w' || c == 'a' || c == 's' || c == 'd' || c == '1' || c == '2' || c == '3' || c == '4') {
+        if(c == 'w' || c == 'a' || c == 's' || c == 'd' || c == '1' || c == '2' || c == '3' || c == '4' || c == 'r') {
             KeyQueue.add(c);
         }
     }

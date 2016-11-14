@@ -80,16 +80,13 @@ public class Config {
     }
 
     public static String getProperty(AlienServerProperties property) {
-        boolean returnValue = true;
-
         if(!Config.initialised){
             try {
                 Config.initialise();
-                returnValue = true;
             } catch (IOException e){
                 e.printStackTrace();
                 Config.teardown();
-                returnValue = false;
+                return null;
             }
         }
 

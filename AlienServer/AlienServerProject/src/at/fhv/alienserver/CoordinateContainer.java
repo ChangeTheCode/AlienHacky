@@ -11,7 +11,7 @@ public class CoordinateContainer {
         //this.z = 0;
     }
 
-    public CoordinateContainer(double x, double y, double z){
+    public CoordinateContainer(double x, double y){
         this.x = x;
         this.y = y;
         //this.z = z;
@@ -32,7 +32,6 @@ public class CoordinateContainer {
         int pipeIndex = input.indexOf('|');
         double x = Double.parseDouble(input.substring(0, pipeIndex - 1));
         double y = Double.parseDouble(input.substring(pipeIndex + 1, input.length() - 1));
-        double z = 0;
-        return new CoordinateContainer(x, y, z);
+        return new CoordinateContainer(x, y);
     }
 }

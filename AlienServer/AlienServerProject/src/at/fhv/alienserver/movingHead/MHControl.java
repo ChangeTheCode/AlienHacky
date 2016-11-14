@@ -153,12 +153,15 @@ public class MHControl implements Runnable{
                 //Search the current position and grab the coordinates
                 //The current solution is arguably not beautiful, but was used for reasons of time constraints
                 currentTime = System.currentTimeMillis();
+                boolean searching = true;
                 do {
                     localTupleBuffer = coordinatesFromCalculator.poll();
-                    if (localTupleBuffer == null) {
-                        continue;
+                    if (localTupleBuffer != null){
+                        if(localTupleBuffer.b >= currentTime){
+                            searching = false;
+                        }
                     }
-                } while (localTupleBuffer.b < currentTime);
+                } while (searching);
 
                 oldC = new CoordinateContainer(c);
                 c = localTupleBuffer.a;
@@ -172,7 +175,7 @@ public class MHControl implements Runnable{
                 oldDmxPacket = new DMX(dmxPacket);
 
                 //On first iteration the next statement yields 0 / 0 --> NaN!!!!
-                //TODO: Fix that crap
+                //FIXME: Fix that crap
                 //double debug = Math.atan(c.y / c.x) * 180 / Math.PI + offset_phi;
                 dmxPacket.setPan(Math.atan(c.y / c.x) * 180 / Math.PI + offset_phi);
                 if (c.x >= 0) {

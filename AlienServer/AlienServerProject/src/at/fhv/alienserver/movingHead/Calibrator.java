@@ -11,10 +11,8 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * Created by thomas on 07.11.16.
- * TODO: Send initial packet to set the MH to position (0,0) (for reasons of beauty :-) )
- * TODO: Fix deadlock when queue overfills
- * TODO: Implement exception handling at character reading
- * TODO: Make continuous movement by holding down a key possible
+ * NICETOHAVE: Implement exception handling at character reading
+ * NICETOHAVE: Make the system drop packets that come in while a key is being held down (to accomplish that the MH doesn't continue to move after the button has been released)
  */
 public class Calibrator {
 
@@ -55,7 +53,13 @@ public class Calibrator {
         System.out.println("If you don't know what quadrants are or what WASD controls are: just go home...");
 
         Character c;
-        CoordinateContainer newCoordinates = new CoordinateContainer(0, 0, 0);
+        CoordinateContainer newCoordinates = new CoordinateContainer(0, 0);
+
+        try {
+            coordinates.put(new Tuple<>(new CoordinateContainer(0, 0), Long.MAX_VALUE));
+        } catch(InterruptedException e){
+            e.printStackTrace();
+        }
 
         while(run) {
             try {
@@ -65,24 +69,28 @@ public class Calibrator {
                     //Currently there's no character present, so just don't do anything
                 } else if (c == 'w') {
                     newCoordinates.x += 0.1;
-                    coordinates.put(new Tuple<>(newCoordinates, 1l));
+                    coordinates.put(new Tuple<>(newCoordinates, Long.MAX_VALUE));
                     System.out.println("Pressed " + c);
                     c = null;
                 } else if (c == 's') {
                     newCoordinates.x -= 0.1;
-                    coordinates.add(new Tuple<>(newCoordinates, 1l));
+                    coordinates.put(new Tuple<>(newCoordinates, Long.MAX_VALUE));
                     System.out.println("Pressed " + c);
                     c = null;
                 } else if (c == 'd') {
                     newCoordinates.y += 0.1;
-                    coordinates.add(new Tuple<>(newCoordinates, 1l));
+                    coordinates.put(new Tuple<>(newCoordinates, Long.MAX_VALUE));
                     System.out.println("Pressed " + c);
                     c = null;
                 } else if (c == 'a') {
                     newCoordinates.y -= 0.1;
-                    coordinates.add(new Tuple<>(newCoordinates, 1l));
+                    coordinates.put(new Tuple<>(newCoordinates, Long.MAX_VALUE));
                     System.out.println("Pressed " + c);
                     c = null;
+                } else if (c == 'r'){
+                    String outputString = Config.getProperty(Config.AlienServerProperties.quadrant1Limit);
+                    System.out.println("Tried to read a property; got: ");
+                    System.out.println(outputString);
                 } else if(c == '1'){
                     System.out.println("Saved corner in quadrant 1");
                     Config.setProperty(Config.AlienServerProperties.quadrant1Limit, newCoordinates.toString());
@@ -107,7 +115,7 @@ public class Calibrator {
             }
         }
         /*
-         * Note: this call to exit() can cause a race condition with the open input window and the listeners. In the
+         * NOTE: this call to exit() can cause a race condition with the open input window and the listeners. In the
          * current state of the project, this race condition does not matter; should calibration problems occur in the
          * future, this might be the problem.
          */
