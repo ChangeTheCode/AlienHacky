@@ -23,30 +23,36 @@ struct node_t * front = NULL;
 struct node_t * rear = NULL;
 
 // add to the end of the queue
-void enqueue (uint8_t * data, uint8_t length) {
+BOOLEAN enqueue (uint8_t * data, uint8_t length) {
 
+	// add to the top of the queue
 	struct node_t * temp = (struct node_t *) malloc (sizeof(struct node_t));
 	memcpy ((void *) temp->data, (void *) data, length);
 	temp->length = length;
 	temp->next = NULL;
+
+	// is the queue empty?
 	if (front == NULL && rear == NULL){
 		front = rear = temp;
-		return;
+		return TRUE;
 	}
+
+	// else add to the end of the queue
 	rear->next = temp;
 	rear = temp;
+	return TRUE;
 }
 
 // get the first value in the queue
-void dequeue (uint8_t * data, uint8_t * length) {
+BOOLEAN dequeue (uint8_t * data, uint8_t * length) {
 
-	// get the top of the list
+	// get the top of the queue
 	struct node_t * temp = front;
 
 	// if the front is empty then we have nothing
 	if (front == NULL) {
 		*length = 0;
-		return;
+		return FALSE;
 	};
 
 	// move the front pointer
@@ -62,4 +68,7 @@ void dequeue (uint8_t * data, uint8_t * length) {
 
 	// free up the data
 	free (temp);
+
+	// fin
+	return TRUE;
 }

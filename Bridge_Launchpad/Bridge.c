@@ -16,6 +16,18 @@ int main(void) {
     // Init the UART
     Alien_UART_init ();
 
+    // test
+    uint8_t length = 5;
+    uint8_t length1 = 6;
+    uint8_t length2 = 7;
+    uint8_t data [MAX_PACKET_LENGTH]  = "aaaaa";
+    uint8_t data1 [MAX_PACKET_LENGTH] = "bbbbbb";
+    uint8_t data2 [MAX_PACKET_LENGTH] = "ccccccc";
+    Alien_UART_queue (data,  length);
+    Alien_UART_queue (data1, length1);
+    Alien_UART_queue (data2, length2);
+    Alien_UART_dequeue (data2, &length2);
+
     /* Start BIOS */
     BIOS_start();
 
