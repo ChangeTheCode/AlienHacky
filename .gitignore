@@ -2,11 +2,15 @@
 #   downloaded from https://github.com/github/gitignore/blob/master/TeX.gitignore on 11.03.2016
 #
 
-## additions ursus 1.6.2016
+## additions ursus 15.11.2016
 *.tmp
+# Mac OS X hidden files
+.DS_Store
+# Vim swap files
+.*.sw?
 
 
-## CCS Workspace ordner ignorieren 
+## CCS Workspace ordner ignorieren
 .metadata/
 .launches/
 Debug/
