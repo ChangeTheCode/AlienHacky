@@ -26,18 +26,18 @@ UART_Handle UART;
 UART_Params UART_params;
 
 // add to the top of the queue
-BOOLEAN Alien_UART_queue (uint8_t * data, uint8_t length) {
+BOOLEAN Alien_UART_send (uint8_t * data, uint8_t length) {
 
 	// just add to the queue
-	return enqueue (data, length);
+	return queue (SEND_QUEUE, data, length);
 
 }
 
 // read the next entry from the queue
-BOOLEAN Alien_UART_dequeue (uint8_t * data, uint8_t length) {
+BOOLEAN Alien_UART_receive (uint8_t * data, uint8_t * length) {
 
 	// just get from the queue
-	return dequeue (data, length);
+	return dequeue (RECEIVE_QUEUE, data, length);
 
 }
 

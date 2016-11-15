@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
-#include "RF.h"
+#include "queue.h"
 
 struct node_t {
 
@@ -18,12 +18,26 @@ struct node_t {
 
 } node_t ;
 
-// Two global variables to store address of front and rear nodes.
-struct node_t * front = NULL;
-struct node_t * rear = NULL;
+// Two queues to store addresses of front and rear nodes.
+struct node_t * send_front = NULL;
+struct node_t * send_rear = NULL;
+
+struct node_t * receive_front = NULL;
+struct node_t * receive_rear = NULL;
 
 // add to the end of the queue
-BOOLEAN enqueue (uint8_t * data, uint8_t length) {
+BOOLEAN queue (int queue, uint8_t * data, uint8_t length) {
+
+	// which queue are you using
+	struct node_t ** front;
+	struct node_t ** rear;
+	if (queue == SEND_QUEUE) {
+		front = &send_front;
+		rear = &send_rear;
+	} else {
+		front = &receive_front;
+		rear = &receive_rear;
+	}
 
 	// add to the top of the queue
 	struct node_t * temp = (struct node_t *) malloc (sizeof(struct node_t));
@@ -32,34 +46,45 @@ BOOLEAN enqueue (uint8_t * data, uint8_t length) {
 	temp->next = NULL;
 
 	// is the queue empty?
-	if (front == NULL && rear == NULL){
-		front = rear = temp;
+	if ((*front == NULL) && (*rear == NULL)) {
+		*front = *rear = temp;
 		return TRUE;
 	}
 
 	// else add to the end of the queue
-	rear->next = temp;
-	rear = temp;
+	(*rear)->next = temp;
+	*rear = temp;
 	return TRUE;
 }
 
 // get the first value in the queue
-BOOLEAN dequeue (uint8_t * data, uint8_t * length) {
+BOOLEAN dequeue (int queue, uint8_t * data, uint8_t * length) {
+
+	// which queue are you using
+	struct node_t ** front;
+	struct node_t ** rear;
+	if (queue == SEND_QUEUE) {
+		front = &send_front;
+		rear = &send_rear;
+	} else {
+		front = &receive_front;
+		rear = &receive_rear;
+	}
 
 	// get the top of the queue
-	struct node_t * temp = front;
+	struct node_t * temp = *front;
 
 	// if the front is empty then we have nothing
-	if (front == NULL) {
+	if (*front == NULL) {
 		*length = 0;
 		return FALSE;
 	};
 
 	// move the front pointer
-	if(front == rear) {
-		front = rear = NULL;
+	if(*front == *rear) {
+		*front = *rear = NULL;
 	} else {
-		front = front->next;
+		*front = (*front)->next;
 	}
 
 	// copy the data

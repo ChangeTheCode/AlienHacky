@@ -3,6 +3,7 @@
  *
  */
 #include "AlienUART.h"
+#include "queue.h"
 
 #include "Board.h"
 #include <ti/sysbios/BIOS.h>
@@ -23,10 +24,12 @@ int main(void) {
     uint8_t data [MAX_PACKET_LENGTH]  = "aaaaa";
     uint8_t data1 [MAX_PACKET_LENGTH] = "bbbbbb";
     uint8_t data2 [MAX_PACKET_LENGTH] = "ccccccc";
-    Alien_UART_queue (data,  length);
-    Alien_UART_queue (data1, length1);
-    Alien_UART_queue (data2, length2);
-    Alien_UART_dequeue (data2, &length2);
+
+    Alien_UART_send (data,  length);
+    Alien_UART_send (data1, length1);
+    Alien_UART_send (data2, length2);
+
+    Alien_UART_receive (data2, &length2);
 
     /* Start BIOS */
     BIOS_start();
