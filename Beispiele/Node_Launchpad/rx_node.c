@@ -70,7 +70,7 @@ static void rxTaskFunction(UArg arg0, UArg arg1)
                             MAX_LENGTH + NUM_APPENDED_BYTES))
     {
         /* Failed to allocate space for all data entries */
-        while(1); //TODO
+    	System_abort("Failed to allocate space for all RX data entries");
     }
 
     /* Modify CMD_PROP_RX command for application needs */
@@ -79,7 +79,11 @@ static void rxTaskFunction(UArg arg0, UArg arg1)
     RF_cmdPropRx.rxConf.bAutoFlushCrcErr = 1;   /* Discard packets with CRC error from Rx queue */
     RF_cmdPropRx.maxPktLen = MAX_LENGTH;        /* Implement packet length filtering to avoid PROP_ERROR_RXBUF */
     RF_cmdPropRx.pktConf.bRepeatOk = 0;
-    RF_cmdPropRx.pktConf.bRepeatNok = 0;
+    RF_cmdPropRx.pktConf.bRepeatNok = 1;
+    RF_cmdPropRx.pktConf.bChkAddress = 1;
+    RF_cmdPropRx.address0 = 0xaa;
+    RF_cmdPropRx.address1 = 0xaa;
+    RF_cmdPropRx.rxConf.bAppendStatus = 0;
 
     if (!rfHandle) {
 		/* Request access to the radio */
@@ -119,7 +123,7 @@ void callback(RF_Handle h, RF_CmdHandle ch, RF_EventMask e)
 
         // TODO: maybe run mac check first
 
-        switch(packetRx[0])
+        switch(packetRx[1]) 		//byte 0 is the address of the sender (bridge: 0xaa)
         {
 			case 1:
 				// login of other device (ignore)

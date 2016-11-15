@@ -78,7 +78,9 @@ static void rxTaskFunction(UArg arg0, UArg arg1)
     RF_cmdPropRx.rxConf.bAutoFlushCrcErr = 1;   /* Discard packets with CRC error from Rx queue */
     RF_cmdPropRx.maxPktLen = MAX_LENGTH;        /* Implement packet length filtering to avoid PROP_ERROR_RXBUF */
     RF_cmdPropRx.pktConf.bRepeatOk = 0;
-    RF_cmdPropRx.pktConf.bRepeatNok = 0;
+    RF_cmdPropRx.pktConf.bRepeatNok = 1;
+    RF_cmdPropRx.rxConf.bAppendStatus = 0;
+    RF_cmdPropRx.pktConf.bChkAddress = 0;
 
     if (!rfHandle) {
 		/* Request access to the radio */

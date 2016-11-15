@@ -15,6 +15,8 @@
 #include <ti/sysbios/BIOS.h>
 #include <ti/sysbios/knl/Task.h>
 
+#include <xdc/runtime/System.h>
+
 #include <inc/hw_fcfg1.h>
 
 #include "Board.h"

@@ -99,7 +99,7 @@ static void txTaskFunction(UArg arg0, UArg arg1)
 			RF_CmdHandle tx_cmd = RF_postCmd(rfHandle, (RF_Op*)&RF_cmdPropTx, RF_PriorityHighest, NULL, 0);
 
 			// wait for TX CMD to complete
-			RF_EventMask tx2 = RF_pendCmd(rfHandle, tx_cmd, (RF_EventLastCmdDone | RF_EventCmdAborted | RF_EventCmdStopped | RF_EventCmdCancelled));
+			//RF_EventMask tx2 = RF_pendCmd(rfHandle, tx_cmd, (RF_EventLastCmdDone | RF_EventCmdAborted | RF_EventCmdStopped | RF_EventCmdCancelled));
 
 			UART_write(uart, &uart_text, 16);
     	}

@@ -12,6 +12,8 @@
 #include <ti/drivers/PIN.h>
 #include <ti/drivers/UART.h>
 
+#include <xdc/runtime/System.h>
+
 #include <ti/sysbios/BIOS.h>
 #include <ti/sysbios/knl/Task.h>
 

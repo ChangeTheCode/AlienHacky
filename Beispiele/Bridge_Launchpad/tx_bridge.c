@@ -68,9 +68,8 @@ void txTaskFunction(UArg arg0, UArg arg1)
 		UART_write(uart, &packetRx, packetRxLength);
 		if(packetRx[0] == 1)
 		{
-			packetTx[0] = 2;
-
-			// TODO: add mac Address
+			packetTx[0] = 0xaa;
+			packetTx[1] = 2;
 
 			/* Send packet */
 			// stop RX CMD
@@ -82,7 +81,7 @@ void txTaskFunction(UArg arg0, UArg arg1)
 			RF_CmdHandle tx_cmd = RF_postCmd(rfHandle, (RF_Op*)&RF_cmdPropTx, RF_PriorityHighest, NULL, 0);
 
 			// wait for TX CMD to complete
-			RF_EventMask tx2 = RF_pendCmd(rfHandle, tx_cmd, (RF_EventLastCmdDone | RF_EventCmdAborted | RF_EventCmdStopped | RF_EventCmdCancelled));
+			//RF_EventMask tx2 = RF_pendCmd(rfHandle, tx_cmd, (RF_EventLastCmdDone | RF_EventCmdAborted | RF_EventCmdStopped | RF_EventCmdCancelled));
 
 			UART_write(uart, "OK gesendet\n", 13);
 		}
