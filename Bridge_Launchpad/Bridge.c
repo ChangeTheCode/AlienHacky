@@ -29,7 +29,13 @@ int main(void) {
     Alien_UART_send (data1, length1);
     Alien_UART_send (data2, length2);
 
-    Alien_UART_receive (data2, &length2);
+    // just add some stuff to the receive queue for testing purposes
+    data [MAX_PACKET_LENGTH]  = "12345";
+    data1 [MAX_PACKET_LENGTH] = "987654";
+    data2 [MAX_PACKET_LENGTH] = "הצüהצüה";
+	queue (RECEIVE_QUEUE, data, length);
+	queue (RECEIVE_QUEUE, data, length);
+	queue (RECEIVE_QUEUE, data, length);
 
     /* Start BIOS */
     BIOS_start();

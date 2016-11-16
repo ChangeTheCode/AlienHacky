@@ -6,9 +6,11 @@
 */
 #include "AlienUART.h"
 #include "Board.h"
+#include <ti/sysbios/BIOS.h>
 #include <ti/drivers/UART.h>
 #include <ti/sysbios/knl/Task.h>
 #include <xdc/runtime/System.h>
+#include <ti/sysbios/knl/Semaphore.h>
 #include "RF.h"
 #include "queue.h"
 
@@ -25,12 +27,22 @@ uint8_t task_UART_stack [UART_TASK_STACK_SIZE];
 UART_Handle UART;
 UART_Params UART_params;
 
+// semaphore for the send semaphore
+Semaphore_Struct semaphore_struct;
+Semaphore_Handle semaphore_handle;
+Semaphore_Params semaphore_params;
+
 // add to the top of the queue
 BOOLEAN Alien_UART_send (uint8_t * data, uint8_t length) {
 
 	// just add to the queue
-	return queue (SEND_QUEUE, data, length);
+	BOOLEAN rc = queue (SEND_QUEUE, data, length);
 
+	// let the UART Task know that you have something to send
+	Semaphore_post (semaphore_handle);
+
+	// finished
+	return rc;
 }
 
 // read the next entry from the queue
@@ -38,9 +50,17 @@ BOOLEAN Alien_UART_receive (uint8_t * data, uint8_t * length) {
 
 	// just get from the queue
 	return dequeue (RECEIVE_QUEUE, data, length);
+}
+// this gets called when you are doing the callback
+void UART_read_callback (UART_Handle UART, void * data, size_t length) {
+
+	// take what you read and place it in the receive queue
+	BOOLEAN rc = queue (RECEIVE_QUEUE, data, (uint8_t) length);
+
+	// call the UART Task to start another
+	Semaphore_post (semaphore_handle);
 
 }
-
 
 // UART init
 void Alien_UART_init (void) {
@@ -51,9 +71,13 @@ void Alien_UART_init (void) {
 	/* Create a UART with data processing off. */
 	UART_Params_init (&UART_params);
 	UART_params.writeDataMode = UART_DATA_BINARY;
+
 	UART_params.readDataMode = UART_DATA_BINARY;
+	UART_params.readMode = UART_MODE_CALLBACK;
+	UART_params.readCallback = &UART_read_callback;
 	UART_params.readReturnMode = UART_RETURN_FULL;
 	UART_params.readEcho = UART_ECHO_OFF;
+
 	UART_params.baudRate = 115200;
 	UART = UART_open (Board_UART0, &UART_params);
 	//	if (UART == NULL) System_abort ("Error opening the UART");
@@ -64,15 +88,35 @@ void Alien_UART_init (void) {
 	UART_task_params.stack = &task_UART_stack;
 	UART_task_params.priority = 1;
 	Task_construct (&task_UART_struct, (Task_FuncPtr) Alien_UART_task, &UART_task_params, NULL);
+
+	/* Construct a Semaphore object to be used as a resource lock, inital count 0 */
+	Semaphore_Params_init (&semaphore_params);
+	Semaphore_construct (&semaphore_struct, 0, &semaphore_params);
+	Semaphore_construct (&semaphore_struct, 0, &semaphore_params);
+
 }
 
 // UART Task
 void Alien_UART_task (UArg arg0, UArg arg1) {
 
-	System_printf("Starting the UART Task\n\n");
+    uint8_t length;
+    uint8_t data [MAX_PACKET_LENGTH];
 
-	while (1) {
-		System_printf("in the UART Task\n");
+    // loop forever
+	while (TRUE) {
+		// wait for something or someone to wake me
+		Semaphore_pend (semaphore_handle, BIOS_WAIT_FOREVER);
+
+		// send everything in the send queue
+		do {
+			dequeue (SEND_QUEUE, data, &length);
+			if (length > 0) {
+				   UART_write (UART, data, length);
+			}
+		} while (length > 0);
+
+		// does an read via interrupt
+		UART_read(UART, (void *) data, length);
 	}
 
 }

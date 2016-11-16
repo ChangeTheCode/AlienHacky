@@ -26,7 +26,7 @@ struct node_t * receive_front = NULL;
 struct node_t * receive_rear = NULL;
 
 // add to the end of the queue
-BOOLEAN queue (int queue, uint8_t * data, uint8_t length) {
+BOOLEAN queue (queue_status_t queue, uint8_t * data, uint8_t length) {
 
 	// which queue are you using
 	struct node_t ** front;
@@ -58,7 +58,7 @@ BOOLEAN queue (int queue, uint8_t * data, uint8_t length) {
 }
 
 // get the first value in the queue
-BOOLEAN dequeue (int queue, uint8_t * data, uint8_t * length) {
+BOOLEAN dequeue (queue_status_t queue, uint8_t * data, uint8_t * length) {
 
 	// which queue are you using
 	struct node_t ** front;
