@@ -141,14 +141,6 @@ uint_fast8_t AK8975Init(tAK8975 *psInst, I2C_Handle *psI2CInst, uint_fast8_t ui8
     psInst->ui8State = AK8975_STATE_IDLE;
 
     //
-    // The default settings are ok.  Return success and call the callback.
-    //
-    /*if(pfnCallback)
-    {
-        pfnCallback(pvCallbackData, 0);
-    }*/
-
-    //
     // Success.
     //
     return(1);
@@ -190,7 +182,6 @@ AK8975Read(tAK8975 *psInst, uint_fast8_t ui8Reg, uint8_t *pui8Data,
     //
     // Save the callback information.
     //
-    //psInst->pfnCallback = pfnCallback;
     psInst->pvCallbackData = pvCallbackData;
 
     //
@@ -202,6 +193,8 @@ AK8975Read(tAK8975 *psInst, uint_fast8_t ui8Reg, uint8_t *pui8Data,
     // Read the requested registers from the AK8975.
     //
     psInst->uCommand.pui8Buffer[0] = ui8Reg;
+
+
 /*    if(I2CMRead(psInst->psI2CInst, psInst->ui8Addr,
                 psInst->uCommand.pui8Buffer, 1, pui8Data, ui16Count,
                 AK8975Callback, psInst) == 0)

@@ -495,6 +495,8 @@ uint_fast8_t MPU9150Init(tMPU9150 *psInst, I2C_Handle *psI2CInst,
 //    psInst->psI2CInst = psI2CInst;
     psInst->ui8Addr = ui8I2CAddr;
 
+    psInst->i2c = *psI2CInst;
+
     //
     // Save the callback information.
     //
@@ -530,7 +532,7 @@ uint_fast8_t MPU9150Init(tMPU9150 *psInst, I2C_Handle *psI2CInst,
 
     I2C_Transaction i2cTransaction;
 
-    i2cTransaction.slaveAddress = psInst->ui8Addr;//Board_TMP007_ADDR, Lightsensor read slave adress ; 136 = schreiben 137 lesen
+    i2cTransaction.slaveAddress = psInst->ui8Addr;
     i2cTransaction.writeBuf = psInst->uCommand.pui8Buffer;
     i2cTransaction.writeCount = 2;
     i2cTransaction.readBuf = NULL;
@@ -613,17 +615,21 @@ uint_fast8_t MPU9150Read(tMPU9150 *psInst, uint_fast8_t ui8Reg, uint8_t *pui8Dat
     // Read the requested registers from the MPU9150.
     //
     psInst->uCommand.pui8Buffer[0] = ui8Reg;
-/*    if(I2CMRead(psInst->psI2CInst, psInst->ui8Addr, psInst->uCommand.pui8Buffer, 1, pui8Data, ui16Count,
-                MPU9150Callback, psInst) == 0)
-    {
-        //
-        // The I2C write failed, so move to the idle state and return a
-        // failure.
-        //
-        psInst->ui8State = MPU9150_STATE_IDLE;
-        return(0);
+
+    I2C_Transaction i2cTransaction;
+
+    i2cTransaction.slaveAddress = psInst->ui8Addr; // ui8Addr - include the slave address
+    i2cTransaction.writeBuf = NULL;
+    i2cTransaction.writeCount = 0;
+    i2cTransaction.readBuf = pui8Data;
+    i2cTransaction.readCount = ui16Count;
+
+
+    if (! I2C_transfer(psInst->i2c, &i2cTransaction)) { //if can't send the message
+    	psInst->ui8State = MPU9150_STATE_IDLE;
+    	return(0);
     }
-*/
+
     //
     // Success.
     //
@@ -734,7 +740,6 @@ uint_fast8_t MPU9150Write(tMPU9150 *psInst, uint_fast8_t ui8Reg, const uint8_t *
     //
     I2C_Transaction i2cTransaction;
 
-
     i2cTransaction.slaveAddress = psInst->ui8Addr;//Board_TMP007_ADDR, Lightsensor read slave adress ; 136 = schreiben 137 lesen
     i2cTransaction.writeBuf = data;
     i2cTransaction.writeCount = ui16Count +1; // + 1 because the is missing the start of register to write
@@ -802,20 +807,41 @@ MPU9150ReadModifyWrite(tMPU9150 *psInst, uint_fast8_t ui8Reg,
     //
     psInst->ui8State = MPU9150_STATE_RMW;
 
+
+
     //
     // Submit the read-modify-write request to the MPU9150.
     //
-   /* if(I2CMReadModifyWrite8(&(psInst->uCommand.sReadModifyWriteState),
-                            psInst->psI2CInst, psInst->ui8Addr, ui8Reg,
-                            ui8Mask, ui8Value, MPU9150Callback, psInst) == 0)
-    {
-        //
-        // The I2C read-modify-write failed, so move to the idle state and
-        // return a failure.
-        //
-        psInst->ui8State = MPU9150_STATE_IDLE;
-        return(0);
-    }*/
+    I2C_Transaction i2cTransaction;
+
+    psInst->uCommand.pui8Buffer[0] = ui8Reg;
+    //psInst->pui8Buffer[0] = ui8Value; // Set the new register value in the command buffer.
+
+    i2cTransaction.slaveAddress = psInst->ui8Addr;
+    i2cTransaction.writeBuf = psInst->uCommand.pui8Buffer; // not sure if this is the correct command to read from the sensor
+    i2cTransaction.writeCount = 1;
+    i2cTransaction.readBuf = psInst->pui8Data;
+    i2cTransaction.readCount = 1;
+
+    if (! I2C_transfer(psInst->i2c, &i2cTransaction)) { // can't send the message
+    	psInst->ui8State = MPU9150_STATE_IDLE;
+    	return(0);
+    }
+
+    // after read of the register, write the new in to the register
+    psInst->uCommand.pui8Buffer[0] = ui8Reg;
+    psInst->uCommand.pui8Buffer[0] = ui8Value; // Set the new register value in the command buffer.
+
+    i2cTransaction.slaveAddress = psInst->ui8Addr; // slave address is include in ui8Addr
+    i2cTransaction.writeBuf = psInst->uCommand.pui8Buffer;
+    i2cTransaction.writeCount = 2;
+    i2cTransaction.readBuf = NULL;
+    i2cTransaction.readCount = 0;
+
+    if (! I2C_transfer(psInst->i2c, &i2cTransaction)) { // can't send the message
+        	psInst->ui8State = MPU9150_STATE_IDLE;
+        	return(0); // something failed
+	}
 
     //
     // Success.
@@ -878,17 +904,19 @@ MPU9150DataRead(tMPU9150 *psInst, void *pvCallbackData)
     //
     psInst->uCommand.pui8Buffer[0] = MPU9150_O_ACCEL_XOUT_H;
 
-    // TODO neue read rein von CC2650
-    /*if(I2CMRead(psInst->psI2CInst, psInst->ui8Addr,
-                psInst->uCommand.pui8Buffer, 1, psInst->pui8Data, 22,
-                MPU9150Callback, psInst) == 0)
-    {
-        //
-        // The I2C read failed, so move to the idle state and return a failure.
-        //
-        psInst->ui8State = MPU9150_STATE_IDLE;
-        return(0);
-    }*/
+
+    I2C_Transaction i2cTransaction;
+
+    i2cTransaction.slaveAddress = psInst->ui8Addr; // slave address is include in ui8Addr
+    i2cTransaction.writeBuf = psInst->uCommand.pui8Buffer;
+    i2cTransaction.writeCount = 1;
+    i2cTransaction.readBuf = psInst->pui8Data;
+    i2cTransaction.readCount = 22;
+
+    if (! I2C_transfer(psInst->i2c, &i2cTransaction)) { // can't send the message
+    	psInst->ui8State = MPU9150_STATE_IDLE;
+    	return(0); // something failed
+    }
 
     //
     // Success.

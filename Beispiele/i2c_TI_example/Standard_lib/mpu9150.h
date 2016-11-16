@@ -39,7 +39,7 @@ extern "C"
 
 #include <ti/drivers/I2C.h>
 #include <xdc/std.h>
-//#include "ak8975.h"
+#include "ak8975.h"
 //*****************************************************************************
 //
 // The structure that defines the internal state of the MPU9150 driver.
@@ -57,7 +57,7 @@ typedef struct
     //
     // The AK8975 inst that used to access the on-chip AK8975 magnetometer
     //
-    //tAK8975 sAK8975Inst;
+    tAK8975 sAK8975Inst;
 
     //
     // The I2C address of the MPU9150.
