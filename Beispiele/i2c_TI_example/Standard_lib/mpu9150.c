@@ -23,11 +23,11 @@
 //
 //*****************************************************************************
 
-#include <stdint.h>
+#include <stdlib.h>
 #include "hw_ak8975.h"
 #include "hw_mpu9150.h"
 
-#include "ak8975.h"
+//#include "ak8975.h"
 #include "mpu9150.h"
 
 //*****************************************************************************
@@ -111,364 +111,364 @@ static const float g_fMPU9150GyroFactors[] =
 // MPU9150 have completed.
 //
 //*****************************************************************************
-static void MPU9150Callback(void *pvCallbackData, uint_fast8_t ui8Status)
-{
-    tMPU9150 *psInst;
-
-    //
-    // Convert the instance data into a pointer to a tMPU9150 structure.
-    //
-    psInst = pvCallbackData;
-
-    //
-    // If the I2C master driver encountered a failure, force the state machine
-    // to the idle state (which will also result in a callback to propagate the
-    // error). Except in the case that we are in the reset wait state and the 
-    // error is an address NACK.  This error is handled by the reset wait 
-    // state.
-    //
-    /*if((ui8Status != I2CM_STATUS_SUCCESS) &&
-       !((ui8Status == I2CM_STATUS_ADDR_NACK) &&
-         (psInst->ui8State == MPU9150_STATE_INIT_RESET_WAIT)))
-    {
-        psInst->ui8State = MPU9150_STATE_IDLE;
-    }*/
-
-    //
-    // Determine the current state of the MPU9150 state machine.
-    //
-    switch(psInst->ui8State)
-    {
-        //
-        // All states that trivially transition to IDLE, and all unknown
-        // states.
-        //
-        case MPU9150_STATE_READ:
-        case MPU9150_STATE_LAST:
-        case MPU9150_STATE_RD_DATA:
-        default:
-        {
-            //
-            // The state machine is now idle.
-            //
-            psInst->ui8State = MPU9150_STATE_IDLE;
-
-            //
-            // Done.
-            //
-            break;
-        }
-
-        //
-        // MPU9150 Device reset was issued
-        //
-        case MPU9150_STATE_INIT_RESET:
-        {
-            //
-            // Issue a read of the status register to confirm reset is done.
-            //
-            psInst->uCommand.pui8Buffer[0] = MPU9150_O_PWR_MGMT_1;
-            /*I2CMRead(psInst->psI2CInst, psInst->ui8Addr,
-                     psInst->uCommand.pui8Buffer, 1, psInst->pui8Data, 1,
-                     MPU9150Callback, psInst);
-*/
-            psInst->ui8State = MPU9150_STATE_INIT_RESET_WAIT;
-            break;
-        }
-
-        //
-        // Status register was read, check if reset is done before proceeding.
-        //
-        case MPU9150_STATE_INIT_RESET_WAIT:
-        {
-            //
-            // Check the value read back from status to determine if device
-            // is still in reset or if it is ready.  Reset state for this
-            // register is 0x40, which has sleep bit set. Device may also 
-            // respond with an address NACK during very early stages of the
-            // its internal reset.  Keep polling until we verify device is 
-            // ready.
-            //
-           /* if((psInst->pui8Data[0] != MPU9150_PWR_MGMT_1_SLEEP) ||
-               (ui8Status == I2CM_STATUS_ADDR_NACK))
-            {
-                //
-                // Device still in reset so begin polling this register.
-                //
-                psInst->uCommand.pui8Buffer[0] = MPU9150_O_PWR_MGMT_1;
-                I2CMRead(psInst->psI2CInst, psInst->ui8Addr,
-                         psInst->uCommand.pui8Buffer, 1, psInst->pui8Data, 1,
-                         MPU9150Callback, psInst);
-
-                //
-                // Intentionally stay in this state to create polling effect.
-                //
-            }
-            else
-            {
-                //
-                // Device is out of reset, bring it out of sleep mode.
-                //
-                psInst->uCommand.pui8Buffer[0] = MPU9150_O_PWR_MGMT_1;
-                psInst->uCommand.pui8Buffer[1] = MPU9150_PWR_MGMT_1_CLKSEL_XG;
-                I2CMWrite(psInst->psI2CInst, psInst->ui8Addr,
-                          psInst->uCommand.pui8Buffer, 2, MPU9150Callback,
-                          psInst);
-
-                //
-                // Update state to show we are modifing user control and
-                // power management 1 regs.
-                //
-                psInst->ui8State = MPU9150_STATE_INIT_PWR_MGMT;
-            }*/
-            break;
-        }
-
-        //
-        // Reset complete now take device out of sleep mode.
-        //
-        case MPU9150_STATE_INIT_PWR_MGMT:
-        {
-            psInst->uCommand.pui8Buffer[0] = MPU9150_O_USER_CTRL;
-            psInst->uCommand.pui8Buffer[1] = MPU9150_USER_CTRL_I2C_MST_EN;
-      /*      I2CMWrite(psInst->psI2CInst, psInst->ui8Addr,
-                      psInst->uCommand.pui8Buffer, 2, MPU9150Callback,
-                      psInst);
-	*/
-            //
-            // Update state to show we are modifing user control and
-            // power management 1 regs.
-            //
-            psInst->ui8State = MPU9150_STATE_INIT_USER_CTRL;
-
-            break;
-        }
-
-        //
-        // Change to power mode complete, device is ready for configuration.
-        //
-        case MPU9150_STATE_INIT_USER_CTRL:
-        {
-            //
-            // Load index 0 with the sample rate register number.
-            //
-            psInst->uCommand.pui8Buffer[0] = MPU9150_O_SMPLRT_DIV;
-
-            //
-            // Set sample rate to 50 hertz.  1000 hz / (1 + 19)
-            //
-            psInst->uCommand.pui8Buffer[1] = 19;
-
-     /*       I2CMWrite(psInst->psI2CInst, psInst->ui8Addr,
-                      psInst->uCommand.pui8Buffer, 2, MPU9150Callback, psInst);
-
-            //
-            // update state to show are in process of configuring sensors.
-            //
-            psInst->ui8State = MPU9150_STATE_INIT_SAMPLE_RATE_CFG;
-            break;
-        }
-	*/
-        //
-        // Sensor configuration is complete.
-        //
-        case MPU9150_STATE_INIT_SAMPLE_RATE_CFG:
-        {
-            //
-            // Write the I2C Master delay control so we only sample the AK
-            // every 5th time that we sample accel/gyro.  Delay Count itself
-            // handled in next state.
-            //
-            psInst->uCommand.pui8Buffer[0] = MPU9150_O_I2C_MST_DELAY_CTRL;
-            psInst->uCommand.pui8Buffer[1] =
-                (MPU9150_I2C_MST_DELAY_CTRL_I2C_SLV0_DLY_EN |
-                 MPU9150_I2C_MST_DELAY_CTRL_I2C_SLV4_DLY_EN);
-       /*     I2CMWrite(psInst->psI2CInst, psInst->ui8Addr,
-                      psInst->uCommand.pui8Buffer, 2, MPU9150Callback, psInst);
-		*/
-            //
-            // Update state to show we are configuring i2c slave delay between
-            // slave events.  Slave 0 and Slave 4 transaction only occur every
-            // 5th sample cycle.
-            //
-            psInst->ui8State = MPU9150_STATE_INIT_I2C_SLAVE_DLY;
-            break;
-        }
-
-        //
-        // Master slave delay configuration complete.
-        //
-        case MPU9150_STATE_INIT_I2C_SLAVE_DLY:
-        {
-            //
-            // Write the configuration for I2C master control clock 400khz
-            // and wait for external sensor before asserting data ready
-            //
-            psInst->uCommand.pui8Buffer[0] = MPU9150_O_I2C_MST_CTRL;
-            psInst->uCommand.pui8Buffer[1] =
-                (MPU9150_I2C_MST_CTRL_I2C_MST_CLK_400 |
-                 MPU9150_I2C_MST_CTRL_WAIT_FOR_ES);
-
-            //
-            // Configure I2C Slave 0 for read of AK8975 (I2C Address 0x0C)
-            // Start at AK8975 register status 1
-            // Read 8 bytes and enable this slave transaction
-            //
-            psInst->uCommand.pui8Buffer[2] = MPU9150_I2C_SLV0_ADDR_RW | 0x0C;
-            psInst->uCommand.pui8Buffer[3] = AK8975_O_ST1;
-            psInst->uCommand.pui8Buffer[4] = MPU9150_I2C_SLV0_CTRL_EN | 0x08;
-        /*    I2CMWrite(psInst->psI2CInst, psInst->ui8Addr,
-                      psInst->uCommand.pui8Buffer, 5, MPU9150Callback, psInst);
-		*/
-            //
-            // Update state.  Now in process of configuring slave 0.
-            //
-            psInst->ui8State = MPU9150_STATE_INIT_I2C_SLAVE_0;
-            break;
-        }
-
-        //
-        // I2C slave 0 init complete.
-        //
-        case MPU9150_STATE_INIT_I2C_SLAVE_0:
-        {
-            //
-            // Write the configuration for I2C Slave 4 transaction to AK8975
-            // 0x0c is the AK8975 address on i2c bus.
-            // we want to write the control register with the value for a
-            // starting a single measurement.
-            //
-            psInst->uCommand.pui8Buffer[0] = MPU9150_O_I2C_SLV4_ADDR;
-            psInst->uCommand.pui8Buffer[1] = 0x0C;
-            psInst->uCommand.pui8Buffer[2] = AK8975_O_CNTL;
-            psInst->uCommand.pui8Buffer[3] = AK8975_CNTL_MODE_SINGLE;
-
-            //
-            // Enable the SLV4 transaction and set the master delay to
-            // 0x04 + 1.  This means the slave transactions with delay enabled
-            // will run every fifth accel/gyro sample.
-            //
-            psInst->uCommand.pui8Buffer[4] = MPU9150_I2C_SLV4_CTRL_EN | 0x04;
-        /*    I2CMWrite(psInst->psI2CInst, psInst->ui8Addr,
-                      psInst->uCommand.pui8Buffer, 5, MPU9150Callback, psInst);
-		*/
-            //
-            // Update state.  Now in the final init state.
-            //
-            psInst->ui8State = MPU9150_STATE_LAST;
-            break;
-        }
-
-        //
-        // A write just completed
-        //
-        case MPU9150_STATE_WRITE:
-        {
-            //
-            // Set the accelerometer and gyroscope ranges to the new values.
-            // If the register was not modified, the values will be the same so
-            // this has no effect.
-            //
-            psInst->ui8AccelAfsSel = psInst->ui8NewAccelAfsSel;
-            psInst->ui8GyroFsSel = psInst->ui8NewGyroFsSel;
-
-            //
-            // The state machine is now idle.
-            //
-            psInst->ui8State = MPU9150_STATE_IDLE;
-
-            //
-            // Done.
-            //
-            break;
-        }
-
-        //
-        // A read-modify-write just completed
-        //
-        case MPU9150_STATE_RMW:
-        {
-            //
-            // See if the PWR_MGMT_1 register was just modified.
-            //
-            if(/*psInst->uCommand.sReadModifyWriteState.pui8Buffer[0] ==
-               MPU9150_O_PWR_MGMT_1*/ 1 )
-            {
-                //
-                // See if a soft reset has been issued.
-                //
-          /*      if(psInst->uCommand.sReadModifyWriteState.pui8Buffer[1] &
-                   MPU9150_PWR_MGMT_1_DEVICE_RESET)
-                {
-                    //
-                    // Default range setting is +/- 2 g
-                    //
-                    psInst->ui8AccelAfsSel = 0;
-                    psInst->ui8NewAccelAfsSel = 0;
-
-                    //
-                    // Default range setting is +/- 250 degrees/s
-                    //
-                    psInst->ui8GyroFsSel = 0;
-                    psInst->ui8NewGyroFsSel = 0;
-                }
-                */
-            }
-
-            //
-            // See if the GYRO_CONFIG register was just modified.
-            //
-            /*if(psInst->uCommand.sReadModifyWriteState.pui8Buffer[0] ==
-               MPU9150_O_GYRO_CONFIG)
-            {
-                //
-                // Extract the FS_SEL from the GYRO_CONFIG register value.
-                //
-                psInst->ui8GyroFsSel =
-                    ((psInst->uCommand.sReadModifyWriteState.pui8Buffer[1] &
-                      MPU9150_GYRO_CONFIG_FS_SEL_M) >>
-                     MPU9150_GYRO_CONFIG_FS_SEL_S);
-            }*/
-
-            //
-            // See if the ACCEL_CONFIG register was just modified.
-            //
-           /* if(psInst->uCommand.sReadModifyWriteState.pui8Buffer[0] ==
-               MPU9150_O_ACCEL_CONFIG)
-            {
-                //
-                // Extract the FS_SEL from the ACCEL_CONFIG register value.
-                //
-                psInst->ui8AccelAfsSel =
-                    ((psInst->uCommand.sReadModifyWriteState.pui8Buffer[1] &
-                      MPU9150_ACCEL_CONFIG_AFS_SEL_M) >>
-                     MPU9150_ACCEL_CONFIG_AFS_SEL_S);
-            }*/
-
-            //
-            // The state machine is now idle.
-            //
-            psInst->ui8State = MPU9150_STATE_IDLE;
-
-            //
-            // Done.
-            //
-            break;
-        }
-    }
-
-    //
-    // See if the state machine is now idle and there is a callback function.
-    //
- /*   if((psInst->ui8State == MPU9150_STATE_IDLE) && psInst->pfnCallback)
-    {
-        //
-        // Call the application-supplied callback function.
-        //
-        psInst->pfnCallback(psInst->pvCallbackData, ui8Status);
-    }*/
-    }
-}
+//static void MPU9150Callback(void *pvCallbackData, uint_fast8_t ui8Status)
+//{
+//    tMPU9150 *psInst;
+//
+//    //
+//    // Convert the instance data into a pointer to a tMPU9150 structure.
+//    //
+//    psInst = pvCallbackData;
+//
+//    //
+//    // If the I2C master driver encountered a failure, force the state machine
+//    // to the idle state (which will also result in a callback to propagate the
+//    // error). Except in the case that we are in the reset wait state and the
+//    // error is an address NACK.  This error is handled by the reset wait
+//    // state.
+//    //
+//    /*if((ui8Status != I2CM_STATUS_SUCCESS) &&
+//       !((ui8Status == I2CM_STATUS_ADDR_NACK) &&
+//         (psInst->ui8State == MPU9150_STATE_INIT_RESET_WAIT)))
+//    {
+//        psInst->ui8State = MPU9150_STATE_IDLE;
+//    }*/
+//
+//    //
+//    // Determine the current state of the MPU9150 state machine.
+//    //
+//    switch(psInst->ui8State)
+//    {
+//        //
+//        // All states that trivially transition to IDLE, and all unknown
+//        // states.
+//        //
+//        case MPU9150_STATE_READ:
+//        case MPU9150_STATE_LAST:
+//        case MPU9150_STATE_RD_DATA:
+//        default:
+//        {
+//            //
+//            // The state machine is now idle.
+//            //
+//            psInst->ui8State = MPU9150_STATE_IDLE;
+//
+//            //
+//            // Done.
+//            //
+//            break;
+//        }
+//
+//        //
+//        // MPU9150 Device reset was issued
+//        //
+//        case MPU9150_STATE_INIT_RESET:
+//        {
+//            //
+//            // Issue a read of the status register to confirm reset is done.
+//            //
+//            psInst->uCommand.pui8Buffer[0] = MPU9150_O_PWR_MGMT_1;
+//            /*I2CMRead(psInst->psI2CInst, psInst->ui8Addr,
+//                     psInst->uCommand.pui8Buffer, 1, psInst->pui8Data, 1,
+//                     MPU9150Callback, psInst);
+//*/
+//            psInst->ui8State = MPU9150_STATE_INIT_RESET_WAIT;
+//            break;
+//        }
+//
+//        //
+//        // Status register was read, check if reset is done before proceeding.
+//        //
+//        case MPU9150_STATE_INIT_RESET_WAIT:
+//        {
+//            //
+//            // Check the value read back from status to determine if device
+//            // is still in reset or if it is ready.  Reset state for this
+//            // register is 0x40, which has sleep bit set. Device may also
+//            // respond with an address NACK during very early stages of the
+//            // its internal reset.  Keep polling until we verify device is
+//            // ready.
+//            //
+//           /* if((psInst->pui8Data[0] != MPU9150_PWR_MGMT_1_SLEEP) ||
+//               (ui8Status == I2CM_STATUS_ADDR_NACK))
+//            {
+//                //
+//                // Device still in reset so begin polling this register.
+//                //
+//                psInst->uCommand.pui8Buffer[0] = MPU9150_O_PWR_MGMT_1;
+//                I2CMRead(psInst->psI2CInst, psInst->ui8Addr,
+//                         psInst->uCommand.pui8Buffer, 1, psInst->pui8Data, 1,
+//                         MPU9150Callback, psInst);
+//
+//                //
+//                // Intentionally stay in this state to create polling effect.
+//                //
+//            }
+//            else
+//            {
+//                //
+//                // Device is out of reset, bring it out of sleep mode.
+//                //
+//                psInst->uCommand.pui8Buffer[0] = MPU9150_O_PWR_MGMT_1;
+//                psInst->uCommand.pui8Buffer[1] = MPU9150_PWR_MGMT_1_CLKSEL_XG;
+//                I2CMWrite(psInst->psI2CInst, psInst->ui8Addr,
+//                          psInst->uCommand.pui8Buffer, 2, MPU9150Callback,
+//                          psInst);
+//
+//                //
+//                // Update state to show we are modifing user control and
+//                // power management 1 regs.
+//                //
+//                psInst->ui8State = MPU9150_STATE_INIT_PWR_MGMT;
+//            }*/
+//            break;
+//        }
+//
+//        //
+//        // Reset complete now take device out of sleep mode.
+//        //
+//        case MPU9150_STATE_INIT_PWR_MGMT:
+//        {
+//            psInst->uCommand.pui8Buffer[0] = MPU9150_O_USER_CTRL;
+//            psInst->uCommand.pui8Buffer[1] = MPU9150_USER_CTRL_I2C_MST_EN;
+//      /*      I2CMWrite(psInst->psI2CInst, psInst->ui8Addr,
+//                      psInst->uCommand.pui8Buffer, 2, MPU9150Callback,
+//                      psInst);
+//	*/
+//            //
+//            // Update state to show we are modifing user control and
+//            // power management 1 regs.
+//            //
+//            psInst->ui8State = MPU9150_STATE_INIT_USER_CTRL;
+//
+//            break;
+//        }
+//
+//        //
+//        // Change to power mode complete, device is ready for configuration.
+//        //
+//        case MPU9150_STATE_INIT_USER_CTRL:
+//        {
+//            //
+//            // Load index 0 with the sample rate register number.
+//            //
+//            psInst->uCommand.pui8Buffer[0] = MPU9150_O_SMPLRT_DIV;
+//
+//            //
+//            // Set sample rate to 50 hertz.  1000 hz / (1 + 19)
+//            //
+//            psInst->uCommand.pui8Buffer[1] = 19;
+//
+//     /*       I2CMWrite(psInst->psI2CInst, psInst->ui8Addr,
+//                      psInst->uCommand.pui8Buffer, 2, MPU9150Callback, psInst);
+//
+//            //
+//            // update state to show are in process of configuring sensors.
+//            //
+//            psInst->ui8State = MPU9150_STATE_INIT_SAMPLE_RATE_CFG;
+//            break;
+//        }
+//	*/
+//        //
+//        // Sensor configuration is complete.
+//        //
+//        case MPU9150_STATE_INIT_SAMPLE_RATE_CFG:
+//        {
+//            //
+//            // Write the I2C Master delay control so we only sample the AK
+//            // every 5th time that we sample accel/gyro.  Delay Count itself
+//            // handled in next state.
+//            //
+//            psInst->uCommand.pui8Buffer[0] = MPU9150_O_I2C_MST_DELAY_CTRL;
+//            psInst->uCommand.pui8Buffer[1] =
+//                (MPU9150_I2C_MST_DELAY_CTRL_I2C_SLV0_DLY_EN |
+//                 MPU9150_I2C_MST_DELAY_CTRL_I2C_SLV4_DLY_EN);
+//       /*     I2CMWrite(psInst->psI2CInst, psInst->ui8Addr,
+//                      psInst->uCommand.pui8Buffer, 2, MPU9150Callback, psInst);
+//		*/
+//            //
+//            // Update state to show we are configuring i2c slave delay between
+//            // slave events.  Slave 0 and Slave 4 transaction only occur every
+//            // 5th sample cycle.
+//            //
+//            psInst->ui8State = MPU9150_STATE_INIT_I2C_SLAVE_DLY;
+//            break;
+//        }
+//
+//        //
+//        // Master slave delay configuration complete.
+//        //
+//        case MPU9150_STATE_INIT_I2C_SLAVE_DLY:
+//        {
+//            //
+//            // Write the configuration for I2C master control clock 400khz
+//            // and wait for external sensor before asserting data ready
+//            //
+//            psInst->uCommand.pui8Buffer[0] = MPU9150_O_I2C_MST_CTRL;
+//            psInst->uCommand.pui8Buffer[1] =
+//                (MPU9150_I2C_MST_CTRL_I2C_MST_CLK_400 |
+//                 MPU9150_I2C_MST_CTRL_WAIT_FOR_ES);
+//
+//            //
+//            // Configure I2C Slave 0 for read of AK8975 (I2C Address 0x0C)
+//            // Start at AK8975 register status 1
+//            // Read 8 bytes and enable this slave transaction
+//            //
+//            psInst->uCommand.pui8Buffer[2] = MPU9150_I2C_SLV0_ADDR_RW | 0x0C;
+//            psInst->uCommand.pui8Buffer[3] = AK8975_O_ST1;
+//            psInst->uCommand.pui8Buffer[4] = MPU9150_I2C_SLV0_CTRL_EN | 0x08;
+//        /*    I2CMWrite(psInst->psI2CInst, psInst->ui8Addr,
+//                      psInst->uCommand.pui8Buffer, 5, MPU9150Callback, psInst);
+//		*/
+//            //
+//            // Update state.  Now in process of configuring slave 0.
+//            //
+//            psInst->ui8State = MPU9150_STATE_INIT_I2C_SLAVE_0;
+//            break;
+//        }
+//
+//        //
+//        // I2C slave 0 init complete.
+//        //
+//        case MPU9150_STATE_INIT_I2C_SLAVE_0:
+//        {
+//            //
+//            // Write the configuration for I2C Slave 4 transaction to AK8975
+//            // 0x0c is the AK8975 address on i2c bus.
+//            // we want to write the control register with the value for a
+//            // starting a single measurement.
+//            //
+//            psInst->uCommand.pui8Buffer[0] = MPU9150_O_I2C_SLV4_ADDR;
+//            psInst->uCommand.pui8Buffer[1] = 0x0C;
+//            psInst->uCommand.pui8Buffer[2] = AK8975_O_CNTL;
+//            psInst->uCommand.pui8Buffer[3] = AK8975_CNTL_MODE_SINGLE;
+//
+//            //
+//            // Enable the SLV4 transaction and set the master delay to
+//            // 0x04 + 1.  This means the slave transactions with delay enabled
+//            // will run every fifth accel/gyro sample.
+//            //
+//            psInst->uCommand.pui8Buffer[4] = MPU9150_I2C_SLV4_CTRL_EN | 0x04;
+//        /*    I2CMWrite(psInst->psI2CInst, psInst->ui8Addr,
+//                      psInst->uCommand.pui8Buffer, 5, MPU9150Callback, psInst);
+//		*/
+//            //
+//            // Update state.  Now in the final init state.
+//            //
+//            psInst->ui8State = MPU9150_STATE_LAST;
+//            break;
+//        }
+//
+//        //
+//        // A write just completed
+//        //
+//        case MPU9150_STATE_WRITE:
+//        {
+//            //
+//            // Set the accelerometer and gyroscope ranges to the new values.
+//            // If the register was not modified, the values will be the same so
+//            // this has no effect.
+//            //
+//            psInst->ui8AccelAfsSel = psInst->ui8NewAccelAfsSel;
+//            psInst->ui8GyroFsSel = psInst->ui8NewGyroFsSel;
+//
+//            //
+//            // The state machine is now idle.
+//            //
+//            psInst->ui8State = MPU9150_STATE_IDLE;
+//
+//            //
+//            // Done.
+//            //
+//            break;
+//        }
+//
+//        //
+//        // A read-modify-write just completed
+//        //
+//        case MPU9150_STATE_RMW:
+//        {
+//            //
+//            // See if the PWR_MGMT_1 register was just modified.
+//            //
+//            if(/*psInst->uCommand.sReadModifyWriteState.pui8Buffer[0] ==
+//               MPU9150_O_PWR_MGMT_1*/ 1 )
+//            {
+//                //
+//                // See if a soft reset has been issued.
+//                //
+//          /*      if(psInst->uCommand.sReadModifyWriteState.pui8Buffer[1] &
+//                   MPU9150_PWR_MGMT_1_DEVICE_RESET)
+//                {
+//                    //
+//                    // Default range setting is +/- 2 g
+//                    //
+//                    psInst->ui8AccelAfsSel = 0;
+//                    psInst->ui8NewAccelAfsSel = 0;
+//
+//                    //
+//                    // Default range setting is +/- 250 degrees/s
+//                    //
+//                    psInst->ui8GyroFsSel = 0;
+//                    psInst->ui8NewGyroFsSel = 0;
+//                }
+//                */
+//            }
+//
+//            //
+//            // See if the GYRO_CONFIG register was just modified.
+//            //
+//            /*if(psInst->uCommand.sReadModifyWriteState.pui8Buffer[0] ==
+//               MPU9150_O_GYRO_CONFIG)
+//            {
+//                //
+//                // Extract the FS_SEL from the GYRO_CONFIG register value.
+//                //
+//                psInst->ui8GyroFsSel =
+//                    ((psInst->uCommand.sReadModifyWriteState.pui8Buffer[1] &
+//                      MPU9150_GYRO_CONFIG_FS_SEL_M) >>
+//                     MPU9150_GYRO_CONFIG_FS_SEL_S);
+//            }*/
+//
+//            //
+//            // See if the ACCEL_CONFIG register was just modified.
+//            //
+//           /* if(psInst->uCommand.sReadModifyWriteState.pui8Buffer[0] ==
+//               MPU9150_O_ACCEL_CONFIG)
+//            {
+//                //
+//                // Extract the FS_SEL from the ACCEL_CONFIG register value.
+//                //
+//                psInst->ui8AccelAfsSel =
+//                    ((psInst->uCommand.sReadModifyWriteState.pui8Buffer[1] &
+//                      MPU9150_ACCEL_CONFIG_AFS_SEL_M) >>
+//                     MPU9150_ACCEL_CONFIG_AFS_SEL_S);
+//            }*/
+//
+//            //
+//            // The state machine is now idle.
+//            //
+//            psInst->ui8State = MPU9150_STATE_IDLE;
+//
+//            //
+//            // Done.
+//            //
+//            break;
+//        }
+//    }
+//
+//    //
+//    // See if the state machine is now idle and there is a callback function.
+//    //
+// /*   if((psInst->ui8State == MPU9150_STATE_IDLE) && psInst->pfnCallback)
+//    {
+//        //
+//        // Call the application-supplied callback function.
+//        //
+//        psInst->pfnCallback(psInst->pvCallbackData, ui8Status);
+//    }*/
+//    }
+//}
 //*****************************************************************************
 //
 //! Initializes the MPU9150 driver.
@@ -561,10 +561,10 @@ uint_fast8_t MPU9150Init(tMPU9150 *psInst, I2C_Handle *psI2CInst,
 //! \return Returns the pointer to the tAK8975 object
 //
 //*****************************************************************************
-tAK8975 * MPU9150MagnetoInstGet(tMPU9150 *psInst)
-{
-    return(&(psInst->sAK8975Inst));
-}
+//tAK8975 * MPU9150MagnetoInstGet(tMPU9150 *psInst)
+//{
+//    return(&(psInst->sAK8975Inst));
+//}
 
 //*****************************************************************************
 //
@@ -651,8 +651,8 @@ uint_fast8_t MPU9150Read(tMPU9150 *psInst, uint_fast8_t ui8Reg, uint8_t *pui8Dat
 uint_fast8_t MPU9150Write(tMPU9150 *psInst, uint_fast8_t ui8Reg, const uint8_t *pui8Data,
              uint_fast16_t ui16Count)
 {
-	uint8_t * data;
-	memset(data,0, ui16Count + 1);
+	uint8_t * data = malloc(sizeof(uint8_t) * (ui16Count+1) );
+	//memset(data,0, ui16Count + 1);
 
 	*data = ui8Reg; // set first register to write
 	data++;
@@ -736,7 +736,7 @@ uint_fast8_t MPU9150Write(tMPU9150 *psInst, uint_fast8_t ui8Reg, const uint8_t *
 
 
     i2cTransaction.slaveAddress = psInst->ui8Addr;//Board_TMP007_ADDR, Lightsensor read slave adress ; 136 = schreiben 137 lesen
-    i2cTransaction.writeBuf = pui8Data;
+    i2cTransaction.writeBuf = data;
     i2cTransaction.writeCount = ui16Count +1; // + 1 because the is missing the start of register to write
     i2cTransaction.readBuf = NULL;
     i2cTransaction.readCount = 0;

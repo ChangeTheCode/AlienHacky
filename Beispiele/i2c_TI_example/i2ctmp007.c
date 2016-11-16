@@ -53,6 +53,7 @@
 // include alien types
 #include "AlienHacky_datatypes.h"
 #include "Sensor_lib/light_sensor.h"
+#include "Sensor_lib/task_mpu9150.h"
 
 //extern void gyro_worker(I2C_Handle *i2c);
 
@@ -105,7 +106,7 @@ Void taskFxn(UArg arg0, UArg arg1)
     	return;   // config of the light sensor failed Break
     }
 
-    if( ! config_light_sensor_reg2 ){
+    if( ! config_light_sensor_reg2(i2c) ){
 		return;   // config of the light sensor failed Break
 	}
 

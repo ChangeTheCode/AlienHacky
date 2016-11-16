@@ -38,7 +38,8 @@ extern "C"
 #endif
 
 #include <ti/drivers/I2C.h>
-#include "ak8975.h"
+#include <xdc/std.h>
+//#include "ak8975.h"
 //*****************************************************************************
 //
 // The structure that defines the internal state of the MPU9150 driver.
@@ -56,7 +57,7 @@ typedef struct
     //
     // The AK8975 inst that used to access the on-chip AK8975 magnetometer
     //
-    tAK8975 sAK8975Inst;
+    //tAK8975 sAK8975Inst;
 
     //
     // The I2C address of the MPU9150.
@@ -139,7 +140,7 @@ tMPU9150;
 //*****************************************************************************
 extern uint_fast8_t MPU9150Init(tMPU9150 *psInst, I2C_Handle *psI2CInst,
         				uint_fast8_t ui8I2CAddr, void *pvCallbackData);
-extern tAK8975 *MPU9150InstAK8975Get(tMPU9150 *psInst);
+//extern tAK8975 *MPU9150InstAK8975Get(tMPU9150 *psInst);
 extern uint_fast8_t MPU9150Read(tMPU9150 *psInst, uint_fast8_t ui8Reg,
                                 uint8_t *pui8Data, uint_fast16_t ui16Count, void *pvCallbackData);
 extern uint_fast8_t MPU9150Write(tMPU9150 *psInst, uint_fast8_t ui8Reg,

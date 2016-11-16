@@ -56,63 +56,63 @@
 // AK8975 have completed.
 //
 //*****************************************************************************
-static void
-AK8975Callback(void *pvCallbackData, uint_fast8_t ui8Status)
-{
-    tAK8975 *psInst;
-
-    //
-    // Convert the instance data into a pointer to a tAK8975 structure.
-    //
-    psInst = pvCallbackData;
-
-    //
-    // If the I2C master driver encountered a failure, force the state machine
-    // to the idle state (which will also result in a callback to propagate the
-    // error).
-    //
-  /*  if(ui8Status != I2CM_STATUS_SUCCESS)
-    {
-        psInst->ui8State = AK8975_STATE_IDLE;
-    }*/
-
-    //
-    // Determine the current state of the AK8975 state machine.
-    //
-    switch(psInst->ui8State)
-    {
-        //
-        // All states that trivially transition to IDLE, and all unknown
-        // states.
-        //
-        case AK8975_STATE_READ:
-        case AK8975_STATE_WRITE:
-        case AK8975_STATE_RMW:
-        default:
-        {
-            //
-            // The state machine is now idle.
-            //
-            psInst->ui8State = AK8975_STATE_IDLE;
-
-            //
-            // Done.
-            //
-            break;
-        }
-    }
-
-    //
-    // See if the state machine is now idle and there is a callback function.
-    //
-  /*  if((psInst->ui8State == AK8975_STATE_IDLE) && psInst->pfnCallback)
-    {
-        //
-        // Call the application-supplied callback function.
-        //
-        psInst->pfnCallback(psInst->pvCallbackData, ui8Status);
-    }*/
-}
+//static void
+//AK8975Callback(void *pvCallbackData, uint_fast8_t ui8Status)
+//{
+//    tAK8975 *psInst;
+//
+//    //
+//    // Convert the instance data into a pointer to a tAK8975 structure.
+//    //
+//    psInst = pvCallbackData;
+//
+//    //
+//    // If the I2C master driver encountered a failure, force the state machine
+//    // to the idle state (which will also result in a callback to propagate the
+//    // error).
+//    //
+//    if(ui8Status != I2CM_STATUS_SUCCESS)
+//    {
+//        psInst->ui8State = AK8975_STATE_IDLE;
+//    }
+//
+//    //
+//    // Determine the current state of the AK8975 state machine.
+//    //
+//    switch(psInst->ui8State)
+//    {
+//        //
+//        // All states that trivially transition to IDLE, and all unknown
+//        // states.
+//        //
+//        case AK8975_STATE_READ:
+//        case AK8975_STATE_WRITE:
+//        case AK8975_STATE_RMW:
+//        default:
+//        {
+//            //
+//            // The state machine is now idle.
+//            //
+//            psInst->ui8State = AK8975_STATE_IDLE;
+//
+//            //
+//            // Done.
+//            //
+//            break;
+//        }
+//    }
+//
+//    //
+//    // See if the state machine is now idle and there is a callback function.
+//    //
+//  /*  if((psInst->ui8State == AK8975_STATE_IDLE) && psInst->pfnCallback)
+//    {
+//        //
+//        // Call the application-supplied callback function.
+//        //
+//        psInst->pfnCallback(psInst->pvCallbackData, ui8Status);
+//    }*/
+//}
 
 //*****************************************************************************
 //
@@ -131,8 +131,7 @@ AK8975Callback(void *pvCallbackData, uint_fast8_t ui8Status)
 //! if it was not.
 //
 //*****************************************************************************
-uint_fast8_t
-AK8975Init(tAK8975 *psInst, I2C_Handle *psI2CInst, uint_fast8_t ui8I2CAddr, void *pvCallbackData)
+uint_fast8_t AK8975Init(tAK8975 *psInst, I2C_Handle *psI2CInst, uint_fast8_t ui8I2CAddr, void *pvCallbackData)
 {
     //
     // Initialize the AK8975 instance structure.
@@ -203,7 +202,7 @@ AK8975Read(tAK8975 *psInst, uint_fast8_t ui8Reg, uint8_t *pui8Data,
     // Read the requested registers from the AK8975.
     //
     psInst->uCommand.pui8Buffer[0] = ui8Reg;
-    if(I2CMRead(psInst->psI2CInst, psInst->ui8Addr,
+/*    if(I2CMRead(psInst->psI2CInst, psInst->ui8Addr,
                 psInst->uCommand.pui8Buffer, 1, pui8Data, ui16Count,
                 AK8975Callback, psInst) == 0)
     {
@@ -214,6 +213,7 @@ AK8975Read(tAK8975 *psInst, uint_fast8_t ui8Reg, uint8_t *pui8Data,
         psInst->ui8State = AK8975_STATE_IDLE;
         return(0);
     }
+ */
 
     //
     // Success.

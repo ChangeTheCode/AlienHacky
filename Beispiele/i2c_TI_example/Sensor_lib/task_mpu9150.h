@@ -8,7 +8,7 @@
 #ifndef SENSOR_LIB_TASK_MPU9150_H_
 #define SENSOR_LIB_TASK_MPU9150_H_
 
-#include <xdc/std.h>
+
 #include <ti/drivers/I2C.h>
 
 

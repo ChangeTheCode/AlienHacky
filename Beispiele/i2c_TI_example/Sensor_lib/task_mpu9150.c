@@ -10,7 +10,9 @@
 #include "../Standard_lib/hw_mpu9150.h"
 #include "../Standard_lib/comp_dcm.h"
 
+#include <xdc/std.h>
 #include <xdc/runtime/System.h>
+#include <math.h>
 
 
 //*****************************************************************************
@@ -94,7 +96,7 @@ void gyro_worker(I2C_Handle *i2c){
 			g_sMPU9150Inst.pui8Data, 2);
 
 
-	while(1){
+	while(1){  // TODO: Ask Tobi how it works and whats about the Interrupt.
 		//
 		// Get floating point version of the Accel Data in m/s^2.
 		//
@@ -265,6 +267,49 @@ void gyro_worker(I2C_Handle *i2c){
 					i32FPart[ui32Idx] *= -1;
 				}
 			}
+
+
+			//
+			// Print the acceleration numbers in the table.
+			//
+			System_printf("\033[5;17H%3d.%03d", i32IPart[0], i32FPart[0]);
+			System_printf("\033[5;40H%3d.%03d", i32IPart[1], i32FPart[1]);
+			System_printf("\033[5;63H%3d.%03d", i32IPart[2], i32FPart[2]);
+
+			System_printf("\033[6;17H%3d.%03d", i32IPart[16], i32FPart[16]);
+			System_printf("\033[6;40H%3d.%03d", i32IPart[17], i32FPart[17]);
+			System_printf("\033[6;63H%3d.%03d", i32IPart[18], i32FPart[18]);
+
+			//
+			// Print the angular velocities in the table.
+			//
+			System_printf("\033[7;17H%3d.%03d", i32IPart[3], i32FPart[3]);
+			System_printf("\033[7;40H%3d.%03d", i32IPart[4], i32FPart[4]);
+			System_printf("\033[7;63H%3d.%03d", i32IPart[5], i32FPart[5]);
+
+			//
+			// Print the magnetic data in the table.
+			//
+			System_printf("\033[9;17H%3d.%03d", i32IPart[6], i32FPart[6]);
+			System_printf("\033[9;40H%3d.%03d", i32IPart[7], i32FPart[7]);
+			System_printf("\033[9;63H%3d.%03d", i32IPart[8], i32FPart[8]);
+
+			//
+			// Print the Eulers in a table.
+			//
+			System_printf("\033[14;17H%3d.%03d", i32IPart[9], i32FPart[9]);
+			System_printf("\033[14;40H%3d.%03d", i32IPart[10], i32FPart[10]);
+			System_printf("\033[14;63H%3d.%03d", i32IPart[11], i32FPart[11]);
+
+			//
+			// Print the quaternions in a table format.
+			//
+			System_printf("\033[19;14H%3d.%03d", i32IPart[12], i32FPart[12]);
+			System_printf("\033[19;32H%3d.%03d", i32IPart[13], i32FPart[13]);
+			System_printf("\033[19;50H%3d.%03d", i32IPart[14], i32FPart[14]);
+			System_printf("\033[19;68H%3d.%03d", i32IPart[15], i32FPart[15]);
+
+
 		}
 	}
 }
