@@ -55,6 +55,8 @@ void gyro_worker(I2C_Handle *i2c){
 
 	float *pfAccel2;
 
+	int counter=0;
+
 	//
 	// Initialize convenience pointers that clean up and clarify the code
 	// meaning. We want all the data in a single contiguous array so that
@@ -97,6 +99,13 @@ void gyro_worker(I2C_Handle *i2c){
 
 
 	while(1){  // TODO: Ask Tobi how it works and whats about the Interrupt.
+
+		if(counter >=1000){
+			MPU9150DataRead(&g_sMPU9150Inst);
+			counter = 0;
+		}
+		counter++;
+
 		//
 		// Get floating point version of the Accel Data in m/s^2.
 		//

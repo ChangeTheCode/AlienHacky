@@ -52,7 +52,7 @@ typedef struct
     // with the MPU9150.
     //
     //tI2CMInstance *psI2CInst;
-	I2C_Handle      i2c;
+	I2C_Handle      *i2c;
 
     //
     // The AK8975 inst that used to access the on-chip AK8975 magnetometer
@@ -151,9 +151,7 @@ extern uint_fast8_t MPU9150ReadModifyWrite(tMPU9150 *psInst,
                                            uint_fast8_t ui8Mask,
                                            uint_fast8_t ui8Value,
                                            void *pvCallbackData);
-extern uint_fast8_t MPU9150DataRead(tMPU9150 *psInst,
-                                    /*tSensorCallback *pfnCallback,*/
-                                    void *pvCallbackData);
+extern uint_fast8_t MPU9150DataRead(tMPU9150 *psInst);
 extern void MPU9150DataAccelGetRaw(tMPU9150 *psInst,
                                    uint_fast16_t *pui16AccelX,
                                    uint_fast16_t *pui16AccelY,

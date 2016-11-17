@@ -495,7 +495,7 @@ uint_fast8_t MPU9150Init(tMPU9150 *psInst, I2C_Handle *psI2CInst,
 //    psInst->psI2CInst = psI2CInst;
     psInst->ui8Addr = ui8I2CAddr;
 
-    psInst->i2c = *psI2CInst;
+    psInst->i2c = psI2CInst;
 
     //
     // Save the callback information.
@@ -539,11 +539,14 @@ uint_fast8_t MPU9150Init(tMPU9150 *psInst, I2C_Handle *psI2CInst,
     i2cTransaction.readCount = 0;
 
 
-    if (! I2C_transfer(*psI2CInst, &i2cTransaction)) { // can't send the message
-    	psInst->ui8State = MPU9150_STATE_IDLE;
+    if (! I2C_transfer(*psInst->i2c, &i2cTransaction)) { // can't send the message
+    	psInst->ui8State = MPU9150_STATE_IDLE; // set state machine to IDLE so is possible to send the next package.
+    	// because, if the transfer failed the interface is available for the next transfer
     	return(0);
     }
 
+    // set state machine auf IDLE so is possible to send the next package.
+    psInst->ui8State = MPU9150_STATE_IDLE;
     //
     // Success
     //
@@ -619,17 +622,20 @@ uint_fast8_t MPU9150Read(tMPU9150 *psInst, uint_fast8_t ui8Reg, uint8_t *pui8Dat
     I2C_Transaction i2cTransaction;
 
     i2cTransaction.slaveAddress = psInst->ui8Addr; // ui8Addr - include the slave address
-    i2cTransaction.writeBuf = NULL;
-    i2cTransaction.writeCount = 0;
+    i2cTransaction.writeBuf = psInst->uCommand.pui8Buffer;
+    i2cTransaction.writeCount = 1;
     i2cTransaction.readBuf = pui8Data;
     i2cTransaction.readCount = ui16Count;
 
 
-    if (! I2C_transfer(psInst->i2c, &i2cTransaction)) { //if can't send the message
-    	psInst->ui8State = MPU9150_STATE_IDLE;
+    if (! I2C_transfer(*psInst->i2c, &i2cTransaction)) { //if can't send the message
+    	psInst->ui8State = MPU9150_STATE_IDLE; // set state machine to IDLE so is possible to send the next package.
+    	// because, if the transfer failed the interface is available for the next transfer
     	return(0);
     }
 
+    // set state machine auf IDLE so is possible to send the next package.
+    psInst->ui8State = MPU9150_STATE_IDLE;
     //
     // Success.
     //
@@ -657,16 +663,6 @@ uint_fast8_t MPU9150Read(tMPU9150 *psInst, uint_fast8_t ui8Reg, uint8_t *pui8Dat
 uint_fast8_t MPU9150Write(tMPU9150 *psInst, uint_fast8_t ui8Reg, const uint8_t *pui8Data,
              uint_fast16_t ui16Count)
 {
-	uint8_t * data = malloc(sizeof(uint8_t) * (ui16Count+1) );
-	//memset(data,0, ui16Count + 1);
-
-	*data = ui8Reg; // set first register to write
-	data++;
-	int i; // loop variable
-	for(i = 1; i < ui16Count +1 ; i++){
-		*data = *pui8Data;  		// append the data to write
-		data ++ ; pui8Data++;
-	}
 
     //
     // Return a failure if the MPU9150 driver is not idle (in other words,
@@ -740,19 +736,29 @@ uint_fast8_t MPU9150Write(tMPU9150 *psInst, uint_fast8_t ui8Reg, const uint8_t *
     //
     I2C_Transaction i2cTransaction;
 
+
+    int i; // copy pui8Data infos to uCommand.pui8Buffer to transmit
+    psInst->uCommand.pui8Buffer[0] = ui8Reg; // reg address
+    for (i = 1; i <= ui16Count; i++){
+    	psInst->uCommand.pui8Buffer[i] = *pui8Data;
+    	pui8Data++;
+    }
+
     i2cTransaction.slaveAddress = psInst->ui8Addr;//Board_TMP007_ADDR, Lightsensor read slave adress ; 136 = schreiben 137 lesen
-    i2cTransaction.writeBuf = data;
+    i2cTransaction.writeBuf = psInst->uCommand.pui8Buffer;
     i2cTransaction.writeCount = ui16Count +1; // + 1 because the is missing the start of register to write
     i2cTransaction.readBuf = NULL;
     i2cTransaction.readCount = 0;
 
 
-
-    if (! I2C_transfer(psInst->i2c, &i2cTransaction)) { // can't send the message
-    	psInst->ui8State = MPU9150_STATE_IDLE;
+    if (! I2C_transfer(*psInst->i2c, &i2cTransaction)) { // can't send the message
+    	psInst->ui8State = MPU9150_STATE_IDLE; // set state machine to IDLE so is possible to send the next package.
+    	// because, if the transfer failed the interface is available for the next transfer
     	return(0);
     }
 
+    // set state machine auf IDLE so is possible to send the next package.
+    psInst->ui8State = MPU9150_STATE_IDLE;
     //
     // Success.
     //
@@ -823,10 +829,14 @@ MPU9150ReadModifyWrite(tMPU9150 *psInst, uint_fast8_t ui8Reg,
     i2cTransaction.readBuf = psInst->pui8Data;
     i2cTransaction.readCount = 1;
 
-    if (! I2C_transfer(psInst->i2c, &i2cTransaction)) { // can't send the message
-    	psInst->ui8State = MPU9150_STATE_IDLE;
+    if (! I2C_transfer(*psInst->i2c, &i2cTransaction)) { // can't send the message
+    	psInst->ui8State = MPU9150_STATE_IDLE; // set state machine to IDLE so is possible to send the next package.
+    	// because, if the transfer failed the interface is available for the next transfer
     	return(0);
     }
+
+    // set state machine auf IDLE so is possible to send the next package.
+    psInst->ui8State = MPU9150_STATE_IDLE;
 
     // after read of the register, write the new in to the register
     psInst->uCommand.pui8Buffer[0] = ui8Reg;
@@ -838,11 +848,14 @@ MPU9150ReadModifyWrite(tMPU9150 *psInst, uint_fast8_t ui8Reg,
     i2cTransaction.readBuf = NULL;
     i2cTransaction.readCount = 0;
 
-    if (! I2C_transfer(psInst->i2c, &i2cTransaction)) { // can't send the message
-        	psInst->ui8State = MPU9150_STATE_IDLE;
-        	return(0); // something failed
-	}
+    if (! I2C_transfer(*psInst->i2c, &i2cTransaction)) { // can't send the message
+    	psInst->ui8State = MPU9150_STATE_IDLE; // set state machine to IDLE so is possible to send the next package.
+    	// because, if the transfer failed the interface is available for the next transfer
+    	return(0);
+    }
 
+    // set state machine auf IDLE so is possible to send the next package.
+    psInst->ui8State = MPU9150_STATE_IDLE;
     //
     // Success.
     //
@@ -874,7 +887,7 @@ MPU9150ReadModifyWrite(tMPU9150 *psInst, uint_fast8_t ui8Reg,
 //
 //*****************************************************************************
 uint_fast8_t
-MPU9150DataRead(tMPU9150 *psInst, void *pvCallbackData)
+MPU9150DataRead(tMPU9150 *psInst)
 {
     //
     // Return a failure if the MPU9150 driver is not idle (in other words,
@@ -884,12 +897,6 @@ MPU9150DataRead(tMPU9150 *psInst, void *pvCallbackData)
     {
         return(0);
     }
-
-    //
-    // Save the callback information.
-    //
-    //psInst->pfnCallback = pfnCallback;
-    psInst->pvCallbackData = pvCallbackData;
 
     //
     // Move the state machine to the wait for data read state.
@@ -913,11 +920,14 @@ MPU9150DataRead(tMPU9150 *psInst, void *pvCallbackData)
     i2cTransaction.readBuf = psInst->pui8Data;
     i2cTransaction.readCount = 22;
 
-    if (! I2C_transfer(psInst->i2c, &i2cTransaction)) { // can't send the message
-    	psInst->ui8State = MPU9150_STATE_IDLE;
-    	return(0); // something failed
+    if (! I2C_transfer(*psInst->i2c, &i2cTransaction)) { // can't send the message
+    	psInst->ui8State = MPU9150_STATE_IDLE; // set state machine to IDLE so is possible to send the next package.
+    	// because, if the transfer failed the interface is available for the next transfer
+    	return(0);
     }
 
+    // set state machine auf IDLE so is possible to send the next package.
+    psInst->ui8State = MPU9150_STATE_IDLE;
     //
     // Success.
     //
