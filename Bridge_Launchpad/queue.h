@@ -17,7 +17,7 @@ typedef enum _queue_status {
 	RECEIVE_QUEUE = 2
 } queue_status_t;
 
-BOOLEAN queue (queue_status_t queue, uint8_t * data, uint8_t length);
-BOOLEAN dequeue (queue_status_t queue, uint8_t * data, uint8_t * length);
+BOOLEAN queue (queue_status_t queue, uint8_t * data, uint8_t length, BOOLEAN buffer_overflow);
+BOOLEAN dequeue (queue_status_t queue, uint8_t * data, uint8_t * length, BOOLEAN * buffer_overflow);
 
 #endif /* QUEUE_H_ */

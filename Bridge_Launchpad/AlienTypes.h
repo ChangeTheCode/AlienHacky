@@ -9,8 +9,12 @@
 #define ALIENTYPES_H_
 
 #define BOOLEAN int
-#define TRUE (1==1)
-#define FALSE !TRUE
 
+#ifndef xdc_std__include
+
+	#define TRUE (1==1)
+	#define FALSE !TRUE
+
+#endif
 
 #endif /* ALIENTYPES_H_ */
