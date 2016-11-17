@@ -1,0 +1,4 @@
+RF_init funktion erstellen
+Styleguide einhalten
+
+
