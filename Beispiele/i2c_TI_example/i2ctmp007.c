@@ -54,6 +54,7 @@
 #include "AlienHacky_datatypes.h"
 #include "Sensor_lib/light_sensor.h"
 #include "Sensor_lib/task_mpu9150.h"
+#include "Standard_lib/mpu9150.h"
 
 //extern void gyro_worker(I2C_Handle *i2c);
 
@@ -112,7 +113,7 @@ Void taskFxn(UArg arg0, UArg arg1)
 
 
 
-    gyro_worker(&i2c);
+    MPU9150_init(0, &i2c, MPU9150_I2C_ADDRESS);
 
 
 
@@ -127,7 +128,7 @@ Void taskFxn(UArg arg0, UArg arg1)
     i2cTransaction.readCount = 4;
 
     /* Take 20 samples and print them out onto the console */
-    for (i = 135; i < 170; i++) {
+    while(1) {
 
         txBuffer[0] = 0x02; // test register
         //txBuffer[1] = 0xaa; // test register

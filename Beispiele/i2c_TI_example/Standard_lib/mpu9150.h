@@ -1,182 +1,126 @@
-//*****************************************************************************
-//
-// mpu9150.h - Prototypes for the MPU9150 accelerometer, gyroscope, and
-//             magnetometer driver.
-//
-// Copyright (c) 2013-2016 Texas Instruments Incorporated.  All rights reserved.
-// Software License Agreement
-// 
-// Texas Instruments (TI) is supplying this software for use solely and
-// exclusively on TI's microcontroller products. The software is owned by
-// TI and/or its suppliers, and is protected under applicable copyright
-// laws. You may not combine this software with "viral" open-source
-// software in order to form a larger program.
-// 
-// THIS SOFTWARE IS PROVIDED "AS IS" AND WITH ALL FAULTS.
-// NO WARRANTIES, WHETHER EXPRESS, IMPLIED OR STATUTORY, INCLUDING, BUT
-// NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE APPLY TO THIS SOFTWARE. TI SHALL NOT, UNDER ANY
-// CIRCUMSTANCES, BE LIABLE FOR SPECIAL, INCIDENTAL, OR CONSEQUENTIAL
-// DAMAGES, FOR ANY REASON WHATSOEVER.
-// 
-// This is part of revision 2.1.3.156 of the Tiva Firmware Development Package.
-//
-//*****************************************************************************
+/*
+ *    ======== mpu9150.h ========
+ */
 
-#ifndef __SENSORLIB_MPU9150_H__
-#define __SENSORLIB_MPU9150_H__
+#ifndef MPU9150_H_
+#define MPU9150_H_
 
-//*****************************************************************************
-//
-// If building with a C++ compiler, make all of the definitions in this header
-// have a C binding.
-//
-//*****************************************************************************
-#ifdef __cplusplus
-extern "C"
-{
-#endif
-
+#include <stdint.h>
+#include <ti/sysbios/BIOS.h>
+#include <ti/sysbios/gates/GateMutex.h>
 #include <ti/drivers/I2C.h>
-#include <xdc/std.h>
-#include "ak8975.h"
-//*****************************************************************************
-//
-// The structure that defines the internal state of the MPU9150 driver.
-//
-//*****************************************************************************
-typedef struct
-{
-    //
-    // The pointer to the I2C master interface instance used to communicate
-    // with the MPU9150.
-    //
-    //tI2CMInstance *psI2CInst;
-	I2C_Handle      *i2c;
 
-    //
-    // The AK8975 inst that used to access the on-chip AK8975 magnetometer
-    //
-    tAK8975 sAK8975Inst;
+#define MPU9150_COUNT	                    1
+#define MPU9150_SENSOR_REGISTER_SET_SIZE    22
 
-    //
-    // The I2C address of the MPU9150.
-    //
-    uint8_t ui8Addr;
+/*
+ * MPU9150 data structure is used by the MPU9150_get* APIs to extract the
+ * requested data from the previously captured data read using MPU9150_read()
+ */
+typedef struct MPU9150_Data {
+	union {
+		struct {
+			int16_t	x;
+			int16_t	y;
+			int16_t	z;
+		};
+		struct {
+			float	xFloat;
+			float	yFloat;
+			float	zFloat;
+		};
+		struct {
+			int16_t temperature;
+		};
+		struct {
+			float   temperatureCFloat;
+			float   temperatureFFloat;
+		};
+	};
+} MPU9150_Data;
 
-    //
-    // The state of the state machine used while accessing the MPU9150.
-    //
-    uint8_t ui8State;
+typedef struct MPU9150_Object {
+	I2C_Handle       i2c;
+	uint8_t	         i2cAddr;
+	GateMutex_Handle dataAccess;
+	uint8_t          data[MPU9150_SENSOR_REGISTER_SET_SIZE];
+} MPU9150_Object, *MPU9150_Handle;
 
-    //
-    // The current accelerometer afs_sel setting
-    //
-    uint8_t ui8AccelAfsSel;
+/*
+ *  ======== MPU9150_init ========
+ *  Function opens the I2C controller and initializes the MPU9150
+ *  It returns a non-zero MPU9150 handle if the MPU9150 initialized
+ *  successfully.
+ *  This is a one time call
+ */
+MPU9150_Handle MPU9150_init(unsigned int mpu9105Index,
+							I2C_Handle  *i2c,
+                            uint8_t i2cAddr);
 
-    //
-    // The new accelerometer afs_sel setting, which is used when a register
-    // write succeeds.
-    //
-    uint8_t ui8NewAccelAfsSel;
+/*
+ *  ======== MPU9150_read ========
+ *  Function reads all the MPU9150 data registers.
+ *  The data registers read are: Accelerometer, Gyroscope, Magnetometer, and
+ *  Temperature.
+ *  This function should be called when the MPU9150 has sensor data ready;
+ *  which is typically notified via a GPIO interrupt.
+ */
+bool MPU9150_read(MPU9150_Handle handle);
 
-    //
-    // The current gyroscope fs_sel setting
-    //
-    uint8_t ui8GyroFsSel;
+/*
+ *  ======== MPU9150_getAccelRaw ========
+ *  Function returns the raw Acceleration register values for X,Y,and Z axes.
+ *  Returns true if successful.
+ */
+bool MPU9150_getAccelRaw(MPU9150_Handle handle, MPU9150_Data *data);
 
-    //
-    // The new gyroscope fs_sel setting, which is used when a register write
-    // succeeds.
-    //
-    uint8_t ui8NewGyroFsSel;
+/*
+ *  ======== MPU9150_getAccelFloat ========
+ *  Function returns a processed float values of the accelerometer in (m/s^2).
+ *  Returns true if successful.
+ */
+bool MPU9150_getAccelFloat(MPU9150_Handle handle, MPU9150_Data *data);
 
-    //
-    // The data buffer used for sending/receiving data to/from the MPU9150.
-    //
-    uint8_t pui8Data[24];
+/*
+ *  ======== MPU9150_getGyroRaw ========
+ *  Function returns the raw Gyroscope register values for X,Y,and Z axes.
+ *  Returns true if successful.
+ */
+bool MPU9150_getGyroRaw(MPU9150_Handle handle, MPU9150_Data *data);
 
-    //
-    // The function that is called when the current request has completed
-    // processing.
-    //
-    //tSensorCallback *pfnCallback;
+/*
+ *  ======== MPU9150_getGyroFloat ========
+ *  Function returns a processed float values of the gyroscope in (rad/s).
+ *  Returns true if successful.
+ */
+bool MPU9150_getGyroFloat(MPU9150_Handle handle, MPU9150_Data *data);
 
-    //
-    // The callback data provided to the callback function.
-    //
-    void *pvCallbackData;
+/*
+ *  ======== MPU9150_getMagnetoRaw ========
+ *  Function returns the raw Magnetometer register values for X,Y,and Z axes.
+ *  Returns true if successful.
+ */
+bool MPU9150_getMagnetoRaw(MPU9150_Handle handle, MPU9150_Data *data);
 
-    //
-    // A union of structures that are used for read, write and
-    // read-modify-write operations.  Since only one operation can be active at
-    // a time, it is safe to re-use the memory in this manner.
-    //
-    union
-    {
-        //
-        // A buffer used to store the write portion of a register read.
-        //
-        uint8_t pui8Buffer[6];
+/*
+ *  ======== MPU9150_getMagnetoFloat ========
+ *  Function returns a processed float values of the Magnetometer in (uT).
+ *  Returns true if successful.
+ */
+bool MPU9150_getMagnetoFloat(MPU9150_Handle handle, MPU9150_Data *data);
 
-        //
-        // The write state used to write register values.
-        //
-        //tI2CMWrite8 sWriteState;
+/*
+ *  ======== MPU9150_getTemperatureRaw ========
+ *  Function returns the raw Temperature register values.
+ *  Returns true if successful.
+ */
+bool MPU9150_getTemperatureRaw(MPU9150_Handle handle, MPU9150_Data *data);
 
-        //
-        // The read-modify-write state used to modify register values.
-        //
-        //tI2CMReadModifyWrite8 sReadModifyWriteState;
-    }
-    uCommand;
-}
-tMPU9150;
+/*
+ *  ======== MPU9150_getTemperatureFloat ========
+ *  Function returns a processed float values of the Temperature in (C) & (F).
+ *  Returns true if successful.
+ */
+bool MPU9150_getTemperatureFloat(MPU9150_Handle handle, MPU9150_Data *data);
 
-//*****************************************************************************
-//
-// Function prototypes.
-//
-//*****************************************************************************
-extern uint_fast8_t MPU9150Init(tMPU9150 *psInst, I2C_Handle *psI2CInst,
-        				uint_fast8_t ui8I2CAddr, void *pvCallbackData);
-//extern tAK8975 *MPU9150InstAK8975Get(tMPU9150 *psInst);
-extern uint_fast8_t MPU9150Read(tMPU9150 *psInst, uint_fast8_t ui8Reg,
-                                uint8_t *pui8Data, uint_fast16_t ui16Count, void *pvCallbackData);
-extern uint_fast8_t MPU9150Write(tMPU9150 *psInst, uint_fast8_t ui8Reg,
-                                 const uint8_t *pui8Data,
-                                 uint_fast16_t ui16Count);
-extern uint_fast8_t MPU9150ReadModifyWrite(tMPU9150 *psInst,
-                                           uint_fast8_t ui8Reg,
-                                           uint_fast8_t ui8Mask,
-                                           uint_fast8_t ui8Value,
-                                           void *pvCallbackData);
-extern uint_fast8_t MPU9150DataRead(tMPU9150 *psInst);
-extern void MPU9150DataAccelGetRaw(tMPU9150 *psInst,
-                                   uint_fast16_t *pui16AccelX,
-                                   uint_fast16_t *pui16AccelY,
-                                   uint_fast16_t *pui16AccelZ);
-extern void MPU9150DataAccelGetFloat(tMPU9150 *psInst, float *pfAccelX,
-                                     float *pfAccelY, float *pfAccelZ);
-extern void MPU9150DataGyroGetRaw(tMPU9150 *psInst, uint_fast16_t *pui16GyroX,
-                                  uint_fast16_t *pui16GyroY,
-                                  uint_fast16_t *pui16GyroZ);
-extern void MPU9150DataGyroGetFloat(tMPU9150 *psInst, float *pfGyroX,
-                                    float *pfGyroY, float *pfGyroZ);
-extern void MPU9150DataMagnetoGetRaw(tMPU9150 *psInst,
-                                     uint_fast16_t *pui16MagnetoX,
-                                     uint_fast16_t *pui16MagnetoY,
-                                     uint_fast16_t *pui16MagnetoZ);
-extern void MPU9150DataMagnetoGetFloat(tMPU9150 *psInst, float *pfMagnetoX,
-                                       float *pfMagnetoY, float *pfMagnetoZ);
-
-//*****************************************************************************
-//
-// Mark the end of the C bindings section for C++ compilers.
-//
-//*****************************************************************************
-#ifdef __cplusplus
-}
-#endif
-
-#endif // __SENSORLIB_MPU9150_H__
+#endif /* MPU9150_H_ */
