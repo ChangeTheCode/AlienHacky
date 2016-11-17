@@ -62,13 +62,13 @@
 #define TMP007_OBJ_TEMP     0x0003  /* Object Temp Result Register */
 
 /* Global memory storage for a PIN_Config table */
-static PIN_State ledPinState;
+static PIN_State led_pin_state;
 
 /*
  * Application LED pin configuration table:
  *   - All LEDs board LEDs are off.
  */
-PIN_Config ledPinTable[] = {
+PIN_Config led_pin_table[] = {
     Board_LED1 | PIN_GPIO_OUTPUT_EN | PIN_GPIO_LOW | PIN_PUSHPULL | PIN_DRVSTR_MAX,
     Board_LED2 | PIN_GPIO_OUTPUT_EN | PIN_GPIO_LOW | PIN_PUSHPULL | PIN_DRVSTR_MAX,
 // Pin einbinden für Toggel
@@ -76,7 +76,7 @@ PIN_Config ledPinTable[] = {
 };
 
 Task_Struct task0Struct;
-Char task0Stack[TASKSTACKSIZE];
+Char task0_stack[TASKSTACKSIZE];
 
 
 /*
@@ -86,16 +86,16 @@ Char task0Stack[TASKSTACKSIZE];
 Void taskFxn(UArg arg0, UArg arg1)
 {
     unsigned int    i;
-    uint8_t         txBuffer[2];
-    uint8_t         rxBuffer[2];
+    uint8_t         tx_buffer[2];
+    uint8_t         rx_buffer[2];
     I2C_Handle      i2c;
-    I2C_Params      i2cParams;
-    I2C_Transaction i2cTransaction;
+    I2C_Params      I2C_params;
+    I2C_Transaction I2C_transaction;
 
     /* Create I2C for usage */
-    I2C_Params_init(&i2cParams);
-    i2cParams.bitRate = I2C_400kHz;
-    i2c = I2C_open(Board_I2C_TMP, &i2cParams);
+    I2C_Params_init(&I2C_params);
+    I2C_params.bitRate = I2C_400kHz;
+    i2c = I2C_open(Board_I2C_TMP, &I2C_params);
     if (i2c == NULL) {
         System_abort("Error Initializing I2C\n");
     }
@@ -121,28 +121,28 @@ Void taskFxn(UArg arg0, UArg arg1)
 
     /* Point to the T ambient register and read its 2 bytes */
     // Slave adresse 1 bit shift nach rechts machen !
-    i2cTransaction.slaveAddress = 0x44;//Board_TMP007_ADDR, Lightsensor read slave adress ; 136 = schreiben 137 lesen
-    i2cTransaction.writeBuf = txBuffer;
-    i2cTransaction.writeCount = 1;
-    i2cTransaction.readBuf = rxBuffer;
-    i2cTransaction.readCount = 4;
+    I2C_transaction.slaveAddress = 0x44;//Board_TMP007_ADDR, Lightsensor read slave adress ; 136 = schreiben 137 lesen
+    I2C_transaction.writeBuf = tx_buffer;
+    I2C_transaction.writeCount = 1;
+    I2C_transaction.readBuf = rx_buffer;
+    I2C_transaction.readCount = 4;
 
     /* Take 20 samples and print them out onto the console */
     while(1) {
 
-        txBuffer[0] = 0x02; // test register
+        tx_buffer[0] = 0x02; // test register
         //txBuffer[1] = 0xaa; // test register
-        if (I2C_transfer(i2c, &i2cTransaction)) {
+        if (I2C_transfer(i2c, &I2C_transaction)) {
 
         	// pin toggle
 
-            System_printf("Sample %u: %d , %d (RAW)\n", i, rxBuffer[0], rxBuffer[1]);
+            System_printf("Sample %u: %d , %d (RAW)\n", i, rx_buffer[0], rx_buffer[1]);
         }
         else {
             System_printf("I2C Bus fault \n" );
-            System_printf("I2C Werte Slave Adresse %d ",i2cTransaction.slaveAddress );
-            System_printf("I2C Werte TX %d, %d \n", txBuffer[0], txBuffer[1] );
-            System_printf("I2C Werte RX %d, %d \n", rxBuffer[0], rxBuffer[1] );
+            System_printf("I2C Werte Slave Adresse %d ",I2C_transaction.slaveAddress );
+            System_printf("I2C Werte TX %d, %d \n", tx_buffer[0], tx_buffer[1] );
+            System_printf("I2C Werte RX %d, %d \n", rx_buffer[0], rx_buffer[1] );
             Task_sleep(20000);
         }
 
@@ -163,24 +163,24 @@ Void taskFxn(UArg arg0, UArg arg1)
  */
 int main(void)
 {
-    PIN_Handle ledPinHandle;
+    PIN_Handle led_pin_handle;
 
-    Task_Params taskParams;
+    Task_Params task_params;
 
     /* Call board init functions */
     Board_initGeneral();
     Board_initI2C();
 
     /* Construct tmp007 Task thread */
-    Task_Params_init(&taskParams);
-    taskParams.stackSize = TASKSTACKSIZE;
-    taskParams.stack = &task0Stack;
-    Task_construct(&task0Struct, (Task_FuncPtr)taskFxn, &taskParams, NULL);
+    Task_Params_init(&task_params);
+    task_params.stackSize = TASKSTACKSIZE;
+    task_params.stack = &task0_stack;
+    Task_construct(&task0Struct, (Task_FuncPtr)taskFxn, &task_params, NULL);
 
 
     /* Open LED pins */
-    ledPinHandle = PIN_open(&ledPinState, ledPinTable);
-    if(!ledPinHandle) {
+    led_pin_handle = PIN_open(&led_pin_state, led_pin_table);
+    if(!led_pin_handle) {
         System_abort("Error initializing board LED pins\n");
     }
 
@@ -189,8 +189,8 @@ int main(void)
 		System_abort("Error initializing board green LED pins\n");
 	}*/
 
-    PIN_setOutputValue(ledPinHandle, Board_LED0, 1);
-    PIN_setOutputValue(ledPinHandle, Board_LED1, 1);
+    PIN_setOutputValue(led_pin_handle, Board_LED0, 1);
+    PIN_setOutputValue(led_pin_handle, Board_LED1, 1);
 
 
     System_printf("Starting the I2C example\nSystem provider is set to SysMin."

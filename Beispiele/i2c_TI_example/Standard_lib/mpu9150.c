@@ -42,20 +42,20 @@
 
 static MPU9150_Object object[MPU9150_COUNT] = {0};
 
-MPU9150_Handle MPU9150_init(unsigned int mpu9105Index,
+MPU9150_Handle MPU9150_init(unsigned int mpu9105_index,
 							I2C_Handle *i2c ,
-                            uint8_t i2cAddr)
+                            uint8_t i2c_addr)
 {
     //I2C_Params      i2cParams;
-    I2C_Transaction i2cTransaction;
+    I2C_Transaction I2C_transaction;
     Error_Block     eb;
-    bool			transferOK;
-    uint8_t		    writeBuffer[5];
-    uint8_t		    readBuffer[1];
-    MPU9150_Handle	handle = &object[mpu9105Index];
+    bool			transfer_OK;
+    uint8_t		    write_buffer[5];
+    uint8_t		    read_buffer[1];
+    MPU9150_Handle	handle = &object[mpu9105_index];
 
     /* Check if the handle was already opened */
-    if((mpu9105Index > MPU9150_COUNT) || (handle->i2c != NULL)) {
+    if((mpu9105_index > MPU9150_COUNT) || (handle->i2c != NULL)) {
     	return (NULL);
     }
 
@@ -71,25 +71,25 @@ MPU9150_Handle MPU9150_init(unsigned int mpu9105Index,
 
     /* Create I2C for usage */
     handle->i2c = *i2c;
-    handle->i2cAddr =  i2cAddr;
+    handle->i2cAddr =  i2c_addr;
 
     /* If the I2C controller opened properly continue */
     if (handle->i2c) {
 
     	/* Used by all I2C transfers */
-    	i2cTransaction.slaveAddress = (i2cAddr >>1);
+    	I2C_transaction.slaveAddress = i2c_addr;
 
 
     	/* Put the MPU9150 into reset state */
-    	writeBuffer[0] = MPU9150_O_PWR_MGMT_1;
-    	writeBuffer[1] = MPU9150_PWR_MGMT_1_DEVICE_RESET;
+    	write_buffer[0] = MPU9150_O_PWR_MGMT_1;
+    	write_buffer[1] = MPU9150_PWR_MGMT_1_DEVICE_RESET;
 
-    	i2cTransaction.writeBuf = writeBuffer;
-    	i2cTransaction.writeCount = 2;
-    	i2cTransaction.readBuf = NULL;
-		i2cTransaction.readCount = 0;
+    	I2C_transaction.writeBuf = write_buffer;
+    	I2C_transaction.writeCount = 2;
+    	I2C_transaction.readBuf = NULL;
+		I2C_transaction.readCount = 0;
 
-       	if (!I2C_transfer(handle->i2c, &i2cTransaction)) {
+       	if (!I2C_transfer(handle->i2c, &I2C_transaction)) {
 			return (NULL);
 		}
 
@@ -101,29 +101,29 @@ MPU9150_Handle MPU9150_init(unsigned int mpu9105Index,
 		 * its internal reset.  Keep polling until we verify device is
 		 * ready.
 		 */
-       	i2cTransaction.readBuf = readBuffer;
-       	writeBuffer[0] = MPU9150_O_PWR_MGMT_1;
-       	i2cTransaction.writeCount = 1;
-    	i2cTransaction.readCount = 1;
+       	I2C_transaction.readBuf = read_buffer;
+       	write_buffer[0] = MPU9150_O_PWR_MGMT_1;
+       	I2C_transaction.writeCount = 1;
+    	I2C_transaction.readCount = 1;
     	do {
-    		transferOK = I2C_transfer(handle->i2c, &i2cTransaction);
-    	} while ((readBuffer[0] != MPU9150_PWR_MGMT_1_SLEEP) || (!transferOK));
+    		transfer_OK = I2C_transfer(handle->i2c, &I2C_transaction);
+    	} while ((read_buffer[0] != MPU9150_PWR_MGMT_1_SLEEP) || (!transfer_OK));
 
     	/* Take the device out of reset and enable the clock */
-       	writeBuffer[0] = MPU9150_O_PWR_MGMT_1;
-       	writeBuffer[1] = MPU9150_PWR_MGMT_1_CLKSEL_XG;
-       	i2cTransaction.writeCount = 2;
-    	i2cTransaction.readCount = 0;
-       	if (!I2C_transfer(handle->i2c, &i2cTransaction)) {
+       	write_buffer[0] = MPU9150_O_PWR_MGMT_1;
+       	write_buffer[1] = MPU9150_PWR_MGMT_1_CLKSEL_XG;
+       	I2C_transaction.writeCount = 2;
+    	I2C_transaction.readCount = 0;
+       	if (!I2C_transfer(handle->i2c, &I2C_transaction)) {
 			return (NULL);
 		}
 
     	/* Enable A I2C Master mode on the MPU9150 */
-       	writeBuffer[0] = MPU9150_O_USER_CTRL;
-       	writeBuffer[1] = MPU9150_USER_CTRL_I2C_MST_EN;
-       	i2cTransaction.writeCount = 2;
-    	i2cTransaction.readCount = 0;
-       	if (!I2C_transfer(handle->i2c, &i2cTransaction)) {
+       	write_buffer[0] = MPU9150_O_USER_CTRL;
+       	write_buffer[1] = MPU9150_USER_CTRL_I2C_MST_EN;
+       	I2C_transaction.writeCount = 2;
+    	I2C_transaction.readCount = 0;
+       	if (!I2C_transfer(handle->i2c, &I2C_transaction)) {
 			return (NULL);
 		}
 
@@ -132,11 +132,11 @@ MPU9150_Handle MPU9150_init(unsigned int mpu9105Index,
        	 * Set MPU9150's sampling rate
        	 * Set sample rate to 50 hertz.  1000 hz / (1 + 19)
        	 */
-       	writeBuffer[0] = MPU9150_O_SMPLRT_DIV;
-       	writeBuffer[1] = 19;
-       	i2cTransaction.writeCount = 2;
-    	i2cTransaction.readCount = 0;
-       	if (!I2C_transfer(handle->i2c, &i2cTransaction)) {
+       	write_buffer[0] = MPU9150_O_SMPLRT_DIV;
+       	write_buffer[1] = 19;
+       	I2C_transaction.writeCount = 2;
+    	I2C_transaction.readCount = 0;
+       	if (!I2C_transfer(handle->i2c, &I2C_transaction)) {
 			return (NULL);
 		}
 
@@ -145,12 +145,12 @@ MPU9150_Handle MPU9150_init(unsigned int mpu9105Index,
 		 * every 5th time that we sample accel/gyro.  Delay Count itself
 		 * handled in next state.
 		 */
-       	writeBuffer[0] = MPU9150_O_I2C_MST_DELAY_CTRL;
-       	writeBuffer[1] = (MPU9150_I2C_MST_DELAY_CTRL_I2C_SLV0_DLY_EN |
+       	write_buffer[0] = MPU9150_O_I2C_MST_DELAY_CTRL;
+       	write_buffer[1] = (MPU9150_I2C_MST_DELAY_CTRL_I2C_SLV0_DLY_EN |
                           MPU9150_I2C_MST_DELAY_CTRL_I2C_SLV4_DLY_EN);
-       	i2cTransaction.writeCount = 2;
-    	i2cTransaction.readCount = 0;
-       	if (!I2C_transfer(handle->i2c, &i2cTransaction)) {
+       	I2C_transaction.writeCount = 2;
+    	I2C_transaction.readCount = 0;
+       	if (!I2C_transfer(handle->i2c, &I2C_transaction)) {
 			return (NULL);
 		}
 
@@ -158,20 +158,20 @@ MPU9150_Handle MPU9150_init(unsigned int mpu9105Index,
 		 * Write the configuration for I2C master control clock 400khz
 		 * and wait for external sensor before asserting data ready
 		 */
-       	writeBuffer[0] = MPU9150_O_I2C_MST_CTRL;
-		writeBuffer[1] = (MPU9150_I2C_MST_CTRL_I2C_MST_CLK_400 |
+       	write_buffer[0] = MPU9150_O_I2C_MST_CTRL;
+		write_buffer[1] = (MPU9150_I2C_MST_CTRL_I2C_MST_CLK_400 |
                           MPU9150_I2C_MST_CTRL_WAIT_FOR_ES);
 
 		/*
 		 * Configure I2C Slave 0 for read of AK8975 (I2C Address 0x0C)
 		 * Start at AK8975 register status 1 (0x02)
 		 */
-		writeBuffer[2] = MPU9150_I2C_SLV0_ADDR_RW | 0x0C;
-		writeBuffer[3] = 0x02;
-		writeBuffer[4] = MPU9150_I2C_SLV0_CTRL_EN | 0x08;
-       	i2cTransaction.writeCount = 5;
-    	i2cTransaction.readCount = 0;
-       	if (!I2C_transfer(handle->i2c, &i2cTransaction)) {
+		write_buffer[2] = MPU9150_I2C_SLV0_ADDR_RW | 0x0C;
+		write_buffer[3] = 0x02;
+		write_buffer[4] = MPU9150_I2C_SLV0_CTRL_EN | 0x08;
+       	I2C_transaction.writeCount = 5;
+    	I2C_transaction.readCount = 0;
+       	if (!I2C_transfer(handle->i2c, &I2C_transaction)) {
 			return (NULL);
 		}
 
@@ -181,14 +181,14 @@ MPU9150_Handle MPU9150_init(unsigned int mpu9105Index,
 		 * we want to write the control register with the value for a
 		 * starting a single measurement.
 		 */
-       	writeBuffer[0] = MPU9150_O_I2C_SLV4_ADDR;
-		writeBuffer[1] = 0x0C;
-		writeBuffer[2] = 0x0A; //AK8975_O_CNTL
-		writeBuffer[3] = 0x01; //AK8975_CNTL_MODE_SINGLE
-		writeBuffer[4] = MPU9150_I2C_SLV4_CTRL_EN | 0x04;
-       	i2cTransaction.writeCount = 5;
-    	i2cTransaction.readCount = 0;
-       	if (!I2C_transfer(handle->i2c, &i2cTransaction)) {
+       	write_buffer[0] = MPU9150_O_I2C_SLV4_ADDR;
+		write_buffer[1] = 0x0C;
+		write_buffer[2] = 0x0A; //AK8975_O_CNTL
+		write_buffer[3] = 0x01; //AK8975_CNTL_MODE_SINGLE
+		write_buffer[4] = MPU9150_I2C_SLV4_CTRL_EN | 0x04;
+       	I2C_transaction.writeCount = 5;
+    	I2C_transaction.readCount = 0;
+       	if (!I2C_transfer(handle->i2c, &I2C_transaction)) {
 			return (NULL);
 		}
 
@@ -196,28 +196,28 @@ MPU9150_Handle MPU9150_init(unsigned int mpu9105Index,
          * Write application specific sensor configuration such as filter
          * settings and sensor range settings.
          */
-       	writeBuffer[0] = MPU9150_O_CONFIG;
-    	writeBuffer[1] = MPU9150_CONFIG_DLPF_CFG_94_98;
-		writeBuffer[2] = MPU9150_GYRO_CONFIG_FS_SEL_250;
-		writeBuffer[3] = (MPU9150_ACCEL_CONFIG_ACCEL_HPF_5HZ |
+       	write_buffer[0] = MPU9150_O_CONFIG;
+    	write_buffer[1] = MPU9150_CONFIG_DLPF_CFG_94_98;
+		write_buffer[2] = MPU9150_GYRO_CONFIG_FS_SEL_250;
+		write_buffer[3] = (MPU9150_ACCEL_CONFIG_ACCEL_HPF_5HZ |
                           MPU9150_ACCEL_CONFIG_AFS_SEL_2G);
-       	i2cTransaction.writeCount = 4;
-    	i2cTransaction.readCount = 0;
-       	if (!I2C_transfer(handle->i2c, &i2cTransaction)) {
+       	I2C_transaction.writeCount = 4;
+    	I2C_transaction.readCount = 0;
+       	if (!I2C_transfer(handle->i2c, &I2C_transaction)) {
 			return (NULL);
 		}
 
        	/*
 		 * Configure the data ready interrupt pin output of the MPU9150.
 		 */
-       	writeBuffer[0] = MPU9150_O_INT_PIN_CFG;
-    	writeBuffer[1] = MPU9150_INT_PIN_CFG_INT_LEVEL |
+       	write_buffer[0] = MPU9150_O_INT_PIN_CFG;
+    	write_buffer[1] = MPU9150_INT_PIN_CFG_INT_LEVEL |
                          MPU9150_INT_PIN_CFG_INT_RD_CLEAR |
                          MPU9150_INT_PIN_CFG_LATCH_INT_EN;;
-		writeBuffer[2] = MPU9150_INT_ENABLE_DATA_RDY_EN;
-       	i2cTransaction.writeCount = 3;
-    	i2cTransaction.readCount = 0;
-       	if (!I2C_transfer(handle->i2c, &i2cTransaction)) {
+		write_buffer[2] = MPU9150_INT_ENABLE_DATA_RDY_EN;
+       	I2C_transaction.writeCount = 3;
+    	I2C_transaction.readCount = 0;
+       	if (!I2C_transfer(handle->i2c, &I2C_transaction)) {
 			return (NULL);
 		}
 
@@ -233,17 +233,17 @@ MPU9150_Handle MPU9150_init(unsigned int mpu9105Index,
  */
 bool MPU9150_read(MPU9150_Handle handle)
 {
-    I2C_Transaction i2cTransaction;
-    uint8_t         writeBuffer[1];
+    I2C_Transaction I2C_transaction;
+    uint8_t         write_buffer[1];
     uint8_t			data[MPU9150_SENSOR_REGISTER_SET_SIZE];
     unsigned int	key;
 
 	if (handle->i2c) {
-	    i2cTransaction.slaveAddress = handle->i2cAddr;
-	    i2cTransaction.writeBuf = writeBuffer;
-	    i2cTransaction.writeCount = 1;
-	    i2cTransaction.readBuf = data;
-	    i2cTransaction.readCount = MPU9150_SENSOR_REGISTER_SET_SIZE;
+	    I2C_transaction.slaveAddress = handle->i2cAddr;
+	    I2C_transaction.writeBuf = write_buffer;
+	    I2C_transaction.writeCount = 1;
+	    I2C_transaction.readBuf = data;
+	    I2C_transaction.readCount = MPU9150_SENSOR_REGISTER_SET_SIZE;
 
 	    /*
 	     * I2C peripherals generally have an internal burst counter.
@@ -255,9 +255,9 @@ bool MPU9150_read(MPU9150_Handle handle)
 	     * (ACCEL_XOUT_H(0x3B) -> GYRO_ZOUT_L(0x48) = 14 bytes
          * Grab Ext Sens Data as well for another 8 bytes.  ST1 + Mag Data + ST2
 	     */
-	    writeBuffer[0] = MPU9150_O_ACCEL_XOUT_H;
+	    write_buffer[0] = MPU9150_O_ACCEL_XOUT_H;
 
-        if (I2C_transfer(handle->i2c, &i2cTransaction)) {
+        if (I2C_transfer(handle->i2c, &I2C_transaction)) {
     	    /*
     	     * To ensure coherency of the data received we copy the data
     	     * atomically
