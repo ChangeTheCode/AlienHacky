@@ -213,6 +213,14 @@ public class Calculator implements Runnable {
                 e.printStackTrace();
             }
 
+            if (iteration > 1000){
+                writer.flush();
+                writer.close();
+                writer2.flush();
+                writer2.close();
+                break;
+            }
+
 //            if(iteration > 40000 || pos.z < 0){
 //                writer.flush();
 //                writer.close();

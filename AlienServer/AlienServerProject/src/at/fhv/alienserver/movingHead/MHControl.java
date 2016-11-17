@@ -6,7 +6,6 @@ import at.fhv.alienserver.Tuple;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.TimeUnit;
 
 import static java.lang.Math.abs;
 import static java.lang.Thread.sleep;
@@ -35,13 +34,15 @@ public class MHControl implements Runnable{
     private ESP esp = new ESP();
     //TODO: Move all of the following to config.file
     /**
-     * Offset of the phi - angle (Pan); chosen to have the MH-X25 point straight to the ground for point (0, 0)
+     * Offset of the Pan - angle; chosen to have the MH-X25 point straight to the ground for point (0, 0)
      */
-    private final double offset_phi = 180;
+    private final double offset_pan = 90;
+    //private final double offset_pan = 180;
     /**
-     * Offset of the theta - angle (Tilt); chosen to have the MH-X25 point straight to the ground for point (0, 0)
+     * Offset of the Tilt - angle; chosen to have the MH-X25 point straight to the ground for point (0, 0)
      */
-    private final double offset_theta = 135;
+    private final double offset_tilt = 135 + 90;
+    //private final double offset_tilt = 135;
     /**
      * Height of the moving head's mounting point in meters; measured at the tilt-turning-axis
      */
@@ -114,7 +115,7 @@ public class MHControl implements Runnable{
          * Set up a DMX packet with default values and a dummy packet to send along as well. This dummy packet
          * is required due to the set up with a second MH-X25 in U325, which likely contains some kind of error though.
          */
-        DMX dummy = new DMX();
+        //DMX dummy = new DMX();
         DMX dmxPacket = new DMX();
         DMX oldDmxPacket;
         DMX exaggeratedDmxPacket;
@@ -174,16 +175,20 @@ public class MHControl implements Runnable{
                  */
                 oldDmxPacket = new DMX(dmxPacket);
 
+                /*
                 //On first iteration the next statement yields 0 / 0 --> NaN!!!!
                 //FIXME: Fix that crap
-                //double debug = Math.atan(c.y / c.x) * 180 / Math.PI + offset_phi;
-                dmxPacket.setPan(Math.atan(c.y / c.x) * 180 / Math.PI + offset_phi);
+                //double debug = Math.atan(c.y / c.x) * 180 / Math.PI + offset_pan;
+                dmxPacket.setPan(Math.atan(c.y / c.x) * 180 / Math.PI + offset_pan);
                 if (c.x >= 0) {
-                    //double debug2 = Math.atan(Math.sqrt(c.x * c.x + c.y * c.y) / h) * 180 / Math.PI + offset_theta;
-                    dmxPacket.setTilt(Math.atan(Math.sqrt(c.x * c.x + c.y * c.y) / h) * 180 / Math.PI + offset_theta);
+                    //double debug2 = Math.atan(Math.sqrt(c.x * c.x + c.y * c.y) / h) * 180 / Math.PI + offset_tilt;
+                    dmxPacket.setTilt(Math.atan(Math.sqrt(c.x * c.x + c.y * c.y) / h) * 180 / Math.PI + offset_tilt);
                 } else {
-                    dmxPacket.setTilt((-1) * Math.atan(Math.sqrt(c.x * c.x + c.y * c.y) / h) * 180 / Math.PI + offset_theta);
+                    dmxPacket.setTilt((-1) * Math.atan(Math.sqrt(c.x * c.x + c.y * c.y) / h) * 180 / Math.PI + offset_tilt);
                 }
+                */
+                dmxPacket.setPan(Math.atan(c.x / h) * 180 / Math.PI + offset_pan);
+                dmxPacket.setTilt(Math.atan(c.y / h) * 180 / Math.PI + offset_tilt);
 
                 packets.add(dmxPacket);
 
@@ -205,7 +210,7 @@ public class MHControl implements Runnable{
                 //Set the moving head to the last point in our array
                 try {
                     for (DMX packet : packets) {
-                        esp.sendPackets(dummy, packet);
+                        esp.sendPackets(packet);
                         sleep(100);
                     }
                 } catch (IOException e) {

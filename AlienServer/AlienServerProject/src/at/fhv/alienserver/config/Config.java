@@ -9,31 +9,18 @@ import java.util.Properties;
  * Created by thomas on 09.11.16.
  */
 public class Config {
-    private static boolean initialised = false;
     private static Properties prop;
-    private static OutputStream out;
-    private static InputStream in;
+    private static final String propFileName = "AlienServer.properties";
 
-    private static void initialise() throws IOException{
-        Config.prop = new Properties();
-        Config.out = new FileOutputStream("config.properties");
-        Config.in = new FileInputStream("config.properties");
-        /*Config.propertyEnum2propertyString = new HashMap<AlienServerProperties, String>(){
-
-        };*/
-        Config.initialised = true;
+    public Config(){
+        prop = new Properties();
     }
 
-    private static void teardown(){
-        Config.out = null;
-        Config.in = null;
-        Config.prop = null;
-        /*Config.propertyEnum2propertyString = null;*/
-        Config.initialised = false;
-    }
-
-    private Config(){
-        //we're building a Singleton here!
+    public enum AlienServerProperties{
+        quadrant1Limit,
+        quadrant2Limit,
+        quadrant3Limit,
+        quadrant4Limit
     }
 
     private static final Map<AlienServerProperties, String> propertyEnum2propertyString = new HashMap<>();
@@ -44,53 +31,40 @@ public class Config {
         propertyEnum2propertyString.put(AlienServerProperties.quadrant4Limit, "Quadrant4Limit");
     }
 
-    public enum AlienServerProperties{
-        quadrant1Limit,
-        quadrant2Limit,
-        quadrant3Limit,
-        quadrant4Limit
-    }
-
-    public static boolean  setProperty(AlienServerProperties property, String value){
-        boolean returnValue = true;
-
-        if(!Config.initialised){
-            try {
-                Config.initialise();
-                returnValue = true;
-            } catch (IOException e){
-                e.printStackTrace();
-                Config.teardown();
-                returnValue = false;
-            }
-        }
-
+    public boolean  setProperty(AlienServerProperties property, String value){
+        /*
+        Used to revise: http://www.drdobbs.com/jvm/readwrite-properties-files-in-java/231000005
+        TODO: test this function
+        */
         String propertyString = Config.propertyEnum2propertyString.get(property);
 
+        prop.setProperty(propertyString, value);
         try {
-            prop.setProperty(propertyString, value);
-            prop.store(Config.out, null);
-            returnValue = true;
+            File f = new File(propFileName);
+            OutputStream out = new FileOutputStream(f);
+            prop.store(out, ""); //Empty string can resolve a comment, however not needed for us; nevertheless included 'cause Java requires it. WTF...
+        } catch (FileNotFoundException e){
+            e.printStackTrace();
+            return false;
         } catch (IOException e){
-            Config.teardown();
-            returnValue = false;
+            e.printStackTrace();
+            return false;
         }
 
-        return returnValue;
+        return true;
     }
 
-    public static String getProperty(AlienServerProperties property) {
-        if(!Config.initialised){
-            try {
-                Config.initialise();
-            } catch (IOException e){
-                e.printStackTrace();
-                Config.teardown();
-                return null;
-            }
-        }
+    public String getProperty(AlienServerProperties property) throws IOException{
+        /*
+        Made with: http://stackoverflow.com/questions/18280419/reading-properties-file-in-java
+        See also: http://www.drdobbs.com/jvm/readwrite-properties-files-in-java/231000005
+        Watch out for classpath ('cause of getClass() below)
+        TODO: Test
+         */
+        InputStream in = getClass().getResourceAsStream(propFileName);
 
-        //TODO: Test the getProperty functionality
+        prop.load(in);
+
         String propertyString = Config.propertyEnum2propertyString.get(property);
 
         return prop.getProperty(propertyString);

@@ -16,4 +16,9 @@ public class AccelerationContainer {
         this.y = source.y;
         //this.z = source.z;
     }
+
+    @Override
+    public String toString(){
+        return String.valueOf(this.x) + '|' + String.valueOf(this.y);
+    }
 }
