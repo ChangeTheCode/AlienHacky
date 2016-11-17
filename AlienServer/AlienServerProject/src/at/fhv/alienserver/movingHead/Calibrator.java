@@ -6,6 +6,7 @@ import at.fhv.alienserver.config.Config;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.TimeUnit;
 
@@ -61,6 +62,15 @@ public class Calibrator {
             e.printStackTrace();
         }
 
+        Config config = null;
+        try {
+            config = new Config();
+        } catch(IOException e){
+            System.out.println("Config utility working with \'AlienServer.properties\' file could not be loaded. Is the file there?");
+            e.printStackTrace();
+            System.exit(-1);
+        }
+
         while(run) {
             try {
                 c = characterQueue.poll(100, TimeUnit.MILLISECONDS);
@@ -88,30 +98,33 @@ public class Calibrator {
                     System.out.println("Pressed " + c);
                     c = null;
                 } else if (c == 'r'){
-                    String outputString = Config.getProperty(Config.AlienServerProperties.quadrant1Limit);
+                    String outputString = config.getProperty(Config.AlienServerProperties.quadrant1Limit);
                     System.out.println("Tried to read a property; got: ");
                     System.out.println(outputString);
                 } else if(c == '1'){
                     System.out.println("Saved corner in quadrant 1");
-                    Config.setProperty(Config.AlienServerProperties.quadrant1Limit, newCoordinates.toString());
+                    config.setProperty(Config.AlienServerProperties.quadrant1Limit, newCoordinates.toString());
                     c = null;
                 } else if(c == '2'){
                     System.out.println("Saved corner in quadrant 2");
-                    Config.setProperty(Config.AlienServerProperties.quadrant2Limit, newCoordinates.toString());
+                    config.setProperty(Config.AlienServerProperties.quadrant2Limit, newCoordinates.toString());
                     c = null;
                 } else if(c == '3'){
                     System.out.println("Saved corner in quadrant 3");
-                    Config.setProperty(Config.AlienServerProperties.quadrant3Limit, newCoordinates.toString());
+                    config.setProperty(Config.AlienServerProperties.quadrant3Limit, newCoordinates.toString());
                     c = null;
                 } else if(c == '4'){
                     System.out.println("Saved corner in quadrant 4");
-                    Config.setProperty(Config.AlienServerProperties.quadrant4Limit, newCoordinates.toString());
+                    config.setProperty(Config.AlienServerProperties.quadrant4Limit, newCoordinates.toString());
                     c = null;
                 }
             } catch (InterruptedException e) {
                 System.out.println("Exception occurred :-O");
                 e.printStackTrace();
                 //TODO: Implement exception handling
+            } catch (IOException e){
+                System.out.println("File AlienServer.properties not found. Was it moved or renamed");
+                e.printStackTrace();
             }
         }
         /*
