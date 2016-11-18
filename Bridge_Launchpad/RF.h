@@ -23,6 +23,8 @@
 #include "RFQueue.h"
 #include "smartrf_settings/smartrf_settings.h"
 
+#include "AlienUART.h"
+
 /* RX and TX Task Config */
 #define RX_TASK_STACK_SIZE 1024
 #define RX_TASK_PRIORITY   1
@@ -43,26 +45,19 @@
 /* Packet TX Configuration */
 #define PAYLOAD_LENGTH      19
 
+extern RF_Object RF_object;
+extern RF_Handle RF_handle;
 
-extern PIN_Handle ledPinHandle;
-extern PIN_Handle buttonPinHandle;
-
-extern RF_Object rfObject;
-extern RF_Handle rfHandle;
-
-extern Semaphore_Handle semTxHandle;
-extern Semaphore_Handle semRxHandle;
-
-extern UART_Handle uart;
-
-extern uint8_t button_pressed;
+extern Semaphore_Handle sem_tx_handle;
+extern Semaphore_Handle sem_rx_handle;
 
 extern RF_CmdHandle rx_cmd;
 
-extern uint8_t packetRx[MAX_PACKET_LENGTH];
-extern uint8_t packetRxLength;
+extern uint8_t packet_rx[MAX_PACKET_LENGTH];
+extern uint8_t packet_rx_length;
 
-void RxTask_init(PIN_Handle ledPinHandle);
-void TxTask_init(PIN_Handle ledPinHandle);
+void Alien_RF_init(void);
+void rx_task_init(void);
+void tx_task_init(void);
 
 #endif /* RF_H_ */

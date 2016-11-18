@@ -7,19 +7,19 @@
 
 #include "RF.h"
 
-static Task_Params rxTaskParams;
-Task_Struct rxTask;    /* not static so you can see in ROV */
-static uint8_t rxTaskStack[RX_TASK_STACK_SIZE];
+static Task_Params rx_task_params;
+Task_Struct rx_task;    /* not static so you can see in ROV */
+static uint8_t rx_task_stack[RX_TASK_STACK_SIZE];
 
 /* Receive dataQueue for RF Core to fill in data */
-static dataQueue_t dataQueue;
-static rfc_dataEntryGeneral_t* currentDataEntry;
-uint8_t packetRxLength;
-static uint8_t* packetRxDataPointer;
-uint8_t packetRx[MAX_PACKET_LENGTH]; /* The length byte is stored in a separate variable */
+static dataQueue_t rx_data_queue;
+static rfc_dataEntryGeneral_t* current_data_entry;
+uint8_t packet_rx_length;
+static uint8_t* packet_rx_data_pointer;
+uint8_t packet_rx[MAX_PACKET_LENGTH]; /* The length byte is stored in a separate variable */
 
-static void rxTaskFunction(UArg arg0, UArg arg1);
-static void callback(RF_Handle h, RF_CmdHandle ch, RF_EventMask e);
+static void rx_task_function(UArg arg0, UArg arg1);
+static void rx_callback(RF_Handle h, RF_CmdHandle ch, RF_EventMask e);
 
 /* Buffer which contains all Data Entries for receiving data.
  * Pragmas are needed to make sure this buffer is 4 byte aligned (requirement from the RF Core) */
@@ -42,27 +42,26 @@ static void callback(RF_Handle h, RF_CmdHandle ch, RF_EventMask e);
 
 RF_CmdHandle rx_cmd;
 
-void RxTask_init(PIN_Handle ledPinHandle) {
-    //pinHandle = ledPinHandle;
+void rx_task_init()
+{
+    Task_Params_init(&rx_task_params);
+    rx_task_params.stackSize = RX_TASK_STACK_SIZE;
+    rx_task_params.priority = RX_TASK_PRIORITY;
+    rx_task_params.stack = &rx_task_stack;
+    rx_task_params.arg0 = (UInt)1000000;
 
-    Task_Params_init(&rxTaskParams);
-    rxTaskParams.stackSize = RX_TASK_STACK_SIZE;
-    rxTaskParams.priority = RX_TASK_PRIORITY;
-    rxTaskParams.stack = &rxTaskStack;
-    rxTaskParams.arg0 = (UInt)1000000;
-
-    Task_construct(&rxTask, rxTaskFunction, &rxTaskParams, NULL);
+    Task_construct(&rx_task, rx_task_function, &rx_task_params, NULL);
 }
 
-static void rxTaskFunction(UArg arg0, UArg arg1)
+static void rx_task_function(UArg arg0, UArg arg1)
 {
 	//rx init
-    RF_Params rfParams;
-    RF_Params_init(&rfParams);
+    RF_Params rf_params;
+    RF_Params_init(&rf_params);
 
-    rfParams.nInactivityTimeout = 200; // 200us
+    rf_params.nInactivityTimeout = 200; // 200us
 
-    if( RFQueue_defineQueue(&dataQueue,
+    if( RFQueue_defineQueue(&rx_data_queue,
                             rxDataEntryBuffer,
                             sizeof(rxDataEntryBuffer),
                             NUM_DATA_ENTRIES,
@@ -73,7 +72,7 @@ static void rxTaskFunction(UArg arg0, UArg arg1)
     }
 
     /* Modify CMD_PROP_RX command for application needs */
-    RF_cmdPropRx.pQueue = &dataQueue;           /* Set the Data Entity queue for received data */
+    RF_cmdPropRx.pQueue = &rx_data_queue;           /* Set the Data Entity queue for received data */
     RF_cmdPropRx.rxConf.bAutoFlushIgnored = 1;  /* Discard ignored packets from Rx queue */
     RF_cmdPropRx.rxConf.bAutoFlushCrcErr = 1;   /* Discard packets with CRC error from Rx queue */
     RF_cmdPropRx.maxPktLen = MAX_LENGTH;        /* Implement packet length filtering to avoid PROP_ERROR_RXBUF */
@@ -82,46 +81,42 @@ static void rxTaskFunction(UArg arg0, UArg arg1)
     RF_cmdPropRx.rxConf.bAppendStatus = 0;
     RF_cmdPropRx.pktConf.bChkAddress = 0;
 
-    if (!rfHandle) {
+    if (!RF_handle) {
 		/* Request access to the radio */
-		rfHandle = RF_open(&rfObject, &RF_prop, (RF_RadioSetup*)&RF_cmdPropRadioDivSetup, &rfParams);
+		RF_handle = RF_open(&RF_object, &RF_prop, (RF_RadioSetup*)&RF_cmdPropRadioDivSetup, &rf_params);
 
 		/* Set the frequency */
-		RF_postCmd(rfHandle, (RF_Op*)&RF_cmdFs, RF_PriorityNormal, NULL, 0);
+		RF_postCmd(RF_handle, (RF_Op*)&RF_cmdFs, RF_PriorityNormal, NULL, 0);
 	}
 
     while(1)
     {
 		/* Enter RX mode and stay forever in RX */
-    	rx_cmd = RF_postCmd(rfHandle, (RF_Op*)&RF_cmdPropRx, RF_PriorityNormal, &callback, IRQ_RX_ENTRY_DONE);
-		Semaphore_pend(semRxHandle, BIOS_WAIT_FOREVER);
+    	rx_cmd = RF_postCmd(RF_handle, (RF_Op*)&RF_cmdPropRx, RF_PriorityNormal, &rx_callback, IRQ_RX_ENTRY_DONE);
+		Semaphore_pend(sem_rx_handle, BIOS_WAIT_FOREVER);
     }
 
 }
 
-void callback(RF_Handle h, RF_CmdHandle ch, RF_EventMask e)
+void rx_callback(RF_Handle h, RF_CmdHandle ch, RF_EventMask e)
 {
     if (e & RF_EventRxEntryDone)
     {
-        /* Toggle pin to indicate RX */
-        PIN_setOutputValue(ledPinHandle, Board_LED2,!PIN_getOutputValue(Board_LED2));
-
         /* Get current unhandled data entry */
-        currentDataEntry = RFQueue_getDataEntry();
+        current_data_entry = RFQueue_getDataEntry();
 
         /* Handle the packet data, located at &currentDataEntry->data:
          * - Length is the first byte with the current configuration
          * - Data starts from the second byte */
-        packetRxLength      = *(uint8_t*)(&currentDataEntry->data);
-        packetRxDataPointer = (uint8_t*)(&currentDataEntry->data + 1);
+        packet_rx_length      = *(uint8_t*)(&current_data_entry->data);
+        packet_rx_data_pointer = (uint8_t*)(&current_data_entry->data + 1);
 
         /* Copy the payload + the status byte to the packet variable */
-        memcpy(packetRx, packetRxDataPointer, (packetRxLength + 1));
+        memcpy(packet_rx, packet_rx_data_pointer, (packet_rx_length + 1));
 
-        // TODO: send packet via uart to the computer or do a switch case here
-        PIN_setOutputValue(ledPinHandle, Board_DIO15, 1);
+        Alien_UART_send(packet_rx, packet_rx_length); // TODO: Laenge ueberpruefen
 
-        Semaphore_post(semTxHandle);
+        Semaphore_post(sem_tx_handle);
 
         RFQueue_nextEntry();
     }

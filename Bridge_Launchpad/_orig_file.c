@@ -70,7 +70,7 @@ static void callback(RF_Handle h, RF_CmdHandle ch, RF_EventMask e);
 
 /***** Variable declarations *****/
 static Task_Params rxTaskParams;
-Task_Struct rxTask;    /* not static so you can see in ROV */
+Task_Struct rx_task;    /* not static so you can see in ROV */
 static uint8_t rxTaskStack[RX_TASK_STACK_SIZE];
 
 
@@ -120,7 +120,7 @@ uint8_t packetTX [PAYLOAD_LENGTH];
 RF_CmdHandle rx_cmd;
 
 /***** Function definitions *****/
-void RxTask_init(PIN_Handle ledPinHandle) {
+void rx_task_init(PIN_Handle ledPinHandle) {
     pinHandle = ledPinHandle;
 
     Task_Params_init(&rxTaskParams);
@@ -129,7 +129,7 @@ void RxTask_init(PIN_Handle ledPinHandle) {
     rxTaskParams.stack = &rxTaskStack;
     rxTaskParams.arg0 = (UInt)1000000;
 
-    Task_construct(&rxTask, rxTaskFunction, &rxTaskParams, NULL);
+    Task_construct(&rx_task, rxTaskFunction, &rxTaskParams, NULL);
 }
 
 static void rxTaskFunction(UArg arg0, UArg arg1)
@@ -227,7 +227,7 @@ int orig_main(void) {
     semRxHandle = Semaphore_handle(&semRxStruct);
 
     /* Initialize task */
-    RxTask_init(ledPinHandle);
+    rx_task_init(ledPinHandle);
    // uartTask_init (ledPinHandle);
 
     return 1;
