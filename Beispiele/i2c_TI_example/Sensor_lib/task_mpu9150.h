@@ -115,7 +115,7 @@
 
 
 // I2C address 0x69 could be 0x68 depends on your wiring.
-int MPU9150_I2C_ADDRESS = 0x69;
+int MPU9150_I2C_ADDRESS = 0x68; // the AD0 is logic level Zero(GND), thats fix on the Sensor board
 
 void gyro_worker(I2C_Handle *i2c);
 
