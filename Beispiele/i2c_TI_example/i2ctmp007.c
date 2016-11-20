@@ -111,10 +111,21 @@ Void taskFxn(UArg arg0, UArg arg1)
 		return;   // config of the light sensor failed Break
 	}
 
+    static MPU9150_Handle MPU_handel;
+
+    MPU_handel = MPU9150_init(0, &i2c, MPU9150_I2C_ADDRESS);
 
 
-    MPU9150_init(0, &i2c, MPU9150_I2C_ADDRESS);
-
+    // test to read data form MPU
+    int k = 0;
+    for (k = 0; k< 100; k++){
+    	if (!MPU9150_read(MPU_handel)) {
+    		System_abort("Could not extract data registers from the MPU9150");
+    	}else{
+    		System_abort("Could extract data registers from the MPU9150");
+    	}
+    	Task_sleep(200);
+    }
 
 
     //TODO Send routine

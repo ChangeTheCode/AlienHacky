@@ -15,7 +15,6 @@
 BOOL config_light_sensor(I2C_Handle i2c){
 	I2C_Transaction I2C_transaction;
 	uint8_t tx_buffer[2];
-	uint8_t rx_buffer[10];
 
     // Set config of the light sensor
     I2C_transaction.slaveAddress = 0x44;// Lightsensor read slave adress ; 136 = schreiben 137 lesen
