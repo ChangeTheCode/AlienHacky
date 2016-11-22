@@ -9,8 +9,11 @@ import at.fhv.alienserver.sockcomm.SockComm;
 
 import java.io.PrintWriter;
 import java.util.concurrent.BlockingQueue;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import static at.fhv.alienserver.Main.GLOBAL_SIM_ZERO_TIME;
+//import static at.fhv.alienserver.Main.LOGGER;
 import static java.lang.Math.signum;
 import static java.lang.Math.sqrt;
 
@@ -118,7 +121,7 @@ public class Calculator implements Runnable {
             return arr;
         } else {
             arr.x = 0;
-            arr.y = 0;
+            arr.y = -4;
             //arr.z = -9.81;
             stubIteration++;
             return arr;
@@ -158,6 +161,7 @@ public class Calculator implements Runnable {
                  * calculated values in positionValuesDump which no longer apply (remember we've been calculating into
                  * the future) and restart calculations from there.
                  */
+                //LOGGER.log(Level.INFO, "Trashing part of the position vector");
                 currentTime = System.currentTimeMillis();
                 mhControl.pause();
                 for(Tuple<CoordinateContainer, Long> element : positionValuesDump){
@@ -208,16 +212,19 @@ public class Calculator implements Runnable {
 
             try {
                 positionValuesDump.put(  new Tuple<>(pos, GLOBAL_SIM_ZERO_TIME + (iteration * 10))  );
+                //LOGGER.log(Level.INFO, "Appended a new position {0}", pos.toString());
             } catch (InterruptedException e){
                 System.err.println("Our calculator thread got interrupted, which clearly wasn't supposed to happen :-(");
                 e.printStackTrace();
             }
 
-            if (iteration > 1000){
+            if (iteration > 150){
                 writer.flush();
                 writer.close();
                 writer2.flush();
                 writer2.close();
+                System.out.println("calculator finished");
+                //LOGGER.log(Level.INFO, "Exiting calculator due to max number of iterations reached");
                 break;
             }
 

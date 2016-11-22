@@ -6,7 +6,10 @@ import at.fhv.alienserver.Tuple;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.concurrent.BlockingQueue;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
+//import static at.fhv.alienserver.Main.LOGGER;
 import static java.lang.Math.abs;
 import static java.lang.Thread.sleep;
 import static java.lang.Thread.yield;
@@ -36,7 +39,7 @@ public class MHControl implements Runnable{
     /**
      * Offset of the Pan - angle; chosen to have the MH-X25 point straight to the ground for point (0, 0)
      */
-    private final double offset_pan = 90;
+    private final double offset_pan = 270;
     //private final double offset_pan = 180;
     /**
      * Offset of the Tilt - angle; chosen to have the MH-X25 point straight to the ground for point (0, 0)
@@ -65,7 +68,7 @@ public class MHControl implements Runnable{
      * NOTE: With the current setup in U325 (1.11.2016) a value of about 300 is where movement of the light point along
      * the floor just starts lagging a tiny little bit; so this should be pretty close to the ideal waiting time.
      */
-    private final double waitTimeConversionFactor = 150;
+    private final double waitTimeConversionFactor = 300;
 
     /**
      * This boolean is used as a flag to signal the Runnable in this class, if it should be run or not.
@@ -79,6 +82,7 @@ public class MHControl implements Runnable{
     public MHControl(BlockingQueue<Tuple<CoordinateContainer, Long>> q, int QUEUE_SIZE){
         this.coordinatesFromCalculator = q;
         this.QUEUE_SIZE = QUEUE_SIZE;
+
     }
 
     /**
@@ -121,7 +125,7 @@ public class MHControl implements Runnable{
         DMX exaggeratedDmxPacket;
 
         long currentTime;
-        Tuple <CoordinateContainer, Long> localTupleBuffer;
+        Tuple <CoordinateContainer, Long> localTupleBuffer = null; //Init with null needed for loop logic below
 
         double direction;
         double oldDirection;
@@ -156,18 +160,36 @@ public class MHControl implements Runnable{
                 currentTime = System.currentTimeMillis();
                 boolean searching = true;
                 do {
-                    localTupleBuffer = coordinatesFromCalculator.poll();
-                    if (localTupleBuffer != null){
+                    if(coordinatesFromCalculator.peek() != null){
+                        //we have a value --> evaluate it below
+                        localTupleBuffer = coordinatesFromCalculator.poll();
                         if(localTupleBuffer.b >= currentTime){
-                            searching = false;
+                            //LOGGER.log(Level.INFO, "Picked packet with fitting time value to position MH @ {0}", localTupleBuffer.a.toString());
+                            break;
+                        } else {
+                            continue;
+                        }
+                    } else {
+                        //peek == null
+                        if(localTupleBuffer == null){
+                            //we don't have any value yet, just keep trying
+                            continue;
+                        } else {
+                            //we have no new value in queue, just a local one. Just use it and hope for the best
+                            //LOGGER.log(Level.INFO, "Picked the last available packet to position MH @ {0}", localTupleBuffer.a.toString());
+                            break;
                         }
                     }
-                } while (searching);
+                } while (true);
 
                 oldC = new CoordinateContainer(c);
                 c = localTupleBuffer.a;
                 c.x += mhOffsetX;
                 c.y += mhOffsetY;
+
+
+                //Reset here; nulling needed for logic reasons in loop above
+                localTupleBuffer = null;
 
                 /*
                  * First we remember the old DMX - packet to later use it to determine the time we have to wait for the
@@ -187,6 +209,8 @@ public class MHControl implements Runnable{
                     dmxPacket.setTilt((-1) * Math.atan(Math.sqrt(c.x * c.x + c.y * c.y) / h) * 180 / Math.PI + offset_tilt);
                 }
                 */
+                //NOTE: If the distance gets too far from the center the MH "overspins" above horizontal position
+                //NICETOHAVE: find out why and compensate
                 dmxPacket.setPan(Math.atan(c.x / h) * 180 / Math.PI + offset_pan);
                 dmxPacket.setTilt(Math.atan(c.y / h) * 180 / Math.PI + offset_tilt);
 
@@ -203,6 +227,7 @@ public class MHControl implements Runnable{
                 direction = Math.atan(c.y / c.x);
                 oldDirection = Math.atan(oldC.y / oldC.x);
                 if (abs(direction - oldDirection) > 10) {
+                    //LOGGER.log(Level.INFO, "Using an exaggerated packet to get to {0}", c.toString());
                     exaggeratedDmxPacket = DMX.getExaggeratedDmx(dmxPacket, oldDmxPacket);
                     packets.addFirst(exaggeratedDmxPacket);
                 }
@@ -218,16 +243,17 @@ public class MHControl implements Runnable{
                     System.err.println(e.toString());
                     e.printStackTrace();
                 } catch (InterruptedException e) {
-                    //We got interrupted!!! WTF?!?! This wasn't supposed to happen in our applicaiton
+                    //We got interrupted!!! WTF?!?! This wasn't supposed to happen in our application
                     e.printStackTrace();
                 }
 
-                //Let the calculator PURPOSEFULLY run again
-                coordinatesFromCalculator.clear();
+                //Used to clear coordinates with the old architecture, now it's the calc's job. So don't do it here!
+                //coordinatesFromCalculator.clear();
 
                 try {
                     //long debug3 = getTimeToSleep(oldDmxPacket, dmxPacket);
                     //waitTimes.add(debug3);
+                    //LOGGER.log(Level.INFO, "Sleeping");
                     sleep(getTimeToSleep(oldDmxPacket, dmxPacket));
                 } catch (Exception e) {
                     //Man just let me test :-(
