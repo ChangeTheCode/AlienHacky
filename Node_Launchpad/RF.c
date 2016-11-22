@@ -5,7 +5,7 @@
  *      Author: Tobias
  */
 
-#include <RF_bridge.h>
+#include <RF_node.h>
 
 RF_Object RF_object;
 RF_Handle RF_handle;

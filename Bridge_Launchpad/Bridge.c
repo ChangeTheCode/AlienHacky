@@ -15,7 +15,7 @@ int main(void) {
     Board_initGeneral();
 
     // Init the UART
-    Alien_UART_init ();
+    //Alien_UART_init ();
 
     // Init the RF Module
     Alien_RF_init();

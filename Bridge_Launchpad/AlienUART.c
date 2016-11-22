@@ -4,6 +4,7 @@
 *  Created on: 13. Nov. 2016
 *      Author: Ursus Schneider
 */
+#include <RF_bridge.h>
 #include "AlienUART.h"
 #include "Board.h"
 #include <ti/sysbios/BIOS.h>
@@ -11,7 +12,6 @@
 #include <ti/sysbios/knl/Task.h>
 #include <xdc/runtime/System.h>
 #include <ti/sysbios/knl/Semaphore.h>
-#include "RF.h"
 #include "queue.h"
 
 void Alien_UART_send_task (UArg arg0, UArg arg1);

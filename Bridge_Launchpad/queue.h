@@ -10,7 +10,7 @@
 
 #include "AlienTypes.h"
 #include <stdint.h>
-#include "RF.h"
+#include "RF_bridge.h"
 
 typedef enum _queue_status {
 	SEND_QUEUE = 1,
