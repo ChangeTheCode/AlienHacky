@@ -5,7 +5,7 @@
  *      Author: Tobias
  */
 
-#include "RF.h"
+#include <RF_bridge.h>
 
 
 /***** Variable declarations *****/
@@ -27,8 +27,8 @@ void tx_task_init ()
 void tx_task_function(UArg arg0, UArg arg1)
 {
 	uint8_t send_packet[MAX_PACKET_LENGTH];
-	uint8_t send_packet_length;
-	BOOLEAN send_packet_buffer_overflow;
+	uint8_t send_packet_length = 0;
+	BOOLEAN send_packet_buffer_overflow = TRUE;
 
 	// rf init
 	RF_Params rf_params;
@@ -55,10 +55,10 @@ void tx_task_function(UArg arg0, UArg arg1)
 
     	// write the packet payload to the uart
 		//UART_write(uart, &packetRx, packetRxLength);
-    	if(Alien_UART_receive(send_packet, &send_packet_length, &send_packet_buffer_overflow))
-    	{
-			if ((!send_packet_buffer_overflow) && (send_packet_length > 0))
-			{
+//    	if(Alien_UART_receive(send_packet, &send_packet_length, &send_packet_buffer_overflow))
+//    	{
+//			if ((!send_packet_buffer_overflow) && (send_packet_length > 0))
+//			{
 				if(packet_rx[0] == 1)
 				{
 					send_packet[0] = 0xaa; 	// TODO: Abklären, was der Server ins packet schreibt und was die Bridge
@@ -71,13 +71,15 @@ void tx_task_function(UArg arg0, UArg arg1)
 					// post TX CMD
 					RF_CmdHandle tx_cmd = RF_postCmd(RF_handle, (RF_Op*)&RF_cmdPropTx, RF_PriorityHighest, NULL, 0);
 				}
-			}
-			// TODO: Warning no packet send because of bufferoverflow or invalid packet length
-    	}
-    	else
-    	{
-    		 //TODO: Warning Alien Uart receive error
-    	}
+//			}
+//			// TODO: Warning no packet send because of bufferoverflow or invalid packet length
+//    	}
+//    	else
+//    	{
+//    		 //TODO: Warning Alien Uart receive error
+//    	}
+
+
 		Semaphore_post(sem_rx_handle);
     }
 }

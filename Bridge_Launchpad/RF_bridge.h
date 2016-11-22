@@ -5,8 +5,8 @@
  *      Author: Tobias
  */
 
-#ifndef RF_H_
-#define RF_H_
+#ifndef RF_BRIDGE_H_
+#define RF_BRIDGE_H_
 
 #include <ti/drivers/rf/RF.h>
 #include <ti/drivers/PIN.h>
@@ -60,4 +60,4 @@ void Alien_RF_init(void);
 void rx_task_init(void);
 void tx_task_init(void);
 
-#endif /* RF_H_ */
+#endif /* RF_BRIDGE_H_ */
