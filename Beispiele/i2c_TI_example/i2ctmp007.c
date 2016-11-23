@@ -38,6 +38,10 @@
 #include <xdc/std.h>
 #include <xdc/runtime/System.h>
 
+#include <ti/sysbios/BIOS.h>
+#include <ti/sysbios/knl/Task.h>
+
+
 /* BIOS Header files */
 #include <ti/sysbios/BIOS.h>
 #include <ti/sysbios/knl/Clock.h>
@@ -72,13 +76,12 @@ static PIN_State buttonPinState;
 PIN_Config led_pin_table[] = {
     Board_LED1 | PIN_GPIO_OUTPUT_EN | PIN_GPIO_LOW | PIN_PUSHPULL | PIN_DRVSTR_MAX,
     Board_LED2 | PIN_GPIO_OUTPUT_EN | PIN_GPIO_LOW | PIN_PUSHPULL | PIN_DRVSTR_MAX,
-// Pin einbinden für Toggel
     PIN_TERMINATE
 };
 
 PIN_Config buttonPinTable[] = {
     Board_BUTTON0  | PIN_INPUT_EN | PIN_PULLUP | PIN_IRQ_NEGEDGE,
-    Board_BUTTON1  | PIN_INPUT_EN | PIN_PULLUP | PIN_IRQ_NEGEDGE,
+	Board_LIGHT_int  | PIN_INPUT_EN | PIN_PULLUP | PIN_IRQ_NEGEDGE,
     PIN_TERMINATE
 };
 
@@ -96,12 +99,9 @@ static I2C_Handle      i2c;
  */
 Void taskFxn(UArg arg0, UArg arg1)
 {
-    unsigned int    i;
-    uint8_t         tx_buffer[2];
-    uint8_t         rx_buffer[2];
 
     I2C_Params      I2C_params;
-    I2C_Transaction I2C_transaction;
+    //I2C_Transaction I2C_transaction;
 
     /* Create I2C for usage */
     I2C_Params_init(&I2C_params);
@@ -120,59 +120,27 @@ Void taskFxn(UArg arg0, UArg arg1)
 
     if( ! config_light_sensor_reg2(i2c) ){
 		return;   // config of the light sensor failed Break
-	}
+	}									/*480 is approximently  HI : 1 LOW: 195 */
+    if( ! config_light_int_threshold(i2c, 280 , 0) ){
+		return;   // config of the light sensor failed Break
+    }
 
 
     //TODO Send routine
 
-    /* Point to the T ambient register and read its 2 bytes */
-    // Slave adresse 1 bit shift nach rechts machen !
-    I2C_transaction.slaveAddress = 0x44;//Board_TMP007_ADDR, Lightsensor read slave adress ; 136 = schreiben 137 lesen
-    I2C_transaction.writeBuf = tx_buffer;
-    I2C_transaction.writeCount = 1;
-    I2C_transaction.readBuf = rx_buffer;
-    I2C_transaction.readCount = 4;
-
-
-    int flag = 1;
     /* Take 20 samples and print them out onto the console */
     while(1) {
-
-        tx_buffer[0] = 0x02; // test register
-        //txBuffer[1] = 0xaa; // test register
-        if (I2C_transfer(i2c, &I2C_transaction)) {
-
-        	// pin toggle
-
-            System_printf("Sample %u: %d , %d (RAW)\n", i, rx_buffer[0], rx_buffer[1]);
-            if( rx_buffer[1] >= 2 &&  flag  ){
-            	flag = 0;
-            	if (!MPU9150_read(MPU_handel)) {
-            		System_abort("Could not extract data registers from the MPU9150");
-            	}else{
-            		System_abort("Could extract data registers from the MPU9150");
-            	}
-
-            }
-        }
-        else {
-            System_printf("I2C Bus fault \n" );
-            System_printf("I2C Werte Slave Adresse %d ",I2C_transaction.slaveAddress );
-            System_printf("I2C Werte TX %d, %d \n", tx_buffer[0], tx_buffer[1] );
-            System_printf("I2C Werte RX %d, %d \n", rx_buffer[0], rx_buffer[1] );
-            Task_sleep(20000);
-        }
-
-        System_flush();
+    	read_light_sensor_values(i2c);
+    	MPU9150_read(MPU_handel, i2c);
         //Task_sleep(1000000 / Clock_tickPeriod);
     }
 
 
     /* Deinitialized I2C */
-    I2C_close(i2c);
+    /*I2C_close(i2c);
     System_printf("I2C closed!\n");
 
-    System_flush();
+    System_flush();*/
 }
 
 /* we should read the gyro manuel, because we don't know when the light value is big enough and the gyro interrupt is
@@ -180,11 +148,14 @@ Void taskFxn(UArg arg0, UArg arg1)
  */
 void buttonCallbackFxn(){
 
-	if (!MPU9150_read(MPU_handel)) {
+	read_light_sensor_values(i2c);
+
+
+/*	if (!MPU9150_read(MPU_handel, i2c)) {
 		System_abort("Could not extract data registers from the MPU9150");
 	}else{
 		System_abort("Could extract data registers from the MPU9150");
-	}
+	}*/
 }
 
 /*

@@ -231,7 +231,7 @@ MPU9150_Handle MPU9150_init(unsigned int mpu9105_index,
 /*
  * ======== getDataRegisters ========
  */
-bool MPU9150_read(MPU9150_Handle handle)
+bool MPU9150_read(MPU9150_Handle handle, I2C_Handle i2c)
 {
     I2C_Transaction I2C_transaction;
     uint8_t         write_buffer[1];
@@ -257,7 +257,7 @@ bool MPU9150_read(MPU9150_Handle handle)
 	     */
 	    write_buffer[0] = MPU9150_O_ACCEL_XOUT_H;
 
-        if (I2C_transfer(handle->i2c, &I2C_transaction)) {
+        if (I2C_transfer(i2c, &I2C_transaction)) {
     	    /*
     	     * To ensure coherency of the data received we copy the data
     	     * atomically

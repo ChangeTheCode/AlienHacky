@@ -45,6 +45,7 @@ extern "C" {
 #define     Board_LED1              Board_STK_LED1
 #define     Board_LED2              Board_STK_LED2
 #define     Board_LED0              Board_LED2
+#define 	Board_LIGHT_int			Board_LIGHT_PIN // interrupt pin of the light sensor
 
 #define     Board_BUTTON0           Board_KEY_LEFT
 #define     Board_BUTTON1           Board_KEY_RIGHT

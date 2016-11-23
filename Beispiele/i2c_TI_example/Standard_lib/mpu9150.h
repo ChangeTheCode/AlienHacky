@@ -66,7 +66,7 @@ MPU9150_Handle MPU9150_init(unsigned int mpu9105_index,
  *  This function should be called when the MPU9150 has sensor data ready;
  *  which is typically notified via a GPIO interrupt.
  */
-bool MPU9150_read(MPU9150_Handle handle);
+bool MPU9150_read(MPU9150_Handle handle, I2C_Handle i2c);
 
 /*
  *  ======== MPU9150_getAccelRaw ========

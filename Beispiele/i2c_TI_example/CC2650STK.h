@@ -85,6 +85,7 @@ extern const PIN_Config BoardGpioInitTable[];
 /* Sensor outputs */
 #define Board_MPU_INT               IOID_7
 #define Board_TMP_RDY               IOID_1
+#define Board_LIGHT_PIN 			IOID_24
 
 /* I2C */
 #define Board_I2C0_SDA0             IOID_9 // 5
