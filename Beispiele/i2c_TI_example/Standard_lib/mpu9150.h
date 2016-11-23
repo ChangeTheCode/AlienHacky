@@ -12,6 +12,7 @@
 
 #define MPU9150_COUNT	                    1
 #define MPU9150_SENSOR_REGISTER_SET_SIZE    22
+#define MPU9150_INT_PIN 6
 
 /*
  * MPU9150 data structure is used by the MPU9150_get* APIs to extract the

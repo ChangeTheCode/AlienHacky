@@ -63,6 +63,7 @@
 
 /* Global memory storage for a PIN_Config table */
 static PIN_State led_pin_state;
+static PIN_State buttonPinState;
 
 /*
  * Application LED pin configuration table:
@@ -75,8 +76,18 @@ PIN_Config led_pin_table[] = {
     PIN_TERMINATE
 };
 
+PIN_Config buttonPinTable[] = {
+    Board_BUTTON0  | PIN_INPUT_EN | PIN_PULLUP | PIN_IRQ_NEGEDGE,
+    Board_BUTTON1  | PIN_INPUT_EN | PIN_PULLUP | PIN_IRQ_NEGEDGE,
+    PIN_TERMINATE
+};
+
 Task_Struct task0Struct;
 Char task0_stack[TASKSTACKSIZE];
+
+// variables for i2c communication
+static MPU9150_Handle MPU_handel;
+static I2C_Handle      i2c;
 
 
 /*
@@ -88,7 +99,7 @@ Void taskFxn(UArg arg0, UArg arg1)
     unsigned int    i;
     uint8_t         tx_buffer[2];
     uint8_t         rx_buffer[2];
-    I2C_Handle      i2c;
+
     I2C_Params      I2C_params;
     I2C_Transaction I2C_transaction;
 
@@ -111,22 +122,6 @@ Void taskFxn(UArg arg0, UArg arg1)
 		return;   // config of the light sensor failed Break
 	}
 
-    static MPU9150_Handle MPU_handel;
-
-    MPU_handel = MPU9150_init(0, &i2c, MPU9150_I2C_ADDRESS);
-
-
-    // test to read data form MPU
-    int k = 0;
-    for (k = 0; k< 100; k++){
-    	if (!MPU9150_read(MPU_handel)) {
-    		System_abort("Could not extract data registers from the MPU9150");
-    	}else{
-    		System_abort("Could extract data registers from the MPU9150");
-    	}
-    	Task_sleep(200);
-    }
-
 
     //TODO Send routine
 
@@ -138,6 +133,8 @@ Void taskFxn(UArg arg0, UArg arg1)
     I2C_transaction.readBuf = rx_buffer;
     I2C_transaction.readCount = 4;
 
+
+    int flag = 1;
     /* Take 20 samples and print them out onto the console */
     while(1) {
 
@@ -148,6 +145,15 @@ Void taskFxn(UArg arg0, UArg arg1)
         	// pin toggle
 
             System_printf("Sample %u: %d , %d (RAW)\n", i, rx_buffer[0], rx_buffer[1]);
+            if( rx_buffer[1] >= 2 &&  flag  ){
+            	flag = 0;
+            	if (!MPU9150_read(MPU_handel)) {
+            		System_abort("Could not extract data registers from the MPU9150");
+            	}else{
+            		System_abort("Could extract data registers from the MPU9150");
+            	}
+
+            }
         }
         else {
             System_printf("I2C Bus fault \n" );
@@ -169,12 +175,25 @@ Void taskFxn(UArg arg0, UArg arg1)
     System_flush();
 }
 
+/* we should read the gyro manuel, because we don't know when the light value is big enough and the gyro interrupt is
+ * received.
+ */
+void buttonCallbackFxn(){
+
+	if (!MPU9150_read(MPU_handel)) {
+		System_abort("Could not extract data registers from the MPU9150");
+	}else{
+		System_abort("Could extract data registers from the MPU9150");
+	}
+}
+
 /*
  *  ======== main ========
  */
 int main(void)
 {
     PIN_Handle led_pin_handle;
+    PIN_Handle button_pin_handle;
 
     Task_Params task_params;
 
@@ -189,16 +208,25 @@ int main(void)
     Task_construct(&task0Struct, (Task_FuncPtr)taskFxn, &task_params, NULL);
 
 
+    // init i2c of the gyro sensor
+    MPU_handel = MPU9150_init(0, &i2c, MPU9150_I2C_ADDRESS);
+
+    // config pin of the Interrupt of the gyro
+    button_pin_handle = PIN_open(&buttonPinState, buttonPinTable);
+    if(!button_pin_handle) {
+    	System_abort("Error initializing button pins\n");
+    }
+    /* Setup callback for button pins */
+    if (PIN_registerIntCb(button_pin_handle, &buttonCallbackFxn) != 0) {
+    	System_abort("Error registering button callback function");
+    }
+
+
     /* Open LED pins */
     led_pin_handle = PIN_open(&led_pin_state, led_pin_table);
     if(!led_pin_handle) {
         System_abort("Error initializing board LED pins\n");
     }
-
-   /* green_Pin_handle  = PIN_open(&ledPinState, ledPinTable );
-    if(!green_Pin_handle) {
-		System_abort("Error initializing board green LED pins\n");
-	}*/
 
     PIN_setOutputValue(led_pin_handle, Board_LED0, 1);
     PIN_setOutputValue(led_pin_handle, Board_LED1, 1);
