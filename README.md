@@ -1,2 +1,2 @@
-# AlienHacky
-S1 Kopplung und Integration von heterogenen Systemen AlienHacky
+# AlienSoccer
+S1 Kopplung und Integration von heterogenen Systemen AlienSoccer

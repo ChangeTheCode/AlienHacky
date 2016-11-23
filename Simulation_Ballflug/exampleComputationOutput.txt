@@ -1,0 +1,3212 @@
+
+
+---------------------------
+Iteration No: 0
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.001962
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -0.098100
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -4.905000
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 1
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.003936
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -0.196789
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -4.934430
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 2
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.005921
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -0.296069
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -4.964037
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 3
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.007919
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -0.395946
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -4.993821
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 4
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.009928
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -0.496421
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -5.023784
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 5
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.011950
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -0.597500
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -5.053926
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 6
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.013984
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -0.699185
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -5.084250
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 7
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.016030
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -0.801480
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -5.114755
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 8
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.018088
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -0.904389
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -5.145444
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 9
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.020158
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -1.007915
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -5.176317
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 10
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.022241
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -1.112063
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -5.207375
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 11
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.024337
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -1.216835
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -5.238619
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 12
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.026445
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -1.322236
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -5.270051
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 13
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.028565
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -1.428270
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -5.301671
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 14
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.030699
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -1.534939
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -5.333481
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 15
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.032845
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -1.642249
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -5.365482
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 16
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.035004
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -1.750202
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -5.397675
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 17
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.037176
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -1.858804
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -5.430061
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 18
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.039361
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -1.968056
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -5.462641
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 19
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.041559
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -2.077965
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -5.495417
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 20
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.043771
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -2.188532
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -5.528389
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 21
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.045995
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -2.299764
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -5.561560
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 22
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.048233
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -2.411662
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -5.594929
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 23
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.050485
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -2.524232
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -5.628499
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 24
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.052750
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -2.637478
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -5.662270
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 25
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.055028
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -2.751402
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -5.696243
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 26
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.057320
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -2.866011
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -5.730421
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 27
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.059626
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -2.981307
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -5.764803
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 28
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.061946
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -3.097295
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -5.799392
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 29
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.064280
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -3.213979
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -5.834188
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 30
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.066627
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -3.331362
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -5.869194
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 31
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.068989
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -3.449451
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -5.904409
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 32
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.071365
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -3.568247
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -5.939835
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 33
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.073755
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -3.687757
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -5.975474
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 34
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.076160
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -3.807983
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -6.011327
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 35
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.078579
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -3.928931
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -6.047395
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 36
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.081012
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -4.050605
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -6.083679
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 37
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.083460
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -4.173008
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -6.120181
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 38
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.085923
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -4.296147
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -6.156903
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 39
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.088400
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -4.420023
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -6.193844
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 40
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.090893
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -4.544644
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -6.231007
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 41
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.093400
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -4.670011
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -6.268393
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 42
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.095923
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -4.796131
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -6.306003
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 43
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.098460
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -4.923008
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -6.343839
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 44
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.101013
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -5.050646
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -6.381902
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 45
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.103581
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -5.179050
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -6.420194
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 46
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.106164
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -5.308224
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -6.458715
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 47
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.108763
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -5.438174
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -6.497467
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 48
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.111378
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -5.568903
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -6.536452
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 49
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.114008
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -5.700416
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -6.575671
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 50
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.116654
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -5.832719
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -6.615125
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 51
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.119316
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -5.965815
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -6.654816
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 52
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.121994
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -6.099710
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -6.694745
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 53
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.124688
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -6.234408
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -6.734913
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 54
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.127398
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -6.369915
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -6.775322
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 55
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.130125
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -6.506234
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -6.815974
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 56
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.132867
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -6.643372
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -6.856870
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 57
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.135627
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -6.781332
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -6.898011
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 58
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.138402
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -6.920120
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -6.939400
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 59
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.141195
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -7.059741
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -6.981036
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 60
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.144004
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -7.200199
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -7.022922
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 61
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.146830
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -7.341500
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -7.065060
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 62
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.149673
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -7.483649
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -7.107450
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 63
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.152533
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -7.626651
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -7.150095
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 64
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.155410
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -7.770511
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -7.192995
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 65
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.158305
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -7.915234
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -7.236153
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 66
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.161217
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -8.060825
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -7.279570
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 67
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.164146
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -8.207290
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -7.323248
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 68
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.167093
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -8.354634
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -7.367187
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 69
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.170057
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -8.502862
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -7.411390
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 70
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.173040
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -8.651979
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -7.455859
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 71
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.176040
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -8.801991
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -7.500594
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 72
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.179058
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -8.952903
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -7.545597
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 73
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.182094
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -9.104720
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -7.590871
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 74
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.185149
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -9.257449
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -7.636416
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 75
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.188222
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -9.411093
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -7.682235
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 76
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.191313
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -9.565660
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -7.728328
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 77
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.194423
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -9.721154
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -7.774698
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 78
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.197552
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -9.877581
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -7.821346
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 79
+Position_x = 0.000000	Position_y = 0.000000	Postion_z = -0.200699
+Speed_x = 0.000000	Speed_y = 0.000000	Speed_z = -10.034946
+Acc_x = 0.000000	Acc_y = 0.000000	Acc_z = -7.868274
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 80
+Position_x = 0.000600	Position_y = 0.000600	Postion_z = -0.200603
+Speed_x = 0.030000	Speed_y = 0.000000	Speed_z = -10.060156
+Acc_x = 1.500000	Acc_y = 0.000000	Acc_z = -1.260484
+SenAcc_x = 3.000000	SenAcc_y = 0.000000	SenAcc_z = 3.500000
+
+
+---------------------------
+Iteration No: 81
+Position_x = 0.001796	Position_y = 0.001796	Postion_z = -0.199914
+Speed_x = 0.059820	Speed_y = 0.000000	Speed_z = -10.085517
+Acc_x = 1.491000	Acc_y = 0.000000	Acc_z = -1.268047
+SenAcc_x = 3.000000	SenAcc_y = 0.000000	SenAcc_z = 3.500000
+
+
+---------------------------
+Iteration No: 82
+Position_x = 0.003586	Position_y = 0.003586	Postion_z = -0.198635
+Speed_x = 0.089461	Speed_y = 0.000000	Speed_z = -10.111030
+Acc_x = 1.482054	Acc_y = 0.000000	Acc_z = -1.275655
+SenAcc_x = 3.000000	SenAcc_y = 0.000000	SenAcc_z = 3.500000
+
+
+---------------------------
+Iteration No: 83
+Position_x = 0.005964	Position_y = 0.005964	Postion_z = -0.196770
+Speed_x = 0.118924	Speed_y = 0.000000	Speed_z = -10.136696
+Acc_x = 1.473162	Acc_y = 0.000000	Acc_z = -1.283309
+SenAcc_x = 3.000000	SenAcc_y = 0.000000	SenAcc_z = 3.500000
+
+
+---------------------------
+Iteration No: 84
+Position_x = 0.008928	Position_y = 0.008928	Postion_z = -0.194322
+Speed_x = 0.148211	Speed_y = 0.000000	Speed_z = -10.162516
+Acc_x = 1.464323	Acc_y = 0.000000	Acc_z = -1.291009
+SenAcc_x = 3.000000	SenAcc_y = 0.000000	SenAcc_z = 3.500000
+
+
+---------------------------
+Iteration No: 85
+Position_x = 0.012475	Position_y = 0.012475	Postion_z = -0.191295
+Speed_x = 0.177322	Speed_y = 0.000000	Speed_z = -10.188491
+Acc_x = 1.455537	Acc_y = 0.000000	Acc_z = -1.298755
+SenAcc_x = 3.000000	SenAcc_y = 0.000000	SenAcc_z = 3.500000
+
+
+---------------------------
+Iteration No: 86
+Position_x = 0.016600	Position_y = 0.016600	Postion_z = -0.187693
+Speed_x = 0.206258	Speed_y = 0.000000	Speed_z = -10.214622
+Acc_x = 1.446804	Acc_y = 0.000000	Acc_z = -1.306547
+SenAcc_x = 3.000000	SenAcc_y = 0.000000	SenAcc_z = 3.500000
+
+
+---------------------------
+Iteration No: 87
+Position_x = 0.021300	Position_y = 0.021300	Postion_z = -0.183518
+Speed_x = 0.235020	Speed_y = 0.000000	Speed_z = -10.240910
+Acc_x = 1.438123	Acc_y = 0.000000	Acc_z = -1.314387
+SenAcc_x = 3.000000	SenAcc_y = 0.000000	SenAcc_z = 3.500000
+
+
+---------------------------
+Iteration No: 88
+Position_x = 0.026573	Position_y = 0.026573	Postion_z = -0.178775
+Speed_x = 0.263610	Speed_y = 0.000000	Speed_z = -10.267356
+Acc_x = 1.429494	Acc_y = 0.000000	Acc_z = -1.322273
+SenAcc_x = 3.000000	SenAcc_y = 0.000000	SenAcc_z = 3.500000
+
+
+---------------------------
+Iteration No: 89
+Position_x = 0.032413	Position_y = 0.032413	Postion_z = -0.173466
+Speed_x = 0.292028	Speed_y = 0.000000	Speed_z = -10.293960
+Acc_x = 1.420917	Acc_y = 0.000000	Acc_z = -1.330207
+SenAcc_x = 3.000000	SenAcc_y = 0.000000	SenAcc_z = 3.500000
+
+
+---------------------------
+Iteration No: 90
+Position_x = 0.038819	Position_y = 0.038819	Postion_z = -0.167596
+Speed_x = 0.320276	Speed_y = 0.000000	Speed_z = -10.320724
+Acc_x = 1.412392	Acc_y = 0.000000	Acc_z = -1.338188
+SenAcc_x = 3.000000	SenAcc_y = 0.000000	SenAcc_z = 3.500000
+
+
+---------------------------
+Iteration No: 91
+Position_x = 0.045786	Position_y = 0.045786	Postion_z = -0.161167
+Speed_x = 0.348354	Speed_y = 0.000000	Speed_z = -10.347648
+Acc_x = 1.403917	Acc_y = 0.000000	Acc_z = -1.346217
+SenAcc_x = 3.000000	SenAcc_y = 0.000000	SenAcc_z = 3.500000
+
+
+---------------------------
+Iteration No: 92
+Position_x = 0.053311	Position_y = 0.053311	Postion_z = -0.154184
+Speed_x = 0.376264	Speed_y = 0.000000	Speed_z = -10.374734
+Acc_x = 1.395494	Acc_y = 0.000000	Acc_z = -1.354294
+SenAcc_x = 3.000000	SenAcc_y = 0.000000	SenAcc_z = 3.500000
+
+
+---------------------------
+Iteration No: 93
+Position_x = 0.061391	Position_y = 0.061391	Postion_z = -0.146649
+Speed_x = 0.404007	Speed_y = 0.000000	Speed_z = -10.401982
+Acc_x = 1.387121	Acc_y = 0.000000	Acc_z = -1.362420
+SenAcc_x = 3.000000	SenAcc_y = 0.000000	SenAcc_z = 3.500000
+
+
+---------------------------
+Iteration No: 94
+Position_x = 0.070023	Position_y = 0.070023	Postion_z = -0.138565
+Speed_x = 0.431583	Speed_y = 0.000000	Speed_z = -10.429394
+Acc_x = 1.378798	Acc_y = 0.000000	Acc_z = -1.370595
+SenAcc_x = 3.000000	SenAcc_y = 0.000000	SenAcc_z = 3.500000
+
+
+---------------------------
+Iteration No: 95
+Position_x = 0.079203	Position_y = 0.079203	Postion_z = -0.129937
+Speed_x = 0.458993	Speed_y = 0.000000	Speed_z = -10.456970
+Acc_x = 1.370525	Acc_y = 0.000000	Acc_z = -1.378818
+SenAcc_x = 3.000000	SenAcc_y = 0.000000	SenAcc_z = 3.500000
+
+
+---------------------------
+Iteration No: 96
+Position_x = 0.088927	Position_y = 0.088927	Postion_z = -0.120767
+Speed_x = 0.486239	Speed_y = 0.000000	Speed_z = -10.484712
+Acc_x = 1.362302	Acc_y = 0.000000	Acc_z = -1.387091
+SenAcc_x = 3.000000	SenAcc_y = 0.000000	SenAcc_z = 3.500000
+
+
+---------------------------
+Iteration No: 97
+Position_x = 0.099194	Position_y = 0.099194	Postion_z = -0.111059
+Speed_x = 0.513322	Speed_y = 0.000000	Speed_z = -10.512620
+Acc_x = 1.354128	Acc_y = 0.000000	Acc_z = -1.395414
+SenAcc_x = 3.000000	SenAcc_y = 0.000000	SenAcc_z = 3.500000
+
+
+---------------------------
+Iteration No: 98
+Position_x = 0.109999	Position_y = 0.109999	Postion_z = -0.100815
+Speed_x = 0.540242	Speed_y = 0.000000	Speed_z = -10.540696
+Acc_x = 1.346003	Acc_y = 0.000000	Acc_z = -1.403786
+SenAcc_x = 3.000000	SenAcc_y = 0.000000	SenAcc_z = 3.500000
+
+
+---------------------------
+Iteration No: 99
+Position_x = 0.121339	Position_y = 0.121339	Postion_z = -0.090040
+Speed_x = 0.567000	Speed_y = 0.000000	Speed_z = -10.568940
+Acc_x = 1.337927	Acc_y = 0.000000	Acc_z = -1.412209
+SenAcc_x = 3.000000	SenAcc_y = 0.000000	SenAcc_z = 3.500000
+
+
+---------------------------
+Iteration No: 100
+Position_x = 0.132611	Position_y = 0.132611	Postion_z = -0.081998
+Speed_x = 0.563598	Speed_y = 0.000000	Speed_z = -10.730454
+Acc_x = -0.170100	Acc_y = 0.000000	Acc_z = -8.075682
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 101
+Position_x = 0.143815	Position_y = 0.143815	Postion_z = -0.074044
+Speed_x = 0.560217	Speed_y = 0.000000	Speed_z = -10.892937
+Acc_x = -0.169080	Acc_y = 0.000000	Acc_z = -8.124136
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 102
+Position_x = 0.154952	Position_y = 0.154952	Postion_z = -0.066176
+Speed_x = 0.556856	Speed_y = 0.000000	Speed_z = -11.056394
+Acc_x = -0.168065	Acc_y = 0.000000	Acc_z = -8.172881
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 103
+Position_x = 0.166022	Position_y = 0.166022	Postion_z = -0.058394
+Speed_x = 0.553514	Speed_y = 0.000000	Speed_z = -11.220833
+Acc_x = -0.167057	Acc_y = 0.000000	Acc_z = -8.221918
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 104
+Position_x = 0.177026	Position_y = 0.177026	Postion_z = -0.050699
+Speed_x = 0.550193	Speed_y = 0.000000	Speed_z = -11.386258
+Acc_x = -0.166054	Acc_y = 0.000000	Acc_z = -8.271250
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 105
+Position_x = 0.187964	Position_y = 0.187964	Postion_z = -0.043089
+Speed_x = 0.546892	Speed_y = 0.000000	Speed_z = -11.552675
+Acc_x = -0.165058	Acc_y = 0.000000	Acc_z = -8.320877
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 106
+Position_x = 0.198836	Position_y = 0.198836	Postion_z = -0.035566
+Speed_x = 0.543611	Speed_y = 0.000000	Speed_z = -11.720091
+Acc_x = -0.164068	Acc_y = 0.000000	Acc_z = -8.370803
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 107
+Position_x = 0.209643	Position_y = 0.209643	Postion_z = -0.028127
+Speed_x = 0.540349	Speed_y = 0.000000	Speed_z = -11.888512
+Acc_x = -0.163083	Acc_y = 0.000000	Acc_z = -8.421027
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 108
+Position_x = 0.220385	Position_y = 0.220385	Postion_z = -0.020773
+Speed_x = 0.537107	Speed_y = 0.000000	Speed_z = -12.057943
+Acc_x = -0.162105	Acc_y = 0.000000	Acc_z = -8.471554
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 109
+Position_x = 0.231063	Position_y = 0.231063	Postion_z = -0.013505
+Speed_x = 0.533884	Speed_y = 0.000000	Speed_z = -12.228391
+Acc_x = -0.161132	Acc_y = 0.000000	Acc_z = -8.522383
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 110
+Position_x = 0.241677	Position_y = 0.241677	Postion_z = -0.006320
+Speed_x = 0.530681	Speed_y = 0.000000	Speed_z = -12.399861
+Acc_x = -0.160165	Acc_y = 0.000000	Acc_z = -8.573517
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 111
+Position_x = 0.252227	Position_y = 0.252227	Postion_z = 0.000779
+Speed_x = 0.527497	Speed_y = 0.000000	Speed_z = -12.572360
+Acc_x = -0.159204	Acc_y = 0.000000	Acc_z = -8.624958
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 112
+Position_x = 0.262713	Position_y = 0.262713	Postion_z = 0.007795
+Speed_x = 0.524332	Speed_y = 0.000000	Speed_z = -12.745894
+Acc_x = -0.158249	Acc_y = 0.000000	Acc_z = -8.676708
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 113
+Position_x = 0.273137	Position_y = 0.273137	Postion_z = 0.014728
+Speed_x = 0.521186	Speed_y = 0.000000	Speed_z = -12.920470
+Acc_x = -0.157300	Acc_y = 0.000000	Acc_z = -8.728768
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 114
+Position_x = 0.283498	Position_y = 0.283498	Postion_z = 0.021576
+Speed_x = 0.518059	Speed_y = 0.000000	Speed_z = -13.096092
+Acc_x = -0.156356	Acc_y = 0.000000	Acc_z = -8.781141
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 115
+Position_x = 0.293797	Position_y = 0.293797	Postion_z = 0.028342
+Speed_x = 0.514951	Speed_y = 0.000000	Speed_z = -13.272769
+Acc_x = -0.155418	Acc_y = 0.000000	Acc_z = -8.833828
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 116
+Position_x = 0.304034	Position_y = 0.304034	Postion_z = 0.035024
+Speed_x = 0.511861	Speed_y = 0.000000	Speed_z = -13.450506
+Acc_x = -0.154485	Acc_y = 0.000000	Acc_z = -8.886831
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 117
+Position_x = 0.314210	Position_y = 0.314210	Postion_z = 0.041624
+Speed_x = 0.508790	Speed_y = 0.000000	Speed_z = -13.629309
+Acc_x = -0.153558	Acc_y = 0.000000	Acc_z = -8.940152
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 118
+Position_x = 0.324325	Position_y = 0.324325	Postion_z = 0.048141
+Speed_x = 0.505737	Speed_y = 0.000000	Speed_z = -13.809185
+Acc_x = -0.152637	Acc_y = 0.000000	Acc_z = -8.993793
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 119
+Position_x = 0.334379	Position_y = 0.334379	Postion_z = 0.054576
+Speed_x = 0.502703	Speed_y = 0.000000	Speed_z = -13.990140
+Acc_x = -0.151721	Acc_y = 0.000000	Acc_z = -9.047755
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 120
+Position_x = 0.344373	Position_y = 0.344373	Postion_z = 0.060929
+Speed_x = 0.499686	Speed_y = 0.000000	Speed_z = -14.172180
+Acc_x = -0.150811	Acc_y = 0.000000	Acc_z = -9.102042
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 121
+Position_x = 0.354307	Position_y = 0.354307	Postion_z = 0.067200
+Speed_x = 0.496688	Speed_y = 0.000000	Speed_z = -14.355314
+Acc_x = -0.149906	Acc_y = 0.000000	Acc_z = -9.156654
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 122
+Position_x = 0.364181	Position_y = 0.364181	Postion_z = 0.073390
+Speed_x = 0.493708	Speed_y = 0.000000	Speed_z = -14.539545
+Acc_x = -0.149006	Acc_y = 0.000000	Acc_z = -9.211594
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 123
+Position_x = 0.373996	Position_y = 0.373996	Postion_z = 0.079498
+Speed_x = 0.490746	Speed_y = 0.000000	Speed_z = -14.724883
+Acc_x = -0.148112	Acc_y = 0.000000	Acc_z = -9.266864
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 124
+Position_x = 0.383752	Position_y = 0.383752	Postion_z = 0.085525
+Speed_x = 0.487801	Speed_y = 0.000000	Speed_z = -14.911332
+Acc_x = -0.147224	Acc_y = 0.000000	Acc_z = -9.322465
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 125
+Position_x = 0.393449	Position_y = 0.393449	Postion_z = 0.091471
+Speed_x = 0.484875	Speed_y = 0.000000	Speed_z = -15.098900
+Acc_x = -0.146340	Acc_y = 0.000000	Acc_z = -9.378400
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 126
+Position_x = 0.403088	Position_y = 0.403088	Postion_z = 0.097337
+Speed_x = 0.481965	Speed_y = 0.000000	Speed_z = -15.287593
+Acc_x = -0.145462	Acc_y = 0.000000	Acc_z = -9.434670
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 127
+Position_x = 0.412670	Position_y = 0.412670	Postion_z = 0.103122
+Speed_x = 0.479073	Speed_y = 0.000000	Speed_z = -15.477419
+Acc_x = -0.144590	Acc_y = 0.000000	Acc_z = -9.491278
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 128
+Position_x = 0.422194	Position_y = 0.422194	Postion_z = 0.108826
+Speed_x = 0.476199	Speed_y = 0.000000	Speed_z = -15.668383
+Acc_x = -0.143722	Acc_y = 0.000000	Acc_z = -9.548226
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 129
+Position_x = 0.431661	Position_y = 0.431661	Postion_z = 0.114451
+Speed_x = 0.473342	Speed_y = 0.000000	Speed_z = -15.860494
+Acc_x = -0.142860	Acc_y = 0.000000	Acc_z = -9.605515
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 130
+Position_x = 0.441071	Position_y = 0.441071	Postion_z = 0.119996
+Speed_x = 0.470502	Speed_y = 0.000000	Speed_z = -16.053757
+Acc_x = -0.142003	Acc_y = 0.000000	Acc_z = -9.663148
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 131
+Position_x = 0.450424	Position_y = 0.450424	Postion_z = 0.125461
+Speed_x = 0.467679	Speed_y = 0.000000	Speed_z = -16.248179
+Acc_x = -0.141151	Acc_y = 0.000000	Acc_z = -9.721127
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 132
+Position_x = 0.459722	Position_y = 0.459722	Postion_z = 0.130846
+Speed_x = 0.464873	Speed_y = 0.000000	Speed_z = -16.443768
+Acc_x = -0.140304	Acc_y = 0.000000	Acc_z = -9.779454
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 133
+Position_x = 0.468963	Position_y = 0.468963	Postion_z = 0.136153
+Speed_x = 0.462083	Speed_y = 0.000000	Speed_z = -16.640531
+Acc_x = -0.139462	Acc_y = 0.000000	Acc_z = -9.838131
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 134
+Position_x = 0.478150	Position_y = 0.478150	Postion_z = 0.141380
+Speed_x = 0.459311	Speed_y = 0.000000	Speed_z = -16.838474
+Acc_x = -0.138625	Acc_y = 0.000000	Acc_z = -9.897159
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 135
+Position_x = 0.487281	Position_y = 0.487281	Postion_z = 0.146529
+Speed_x = 0.456555	Speed_y = 0.000000	Speed_z = -17.037605
+Acc_x = -0.137793	Acc_y = 0.000000	Acc_z = -9.956542
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 136
+Position_x = 0.496357	Position_y = 0.496357	Postion_z = 0.151598
+Speed_x = 0.453816	Speed_y = 0.000000	Speed_z = -17.237931
+Acc_x = -0.136967	Acc_y = 0.000000	Acc_z = -10.016281
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 137
+Position_x = 0.505379	Position_y = 0.505379	Postion_z = 0.156590
+Speed_x = 0.451093	Speed_y = 0.000000	Speed_z = -17.439458
+Acc_x = -0.136145	Acc_y = 0.000000	Acc_z = -10.076379
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 138
+Position_x = 0.514347	Position_y = 0.514347	Postion_z = 0.161503
+Speed_x = 0.448386	Speed_y = 0.000000	Speed_z = -17.642195
+Acc_x = -0.135328	Acc_y = 0.000000	Acc_z = -10.136837
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 139
+Position_x = 0.523261	Position_y = 0.523261	Postion_z = 0.166338
+Speed_x = 0.445696	Speed_y = 0.000000	Speed_z = -17.846148
+Acc_x = -0.134516	Acc_y = 0.000000	Acc_z = -10.197658
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 140
+Position_x = 0.531521	Position_y = 0.531521	Postion_z = 0.173457
+Speed_x = 0.413022	Speed_y = 0.000000	Speed_z = -17.903225
+Acc_x = -1.633709	Acc_y = 0.000000	Acc_z = -2.853844
+SenAcc_x = -3.000000	SenAcc_y = 0.000000	SenAcc_z = 5.000000
+
+
+---------------------------
+Iteration No: 141
+Position_x = 0.539132	Position_y = 0.539132	Postion_z = 0.179919
+Speed_x = 0.380544	Speed_y = 0.000000	Speed_z = -17.960644
+Acc_x = -1.623907	Acc_y = 0.000000	Acc_z = -2.870968
+SenAcc_x = -3.000000	SenAcc_y = 0.000000	SenAcc_z = 5.000000
+
+
+---------------------------
+Iteration No: 142
+Position_x = 0.546097	Position_y = 0.546097	Postion_z = 0.185729
+Speed_x = 0.348260	Speed_y = 0.000000	Speed_z = -18.018408
+Acc_x = -1.614163	Acc_y = 0.000000	Acc_z = -2.888193
+SenAcc_x = -3.000000	SenAcc_y = 0.000000	SenAcc_z = 5.000000
+
+
+---------------------------
+Iteration No: 143
+Position_x = 0.552421	Position_y = 0.552421	Postion_z = 0.190890
+Speed_x = 0.316171	Speed_y = 0.000000	Speed_z = -18.076519
+Acc_x = -1.604478	Acc_y = 0.000000	Acc_z = -2.905522
+SenAcc_x = -3.000000	SenAcc_y = 0.000000	SenAcc_z = 5.000000
+
+
+---------------------------
+Iteration No: 144
+Position_x = 0.558106	Position_y = 0.558106	Postion_z = 0.195406
+Speed_x = 0.284274	Speed_y = 0.000000	Speed_z = -18.134978
+Acc_x = -1.594851	Acc_y = 0.000000	Acc_z = -2.922956
+SenAcc_x = -3.000000	SenAcc_y = 0.000000	SenAcc_z = 5.000000
+
+
+---------------------------
+Iteration No: 145
+Position_x = 0.563157	Position_y = 0.563157	Postion_z = 0.199282
+Speed_x = 0.252568	Speed_y = 0.000000	Speed_z = -18.193788
+Acc_x = -1.585282	Acc_y = 0.000000	Acc_z = -2.940493
+SenAcc_x = -3.000000	SenAcc_y = 0.000000	SenAcc_z = 5.000000
+
+
+---------------------------
+Iteration No: 146
+Position_x = 0.567578	Position_y = 0.567578	Postion_z = 0.202519
+Speed_x = 0.221053	Speed_y = 0.000000	Speed_z = -18.252950
+Acc_x = -1.575770	Acc_y = 0.000000	Acc_z = -2.958136
+SenAcc_x = -3.000000	SenAcc_y = 0.000000	SenAcc_z = 5.000000
+
+
+---------------------------
+Iteration No: 147
+Position_x = 0.571373	Position_y = 0.571373	Postion_z = 0.205124
+Speed_x = 0.189726	Speed_y = 0.000000	Speed_z = -18.312468
+Acc_x = -1.566316	Acc_y = 0.000000	Acc_z = -2.975885
+SenAcc_x = -3.000000	SenAcc_y = 0.000000	SenAcc_z = 5.000000
+
+
+---------------------------
+Iteration No: 148
+Position_x = 0.574545	Position_y = 0.574545	Postion_z = 0.207098
+Speed_x = 0.158588	Speed_y = 0.000000	Speed_z = -18.372343
+Acc_x = -1.556918	Acc_y = 0.000000	Acc_z = -2.993740
+SenAcc_x = -3.000000	SenAcc_y = 0.000000	SenAcc_z = 5.000000
+
+
+---------------------------
+Iteration No: 149
+Position_x = 0.577097	Position_y = 0.577097	Postion_z = 0.208446
+Speed_x = 0.127637	Speed_y = 0.000000	Speed_z = -18.432577
+Acc_x = -1.547576	Acc_y = 0.000000	Acc_z = -3.011703
+SenAcc_x = -3.000000	SenAcc_y = 0.000000	SenAcc_z = 5.000000
+
+
+---------------------------
+Iteration No: 150
+Position_x = 0.579035	Position_y = 0.579035	Postion_z = 0.209171
+Speed_x = 0.096871	Speed_y = 0.000000	Speed_z = -18.493172
+Acc_x = -1.538291	Acc_y = 0.000000	Acc_z = -3.029773
+SenAcc_x = -3.000000	SenAcc_y = 0.000000	SenAcc_z = 5.000000
+
+
+---------------------------
+Iteration No: 151
+Position_x = 0.580361	Position_y = 0.580361	Postion_z = 0.209278
+Speed_x = 0.066290	Speed_y = 0.000000	Speed_z = -18.554131
+Acc_x = -1.529061	Acc_y = 0.000000	Acc_z = -3.047952
+SenAcc_x = -3.000000	SenAcc_y = 0.000000	SenAcc_z = 5.000000
+
+
+---------------------------
+Iteration No: 152
+Position_x = 0.581078	Position_y = 0.581078	Postion_z = 0.208769
+Speed_x = 0.035892	Speed_y = 0.000000	Speed_z = -18.615456
+Acc_x = -1.519887	Acc_y = 0.000000	Acc_z = -3.066239
+SenAcc_x = -3.000000	SenAcc_y = 0.000000	SenAcc_z = 5.000000
+
+
+---------------------------
+Iteration No: 153
+Position_x = 0.581192	Position_y = 0.581192	Postion_z = 0.207649
+Speed_x = 0.005676	Speed_y = 0.000000	Speed_z = -18.677149
+Acc_x = -1.510768	Acc_y = 0.000000	Acc_z = -3.084637
+SenAcc_x = -3.000000	SenAcc_y = 0.000000	SenAcc_z = 5.000000
+
+
+---------------------------
+Iteration No: 154
+Position_x = 0.580705	Position_y = 0.580705	Postion_z = 0.205921
+Speed_x = -0.024358	Speed_y = 0.000000	Speed_z = -18.739212
+Acc_x = -1.501703	Acc_y = 0.000000	Acc_z = -3.103145
+SenAcc_x = -3.000000	SenAcc_y = 0.000000	SenAcc_z = 5.000000
+
+
+---------------------------
+Iteration No: 155
+Position_x = 0.579615	Position_y = 0.579615	Postion_z = 0.203582
+Speed_x = -0.054504	Speed_y = 0.000000	Speed_z = -18.801647
+Acc_x = -1.507307	Acc_y = 0.000000	Acc_z = -3.121764
+SenAcc_x = -3.000000	SenAcc_y = 0.000000	SenAcc_z = 5.000000
+
+
+---------------------------
+Iteration No: 156
+Position_x = 0.577918	Position_y = 0.577918	Postion_z = 0.200629
+Speed_x = -0.084831	Speed_y = 0.000000	Speed_z = -18.864457
+Acc_x = -1.516351	Acc_y = 0.000000	Acc_z = -3.140494
+SenAcc_x = -3.000000	SenAcc_y = 0.000000	SenAcc_z = 5.000000
+
+
+---------------------------
+Iteration No: 157
+Position_x = 0.575611	Position_y = 0.575611	Postion_z = 0.197058
+Speed_x = -0.115340	Speed_y = 0.000000	Speed_z = -18.927644
+Acc_x = -1.525449	Acc_y = 0.000000	Acc_z = -3.159337
+SenAcc_x = -3.000000	SenAcc_y = 0.000000	SenAcc_z = 5.000000
+
+
+---------------------------
+Iteration No: 158
+Position_x = 0.572691	Position_y = 0.572691	Postion_z = 0.192867
+Speed_x = -0.146032	Speed_y = 0.000000	Speed_z = -18.991210
+Acc_x = -1.534602	Acc_y = 0.000000	Acc_z = -3.178293
+SenAcc_x = -3.000000	SenAcc_y = 0.000000	SenAcc_z = 5.000000
+
+
+---------------------------
+Iteration No: 159
+Position_x = 0.569153	Position_y = 0.569153	Postion_z = 0.188049
+Speed_x = -0.176908	Speed_y = 0.000000	Speed_z = -19.055157
+Acc_x = -1.543810	Acc_y = 0.000000	Acc_z = -3.197363
+SenAcc_x = -3.000000	SenAcc_y = 0.000000	SenAcc_z = 5.000000
+
+
+---------------------------
+Iteration No: 160
+Position_x = 0.565593	Position_y = 0.565593	Postion_z = 0.180241
+Speed_x = -0.177969	Speed_y = 0.000000	Speed_z = -19.267588
+Acc_x = -0.053072	Acc_y = 0.000000	Acc_z = -10.621547
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 161
+Position_x = 0.562012	Position_y = 0.562012	Postion_z = 0.172387
+Speed_x = -0.179037	Speed_y = 0.000000	Speed_z = -19.481293
+Acc_x = -0.053391	Acc_y = 0.000000	Acc_z = -10.685276
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 162
+Position_x = 0.558410	Position_y = 0.558410	Postion_z = 0.164485
+Speed_x = -0.180111	Speed_y = 0.000000	Speed_z = -19.696281
+Acc_x = -0.053711	Acc_y = 0.000000	Acc_z = -10.749388
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 163
+Position_x = 0.554786	Position_y = 0.554786	Postion_z = 0.156535
+Speed_x = -0.181192	Speed_y = 0.000000	Speed_z = -19.912559
+Acc_x = -0.054033	Acc_y = 0.000000	Acc_z = -10.813884
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 164
+Position_x = 0.551141	Position_y = 0.551141	Postion_z = 0.148538
+Speed_x = -0.182279	Speed_y = 0.000000	Speed_z = -20.130134
+Acc_x = -0.054358	Acc_y = 0.000000	Acc_z = -10.878768
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 165
+Position_x = 0.547473	Position_y = 0.547473	Postion_z = 0.140493
+Speed_x = -0.183373	Speed_y = 0.000000	Speed_z = -20.349015
+Acc_x = -0.054684	Acc_y = 0.000000	Acc_z = -10.944040
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 166
+Position_x = 0.543784	Position_y = 0.543784	Postion_z = 0.132400
+Speed_x = -0.184473	Speed_y = 0.000000	Speed_z = -20.569209
+Acc_x = -0.055012	Acc_y = 0.000000	Acc_z = -11.009704
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 167
+Position_x = 0.540072	Position_y = 0.540072	Postion_z = 0.124258
+Speed_x = -0.185580	Speed_y = 0.000000	Speed_z = -20.790724
+Acc_x = -0.055342	Acc_y = 0.000000	Acc_z = -11.075763
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 168
+Position_x = 0.536338	Position_y = 0.536338	Postion_z = 0.116067
+Speed_x = -0.186694	Speed_y = 0.000000	Speed_z = -21.013569
+Acc_x = -0.055674	Acc_y = 0.000000	Acc_z = -11.142217
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 169
+Position_x = 0.532582	Position_y = 0.532582	Postion_z = 0.107827
+Speed_x = -0.187814	Speed_y = 0.000000	Speed_z = -21.237750
+Acc_x = -0.056008	Acc_y = 0.000000	Acc_z = -11.209071
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 170
+Position_x = 0.528803	Position_y = 0.528803	Postion_z = 0.099538
+Speed_x = -0.188941	Speed_y = 0.000000	Speed_z = -21.463277
+Acc_x = -0.056344	Acc_y = 0.000000	Acc_z = -11.276325
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 171
+Position_x = 0.525002	Position_y = 0.525002	Postion_z = 0.091199
+Speed_x = -0.190074	Speed_y = 0.000000	Speed_z = -21.690156
+Acc_x = -0.056682	Acc_y = 0.000000	Acc_z = -11.343983
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 172
+Position_x = 0.521178	Position_y = 0.521178	Postion_z = 0.082810
+Speed_x = -0.191215	Speed_y = 0.000000	Speed_z = -21.918397
+Acc_x = -0.057022	Acc_y = 0.000000	Acc_z = -11.412047
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 173
+Position_x = 0.517330	Position_y = 0.517330	Postion_z = 0.074370
+Speed_x = -0.192362	Speed_y = 0.000000	Speed_z = -22.148008
+Acc_x = -0.057364	Acc_y = 0.000000	Acc_z = -11.480519
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 174
+Position_x = 0.513460	Position_y = 0.513460	Postion_z = 0.065880
+Speed_x = -0.193516	Speed_y = 0.000000	Speed_z = -22.378996
+Acc_x = -0.057709	Acc_y = 0.000000	Acc_z = -11.549402
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 175
+Position_x = 0.509566	Position_y = 0.509566	Postion_z = 0.057339
+Speed_x = -0.194677	Speed_y = 0.000000	Speed_z = -22.611370
+Acc_x = -0.058055	Acc_y = 0.000000	Acc_z = -11.618699
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 176
+Position_x = 0.505650	Position_y = 0.505650	Postion_z = 0.048747
+Speed_x = -0.195845	Speed_y = 0.000000	Speed_z = -22.845138
+Acc_x = -0.058403	Acc_y = 0.000000	Acc_z = -11.688411
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 177
+Position_x = 0.501709	Position_y = 0.501709	Postion_z = 0.040103
+Speed_x = -0.197020	Speed_y = 0.000000	Speed_z = -23.080309
+Acc_x = -0.058754	Acc_y = 0.000000	Acc_z = -11.758541
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 178
+Position_x = 0.497745	Position_y = 0.497745	Postion_z = 0.031407
+Speed_x = -0.198202	Speed_y = 0.000000	Speed_z = -23.316890
+Acc_x = -0.059106	Acc_y = 0.000000	Acc_z = -11.829093
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 179
+Position_x = 0.493757	Position_y = 0.493757	Postion_z = 0.022659
+Speed_x = -0.199392	Speed_y = 0.000000	Speed_z = -23.554892
+Acc_x = -0.059461	Acc_y = 0.000000	Acc_z = -11.900067
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 180
+Position_x = 0.489745	Position_y = 0.489745	Postion_z = 0.013859
+Speed_x = -0.200588	Speed_y = 0.000000	Speed_z = -23.794321
+Acc_x = -0.059818	Acc_y = 0.000000	Acc_z = -11.971468
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 181
+Position_x = 0.485710	Position_y = 0.485710	Postion_z = 0.005006
+Speed_x = -0.201792	Speed_y = 0.000000	Speed_z = -24.035187
+Acc_x = -0.060176	Acc_y = 0.000000	Acc_z = -12.043296
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 182
+Position_x = 0.481650	Position_y = 0.481650	Postion_z = -0.003900
+Speed_x = -0.203002	Speed_y = 0.000000	Speed_z = -24.277498
+Acc_x = -0.060537	Acc_y = 0.000000	Acc_z = -12.115556
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 183
+Position_x = 0.477565	Position_y = 0.477565	Postion_z = -0.012860
+Speed_x = -0.204220	Speed_y = 0.000000	Speed_z = -24.521263
+Acc_x = -0.060901	Acc_y = 0.000000	Acc_z = -12.188249
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 184
+Position_x = 0.473456	Position_y = 0.473456	Postion_z = -0.021874
+Speed_x = -0.205446	Speed_y = 0.000000	Speed_z = -24.766491
+Acc_x = -0.061266	Acc_y = 0.000000	Acc_z = -12.261379
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 185
+Position_x = 0.469323	Position_y = 0.469323	Postion_z = -0.030941
+Speed_x = -0.206678	Speed_y = 0.000000	Speed_z = -25.013190
+Acc_x = -0.061634	Acc_y = 0.000000	Acc_z = -12.334947
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 186
+Position_x = 0.465164	Position_y = 0.465164	Postion_z = -0.040063
+Speed_x = -0.207918	Speed_y = 0.000000	Speed_z = -25.261369
+Acc_x = -0.062003	Acc_y = 0.000000	Acc_z = -12.408957
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 187
+Position_x = 0.460981	Position_y = 0.460981	Postion_z = -0.049240
+Speed_x = -0.209166	Speed_y = 0.000000	Speed_z = -25.511037
+Acc_x = -0.062376	Acc_y = 0.000000	Acc_z = -12.483411
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 188
+Position_x = 0.456773	Position_y = 0.456773	Postion_z = -0.058471
+Speed_x = -0.210421	Speed_y = 0.000000	Speed_z = -25.762203
+Acc_x = -0.062750	Acc_y = 0.000000	Acc_z = -12.558311
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 189
+Position_x = 0.452539	Position_y = 0.452539	Postion_z = -0.067759
+Speed_x = -0.211683	Speed_y = 0.000000	Speed_z = -26.014876
+Acc_x = -0.063126	Acc_y = 0.000000	Acc_z = -12.633661
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 190
+Position_x = 0.448280	Position_y = 0.448280	Postion_z = -0.077101
+Speed_x = -0.212954	Speed_y = 0.000000	Speed_z = -26.269066
+Acc_x = -0.063505	Acc_y = 0.000000	Acc_z = -12.709463
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 191
+Position_x = 0.443995	Position_y = 0.443995	Postion_z = -0.086500
+Speed_x = -0.214231	Speed_y = 0.000000	Speed_z = -26.524780
+Acc_x = -0.063886	Acc_y = 0.000000	Acc_z = -12.785720
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 192
+Position_x = 0.439685	Position_y = 0.439685	Postion_z = -0.095956
+Speed_x = -0.215517	Speed_y = 0.000000	Speed_z = -26.782029
+Acc_x = -0.064269	Acc_y = 0.000000	Acc_z = -12.862434
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 193
+Position_x = 0.435349	Position_y = 0.435349	Postion_z = -0.105468
+Speed_x = -0.216810	Speed_y = 0.000000	Speed_z = -27.040821
+Acc_x = -0.064655	Acc_y = 0.000000	Acc_z = -12.939609
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 194
+Position_x = 0.430986	Position_y = 0.430986	Postion_z = -0.115037
+Speed_x = -0.218111	Speed_y = 0.000000	Speed_z = -27.301166
+Acc_x = -0.065043	Acc_y = 0.000000	Acc_z = -13.017246
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 195
+Position_x = 0.426598	Position_y = 0.426598	Postion_z = -0.124663
+Speed_x = -0.219419	Speed_y = 0.000000	Speed_z = -27.563073
+Acc_x = -0.065433	Acc_y = 0.000000	Acc_z = -13.095350
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 196
+Position_x = 0.422183	Position_y = 0.422183	Postion_z = -0.134348
+Speed_x = -0.220736	Speed_y = 0.000000	Speed_z = -27.826551
+Acc_x = -0.065826	Acc_y = 0.000000	Acc_z = -13.173922
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 197
+Position_x = 0.417742	Position_y = 0.417742	Postion_z = -0.144090
+Speed_x = -0.222060	Speed_y = 0.000000	Speed_z = -28.091611
+Acc_x = -0.066221	Acc_y = 0.000000	Acc_z = -13.252965
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 198
+Position_x = 0.413274	Position_y = 0.413274	Postion_z = -0.153891
+Speed_x = -0.223393	Speed_y = 0.000000	Speed_z = -28.358260
+Acc_x = -0.066618	Acc_y = 0.000000	Acc_z = -13.332483
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 199
+Position_x = 0.408780	Position_y = 0.408780	Postion_z = -0.163751
+Speed_x = -0.224733	Speed_y = 0.000000	Speed_z = -28.626510
+Acc_x = -0.067018	Acc_y = 0.000000	Acc_z = -13.412478
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 200
+Position_x = 0.404258	Position_y = 0.404258	Postion_z = -0.173669
+Speed_x = -0.226081	Speed_y = 0.000000	Speed_z = -28.896369
+Acc_x = -0.067420	Acc_y = 0.000000	Acc_z = -13.492953
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 201
+Position_x = 0.399709	Position_y = 0.399709	Postion_z = -0.183648
+Speed_x = -0.227438	Speed_y = 0.000000	Speed_z = -29.167847
+Acc_x = -0.067824	Acc_y = 0.000000	Acc_z = -13.573911
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 202
+Position_x = 0.395133	Position_y = 0.395133	Postion_z = -0.193686
+Speed_x = -0.228802	Speed_y = 0.000000	Speed_z = -29.440954
+Acc_x = -0.068231	Acc_y = 0.000000	Acc_z = -13.655354
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 203
+Position_x = 0.390530	Position_y = 0.390530	Postion_z = -0.203784
+Speed_x = -0.230175	Speed_y = 0.000000	Speed_z = -29.715700
+Acc_x = -0.068641	Acc_y = 0.000000	Acc_z = -13.737286
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 204
+Position_x = 0.385899	Position_y = 0.385899	Postion_z = -0.213943
+Speed_x = -0.231556	Speed_y = 0.000000	Speed_z = -29.992094
+Acc_x = -0.069053	Acc_y = 0.000000	Acc_z = -13.819710
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 205
+Position_x = 0.381240	Position_y = 0.381240	Postion_z = -0.224163
+Speed_x = -0.232946	Speed_y = 0.000000	Speed_z = -30.270147
+Acc_x = -0.069467	Acc_y = 0.000000	Acc_z = -13.902628
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 206
+Position_x = 0.376553	Position_y = 0.376553	Postion_z = -0.234445
+Speed_x = -0.234343	Speed_y = 0.000000	Speed_z = -30.549868
+Acc_x = -0.069884	Acc_y = 0.000000	Acc_z = -13.986044
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 207
+Position_x = 0.371838	Position_y = 0.371838	Postion_z = -0.244787
+Speed_x = -0.235749	Speed_y = 0.000000	Speed_z = -30.831267
+Acc_x = -0.070303	Acc_y = 0.000000	Acc_z = -14.069960
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 208
+Position_x = 0.367095	Position_y = 0.367095	Postion_z = -0.255193
+Speed_x = -0.237164	Speed_y = 0.000000	Speed_z = -31.114354
+Acc_x = -0.070725	Acc_y = 0.000000	Acc_z = -14.154380
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 209
+Position_x = 0.362323	Position_y = 0.362323	Postion_z = -0.265660
+Speed_x = -0.238587	Speed_y = 0.000000	Speed_z = -31.399141
+Acc_x = -0.071149	Acc_y = 0.000000	Acc_z = -14.239306
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 210
+Position_x = 0.357522	Position_y = 0.357522	Postion_z = -0.276190
+Speed_x = -0.240018	Speed_y = 0.000000	Speed_z = -31.685635
+Acc_x = -0.071576	Acc_y = 0.000000	Acc_z = -14.324742
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 211
+Position_x = 0.352693	Position_y = 0.352693	Postion_z = -0.286784
+Speed_x = -0.241458	Speed_y = 0.000000	Speed_z = -31.973849
+Acc_x = -0.072006	Acc_y = 0.000000	Acc_z = -14.410691
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 212
+Position_x = 0.347835	Position_y = 0.347835	Postion_z = -0.297441
+Speed_x = -0.242907	Speed_y = 0.000000	Speed_z = -32.263792
+Acc_x = -0.072438	Acc_y = 0.000000	Acc_z = -14.497155
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 213
+Position_x = 0.342948	Position_y = 0.342948	Postion_z = -0.308162
+Speed_x = -0.244365	Speed_y = 0.000000	Speed_z = -32.555475
+Acc_x = -0.072872	Acc_y = 0.000000	Acc_z = -14.584138
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 214
+Position_x = 0.338031	Position_y = 0.338031	Postion_z = -0.318947
+Speed_x = -0.245831	Speed_y = 0.000000	Speed_z = -32.848908
+Acc_x = -0.073309	Acc_y = 0.000000	Acc_z = -14.671643
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 215
+Position_x = 0.333085	Position_y = 0.333085	Postion_z = -0.329797
+Speed_x = -0.247306	Speed_y = 0.000000	Speed_z = -33.144101
+Acc_x = -0.073749	Acc_y = 0.000000	Acc_z = -14.759672
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 216
+Position_x = 0.328109	Position_y = 0.328109	Postion_z = -0.340712
+Speed_x = -0.248790	Speed_y = 0.000000	Speed_z = -33.441066
+Acc_x = -0.074192	Acc_y = 0.000000	Acc_z = -14.848230
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 217
+Position_x = 0.323104	Position_y = 0.323104	Postion_z = -0.351693
+Speed_x = -0.250282	Speed_y = 0.000000	Speed_z = -33.739812
+Acc_x = -0.074637	Acc_y = 0.000000	Acc_z = -14.937320
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 218
+Position_x = 0.318068	Position_y = 0.318068	Postion_z = -0.362739
+Speed_x = -0.251784	Speed_y = 0.000000	Speed_z = -34.040351
+Acc_x = -0.075085	Acc_y = 0.000000	Acc_z = -15.026944
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 219
+Position_x = 0.313002	Position_y = 0.313002	Postion_z = -0.373852
+Speed_x = -0.253295	Speed_y = 0.000000	Speed_z = -34.342693
+Acc_x = -0.075535	Acc_y = 0.000000	Acc_z = -15.117105
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 220
+Position_x = 0.307906	Position_y = 0.307906	Postion_z = -0.385031
+Speed_x = -0.254815	Speed_y = 0.000000	Speed_z = -34.646850
+Acc_x = -0.075988	Acc_y = 0.000000	Acc_z = -15.207808
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 221
+Position_x = 0.302779	Position_y = 0.302779	Postion_z = -0.396278
+Speed_x = -0.256343	Speed_y = 0.000000	Speed_z = -34.952831
+Acc_x = -0.076444	Acc_y = 0.000000	Acc_z = -15.299055
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 222
+Position_x = 0.297621	Position_y = 0.297621	Postion_z = -0.407592
+Speed_x = -0.257882	Speed_y = 0.000000	Speed_z = -35.260648
+Acc_x = -0.076903	Acc_y = 0.000000	Acc_z = -15.390849
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 223
+Position_x = 0.292433	Position_y = 0.292433	Postion_z = -0.418973
+Speed_x = -0.259429	Speed_y = 0.000000	Speed_z = -35.570311
+Acc_x = -0.077364	Acc_y = 0.000000	Acc_z = -15.483194
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 224
+Position_x = 0.287213	Position_y = 0.287213	Postion_z = -0.430424
+Speed_x = -0.260985	Speed_y = 0.000000	Speed_z = -35.881833
+Acc_x = -0.077829	Acc_y = 0.000000	Acc_z = -15.576093
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 225
+Position_x = 0.281962	Position_y = 0.281962	Postion_z = -0.441942
+Speed_x = -0.262551	Speed_y = 0.000000	Speed_z = -36.195224
+Acc_x = -0.078296	Acc_y = 0.000000	Acc_z = -15.669550
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 226
+Position_x = 0.276679	Position_y = 0.276679	Postion_z = -0.453530
+Speed_x = -0.264127	Speed_y = 0.000000	Speed_z = -36.510496
+Acc_x = -0.078765	Acc_y = 0.000000	Acc_z = -15.763567
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 227
+Position_x = 0.271365	Position_y = 0.271365	Postion_z = -0.465188
+Speed_x = -0.265711	Speed_y = 0.000000	Speed_z = -36.827659
+Acc_x = -0.079238	Acc_y = 0.000000	Acc_z = -15.858149
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 228
+Position_x = 0.266019	Position_y = 0.266019	Postion_z = -0.476915
+Speed_x = -0.267306	Speed_y = 0.000000	Speed_z = -37.146725
+Acc_x = -0.079713	Acc_y = 0.000000	Acc_z = -15.953298
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 229
+Position_x = 0.260641	Position_y = 0.260641	Postion_z = -0.488713
+Speed_x = -0.268909	Speed_y = 0.000000	Speed_z = -37.467705
+Acc_x = -0.080192	Acc_y = 0.000000	Acc_z = -16.049017
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 230
+Position_x = 0.255230	Position_y = 0.255230	Postion_z = -0.500582
+Speed_x = -0.270523	Speed_y = 0.000000	Speed_z = -37.790611
+Acc_x = -0.080673	Acc_y = 0.000000	Acc_z = -16.145311
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 231
+Position_x = 0.249788	Position_y = 0.249788	Postion_z = -0.512522
+Speed_x = -0.272146	Speed_y = 0.000000	Speed_z = -38.115455
+Acc_x = -0.081157	Acc_y = 0.000000	Acc_z = -16.242183
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 232
+Position_x = 0.244312	Position_y = 0.244312	Postion_z = -0.524533
+Speed_x = -0.273779	Speed_y = 0.000000	Speed_z = -38.442248
+Acc_x = -0.081644	Acc_y = 0.000000	Acc_z = -16.339636
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 233
+Position_x = 0.238804	Position_y = 0.238804	Postion_z = -0.536616
+Speed_x = -0.275422	Speed_y = 0.000000	Speed_z = -38.771001
+Acc_x = -0.082134	Acc_y = 0.000000	Acc_z = -16.437674
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 234
+Position_x = 0.233262	Position_y = 0.233262	Postion_z = -0.548772
+Speed_x = -0.277074	Speed_y = 0.000000	Speed_z = -39.101727
+Acc_x = -0.082626	Acc_y = 0.000000	Acc_z = -16.536300
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 235
+Position_x = 0.227687	Position_y = 0.227687	Postion_z = -0.561001
+Speed_x = -0.278737	Speed_y = 0.000000	Speed_z = -39.434437
+Acc_x = -0.083122	Acc_y = 0.000000	Acc_z = -16.635518
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 236
+Position_x = 0.222079	Position_y = 0.222079	Postion_z = -0.573304
+Speed_x = -0.280409	Speed_y = 0.000000	Speed_z = -39.769144
+Acc_x = -0.083621	Acc_y = 0.000000	Acc_z = -16.735331
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 237
+Position_x = 0.216437	Position_y = 0.216437	Postion_z = -0.585680
+Speed_x = -0.282091	Speed_y = 0.000000	Speed_z = -40.105859
+Acc_x = -0.084123	Acc_y = 0.000000	Acc_z = -16.835743
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 238
+Position_x = 0.210762	Position_y = 0.210762	Postion_z = -0.598130
+Speed_x = -0.283784	Speed_y = 0.000000	Speed_z = -40.444594
+Acc_x = -0.084627	Acc_y = 0.000000	Acc_z = -16.936758
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 239
+Position_x = 0.205052	Position_y = 0.205052	Postion_z = -0.610655
+Speed_x = -0.285487	Speed_y = 0.000000	Speed_z = -40.785362
+Acc_x = -0.085135	Acc_y = 0.000000	Acc_z = -17.038378
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 240
+Position_x = 0.199308	Position_y = 0.199308	Postion_z = -0.623256
+Speed_x = -0.287200	Speed_y = 0.000000	Speed_z = -41.128174
+Acc_x = -0.085646	Acc_y = 0.000000	Acc_z = -17.140608
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 241
+Position_x = 0.194129	Position_y = 0.194129	Postion_z = -0.632669
+Speed_x = -0.258923	Speed_y = 0.000000	Speed_z = -41.339943
+Acc_x = 1.413840	Acc_y = 0.000000	Acc_z = -10.588452
+SenAcc_x = 3.000000	SenAcc_y = 0.000000	SenAcc_z = 3.500000
+
+
+---------------------------
+Iteration No: 242
+Position_x = 0.189520	Position_y = 0.189520	Postion_z = -0.641540
+Speed_x = -0.230476	Speed_y = 0.000000	Speed_z = -41.552983
+Acc_x = 1.422323	Acc_y = 0.000000	Acc_z = -10.651983
+SenAcc_x = 3.000000	SenAcc_y = 0.000000	SenAcc_z = 3.500000
+
+
+---------------------------
+Iteration No: 243
+Position_x = 0.185483	Position_y = 0.185483	Postion_z = -0.649863
+Speed_x = -0.201859	Speed_y = 0.000000	Speed_z = -41.767300
+Acc_x = 1.430857	Acc_y = 0.000000	Acc_z = -10.715895
+SenAcc_x = 3.000000	SenAcc_y = 0.000000	SenAcc_z = 3.500000
+
+
+---------------------------
+Iteration No: 244
+Position_x = 0.182021	Position_y = 0.182021	Postion_z = -0.657637
+Speed_x = -0.173070	Speed_y = 0.000000	Speed_z = -41.982904
+Acc_x = 1.439442	Acc_y = 0.000000	Acc_z = -10.780190
+SenAcc_x = 3.000000	SenAcc_y = 0.000000	SenAcc_z = 3.500000
+
+
+---------------------------
+Iteration No: 245
+Position_x = 0.179139	Position_y = 0.179139	Postion_z = -0.664857
+Speed_x = -0.144109	Speed_y = 0.000000	Speed_z = -42.199802
+Acc_x = 1.448079	Acc_y = 0.000000	Acc_z = -10.844871
+SenAcc_x = 3.000000	SenAcc_y = 0.000000	SenAcc_z = 3.500000
+
+
+---------------------------
+Iteration No: 246
+Position_x = 0.176840	Position_y = 0.176840	Postion_z = -0.671520
+Speed_x = -0.114973	Speed_y = 0.000000	Speed_z = -42.418000
+Acc_x = 1.456767	Acc_y = 0.000000	Acc_z = -10.909940
+SenAcc_x = 3.000000	SenAcc_y = 0.000000	SenAcc_z = 3.500000
+
+
+---------------------------
+Iteration No: 247
+Position_x = 0.175126	Position_y = 0.175126	Postion_z = -0.677624
+Speed_x = -0.085663	Speed_y = 0.000000	Speed_z = -42.637508
+Acc_x = 1.465508	Acc_y = 0.000000	Acc_z = -10.975400
+SenAcc_x = 3.000000	SenAcc_y = 0.000000	SenAcc_z = 3.500000
+
+
+---------------------------
+Iteration No: 248
+Position_x = 0.174003	Position_y = 0.174003	Postion_z = -0.683164
+Speed_x = -0.056177	Speed_y = 0.000000	Speed_z = -42.858334
+Acc_x = 1.474301	Acc_y = 0.000000	Acc_z = -11.041253
+SenAcc_x = 3.000000	SenAcc_y = 0.000000	SenAcc_z = 3.500000
+
+
+---------------------------
+Iteration No: 249
+Position_x = 0.173473	Position_y = 0.173473	Postion_z = -0.688137
+Speed_x = -0.026514	Speed_y = 0.000000	Speed_z = -43.080484
+Acc_x = 1.483147	Acc_y = 0.000000	Acc_z = -11.107500
+SenAcc_x = 3.000000	SenAcc_y = 0.000000	SenAcc_z = 3.500000
+
+
+---------------------------
+Iteration No: 250
+Position_x = 0.173539	Position_y = 0.173539	Postion_z = -0.692540
+Speed_x = 0.003327	Speed_y = 0.000000	Speed_z = -43.303966
+Acc_x = 1.492046	Acc_y = 0.000000	Acc_z = -11.174145
+SenAcc_x = 3.000000	SenAcc_y = 0.000000	SenAcc_z = 3.500000
+
+
+---------------------------
+Iteration No: 251
+Position_x = 0.174205	Position_y = 0.174205	Postion_z = -0.696371
+Speed_x = 0.033307	Speed_y = 0.000000	Speed_z = -43.528790
+Acc_x = 1.499002	Acc_y = 0.000000	Acc_z = -11.241190
+SenAcc_x = 3.000000	SenAcc_y = 0.000000	SenAcc_z = 3.500000
+
+
+---------------------------
+Iteration No: 252
+Position_x = 0.175467	Position_y = 0.175467	Postion_z = -0.699632
+Speed_x = 0.063107	Speed_y = 0.000000	Speed_z = -43.754963
+Acc_x = 1.490008	Acc_y = 0.000000	Acc_z = -11.308637
+SenAcc_x = 3.000000	SenAcc_y = 0.000000	SenAcc_z = 3.500000
+
+
+---------------------------
+Iteration No: 253
+Position_x = 0.177322	Position_y = 0.177322	Postion_z = -0.702328
+Speed_x = 0.092728	Speed_y = 0.000000	Speed_z = -43.982493
+Acc_x = 1.481068	Acc_y = 0.000000	Acc_z = -11.376489
+SenAcc_x = 3.000000	SenAcc_y = 0.000000	SenAcc_z = 3.500000
+
+
+---------------------------
+Iteration No: 254
+Position_x = 0.179765	Position_y = 0.179765	Postion_z = -0.704462
+Speed_x = 0.122172	Speed_y = 0.000000	Speed_z = -44.211388
+Acc_x = 1.472182	Acc_y = 0.000000	Acc_z = -11.444748
+SenAcc_x = 3.000000	SenAcc_y = 0.000000	SenAcc_z = 3.500000
+
+
+---------------------------
+Iteration No: 255
+Position_x = 0.182794	Position_y = 0.182794	Postion_z = -0.706039
+Speed_x = 0.151439	Speed_y = 0.000000	Speed_z = -44.441656
+Acc_x = 1.463348	Acc_y = 0.000000	Acc_z = -11.513416
+SenAcc_x = 3.000000	SenAcc_y = 0.000000	SenAcc_z = 3.500000
+
+
+---------------------------
+Iteration No: 256
+Position_x = 0.186405	Position_y = 0.186405	Postion_z = -0.707061
+Speed_x = 0.180530	Speed_y = 0.000000	Speed_z = -44.673306
+Acc_x = 1.454568	Acc_y = 0.000000	Acc_z = -11.582497
+SenAcc_x = 3.000000	SenAcc_y = 0.000000	SenAcc_z = 3.500000
+
+
+---------------------------
+Iteration No: 257
+Position_x = 0.190594	Position_y = 0.190594	Postion_z = -0.707533
+Speed_x = 0.209447	Speed_y = 0.000000	Speed_z = -44.906346
+Acc_x = 1.445841	Acc_y = 0.000000	Acc_z = -11.651992
+SenAcc_x = 3.000000	SenAcc_y = 0.000000	SenAcc_z = 3.500000
+
+
+---------------------------
+Iteration No: 258
+Position_x = 0.195358	Position_y = 0.195358	Postion_z = -0.707458
+Speed_x = 0.238190	Speed_y = 0.000000	Speed_z = -45.140784
+Acc_x = 1.437166	Acc_y = 0.000000	Acc_z = -11.721904
+SenAcc_x = 3.000000	SenAcc_y = 0.000000	SenAcc_z = 3.500000
+
+
+---------------------------
+Iteration No: 259
+Position_x = 0.200693	Position_y = 0.200693	Postion_z = -0.706840
+Speed_x = 0.266761	Speed_y = 0.000000	Speed_z = -45.376629
+Acc_x = 1.428543	Acc_y = 0.000000	Acc_z = -11.792235
+SenAcc_x = 3.000000	SenAcc_y = 0.000000	SenAcc_z = 3.500000
+
+
+---------------------------
+Iteration No: 260
+Position_x = 0.206596	Position_y = 0.206596	Postion_z = -0.705682
+Speed_x = 0.295161	Speed_y = 0.000000	Speed_z = -45.613888
+Acc_x = 1.419972	Acc_y = 0.000000	Acc_z = -11.862989
+SenAcc_x = 3.000000	SenAcc_y = 0.000000	SenAcc_z = 3.500000
+
+
+---------------------------
+Iteration No: 261
+Position_x = 0.212464	Position_y = 0.212464	Postion_z = -0.707250
+Speed_x = 0.293390	Speed_y = 0.000000	Speed_z = -45.985672
+Acc_x = -0.088548	Acc_y = 0.000000	Acc_z = -18.589166
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 262
+Position_x = 0.218296	Position_y = 0.218296	Postion_z = -0.708897
+Speed_x = 0.291629	Speed_y = 0.000000	Speed_z = -46.359686
+Acc_x = -0.088017	Acc_y = 0.000000	Acc_z = -18.700701
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 263
+Position_x = 0.224094	Position_y = 0.224094	Postion_z = -0.710625
+Speed_x = 0.289879	Speed_y = 0.000000	Speed_z = -46.735944
+Acc_x = -0.087489	Acc_y = 0.000000	Acc_z = -18.812906
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 264
+Position_x = 0.229857	Position_y = 0.229857	Postion_z = -0.712432
+Speed_x = 0.288140	Speed_y = 0.000000	Speed_z = -47.114459
+Acc_x = -0.086964	Acc_y = 0.000000	Acc_z = -18.925783
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 265
+Position_x = 0.235585	Position_y = 0.235585	Postion_z = -0.714320
+Speed_x = 0.286411	Speed_y = 0.000000	Speed_z = -47.495246
+Acc_x = -0.086442	Acc_y = 0.000000	Acc_z = -19.039338
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 266
+Position_x = 0.241279	Position_y = 0.241279	Postion_z = -0.716288
+Speed_x = 0.284693	Speed_y = 0.000000	Speed_z = -47.878318
+Acc_x = -0.085923	Acc_y = 0.000000	Acc_z = -19.153574
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 267
+Position_x = 0.246939	Position_y = 0.246939	Postion_z = -0.718335
+Speed_x = 0.282985	Speed_y = 0.000000	Speed_z = -48.263688
+Acc_x = -0.085408	Acc_y = 0.000000	Acc_z = -19.268495
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 268
+Position_x = 0.252564	Position_y = 0.252564	Postion_z = -0.720463
+Speed_x = 0.281287	Speed_y = 0.000000	Speed_z = -48.651370
+Acc_x = -0.084895	Acc_y = 0.000000	Acc_z = -19.384106
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 269
+Position_x = 0.258156	Position_y = 0.258156	Postion_z = -0.722671
+Speed_x = 0.279599	Speed_y = 0.000000	Speed_z = -49.041378
+Acc_x = -0.084386	Acc_y = 0.000000	Acc_z = -19.500411
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 270
+Position_x = 0.263715	Position_y = 0.263715	Postion_z = -0.724960
+Speed_x = 0.277921	Speed_y = 0.000000	Speed_z = -49.433726
+Acc_x = -0.083880	Acc_y = 0.000000	Acc_z = -19.617413
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 271
+Position_x = 0.269240	Position_y = 0.269240	Postion_z = -0.727329
+Speed_x = 0.276254	Speed_y = 0.000000	Speed_z = -49.828429
+Acc_x = -0.083376	Acc_y = 0.000000	Acc_z = -19.735118
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 272
+Position_x = 0.274732	Position_y = 0.274732	Postion_z = -0.729778
+Speed_x = 0.274596	Speed_y = 0.000000	Speed_z = -50.225499
+Acc_x = -0.082876	Acc_y = 0.000000	Acc_z = -19.853529
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 273
+Position_x = 0.280191	Position_y = 0.280191	Postion_z = -0.732308
+Speed_x = 0.272949	Speed_y = 0.000000	Speed_z = -50.624952
+Acc_x = -0.082379	Acc_y = 0.000000	Acc_z = -19.972650
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 274
+Position_x = 0.285617	Position_y = 0.285617	Postion_z = -0.734919
+Speed_x = 0.271311	Speed_y = 0.000000	Speed_z = -51.026802
+Acc_x = -0.081885	Acc_y = 0.000000	Acc_z = -20.092486
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 275
+Position_x = 0.291011	Position_y = 0.291011	Postion_z = -0.737611
+Speed_x = 0.269683	Speed_y = 0.000000	Speed_z = -51.431063
+Acc_x = -0.081393	Acc_y = 0.000000	Acc_z = -20.213041
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 276
+Position_x = 0.296372	Position_y = 0.296372	Postion_z = -0.740383
+Speed_x = 0.268065	Speed_y = 0.000000	Speed_z = -51.837749
+Acc_x = -0.080905	Acc_y = 0.000000	Acc_z = -20.334319
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 277
+Position_x = 0.301701	Position_y = 0.301701	Postion_z = -0.743237
+Speed_x = 0.266457	Speed_y = 0.000000	Speed_z = -52.246876
+Acc_x = -0.080420	Acc_y = 0.000000	Acc_z = -20.456325
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 278
+Position_x = 0.306998	Position_y = 0.306998	Postion_z = -0.746171
+Speed_x = 0.264858	Speed_y = 0.000000	Speed_z = -52.658457
+Acc_x = -0.079937	Acc_y = 0.000000	Acc_z = -20.579063
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 279
+Position_x = 0.312264	Position_y = 0.312264	Postion_z = -0.749187
+Speed_x = 0.263269	Speed_y = 0.000000	Speed_z = -53.072508
+Acc_x = -0.079457	Acc_y = 0.000000	Acc_z = -20.702537
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 280
+Position_x = 0.317497	Position_y = 0.317497	Postion_z = -0.752284
+Speed_x = 0.261689	Speed_y = 0.000000	Speed_z = -53.489043
+Acc_x = -0.078981	Acc_y = 0.000000	Acc_z = -20.826752
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 281
+Position_x = 0.322700	Position_y = 0.322700	Postion_z = -0.755462
+Speed_x = 0.260119	Speed_y = 0.000000	Speed_z = -53.908077
+Acc_x = -0.078507	Acc_y = 0.000000	Acc_z = -20.951713
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 282
+Position_x = 0.327871	Position_y = 0.327871	Postion_z = -0.758722
+Speed_x = 0.258558	Speed_y = 0.000000	Speed_z = -54.329625
+Acc_x = -0.078036	Acc_y = 0.000000	Acc_z = -21.077423
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 283
+Position_x = 0.333011	Position_y = 0.333011	Postion_z = -0.762063
+Speed_x = 0.257007	Speed_y = 0.000000	Speed_z = -54.753703
+Acc_x = -0.077568	Acc_y = 0.000000	Acc_z = -21.203888
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 284
+Position_x = 0.338120	Position_y = 0.338120	Postion_z = -0.765486
+Speed_x = 0.255465	Speed_y = 0.000000	Speed_z = -55.180325
+Acc_x = -0.077102	Acc_y = 0.000000	Acc_z = -21.331111
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 285
+Position_x = 0.343199	Position_y = 0.343199	Postion_z = -0.768991
+Speed_x = 0.253932	Speed_y = 0.000000	Speed_z = -55.609507
+Acc_x = -0.076640	Acc_y = 0.000000	Acc_z = -21.459098
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 286
+Position_x = 0.348247	Position_y = 0.348247	Postion_z = -0.772578
+Speed_x = 0.252409	Speed_y = 0.000000	Speed_z = -56.041264
+Acc_x = -0.076180	Acc_y = 0.000000	Acc_z = -21.587852
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 287
+Position_x = 0.353265	Position_y = 0.353265	Postion_z = -0.776247
+Speed_x = 0.250894	Speed_y = 0.000000	Speed_z = -56.475612
+Acc_x = -0.075723	Acc_y = 0.000000	Acc_z = -21.717379
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 288
+Position_x = 0.358253	Position_y = 0.358253	Postion_z = -0.779999
+Speed_x = 0.249389	Speed_y = 0.000000	Speed_z = -56.912566
+Acc_x = -0.075268	Acc_y = 0.000000	Acc_z = -21.847684
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 289
+Position_x = 0.363211	Position_y = 0.363211	Postion_z = -0.783832
+Speed_x = 0.247893	Speed_y = 0.000000	Speed_z = -57.352141
+Acc_x = -0.074817	Acc_y = 0.000000	Acc_z = -21.978770
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 290
+Position_x = 0.368139	Position_y = 0.368139	Postion_z = -0.787748
+Speed_x = 0.246405	Speed_y = 0.000000	Speed_z = -57.794354
+Acc_x = -0.074368	Acc_y = 0.000000	Acc_z = -22.110642
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 291
+Position_x = 0.373037	Position_y = 0.373037	Postion_z = -0.791747
+Speed_x = 0.244927	Speed_y = 0.000000	Speed_z = -58.239220
+Acc_x = -0.073922	Acc_y = 0.000000	Acc_z = -22.243306
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 292
+Position_x = 0.377906	Position_y = 0.377906	Postion_z = -0.795829
+Speed_x = 0.243457	Speed_y = 0.000000	Speed_z = -58.686755
+Acc_x = -0.073478	Acc_y = 0.000000	Acc_z = -22.376766
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 293
+Position_x = 0.382746	Position_y = 0.382746	Postion_z = -0.799993
+Speed_x = 0.241996	Speed_y = 0.000000	Speed_z = -59.136976
+Acc_x = -0.073037	Acc_y = 0.000000	Acc_z = -22.511027
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 294
+Position_x = 0.387557	Position_y = 0.387557	Postion_z = -0.804241
+Speed_x = 0.240544	Speed_y = 0.000000	Speed_z = -59.589898
+Acc_x = -0.072599	Acc_y = 0.000000	Acc_z = -22.646093
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 295
+Position_x = 0.392339	Position_y = 0.392339	Postion_z = -0.808571
+Speed_x = 0.239101	Speed_y = 0.000000	Speed_z = -60.045537
+Acc_x = -0.072163	Acc_y = 0.000000	Acc_z = -22.781969
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 296
+Position_x = 0.397093	Position_y = 0.397093	Postion_z = -0.812986
+Speed_x = 0.237667	Speed_y = 0.000000	Speed_z = -60.503910
+Acc_x = -0.071730	Acc_y = 0.000000	Acc_z = -22.918661
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 297
+Position_x = 0.401817	Position_y = 0.401817	Postion_z = -0.817483
+Speed_x = 0.236241	Speed_y = 0.000000	Speed_z = -60.965034
+Acc_x = -0.071300	Acc_y = 0.000000	Acc_z = -23.056173
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 298
+Position_x = 0.406514	Position_y = 0.406514	Postion_z = -0.822065
+Speed_x = 0.234823	Speed_y = 0.000000	Speed_z = -61.428924
+Acc_x = -0.070872	Acc_y = 0.000000	Acc_z = -23.194510
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 299
+Position_x = 0.411182	Position_y = 0.411182	Postion_z = -0.826730
+Speed_x = 0.233414	Speed_y = 0.000000	Speed_z = -61.895597
+Acc_x = -0.070447	Acc_y = 0.000000	Acc_z = -23.333677
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 300
+Position_x = 0.415822	Position_y = 0.415822	Postion_z = -0.831479
+Speed_x = 0.232014	Speed_y = 0.000000	Speed_z = -62.365071
+Acc_x = -0.070024	Acc_y = 0.000000	Acc_z = -23.473679
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 301
+Position_x = 0.419835	Position_y = 0.419835	Postion_z = -0.833950
+Speed_x = 0.200622	Speed_y = 0.000000	Speed_z = -62.689261
+Acc_x = -1.569604	Acc_y = 0.000000	Acc_z = -16.209521
+SenAcc_x = -3.000000	SenAcc_y = 0.000000	SenAcc_z = 5.000000
+
+
+---------------------------
+Iteration No: 302
+Position_x = 0.423223	Position_y = 0.423223	Postion_z = -0.837085
+Speed_x = 0.169418	Speed_y = 0.000000	Speed_z = -63.015397
+Acc_x = -1.560186	Acc_y = 0.000000	Acc_z = -16.306778
+SenAcc_x = -3.000000	SenAcc_y = 0.000000	SenAcc_z = 5.000000
+
+
+---------------------------
+Iteration No: 303
+Position_x = 0.425991	Position_y = 0.425991	Postion_z = -0.840879
+Speed_x = 0.138401	Speed_y = 0.000000	Speed_z = -63.343489
+Acc_x = -1.550825	Acc_y = 0.000000	Acc_z = -16.404619
+SenAcc_x = -3.000000	SenAcc_y = 0.000000	SenAcc_z = 5.000000
+
+
+---------------------------
+Iteration No: 304
+Position_x = 0.428143	Position_y = 0.428143	Postion_z = -0.845328
+Speed_x = 0.107571	Speed_y = 0.000000	Speed_z = -63.673550
+Acc_x = -1.541520	Acc_y = 0.000000	Acc_z = -16.503047
+SenAcc_x = -3.000000	SenAcc_y = 0.000000	SenAcc_z = 5.000000
+
+
+---------------------------
+Iteration No: 305
+Position_x = 0.429681	Position_y = 0.429681	Postion_z = -0.850431
+Speed_x = 0.076926	Speed_y = 0.000000	Speed_z = -64.005592
+Acc_x = -1.532271	Acc_y = 0.000000	Acc_z = -16.602065
+SenAcc_x = -3.000000	SenAcc_y = 0.000000	SenAcc_z = 5.000000
+
+
+---------------------------
+Iteration No: 306
+Position_x = 0.430610	Position_y = 0.430610	Postion_z = -0.856182
+Speed_x = 0.046464	Speed_y = 0.000000	Speed_z = -64.339625
+Acc_x = -1.523078	Acc_y = 0.000000	Acc_z = -16.701677
+SenAcc_x = -3.000000	SenAcc_y = 0.000000	SenAcc_z = 5.000000
+
+
+---------------------------
+Iteration No: 307
+Position_x = 0.430934	Position_y = 0.430934	Postion_z = -0.862579
+Speed_x = 0.016185	Speed_y = 0.000000	Speed_z = -64.675663
+Acc_x = -1.513939	Acc_y = 0.000000	Acc_z = -16.801888
+SenAcc_x = -3.000000	SenAcc_y = 0.000000	SenAcc_z = 5.000000
+
+
+---------------------------
+Iteration No: 308
+Position_x = 0.430656	Position_y = 0.430656	Postion_z = -0.869618
+Speed_x = -0.013912	Speed_y = 0.000000	Speed_z = -65.013717
+Acc_x = -1.504856	Acc_y = 0.000000	Acc_z = -16.902699
+SenAcc_x = -3.000000	SenAcc_y = 0.000000	SenAcc_z = 5.000000
+
+
+---------------------------
+Iteration No: 309
+Position_x = 0.429776	Position_y = 0.429776	Postion_z = -0.877300
+Speed_x = -0.043995	Speed_y = 0.000000	Speed_z = -65.353799
+Acc_x = -1.504174	Acc_y = 0.000000	Acc_z = -17.004115
+SenAcc_x = -3.000000	SenAcc_y = 0.000000	SenAcc_z = 5.000000
+
+
+---------------------------
+Iteration No: 310
+Position_x = 0.428291	Position_y = 0.428291	Postion_z = -0.885628
+Speed_x = -0.074259	Speed_y = 0.000000	Speed_z = -65.695922
+Acc_x = -1.513199	Acc_y = 0.000000	Acc_z = -17.106140
+SenAcc_x = -3.000000	SenAcc_y = 0.000000	SenAcc_z = 5.000000
+
+
+---------------------------
+Iteration No: 311
+Position_x = 0.426197	Position_y = 0.426197	Postion_z = -0.894605
+Speed_x = -0.104705	Speed_y = 0.000000	Speed_z = -66.040097
+Acc_x = -1.522278	Acc_y = 0.000000	Acc_z = -17.208777
+SenAcc_x = -3.000000	SenAcc_y = 0.000000	SenAcc_z = 5.000000
+
+
+---------------------------
+Iteration No: 312
+Position_x = 0.423490	Position_y = 0.423490	Postion_z = -0.904237
+Speed_x = -0.135333	Speed_y = 0.000000	Speed_z = -66.386338
+Acc_x = -1.531411	Acc_y = 0.000000	Acc_z = -17.312029
+SenAcc_x = -3.000000	SenAcc_y = 0.000000	SenAcc_z = 5.000000
+
+
+---------------------------
+Iteration No: 313
+Position_x = 0.420167	Position_y = 0.420167	Postion_z = -0.914526
+Speed_x = -0.166145	Speed_y = 0.000000	Speed_z = -66.734656
+Acc_x = -1.540600	Acc_y = 0.000000	Acc_z = -17.415901
+SenAcc_x = -3.000000	SenAcc_y = 0.000000	SenAcc_z = 5.000000
+
+
+---------------------------
+Iteration No: 314
+Position_x = 0.416224	Position_y = 0.416224	Postion_z = -0.925477
+Speed_x = -0.197142	Speed_y = 0.000000	Speed_z = -67.085064
+Acc_x = -1.549844	Acc_y = 0.000000	Acc_z = -17.520397
+SenAcc_x = -3.000000	SenAcc_y = 0.000000	SenAcc_z = 5.000000
+
+
+---------------------------
+Iteration No: 315
+Position_x = 0.411658	Position_y = 0.411658	Postion_z = -0.937094
+Speed_x = -0.228325	Speed_y = 0.000000	Speed_z = -67.437574
+Acc_x = -1.559143	Acc_y = 0.000000	Acc_z = -17.625519
+SenAcc_x = -3.000000	SenAcc_y = 0.000000	SenAcc_z = 5.000000
+
+
+---------------------------
+Iteration No: 316
+Position_x = 0.406464	Position_y = 0.406464	Postion_z = -0.949380
+Speed_x = -0.259695	Speed_y = 0.000000	Speed_z = -67.792200
+Acc_x = -1.568497	Acc_y = 0.000000	Acc_z = -17.731272
+SenAcc_x = -3.000000	SenAcc_y = 0.000000	SenAcc_z = 5.000000
+
+
+---------------------------
+Iteration No: 317
+Position_x = 0.400639	Position_y = 0.400639	Postion_z = -0.962340
+Speed_x = -0.291253	Speed_y = 0.000000	Speed_z = -68.148953
+Acc_x = -1.577908	Acc_y = 0.000000	Acc_z = -17.837660
+SenAcc_x = -3.000000	SenAcc_y = 0.000000	SenAcc_z = 5.000000
+
+
+---------------------------
+Iteration No: 318
+Position_x = 0.394179	Position_y = 0.394179	Postion_z = -0.975978
+Speed_x = -0.323000	Speed_y = 0.000000	Speed_z = -68.507847
+Acc_x = -1.587376	Acc_y = 0.000000	Acc_z = -17.944686
+SenAcc_x = -3.000000	SenAcc_y = 0.000000	SenAcc_z = 5.000000
+
+
+---------------------------
+Iteration No: 319
+Position_x = 0.387080	Position_y = 0.387080	Postion_z = -0.990298
+Speed_x = -0.354938	Speed_y = 0.000000	Speed_z = -68.868894
+Acc_x = -1.596900	Acc_y = 0.000000	Acc_z = -18.052354
+SenAcc_x = -3.000000	SenAcc_y = 0.000000	SenAcc_z = 5.000000
+
+
+---------------------------
+Iteration No: 320
+Position_x = 0.379339	Position_y = 0.379339	Postion_z = -1.005303
+Speed_x = -0.387068	Speed_y = 0.000000	Speed_z = -69.232107
+Acc_x = -1.606482	Acc_y = 0.000000	Acc_z = -18.160668
+SenAcc_x = -3.000000	SenAcc_y = 0.000000	SenAcc_z = 5.000000
+
+
+---------------------------
+Iteration No: 321
+Position_x = 0.371551	Position_y = 0.371551	Postion_z = -1.023361
+Speed_x = -0.389391	Speed_y = 0.000000	Speed_z = -69.745600
+Acc_x = -0.116120	Acc_y = 0.000000	Acc_z = -25.674632
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 322
+Position_x = 0.363716	Position_y = 0.363716	Postion_z = -1.041527
+Speed_x = -0.391727	Speed_y = 0.000000	Speed_z = -70.262173
+Acc_x = -0.116817	Acc_y = 0.000000	Acc_z = -25.828680
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 323
+Position_x = 0.355835	Position_y = 0.355835	Postion_z = -1.059802
+Speed_x = -0.394077	Speed_y = 0.000000	Speed_z = -70.781847
+Acc_x = -0.117518	Acc_y = 0.000000	Acc_z = -25.983652
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 324
+Position_x = 0.347906	Position_y = 0.347906	Postion_z = -1.078187
+Speed_x = -0.396442	Speed_y = 0.000000	Speed_z = -71.304638
+Acc_x = -0.118223	Acc_y = 0.000000	Acc_z = -26.139554
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 325
+Position_x = 0.339930	Position_y = 0.339930	Postion_z = -1.096682
+Speed_x = -0.398820	Speed_y = 0.000000	Speed_z = -71.830565
+Acc_x = -0.118933	Acc_y = 0.000000	Acc_z = -26.296391
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 326
+Position_x = 0.331905	Position_y = 0.331905	Postion_z = -1.115288
+Speed_x = -0.401213	Speed_y = 0.000000	Speed_z = -72.359649
+Acc_x = -0.119646	Acc_y = 0.000000	Acc_z = -26.454170
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 327
+Position_x = 0.323833	Position_y = 0.323833	Postion_z = -1.134005
+Speed_x = -0.403621	Speed_y = 0.000000	Speed_z = -72.891907
+Acc_x = -0.120364	Acc_y = 0.000000	Acc_z = -26.612895
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 328
+Position_x = 0.315712	Position_y = 0.315712	Postion_z = -1.152835
+Speed_x = -0.406042	Speed_y = 0.000000	Speed_z = -73.427358
+Acc_x = -0.121086	Acc_y = 0.000000	Acc_z = -26.772572
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 329
+Position_x = 0.307543	Position_y = 0.307543	Postion_z = -1.171778
+Speed_x = -0.408479	Speed_y = 0.000000	Speed_z = -73.966022
+Acc_x = -0.121813	Acc_y = 0.000000	Acc_z = -26.933207
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 330
+Position_x = 0.299324	Position_y = 0.299324	Postion_z = -1.190834
+Speed_x = -0.410929	Speed_y = 0.000000	Speed_z = -74.507918
+Acc_x = -0.122544	Acc_y = 0.000000	Acc_z = -27.094807
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 331
+Position_x = 0.291056	Position_y = 0.291056	Postion_z = -1.210005
+Speed_x = -0.413395	Speed_y = 0.000000	Speed_z = -75.053066
+Acc_x = -0.123279	Acc_y = 0.000000	Acc_z = -27.257376
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 332
+Position_x = 0.282739	Position_y = 0.282739	Postion_z = -1.229291
+Speed_x = -0.415875	Speed_y = 0.000000	Speed_z = -75.601484
+Acc_x = -0.124018	Acc_y = 0.000000	Acc_z = -27.420920
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 333
+Position_x = 0.274371	Position_y = 0.274371	Postion_z = -1.248693
+Speed_x = -0.418371	Speed_y = 0.000000	Speed_z = -76.153193
+Acc_x = -0.124763	Acc_y = 0.000000	Acc_z = -27.585445
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 334
+Position_x = 0.265953	Position_y = 0.265953	Postion_z = -1.268211
+Speed_x = -0.420881	Speed_y = 0.000000	Speed_z = -76.708212
+Acc_x = -0.125511	Acc_y = 0.000000	Acc_z = -27.750958
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 335
+Position_x = 0.257485	Position_y = 0.257485	Postion_z = -1.287846
+Speed_x = -0.423406	Speed_y = 0.000000	Speed_z = -77.266562
+Acc_x = -0.126264	Acc_y = 0.000000	Acc_z = -27.917464
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 336
+Position_x = 0.248966	Position_y = 0.248966	Postion_z = -1.307599
+Speed_x = -0.425947	Speed_y = 0.000000	Speed_z = -77.828261
+Acc_x = -0.127022	Acc_y = 0.000000	Acc_z = -28.084969
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 337
+Position_x = 0.240396	Position_y = 0.240396	Postion_z = -1.327470
+Speed_x = -0.428502	Speed_y = 0.000000	Speed_z = -78.393331
+Acc_x = -0.127784	Acc_y = 0.000000	Acc_z = -28.253478
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 338
+Position_x = 0.231775	Position_y = 0.231775	Postion_z = -1.347461
+Speed_x = -0.431073	Speed_y = 0.000000	Speed_z = -78.961791
+Acc_x = -0.128551	Acc_y = 0.000000	Acc_z = -28.422999
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 339
+Position_x = 0.223102	Position_y = 0.223102	Postion_z = -1.367571
+Speed_x = -0.433660	Speed_y = 0.000000	Speed_z = -79.533661
+Acc_x = -0.129322	Acc_y = 0.000000	Acc_z = -28.593537
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 340
+Position_x = 0.214376	Position_y = 0.214376	Postion_z = -1.387803
+Speed_x = -0.436262	Speed_y = 0.000000	Speed_z = -80.108963
+Acc_x = -0.130098	Acc_y = 0.000000	Acc_z = -28.765098
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 341
+Position_x = 0.205599	Position_y = 0.205599	Postion_z = -1.408155
+Speed_x = -0.438879	Speed_y = 0.000000	Speed_z = -80.687717
+Acc_x = -0.130878	Acc_y = 0.000000	Acc_z = -28.937689
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 342
+Position_x = 0.196769	Position_y = 0.196769	Postion_z = -1.428630
+Speed_x = -0.441512	Speed_y = 0.000000	Speed_z = -81.269943
+Acc_x = -0.131664	Acc_y = 0.000000	Acc_z = -29.111315
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 343
+Position_x = 0.187885	Position_y = 0.187885	Postion_z = -1.449228
+Speed_x = -0.444162	Speed_y = 0.000000	Speed_z = -81.855663
+Acc_x = -0.132454	Acc_y = 0.000000	Acc_z = -29.285983
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 344
+Position_x = 0.178949	Position_y = 0.178949	Postion_z = -1.469949
+Speed_x = -0.446826	Speed_y = 0.000000	Speed_z = -82.444897
+Acc_x = -0.133248	Acc_y = 0.000000	Acc_z = -29.461699
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 345
+Position_x = 0.169959	Position_y = 0.169959	Postion_z = -1.490795
+Speed_x = -0.449507	Speed_y = 0.000000	Speed_z = -83.037666
+Acc_x = -0.134048	Acc_y = 0.000000	Acc_z = -29.638469
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 346
+Position_x = 0.160915	Position_y = 0.160915	Postion_z = -1.511765
+Speed_x = -0.452204	Speed_y = 0.000000	Speed_z = -83.633992
+Acc_x = -0.134852	Acc_y = 0.000000	Acc_z = -29.816300
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 347
+Position_x = 0.151816	Position_y = 0.151816	Postion_z = -1.532862
+Speed_x = -0.454918	Speed_y = 0.000000	Speed_z = -84.233896
+Acc_x = -0.135661	Acc_y = 0.000000	Acc_z = -29.995198
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 348
+Position_x = 0.142663	Position_y = 0.142663	Postion_z = -1.554085
+Speed_x = -0.457647	Speed_y = 0.000000	Speed_z = -84.837400
+Acc_x = -0.136475	Acc_y = 0.000000	Acc_z = -30.175169
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 349
+Position_x = 0.133456	Position_y = 0.133456	Postion_z = -1.575435
+Speed_x = -0.460393	Speed_y = 0.000000	Speed_z = -85.444524
+Acc_x = -0.137294	Acc_y = 0.000000	Acc_z = -30.356220
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 350
+Position_x = 0.124192	Position_y = 0.124192	Postion_z = -1.596913
+Speed_x = -0.463155	Speed_y = 0.000000	Speed_z = -86.055291
+Acc_x = -0.138118	Acc_y = 0.000000	Acc_z = -30.538357
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 351
+Position_x = 0.114874	Position_y = 0.114874	Postion_z = -1.618521
+Speed_x = -0.465934	Speed_y = 0.000000	Speed_z = -86.669723
+Acc_x = -0.138947	Acc_y = 0.000000	Acc_z = -30.721587
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 352
+Position_x = 0.105499	Position_y = 0.105499	Postion_z = -1.640258
+Speed_x = -0.468730	Speed_y = 0.000000	Speed_z = -87.287841
+Acc_x = -0.139780	Acc_y = 0.000000	Acc_z = -30.905917
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 353
+Position_x = 0.096068	Position_y = 0.096068	Postion_z = -1.662125
+Speed_x = -0.471542	Speed_y = 0.000000	Speed_z = -87.909668
+Acc_x = -0.140619	Acc_y = 0.000000	Acc_z = -31.091352
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 354
+Position_x = 0.086581	Position_y = 0.086581	Postion_z = -1.684124
+Speed_x = -0.474372	Speed_y = 0.000000	Speed_z = -88.535226
+Acc_x = -0.141463	Acc_y = 0.000000	Acc_z = -31.277901
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 355
+Position_x = 0.077036	Position_y = 0.077036	Postion_z = -1.706254
+Speed_x = -0.477218	Speed_y = 0.000000	Speed_z = -89.164538
+Acc_x = -0.142311	Acc_y = 0.000000	Acc_z = -31.465568
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 356
+Position_x = 0.067435	Position_y = 0.067435	Postion_z = -1.728518
+Speed_x = -0.480081	Speed_y = 0.000000	Speed_z = -89.797625
+Acc_x = -0.143165	Acc_y = 0.000000	Acc_z = -31.654361
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 357
+Position_x = 0.057776	Position_y = 0.057776	Postion_z = -1.750915
+Speed_x = -0.482962	Speed_y = 0.000000	Speed_z = -90.434511
+Acc_x = -0.144024	Acc_y = 0.000000	Acc_z = -31.844288
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 358
+Position_x = 0.048058	Position_y = 0.048058	Postion_z = -1.773446
+Speed_x = -0.485859	Speed_y = 0.000000	Speed_z = -91.075218
+Acc_x = -0.144889	Acc_y = 0.000000	Acc_z = -32.035353
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 359
+Position_x = 0.038283	Position_y = 0.038283	Postion_z = -1.796112
+Speed_x = -0.488775	Speed_y = 0.000000	Speed_z = -91.719769
+Acc_x = -0.145758	Acc_y = 0.000000	Acc_z = -32.227565
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 360
+Position_x = 0.028449	Position_y = 0.028449	Postion_z = -1.818915
+Speed_x = -0.491707	Speed_y = 0.000000	Speed_z = -92.368188
+Acc_x = -0.146632	Acc_y = 0.000000	Acc_z = -32.420931
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 361
+Position_x = 0.018556	Position_y = 0.018556	Postion_z = -1.841854
+Speed_x = -0.494657	Speed_y = 0.000000	Speed_z = -93.020497
+Acc_x = -0.147512	Acc_y = 0.000000	Acc_z = -32.615456
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 362
+Position_x = 0.008603	Position_y = 0.008603	Postion_z = -1.864931
+Speed_x = -0.497625	Speed_y = 0.000000	Speed_z = -93.676720
+Acc_x = -0.148397	Acc_y = 0.000000	Acc_z = -32.811149
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 363
+Position_x = -0.001409	Position_y = -0.001409	Postion_z = -1.888147
+Speed_x = -0.500611	Speed_y = 0.000000	Speed_z = -94.336880
+Acc_x = -0.149288	Acc_y = 0.000000	Acc_z = -33.008016
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 364
+Position_x = -0.011481	Position_y = -0.011481	Postion_z = -1.911501
+Speed_x = -0.503615	Speed_y = 0.000000	Speed_z = -95.001001
+Acc_x = -0.150183	Acc_y = 0.000000	Acc_z = -33.206064
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 365
+Position_x = -0.021614	Position_y = -0.021614	Postion_z = -1.934996
+Speed_x = -0.506637	Speed_y = 0.000000	Speed_z = -95.669107
+Acc_x = -0.151084	Acc_y = 0.000000	Acc_z = -33.405300
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 366
+Position_x = -0.031808	Position_y = -0.031808	Postion_z = -1.958632
+Speed_x = -0.509676	Speed_y = 0.000000	Speed_z = -96.341222
+Acc_x = -0.151991	Acc_y = 0.000000	Acc_z = -33.605732
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 367
+Position_x = -0.042062	Position_y = -0.042062	Postion_z = -1.982410
+Speed_x = -0.512734	Speed_y = 0.000000	Speed_z = -97.017369
+Acc_x = -0.152903	Acc_y = 0.000000	Acc_z = -33.807367
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 368
+Position_x = -0.052379	Position_y = -0.052379	Postion_z = -2.006330
+Speed_x = -0.515811	Speed_y = 0.000000	Speed_z = -97.697574
+Acc_x = -0.153820	Acc_y = 0.000000	Acc_z = -34.010211
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 369
+Position_x = -0.062757	Position_y = -0.062757	Postion_z = -2.030394
+Speed_x = -0.518906	Speed_y = 0.000000	Speed_z = -98.381859
+Acc_x = -0.154743	Acc_y = 0.000000	Acc_z = -34.214272
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 370
+Position_x = -0.073197	Position_y = -0.073197	Postion_z = -2.054602
+Speed_x = -0.522019	Speed_y = 0.000000	Speed_z = -99.070250
+Acc_x = -0.155672	Acc_y = 0.000000	Acc_z = -34.419558
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 371
+Position_x = -0.083700	Position_y = -0.083700	Postion_z = -2.078956
+Speed_x = -0.525151	Speed_y = 0.000000	Speed_z = -99.762772
+Acc_x = -0.156606	Acc_y = 0.000000	Acc_z = -34.626075
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 372
+Position_x = -0.094266	Position_y = -0.094266	Postion_z = -2.103455
+Speed_x = -0.528302	Speed_y = 0.000000	Speed_z = -100.459448
+Acc_x = -0.157545	Acc_y = 0.000000	Acc_z = -34.833832
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 373
+Position_x = -0.104896	Position_y = -0.104896	Postion_z = -2.128102
+Speed_x = -0.531472	Speed_y = 0.000000	Speed_z = -101.160305
+Acc_x = -0.158491	Acc_y = 0.000000	Acc_z = -35.042835
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 374
+Position_x = -0.115589	Position_y = -0.115589	Postion_z = -2.152896
+Speed_x = -0.534661	Speed_y = 0.000000	Speed_z = -101.865367
+Acc_x = -0.159442	Acc_y = 0.000000	Acc_z = -35.253092
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 375
+Position_x = -0.126346	Position_y = -0.126346	Postion_z = -2.177839
+Speed_x = -0.537869	Speed_y = 0.000000	Speed_z = -102.574659
+Acc_x = -0.160398	Acc_y = 0.000000	Acc_z = -35.464610
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 376
+Position_x = -0.137168	Position_y = -0.137168	Postion_z = -2.202932
+Speed_x = -0.541096	Speed_y = 0.000000	Speed_z = -103.288207
+Acc_x = -0.161361	Acc_y = 0.000000	Acc_z = -35.677398
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 377
+Position_x = -0.148055	Position_y = -0.148055	Postion_z = -2.228176
+Speed_x = -0.544343	Speed_y = 0.000000	Speed_z = -104.006036
+Acc_x = -0.162329	Acc_y = 0.000000	Acc_z = -35.891462
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 378
+Position_x = -0.159007	Position_y = -0.159007	Postion_z = -2.253571
+Speed_x = -0.547609	Speed_y = 0.000000	Speed_z = -104.728173
+Acc_x = -0.163303	Acc_y = 0.000000	Acc_z = -36.106811
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 379
+Position_x = -0.170025	Position_y = -0.170025	Postion_z = -2.279118
+Speed_x = -0.550894	Speed_y = 0.000000	Speed_z = -105.454642
+Acc_x = -0.164283	Acc_y = 0.000000	Acc_z = -36.323452
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 380
+Position_x = -0.181109	Position_y = -0.181109	Postion_z = -2.304818
+Speed_x = -0.554200	Speed_y = 0.000000	Speed_z = -106.185469
+Acc_x = -0.165268	Acc_y = 0.000000	Acc_z = -36.541392
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 381
+Position_x = -0.192259	Position_y = -0.192259	Postion_z = -2.330673
+Speed_x = -0.557525	Speed_y = 0.000000	Speed_z = -106.920682
+Acc_x = -0.166260	Acc_y = 0.000000	Acc_z = -36.760641
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 382
+Position_x = -0.203477	Position_y = -0.203477	Postion_z = -2.356683
+Speed_x = -0.560870	Speed_y = 0.000000	Speed_z = -107.660306
+Acc_x = -0.167257	Acc_y = 0.000000	Acc_z = -36.981205
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 383
+Position_x = -0.214762	Position_y = -0.214762	Postion_z = -2.382849
+Speed_x = -0.564235	Speed_y = 0.000000	Speed_z = -108.404368
+Acc_x = -0.168261	Acc_y = 0.000000	Acc_z = -37.203092
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 384
+Position_x = -0.226114	Position_y = -0.226114	Postion_z = -2.409172
+Speed_x = -0.567621	Speed_y = 0.000000	Speed_z = -109.152894
+Acc_x = -0.169271	Acc_y = 0.000000	Acc_z = -37.426310
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 385
+Position_x = -0.237535	Position_y = -0.237535	Postion_z = -2.435653
+Speed_x = -0.571026	Speed_y = 0.000000	Speed_z = -109.905912
+Acc_x = -0.170286	Acc_y = 0.000000	Acc_z = -37.650868
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 386
+Position_x = -0.249024	Position_y = -0.249024	Postion_z = -2.462293
+Speed_x = -0.574452	Speed_y = 0.000000	Speed_z = -110.663447
+Acc_x = -0.171308	Acc_y = 0.000000	Acc_z = -37.876774
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 387
+Position_x = -0.260582	Position_y = -0.260582	Postion_z = -2.489092
+Speed_x = -0.577899	Speed_y = 0.000000	Speed_z = -111.425528
+Acc_x = -0.172336	Acc_y = 0.000000	Acc_z = -38.104034
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 388
+Position_x = -0.272209	Position_y = -0.272209	Postion_z = -2.516052
+Speed_x = -0.581367	Speed_y = 0.000000	Speed_z = -112.192181
+Acc_x = -0.173370	Acc_y = 0.000000	Acc_z = -38.332658
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 389
+Position_x = -0.283906	Position_y = -0.283906	Postion_z = -2.543175
+Speed_x = -0.584855	Speed_y = 0.000000	Speed_z = -112.963434
+Acc_x = -0.174410	Acc_y = 0.000000	Acc_z = -38.562654
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 390
+Position_x = -0.295673	Position_y = -0.295673	Postion_z = -2.570460
+Speed_x = -0.588364	Speed_y = 0.000000	Speed_z = -113.739315
+Acc_x = -0.175456	Acc_y = 0.000000	Acc_z = -38.794030
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 391
+Position_x = -0.307511	Position_y = -0.307511	Postion_z = -2.597908
+Speed_x = -0.591894	Speed_y = 0.000000	Speed_z = -114.519851
+Acc_x = -0.176509	Acc_y = 0.000000	Acc_z = -39.026794
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 392
+Position_x = -0.319420	Position_y = -0.319420	Postion_z = -2.625521
+Speed_x = -0.595445	Speed_y = 0.000000	Speed_z = -115.305070
+Acc_x = -0.177568	Acc_y = 0.000000	Acc_z = -39.260955
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 393
+Position_x = -0.331400	Position_y = -0.331400	Postion_z = -2.653300
+Speed_x = -0.599018	Speed_y = 0.000000	Speed_z = -116.095000
+Acc_x = -0.178634	Acc_y = 0.000000	Acc_z = -39.496521
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 394
+Position_x = -0.343453	Position_y = -0.343453	Postion_z = -2.681246
+Speed_x = -0.602612	Speed_y = 0.000000	Speed_z = -116.889670
+Acc_x = -0.179705	Acc_y = 0.000000	Acc_z = -39.733500
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 395
+Position_x = -0.355577	Position_y = -0.355577	Postion_z = -2.709359
+Speed_x = -0.606228	Speed_y = 0.000000	Speed_z = -117.689108
+Acc_x = -0.180784	Acc_y = 0.000000	Acc_z = -39.971901
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 396
+Position_x = -0.367775	Position_y = -0.367775	Postion_z = -2.737641
+Speed_x = -0.609865	Speed_y = 0.000000	Speed_z = -118.493343
+Acc_x = -0.181868	Acc_y = 0.000000	Acc_z = -40.211732
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 397
+Position_x = -0.380045	Position_y = -0.380045	Postion_z = -2.766093
+Speed_x = -0.613524	Speed_y = 0.000000	Speed_z = -119.302403
+Acc_x = -0.182960	Acc_y = 0.000000	Acc_z = -40.453003
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 398
+Position_x = -0.392389	Position_y = -0.392389	Postion_z = -2.794715
+Speed_x = -0.617206	Speed_y = 0.000000	Speed_z = -120.116317
+Acc_x = -0.184057	Acc_y = 0.000000	Acc_z = -40.695721
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 399
+Position_x = -0.404807	Position_y = -0.404807	Postion_z = -2.823510
+Speed_x = -0.620909	Speed_y = 0.000000	Speed_z = -120.935115
+Acc_x = -0.185162	Acc_y = 0.000000	Acc_z = -40.939895
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+---------------------------
+Iteration No: 400
+Position_x = -0.417300	Position_y = -0.417300	Postion_z = -2.852476
+Speed_x = -0.624634	Speed_y = 0.000000	Speed_z = -121.758826
+Acc_x = -0.186273	Acc_y = 0.000000	Acc_z = -41.185535
+SenAcc_x = 0.000000	SenAcc_y = 0.000000	SenAcc_z = -9.810000
+
+
+
+EOF. G3T FVCKD.

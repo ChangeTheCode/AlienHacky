@@ -1,0 +1,64 @@
+Dieses Dokument soll einen groben Überblick über die Ideen hinter der
+sotwareseitigen Anbindung der Ballflugberechnung an den MH geben. Dazu werden
+die einzelnen Schritte der Implementierung beschrieben.
+
+1) Koordinatentransformation
+siehe: http://www.mathepedia.de/Koordinatentransformation.aspx
+Der Gedanke ist folgender: Es gibt ein Spielfeldkoordinatensystem, in dem
+gerechnet (und natürliche gespielt) wird. Da der Moving Head Scheinwerfer aber
+mitunter (und in unserem Fall ganz konkret) nicht genau über dem Ursprung
+dieses Systems hängt, muss das Koordinatensystem des MH so verschoben werden,
+dass es dem realen Aufhängungspunkt entspricht. Die Nomenklatur ist folgende:
+Das Koordinatensystem des Spielfelds ist genau in der Mitte dessen. Genau
+senkrecht darüber in Höhe des realen Aufhängungspunkts ist das "ideale
+Koordinatensystem" des Moving Heads. Das reale Koordinatensystem des Moving
+Heads hat seinen Ursprung beim realen Aufhängungspunkt des MH's, ist aber gleich
+orientiert wie sein idealer Konterpart (zumindest in unserer Applikation;
+mathematisch exakt müsste hier noch eine Verdrehung berücksichtigt werden).
+
+2) Darstellung eines Spielfeldpunkts im idealen MH Koordinatensystem
+Ein Punkt auf dem Spielfeld ist gegeben durch: seine x-Koordinate, seine y-
+Koordinate und theoretisch seine z-Koordinate; wir rechnen allerdings ohne
+Letztere. Vom idealen MH Koordinatensystem aus kann ein Punkt nun wie folgt
+dargestellt werden: Da der MH über Drehwinkel arbeitet, bietet sich eine Dar-
+stellung in Polarkoordinaten an (auf den Skizzen ist die Nomenklatur der Winkel
+ersichtlich). Um die Bewegung des Scheinwerferkopfes gering zu halten und
+Singularitäten zu vermeiden, werden die Stellwinkel wie auf den Skizzen
+dargestellt ermittelt.
+
+3) Darstellung eines Spielfeldpunktes im realen MH Koordinatensystem
+Diese erfolgt gleich wie obengenannte Darstellung, es wird lediglich der
+Verschiebungsvektor zwischen den beiden MH - Koordinatensystemen zum Punkt
+addiert.
+
+4) Umrechnung ins Scheinwerferwinkelsystem
+Da der verwendete MH - Scheinwerfer als Dubbel einzustufen ist, können wir ihm
+leider unser Koordinatensystem nicht beibringen und müssen selbst die Umrechnung
+unserer mahtematischen Winkel auf die Stellwinkel des MH vornehmen. Dies
+entspricht einer Addition von Offsets zu den errechneten Winkeln.
+
+5) Darstellung im Quellcode
+Siehe Quellcode ;-)
+
+6) Synchronisation mit dem Berechner
+Da der Berechner auf heutigen Prozessoren zweifelsfrei um Größenordnungen
+schneller arbeiten kann als die MH - Aktuatoren muss eine Art "Bremse" einge-
+führt werden, die die Berechnunggeschwindigkeit derart verlangsamt (bzw.
+konkreter: pausiert), sodass der Berechnungsfortschritt und die Stellung des
+Lichtpunkts einigermaßen zueinanderpassen. Dies kann grundsätzlich auf zwei
+Arten erfolgen: Zum einen kann der Berechnerthread durch "sleep()" oder
+Ähnliches gewissermaßen gedrosselt werden. Diese Lösung ist einfach in Soft-
+ware umzusetzen, erfordert aber Finetuning und ist dann spezifisch für einen
+Computer (auf dem der Server läuft) und einen Scheinwerfer. Die zweite Variante
+ist ein Softwaremechanismus, bei dem die Threads sich selbsttätig aufeinander
+abstimmen (konkret: der Schweinwerferthread den Berechner gewissermaßen
+"freigibt" um wieder einige Werte zu berechnen und danach wieder pausiert um den
+Scheinwerfer aufholen zu lassen). Dies ist zwar wesentlich komplexer zu
+implementieren, dafür jedoch funktional überlegen.
+Da selbstnatürlich alle Mitglieder der Aliens nur auf hochwertige Lösungen,
+unabhängig vom Arbeitsaufwand, aus sind und sie alle übelst 1337 sind, wurde
+zweitere Variante vorgezogen. Die vom Berechner generierten Daten werden dazu
+in eine sog. "ArrayBlockingQueue" (Unterklasse von BlockingQueue) geschrieben,
+wo sie vom Scheinwerfer Thread konsumiert werden, um den MH nachzustellen. Das
+Füllen dieser BlockingQueue erfolgt dabei nur "auf Wunsch" des Scheinwerfer-
+Threads, da dieser das langsamste Glied in der Kette ist
