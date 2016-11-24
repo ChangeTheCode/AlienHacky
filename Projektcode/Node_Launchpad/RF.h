@@ -5,8 +5,8 @@
  *      Author: Tobias
  */
 
-#ifndef RF_NODE_H_
-#define RF_NODE_H_
+#ifndef RF_H_
+#define RF_H_
 
 #include <ti/drivers/rf/RF.h>
 #include <ti/drivers/PIN.h>
@@ -24,6 +24,7 @@
 #include "smartrf_settings/smartrf_settings.h"
 
 #include "AlienTypes.h"
+#include "AlienUART.h"
 
 /* RX and TX Task Config */
 #define RX_TASK_STACK_SIZE 1024
@@ -66,7 +67,7 @@ extern BOOLEAN login_ok;
 extern BOOLEAN login_sent;
 
 void Alien_RF_init(void);
-void rx_rask_init(void);
+void rx_task_init(void);
 void tx_task_init(void);
 
-#endif /* RF_NODE_H_ */
+#endif /* RF_H_ */

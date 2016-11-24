@@ -31,8 +31,9 @@
  */
 
 /***** Includes *****/
+#include "RF.h"
+#include "timer.h"
 #include "pin.h"
-
 #include "Board.h"
 #include <ti/sysbios/BIOS.h>
 #include <xdc/runtime/System.h>  // This is needed as Board_initGeneral () uses System_abort but didn't include it?
@@ -48,6 +49,7 @@ int main(void)
     /* Open pins */
     LED_init();
     button_init();
+    timer_init();
 
     // Init the RF Module
 	Alien_RF_init();

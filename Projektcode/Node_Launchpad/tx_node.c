@@ -5,7 +5,8 @@
  *      Author: Tobias
  */
 
-#include <RF_node.h>
+#include "RF.h"
+#include "timer.h"
 
 /***** Variable declarations *****/
 static Task_Params tx_task_params;
@@ -18,7 +19,7 @@ uint8_t packet_tx[PAYLOAD_LENGTH];
 BOOLEAN login_ok = FALSE;
 BOOLEAN login_sent = FALSE;
 
-static void txTaskFunction(UArg arg0, UArg arg1);
+static void tx_task_function(UArg arg0, UArg arg1);
 
 void tx_task_init(void)
 {
@@ -28,10 +29,10 @@ void tx_task_init(void)
     tx_task_params.stack = &tx_task_stack;
     tx_task_params.arg0 = (UInt)1000000;
 
-    Task_construct(&tx_task, txTaskFunction, &tx_task_params, NULL);
+    Task_construct(&tx_task, tx_task_function, &tx_task_params, NULL);
 }
 
-static void txTaskFunction(UArg arg0, UArg arg1)
+static void tx_task_function(UArg arg0, UArg arg1)
 {
 	// rf init
     RF_Params rf_params;
@@ -60,6 +61,7 @@ static void txTaskFunction(UArg arg0, UArg arg1)
 
     while(1)
     {
+    	// Login
     	if((login_ok == FALSE) && (login_sent == FALSE))
     	{
     		packet_tx[0] = (uint8_t)(1);	//Login
@@ -82,7 +84,29 @@ static void txTaskFunction(UArg arg0, UArg arg1)
     	else
     	{
         	Semaphore_pend(sem_tx_handle, BIOS_WAIT_FOREVER);
-			if(button_pressed == 1)
+
+        	// Heartbeat
+        	if(heartbeat == TRUE)
+        	{
+        		packet_tx[0] = (uint8_t)(4); 	//Heartbeat
+        		// add mac address to packet
+				uint8_t j;
+				for (j = 2; j < 8; j++)
+				{
+					packet_tx[j-1] = mac_address[j];
+				}
+				/* Send packet */
+				// stop RX CMD
+				RF_Stat r = RF_cancelCmd(RF_handle, rx_cmd, 1);
+
+				// post TX CMD
+				RF_CmdHandle tx_cmd = RF_postCmd(RF_handle, (RF_Op*)&RF_cmdPropTx, RF_PriorityHighest, NULL, 0);
+
+				heartbeat = FALSE;
+        	}
+
+        	// Send packet
+			if(button_pressed == 1) 	// TODO: durch Variable die beim Tritt gesetzt wird ersetzen!
 			{
 				button_pressed = 0;
 

@@ -5,7 +5,7 @@
  *      Author: Tobias
  */
 
-#include "RF_node.h"
+#include <RF.h>
 
 /* Pin driver handles */
 PIN_Handle button_pin_handle;

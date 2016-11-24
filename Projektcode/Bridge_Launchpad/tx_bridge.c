@@ -5,7 +5,7 @@
  *      Author: Tobias
  */
 
-#include <RF_bridge.h>
+#include "RF.h"
 
 
 /***** Variable declarations *****/
