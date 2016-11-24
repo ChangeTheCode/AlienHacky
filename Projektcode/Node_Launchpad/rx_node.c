@@ -105,7 +105,7 @@ void rx_callback(RF_Handle h, RF_CmdHandle ch, RF_EventMask e)
     if (e & RF_EventRxEntryDone)
     {
         /* Toggle pin to indicate RX */
-        PIN_setOutputValue(LED_pin_handle, Board_LED2, !PIN_getOutputValue(Board_LED2));	// Red LED
+        //PIN_setOutputValue(LED_pin_handle, Board_LED2, !PIN_getOutputValue(Board_LED2));	// Red LED
 
         /* Get current unhandled data entry */
         current_data_entry = RFQueue_getDataEntry();
@@ -124,7 +124,7 @@ void rx_callback(RF_Handle h, RF_CmdHandle ch, RF_EventMask e)
 			case 2:
 				// login OK
 				// to measure the roundtrip time of a packet
-				PIN_setOutputValue(LED_pin_handle, Board_DIO15, 1);
+				//PIN_setOutputValue(LED_pin_handle, Board_DIO15, 1);
 
 				/* Toggle pin to indicate OK */  // only for debug purposes ( later only turn on the green LED )
 				PIN_setOutputValue(LED_pin_handle, Board_LED1, 1);	// Green LED
@@ -135,8 +135,7 @@ void rx_callback(RF_Handle h, RF_CmdHandle ch, RF_EventMask e)
 				// login not OK
 				PIN_setOutputValue(LED_pin_handle, Board_LED0, 1); 	// Red LED
 				login_ok = FALSE;
-				login_sent = FALSE;  // maybe after 30 seconds
-				// sleep(30); retry login
+				GPTimerCC26XX_start(timer_login_handle); // try again after 30 seconds
 				break;
 			default:
 				break;

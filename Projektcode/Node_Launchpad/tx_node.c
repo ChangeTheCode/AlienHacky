@@ -81,7 +81,8 @@ static void tx_task_function(UArg arg0, UArg arg1)
 
 			login_sent = TRUE;
     	}
-    	else
+
+    	else if(login_ok == TRUE)
     	{
         	Semaphore_pend(sem_tx_handle, BIOS_WAIT_FOREVER);
 
@@ -105,7 +106,7 @@ static void tx_task_function(UArg arg0, UArg arg1)
 				heartbeat = FALSE;
         	}
 
-        	// Send packet
+        	// Send kick packet
 			if(button_pressed == 1) 	// TODO: durch Variable die beim Tritt gesetzt wird ersetzen!
 			{
 				button_pressed = 0;
@@ -132,12 +133,14 @@ static void tx_task_function(UArg arg0, UArg arg1)
 				// stop RX CMD
 				RF_Stat r = RF_cancelCmd(RF_handle, rx_cmd, 1);
 
-				PIN_setOutputValue(LED_pin_handle, Board_DIO15, 0);
+				//PIN_setOutputValue(LED_pin_handle, Board_DIO15, 0);
 
 				// post TX CMD
 				RF_CmdHandle tx_cmd = RF_postCmd(RF_handle, (RF_Op*)&RF_cmdPropTx, RF_PriorityHighest, NULL, 0);
 
-				PIN_setOutputValue(LED_pin_handle, Board_LED0, 1);	// Red LED  TODO: turn off after 3 seconds (maybe function in pin.c)
+				PIN_setOutputValue(LED_pin_handle, Board_LED0, 1);	// Red LED on
+
+				GPTimerCC26XX_start(timer_kick_handle);
 			}
     	}
 		Semaphore_post(sem_rx_handle);

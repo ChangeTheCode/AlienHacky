@@ -16,8 +16,10 @@
 #define TIMER_TASK_STACK_SIZE 1024
 #define TIMER_TASK_PRIORITY   1
 
-extern PIN_Handle LED_pin_handle;
 extern BOOLEAN heartbeat;
+
+extern GPTimerCC26XX_Handle timer_login_handle;
+extern GPTimerCC26XX_Handle timer_kick_handle;
 
 void timer_init(void);
 
