@@ -27,8 +27,8 @@ void Alien_RF_init(void)
 
 
     /* Obtain instance handle */
-    sem_tx_handle = Semaphore_handle(&sem_tx_struct);
     sem_rx_handle = Semaphore_handle(&sem_rx_struct);
+    sem_tx_handle = Semaphore_handle(&sem_tx_struct);
 
     /* Initialize tasks */
 	rx_task_init();

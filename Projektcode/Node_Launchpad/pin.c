@@ -73,7 +73,7 @@ void button_callback(PIN_Handle handle, PIN_Id pinId) {
         switch (pinId) {
             case Board_BUTTON0:
                 currVal =  PIN_getOutputValue(Board_LED0);
-                PIN_setOutputValue(LED_pin_handle, Board_LED0, !currVal);
+                //PIN_setOutputValue(LED_pin_handle, Board_LED0, !currVal);
 
                 // to measure the roundtrip time of a packet
 				//PIN_setOutputValue(ledPinHandle, Board_DIO15, 1);

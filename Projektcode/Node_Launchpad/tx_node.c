@@ -74,7 +74,10 @@ static void tx_task_function(UArg arg0, UArg arg1)
 			}
 			/* Send packet */
 			// stop RX CMD
-			RF_Stat r = RF_cancelCmd(RF_handle, rx_cmd, 1);
+			if(rx_cmd > 0)
+			{
+				RF_Stat r = RF_cancelCmd(RF_handle, rx_cmd, 1);
+			}
 
 			// post TX CMD
 			RF_CmdHandle tx_cmd = RF_postCmd(RF_handle, (RF_Op*)&RF_cmdPropTx, RF_PriorityHighest, NULL, 0);
