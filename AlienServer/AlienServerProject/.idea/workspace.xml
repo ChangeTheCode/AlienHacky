@@ -51,10 +51,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MHControl.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MHControl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/movingHead/MHControl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="682">
+            <state relative-caret-position="1006">
               <caret line="160" column="16" selection-start-line="160" selection-start-column="16" selection-end-line="160" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -83,11 +83,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Calculator.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Calculator.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/calculator/Calculator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1114">
-              <caret line="203" column="85" selection-start-line="203" selection-start-column="85" selection-end-line="203" selection-end-column="85" />
+            <state relative-caret-position="592">
+              <caret line="204" column="40" selection-start-line="204" selection-start-column="40" selection-end-line="204" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -166,8 +166,8 @@
         <option value="$PROJECT_DIR$/src/at/fhv/alienserver/Main.java" />
         <option value="$PROJECT_DIR$/src/at/fhv/alienserver/AccelerationContainer.java" />
         <option value="$PROJECT_DIR$/src/at/fhv/alienserver/sockcomm/SockComm.java" />
-        <option value="$PROJECT_DIR$/src/at/fhv/alienserver/calculator/Calculator.java" />
         <option value="$PROJECT_DIR$/src/at/fhv/alienserver/movingHead/MHControl.java" />
+        <option value="$PROJECT_DIR$/src/at/fhv/alienserver/calculator/Calculator.java" />
       </list>
     </option>
   </component>
@@ -791,12 +791,12 @@
       <workItem from="1479803099127" duration="10425000" />
       <workItem from="1480060656385" duration="1584000" />
       <workItem from="1480063078351" duration="664000" />
-      <workItem from="1480063792629" duration="2604000" />
+      <workItem from="1480063792629" duration="3227000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="111523000" />
+    <option name="totallyTimeSpent" value="112146000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -902,7 +902,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/at/fhv/alienserver/calculator/Calculator.java</url>
-          <line>226</line>
+          <line>232</line>
           <properties />
           <option name="timeStamp" value="86" />
         </line-breakpoint>
@@ -1255,16 +1255,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/calculator/Calculator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1114">
-          <caret line="203" column="85" selection-start-line="203" selection-start-column="85" selection-end-line="203" selection-end-column="85" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/movingHead/DMX.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="558">
@@ -1275,8 +1265,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/movingHead/MHControl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="682">
+        <state relative-caret-position="1006">
           <caret line="160" column="16" selection-start-line="160" selection-start-column="16" selection-end-line="160" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/calculator/Calculator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="592">
+          <caret line="204" column="40" selection-start-line="204" selection-start-column="40" selection-end-line="204" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

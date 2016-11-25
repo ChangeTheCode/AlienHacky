@@ -149,6 +149,7 @@ public class Calculator implements Runnable {
         //AccelerationContainer senAcc = new AccelerationContainer();
         Tuple<AccelerationContainer, Long> senAcc = new Tuple<>(new AccelerationContainer(), 0L);
         AccelerationContainer oldSenAcc;
+        boolean clearedList = false;
 
         while(true){
 
@@ -162,6 +163,7 @@ public class Calculator implements Runnable {
                  * calculated values in positionValuesDump which no longer apply (remember we've been calculating into
                  * the future) and restart calculations from there.
                  */
+                clearedList = true;
                 currentTime = System.currentTimeMillis();
                 mhControl.pause();
                 for(Tuple<CoordinateContainer, Long> element : positionValuesDump){
@@ -198,6 +200,10 @@ public class Calculator implements Runnable {
 
             if(iteration % 2 == 0) {
                 writer.println("Iteration #" + iteration);
+                if(clearedList){
+                    writer.println("List was trimmed");
+                    clearedList = false;
+                }
                 writer.println("PosX = " + pos.x + "\tPosY = " + pos.y /*+ "\tPosZ = " + pos.z*/);
                 writer.println("SpeedX = " + speed.x + "\tSpeedY = " + speed.y /*+ "\tSpeedZ = " + speed.z*/);
                 writer.println("AccX = " + acc.x + "\tAccY = " + acc.y /*+ "\tAccZ = " + acc.z*/);
