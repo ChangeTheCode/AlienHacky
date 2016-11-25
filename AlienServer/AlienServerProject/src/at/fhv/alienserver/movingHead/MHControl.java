@@ -158,7 +158,6 @@ public class MHControl implements Runnable{
                 //Search the current position and grab the coordinates
                 //The current solution is arguably not beautiful, but was used for reasons of time constraints
                 currentTime = System.currentTimeMillis();
-                boolean searching = true;
                 do {
                     if(coordinatesFromCalculator.peek() != null){
                         //we have a value --> evaluate it below
@@ -197,22 +196,10 @@ public class MHControl implements Runnable{
                  */
                 oldDmxPacket = new DMX(dmxPacket);
 
-                /*
-                //On first iteration the next statement yields 0 / 0 --> NaN!!!!
-                //FIXME: Fix that crap
-                //double debug = Math.atan(c.y / c.x) * 180 / Math.PI + offset_pan;
-                dmxPacket.setPan(Math.atan(c.y / c.x) * 180 / Math.PI + offset_pan);
-                if (c.x >= 0) {
-                    //double debug2 = Math.atan(Math.sqrt(c.x * c.x + c.y * c.y) / h) * 180 / Math.PI + offset_tilt;
-                    dmxPacket.setTilt(Math.atan(Math.sqrt(c.x * c.x + c.y * c.y) / h) * 180 / Math.PI + offset_tilt);
-                } else {
-                    dmxPacket.setTilt((-1) * Math.atan(Math.sqrt(c.x * c.x + c.y * c.y) / h) * 180 / Math.PI + offset_tilt);
-                }
-                */
-                //NOTE: If the distance gets too far from the center the MH "overspins" above horizontal position
-                //NICETOHAVE: find out why and compensate
+                //NOTE: If the distance gets too far from the center (~100m) the MH "overspins" above horizontal position
+                //NICETOHAVE: find out why and compensate; doesn't really matter though, as our distances aren't that great
                 dmxPacket.setPan(Math.atan(c.x / h) * 180 / Math.PI + offset_pan);
-                dmxPacket.setTilt(Math.atan(c.y / h) * 180 / Math.PI + offset_tilt);
+                dmxPacket.setTilt(Math.atan(c.y / Math.sqrt(c.x * c.x + h * h)) * 180 / Math.PI + offset_tilt);
 
                 packets.add(dmxPacket);
 
@@ -222,13 +209,16 @@ public class MHControl implements Runnable{
                  * using the DMX packets (with pan and tilt) themselves, however this is not done at the moment since the
                  * hardware setup is known to change in the future (as of 7.11.2016); once the final setup is used, we can
                  * change the calculation and optimise variable usage.
-                 * TODO: Change the calculation to used oldDmxPacket and dmxPacket.
+                 * NICETOHAVE: Change the calculation to used oldDmxPacket and dmxPacket.
                  */
                 direction = Math.atan(c.y / c.x);
                 oldDirection = Math.atan(oldC.y / oldC.x);
                 if (abs(direction - oldDirection) > 10) {
                     //LOGGER.log(Level.INFO, "Using an exaggerated packet to get to {0}", c.toString());
                     exaggeratedDmxPacket = DMX.getExaggeratedDmx(dmxPacket, oldDmxPacket);
+                    //Change lighting to make use of exaggerated packet visible
+                    exaggeratedDmxPacket.shutter = (byte)0;
+                    exaggeratedDmxPacket.dimmer = (byte)0;
                     packets.addFirst(exaggeratedDmxPacket);
                 }
 

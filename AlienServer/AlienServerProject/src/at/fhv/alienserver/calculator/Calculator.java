@@ -146,22 +146,22 @@ public class Calculator implements Runnable {
         SpeedContainer speed = new SpeedContainer();
         AccelerationContainer acc = new AccelerationContainer();
 
-        AccelerationContainer senAcc = new AccelerationContainer();
+        //AccelerationContainer senAcc = new AccelerationContainer();
+        Tuple<AccelerationContainer, Long> senAcc = new Tuple<>(new AccelerationContainer(), 0L);
         AccelerationContainer oldSenAcc;
 
         while(true){
-            //senAcc = sock.getSenAcc(senAcc); TODO: Actually make this happen
-            oldSenAcc = new AccelerationContainer(senAcc);
-            senAcc = stub_getSenAcc(senAcc);
 
-            if(delta(senAcc, oldSenAcc, 0.3)){
+            oldSenAcc = new AccelerationContainer( senAcc.a );
+            senAcc = sock.getSenAcc();
+
+            if(delta(senAcc.a, oldSenAcc, 0.3)){ /*TODO: Part here works with empiric value; test and verify*/
                 /*
                  * Here we check if the accelerations delivered by the sensor have changed significantly. If so we have
                  * a kick event (or something with similar effects on the system). This means we have to trash the
                  * calculated values in positionValuesDump which no longer apply (remember we've been calculating into
                  * the future) and restart calculations from there.
                  */
-                //LOGGER.log(Level.INFO, "Trashing part of the position vector");
                 currentTime = System.currentTimeMillis();
                 mhControl.pause();
                 for(Tuple<CoordinateContainer, Long> element : positionValuesDump){
@@ -169,7 +169,6 @@ public class Calculator implements Runnable {
                         positionValuesDump.remove(element);
                     }
                 }
-
                 mhControl.resume();
             }
 
@@ -185,16 +184,16 @@ public class Calculator implements Runnable {
              }
              */
 
-            acc.x = signum(acc.x) * signum(A) * sqrt(A * A * speed.x * speed.x) + b * senAcc.x;
-            acc.y = signum(acc.y) * signum(A) * sqrt(A * A * speed.y * speed.y) + b * senAcc.y;
+            acc.x = signum(acc.x) * signum(A) * sqrt(A * A * speed.x * speed.x) + b * senAcc.a.x;
+            acc.y = signum(acc.y) * signum(A) * sqrt(A * A * speed.y * speed.y) + b * senAcc.a.y;
             //acc.z = signum(acc.z) * signum(A) * sqrt(A * A * speed.z * speed.z) + b * senAcc.z;
 
             speed.x = speed.x + acc.x * h;
             speed.y = speed.y + acc.y * h;
             //speed.z = speed.z + acc.z * h;
 
-            pos.x = pos.x + c * speed.x * h + d * senAcc.x;
-            pos.y = pos.y + c * speed.y * h + d * senAcc.y;
+            pos.x = pos.x + c * speed.x * h + d * senAcc.a.x;
+            pos.y = pos.y + c * speed.y * h + d * senAcc.a.y;
             //pos.z = pos.z + c * speed.z * h + d * senAcc.z;
 
             if(iteration % 2 == 0) {
@@ -202,7 +201,7 @@ public class Calculator implements Runnable {
                 writer.println("PosX = " + pos.x + "\tPosY = " + pos.y /*+ "\tPosZ = " + pos.z*/);
                 writer.println("SpeedX = " + speed.x + "\tSpeedY = " + speed.y /*+ "\tSpeedZ = " + speed.z*/);
                 writer.println("AccX = " + acc.x + "\tAccY = " + acc.y /*+ "\tAccZ = " + acc.z*/);
-                writer.println("SenAccX = " + senAcc.x + "\tSenAccY = " + senAcc.y /*+ "\tSenAccZ = " + senAcc.z*/);
+                writer.println("SenAccX = " + senAcc.a.x + "\tSenAccY = " + senAcc.a.y /*+ "\tSenAccZ = " + senAcc.z*/);
                 writer.println("---------------------------------");
 
                 writer2.println(iteration + ";" + pos.x);

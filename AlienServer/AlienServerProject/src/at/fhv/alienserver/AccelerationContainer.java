@@ -11,6 +11,11 @@ public class AccelerationContainer {
         //this.z = 0;
     }
 
+    public AccelerationContainer(double x, double y){
+        this.x = x;
+        this.y = y;
+    }
+
     public AccelerationContainer(AccelerationContainer source){
         this.x = source.x;
         this.y = source.y;
