@@ -23,7 +23,7 @@ BOOL config_light_sensor_reg2(I2C_Handle i2c);
 
 BOOL config_light_int_threshold(I2C_Handle i2c, int thresehold_top, int thresehold_down);
 
-int* read_light_sensor_values(I2C_Handle i2c);
+void read_light_sensor_values(I2C_Handle i2c, int* read_value);
 
 
 #endif /* SENSOR_LIB_LIGHT_SENSOR_H_ */

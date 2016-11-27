@@ -64,6 +64,8 @@
 
 #define TASKSTACKSIZE       1024
 #define TMP007_OBJ_TEMP     0x0003  /* Object Temp Result Register */
+#define MAX_AVARAGE_COUNT 10
+#define LIGHT_LEVEL_IN_PROCENT 20 // 20 % bigger then old value, so read gyro !
 
 /* Global memory storage for a PIN_Config table */
 static PIN_State led_pin_state;
@@ -76,6 +78,7 @@ static PIN_State buttonPinState;
 PIN_Config led_pin_table[] = {
     Board_LED1 | PIN_GPIO_OUTPUT_EN | PIN_GPIO_LOW | PIN_PUSHPULL | PIN_DRVSTR_MAX,
     Board_LED2 | PIN_GPIO_OUTPUT_EN | PIN_GPIO_LOW | PIN_PUSHPULL | PIN_DRVSTR_MAX,
+	Board_DIO14 | PIN_GPIO_OUTPUT_EN | PIN_GPIO_LOW | PIN_PUSHPULL | PIN_DRVSTR_MAX,
     PIN_TERMINATE
 };
 
@@ -91,6 +94,20 @@ Char task0_stack[TASKSTACKSIZE];
 // variables for i2c communication
 static MPU9150_Handle MPU_handel;
 static I2C_Handle      i2c;
+static int light_values[MAX_AVARAGE_COUNT];
+static int light_pos = 0, light_avarage = 0;
+
+// function to calculate average of the values.
+int calculate_avarage (int* p_values, int new_value, int avarage){
+
+	avarage = ((avarage* MAX_AVARAGE_COUNT) - *p_values) + new_value;
+
+	avarage = avarage / MAX_AVARAGE_COUNT;
+
+	*p_values = new_value;
+
+	return avarage;
+}
 
 
 /*
@@ -117,22 +134,39 @@ Void taskFxn(UArg arg0, UArg arg1)
     if( ! config_light_sensor(i2c) ){
     	return;   // config of the light sensor failed Break
     }
-
+    Task_sleep(100);
     if( ! config_light_sensor_reg2(i2c) ){
 		return;   // config of the light sensor failed Break
-	}									/*480 is approximently  HI : 1 LOW: 195 */
+	}
+    Task_sleep(100);
+    /*480 is approximently  HI : 1 LOW: 195 */
     if( ! config_light_int_threshold(i2c, 280 , 0) ){
 		return;   // config of the light sensor failed Break
     }
+    Task_sleep(100);
 
-
-    //TODO Send routine
 
     /* Take 20 samples and print them out onto the console */
+    int light_transaction_values[4];
+    int current_16b_light = 0;
+    int old_light_avarage = 0;
     while(1) {
-    	read_light_sensor_values(i2c);
-    	MPU9150_read(MPU_handel, i2c);
-        //Task_sleep(1000000 / Clock_tickPeriod);
+    	read_light_sensor_values(i2c, &light_transaction_values[0]);
+    	PIN_setOutputValue(led_pin_handle, Board_DIO14, ! PIN_getOutputValue(Board_DIO14)); // Toggel Pin to measure
+
+    	current_16b_light = light_transaction_values[0] << 8 | light_transaction_values[1] ;
+    	old_light_avarage = light_avarage; // save old value of light to see how big are the difference
+
+    	if (light_pos >= MAX_AVARAGE_COUNT){
+    		light_pos = 0;
+    	}
+    	light_avarage = calculate_avarage(  &light_values[light_pos] ,current_16b_light, light_avarage);
+
+    	// if the difference between old an new bigger then 20 % so send the gyro values
+    	if( (light_avarage * 100) / old_light_avarage >= LIGHT_LEVEL_IN_PROCENT ){ // to do a test, comment this if block out
+    		MPU9150_read(MPU_handel, i2c);
+    	}
+
     }
 
 
@@ -143,20 +177,6 @@ Void taskFxn(UArg arg0, UArg arg1)
     System_flush();*/
 }
 
-/* we should read the gyro manuel, because we don't know when the light value is big enough and the gyro interrupt is
- * received.
- */
-void buttonCallbackFxn(){
-
-	read_light_sensor_values(i2c);
-
-
-/*	if (!MPU9150_read(MPU_handel, i2c)) {
-		System_abort("Could not extract data registers from the MPU9150");
-	}else{
-		System_abort("Could extract data registers from the MPU9150");
-	}*/
-}
 
 /*
  *  ======== main ========
@@ -188,9 +208,9 @@ int main(void)
     	System_abort("Error initializing button pins\n");
     }
     /* Setup callback for button pins */
-    if (PIN_registerIntCb(button_pin_handle, &buttonCallbackFxn) != 0) {
+    /*if (PIN_registerIntCb(button_pin_handle, &buttonCallbackFxn) != 0) {
     	System_abort("Error registering button callback function");
-    }
+    }*/
 
 
     /* Open LED pins */

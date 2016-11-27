@@ -93,7 +93,7 @@ BOOL config_light_int_threshold(I2C_Handle i2c, int threshold_top, int threshold
 }
 
 
-int* read_light_sensor_values(I2C_Handle i2c){
+void read_light_sensor_values(I2C_Handle i2c, int* read_value){
 	I2C_Transaction I2C_transaction;
 	uint8_t tx_buffer[1];
 	uint8_t rx_buffer[4];
@@ -102,14 +102,13 @@ int* read_light_sensor_values(I2C_Handle i2c){
 	I2C_transaction.slaveAddress = 0x44;
 	I2C_transaction.writeBuf = tx_buffer;
 	I2C_transaction.writeCount = 1;
-	I2C_transaction.readBuf = rx_buffer;
+	I2C_transaction.readBuf = read_value;// rx_buffer;
 	I2C_transaction.readCount = 4;
 
 	tx_buffer[0] = DATA_LSB;
 	if (I2C_transfer(i2c, &I2C_transaction)) {
 		// pin toggle
-
-		System_printf("Sample: %d , %d (RAW)\n", rx_buffer[0], rx_buffer[1]);
+		System_printf("Sample: %d , %d (RAW)\n", read_value , ++read_value);
 	}
 	else {
 		System_printf("I2C Bus fault \n" );
@@ -120,7 +119,6 @@ int* read_light_sensor_values(I2C_Handle i2c){
 	}
 
 	System_flush();
-	return NULL;
 }
 
 

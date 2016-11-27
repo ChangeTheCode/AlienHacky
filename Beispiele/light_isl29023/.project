@@ -24,18 +24,6 @@
 		<nature>org.eclipse.cdt.core.ccnature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>drivers/rgb.c</name>
-			<type>1</type>
-			<locationURI>SW_ROOT/examples/boards/ek-tm4c123gxl-boostxl-senshub/drivers/rgb.c</locationURI>
-		</link>
-		<link>
-			<name>utils/uartstdio.c</name>
-			<type>1</type>
-			<locationURI>SW_ROOT/utils/uartstdio.c</locationURI>
-		</link>
-	</linkedResources>
 	<variableList>
 		<variable>
 			<name>ORIGINAL_PROJECT_ROOT</name>
