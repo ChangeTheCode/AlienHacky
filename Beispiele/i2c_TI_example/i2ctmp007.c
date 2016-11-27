@@ -71,6 +71,9 @@
 static PIN_State led_pin_state;
 static PIN_State buttonPinState;
 
+PIN_Handle led_pin_handle;
+
+
 /*
  * Application LED pin configuration table:
  *   - All LEDs board LEDs are off.
@@ -96,6 +99,7 @@ static MPU9150_Handle MPU_handel;
 static I2C_Handle      i2c;
 static int light_values[MAX_AVARAGE_COUNT];
 static int light_pos = 0, light_avarage = 0;
+
 
 // function to calculate average of the values.
 int calculate_avarage (int* p_values, int new_value, int avarage){
@@ -150,9 +154,12 @@ Void taskFxn(UArg arg0, UArg arg1)
     int light_transaction_values[4];
     int current_16b_light = 0;
     int old_light_avarage = 0;
+
+    MPU9150_Data mpu_data;
+
     while(1) {
     	read_light_sensor_values(i2c, &light_transaction_values[0]);
-    	PIN_setOutputValue(led_pin_handle, Board_DIO14, ! PIN_getOutputValue(Board_DIO14)); // Toggel Pin to measure
+    	PIN_setOutputValue(led_pin_handle, Board_DIO14, 1 /*! PIN_getOutputValue(Board_DIO14)*/); // Toggel Pin to measure
 
     	current_16b_light = light_transaction_values[0] << 8 | light_transaction_values[1] ;
     	old_light_avarage = light_avarage; // save old value of light to see how big are the difference
@@ -165,6 +172,21 @@ Void taskFxn(UArg arg0, UArg arg1)
     	// if the difference between old an new bigger then 20 % so send the gyro values
     	if( (light_avarage * 100) / old_light_avarage >= LIGHT_LEVEL_IN_PROCENT ){ // to do a test, comment this if block out
     		MPU9150_read(MPU_handel, i2c);
+
+    		// Get floating point version of the Accel Data in m/s^2.
+    		MPU9150_getAccelFloat(MPU_handel, &mpu_data);
+
+    		// get floating point version of angular velocities in rad/sec
+    		MPU9150_getGyroFloat(MPU_handel, &mpu_data);
+
+    		//Get floating point version of magnetic fields strength in tesla
+    		MPU9150_getMagnetoFloat(MPU_handel, &mpu_data);
+
+
+    		//TODO: Calculate all necessary value like MagnetoGetFloat,Accel, gyrogetfloat and so on. Talk to Tobi and to it together
+    		//TODO: how to transform the values to the world coordinates
+
+    		//TOdo: if(ui32CompDCMStarted == 0) line 566 in tiva
     	}
 
     }
@@ -183,7 +205,7 @@ Void taskFxn(UArg arg0, UArg arg1)
  */
 int main(void)
 {
-    PIN_Handle led_pin_handle;
+
     PIN_Handle button_pin_handle;
 
     Task_Params task_params;
