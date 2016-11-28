@@ -4,6 +4,7 @@ import at.fhv.alienserver.CoordinateContainer;
 import at.fhv.alienserver.Tuple;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.LinkedList;
 import java.util.concurrent.BlockingQueue;
 import java.util.logging.Level;
@@ -68,7 +69,7 @@ public class MHControl implements Runnable{
      * NOTE: With the current setup in U325 (1.11.2016) a value of about 300 is where movement of the light point along
      * the floor just starts lagging a tiny little bit; so this should be pretty close to the ideal waiting time.
      */
-    private final double waitTimeConversionFactor = 300;
+    private final int waitTimeConversionFactor = 300;
 
     /**
      * This boolean is used as a flag to signal the Runnable in this class, if it should be run or not.
@@ -79,10 +80,13 @@ public class MHControl implements Runnable{
      */
     private boolean run = true;
 
-    public MHControl(BlockingQueue<Tuple<CoordinateContainer, Long>> q, int QUEUE_SIZE){
+    public MHControl(BlockingQueue<Tuple<CoordinateContainer, Long>> q, int QUEUE_SIZE) throws IOException {
         this.coordinatesFromCalculator = q;
         this.QUEUE_SIZE = QUEUE_SIZE;
-
+        DMX packet = new DMX();
+        packet.setPan(offset_pan);
+        packet.setTilt(offset_tilt);
+        esp.sendPackets(packet);
     }
 
     /**
@@ -105,6 +109,7 @@ public class MHControl implements Runnable{
         double deltaPan = newPacket.pan - oldPacket.pan;
         double deltaTilt = newPacket.tilt - oldPacket.tilt;
         double bigger = (abs(deltaPan) > abs(deltaTilt))? abs(deltaPan) : abs(deltaTilt);
+        bigger = (bigger < 1)? bigger + 1 : bigger;
         return (long)(Math.log(bigger)*waitTimeConversionFactor);
     }
 
@@ -124,25 +129,27 @@ public class MHControl implements Runnable{
         DMX oldDmxPacket;
         DMX exaggeratedDmxPacket;
 
-        long currentTime;
+        long currentTime = 0L;
+        long sleepingTime = -1L;
         Tuple <CoordinateContainer, Long> localTupleBuffer = null; //Init with null needed for loop logic below
 
         double direction;
         double oldDirection;
+        PrintWriter writer = null;
+        int iterationNumber = 0;
+        try {
+            writer = new PrintWriter("ConsumedCoordinates.txt", "UTF-8");
+        } catch(IOException e){
+            e.printStackTrace();
+        }
 
-
+        System.out.println("MHControl started @:" + System.currentTimeMillis());
+        System.out.flush();
         do{
             if(run) {
                 packets.clear();
-
-                /*
-                 * In the insanely unlikely case of this thread being faster than the calculator, we wait until the
-                 * calculator is ready; We do this to set the MH-X25 to a precise interval of points.
-                 */
-                while (coordinatesFromCalculator.size() < QUEUE_SIZE) {
-                    yield();
-                }
-
+                //Reset here; nulling needed for logic reasons in loop below
+                localTupleBuffer = null;
 
     //            coordinatesFromCalculator.drainTo(localCopyOfCoordinates, QUEUE_SIZE);
     //            localCopyOfCoordinatesArray = localCopyOfCoordinates.toArray();
@@ -157,13 +164,13 @@ public class MHControl implements Runnable{
 
                 //Search the current position and grab the coordinates
                 //The current solution is arguably not beautiful, but was used for reasons of time constraints
+                //NOTE:Problem here???? --> As of latest knowledge: in MHControl.java the problem manifests itself between here and line 193
                 currentTime = System.currentTimeMillis();
                 do {
                     if(coordinatesFromCalculator.peek() != null){
                         //we have a value --> evaluate it below
                         localTupleBuffer = coordinatesFromCalculator.poll();
                         if(localTupleBuffer.b >= currentTime){
-                            //LOGGER.log(Level.INFO, "Picked packet with fitting time value to position MH @ {0}", localTupleBuffer.a.toString());
                             break;
                         } else {
                             continue;
@@ -183,12 +190,9 @@ public class MHControl implements Runnable{
 
                 oldC = new CoordinateContainer(c);
                 c = localTupleBuffer.a;
+                //NOTE: In the next two lines, the debugger shows the absurdly big values for c.x; so the error has to be before this line!
                 c.x += mhOffsetX;
                 c.y += mhOffsetY;
-
-
-                //Reset here; nulling needed for logic reasons in loop above
-                localTupleBuffer = null;
 
                 /*
                  * First we remember the old DMX - packet to later use it to determine the time we have to wait for the
@@ -233,7 +237,6 @@ public class MHControl implements Runnable{
                     System.err.println(e.toString());
                     e.printStackTrace();
                 } catch (InterruptedException e) {
-                    //We got interrupted!!! WTF?!?! This wasn't supposed to happen in our application
                     e.printStackTrace();
                 }
 
@@ -244,10 +247,21 @@ public class MHControl implements Runnable{
                     //long debug3 = getTimeToSleep(oldDmxPacket, dmxPacket);
                     //waitTimes.add(debug3);
                     //LOGGER.log(Level.INFO, "Sleeping");
-                    sleep(getTimeToSleep(oldDmxPacket, dmxPacket));
+                    sleepingTime = getTimeToSleep(oldDmxPacket, dmxPacket);
+                    sleep(sleepingTime);
                 } catch (Exception e) {
                     //Man just let me test :-(
+                    e.printStackTrace();
                 }
+
+                //Write log file
+                writer.println("Iteration# " + iterationNumber + " @ wallClockTime = " + currentTime);
+                writer.println("Time delta = " + (localTupleBuffer.b - currentTime));
+                writer.println("Resulted sleeping time = " + sleepingTime);
+                writer.println("X = " + c.x + "\tY = " + c.y);
+                writer.println("---------------------------------------------------------------");
+                writer.flush();
+                iterationNumber++;
             } else {
                 yield();
             }

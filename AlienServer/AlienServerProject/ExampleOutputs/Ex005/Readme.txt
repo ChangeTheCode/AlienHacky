@@ -1,0 +1,1 @@
+Example captured after fixing the fix implemented in Ex004 (simulationtime was erroneously set to 0 when it should have been GLOBAL_SIM_ZERO_TIME) and adding additional information (the resulted sleep time of the MH-Thread) in the corresponding logFile

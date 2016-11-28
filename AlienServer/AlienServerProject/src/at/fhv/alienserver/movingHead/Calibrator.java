@@ -25,7 +25,13 @@ public class Calibrator {
         ArrayBlockingQueue<Tuple<CoordinateContainer, Long>> coordinates = new ArrayBlockingQueue<>(1);
 
         //Get MH - Control up and running
-        MHControl myMH = new MHControl(coordinates, 1);
+        MHControl myMH = null;
+        try {
+            myMH = new MHControl(coordinates, 1);
+        } catch (IOException e){
+            e.printStackTrace();
+            System.exit(-1);
+        }
         Thread mhThread = new Thread(myMH);
         mhThread.start();
 

@@ -9,13 +9,13 @@ import at.fhv.alienserver.sockcomm.SockComm;
 
 import java.io.PrintWriter;
 import java.util.concurrent.BlockingQueue;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import static at.fhv.alienserver.Main.GLOBAL_SIM_ZERO_TIME;
-//import static at.fhv.alienserver.Main.LOGGER;
+import static at.fhv.alienserver.Main.mhThread;
 import static java.lang.Math.signum;
 import static java.lang.Math.sqrt;
+
+//import static at.fhv.alienserver.Main.LOGGER;
 
 //TODO: Add support for java-thread-interrupts to allow for kicks to happen, or think of another way of how to implement these
 
@@ -30,6 +30,8 @@ import static java.lang.Math.sqrt;
  * @version 1.11.2016
   */
 public class Calculator implements Runnable {
+    public boolean clearedList = false;
+
     /*
      * The following vars give the parameters for the calculation in state space. Please note that as of now, these
      * values are not meant to be perfect (or let alone final), they merely serve as a placeholder until testing
@@ -64,6 +66,7 @@ public class Calculator implements Runnable {
     private int iteration = 0;
 
     private BlockingQueue<Tuple<CoordinateContainer, Long>> positionValuesDump;
+    private Tuple<CoordinateContainer, Long>[] copyOfQueue;
 
     public Calculator(SockComm suppliedSock, MHControl mhControl, BlockingQueue<Tuple<CoordinateContainer, Long>> positionValuesDump){
         sock = suppliedSock;
@@ -130,14 +133,19 @@ public class Calculator implements Runnable {
     }
 
     public void run(){
+        System.out.println("Calc started @:" + System.currentTimeMillis());
+        System.out.flush();
+
         long currentTime;
         CoordinateContainer coordinateBuffer;
 
         PrintWriter writer;
         PrintWriter writer2;
+        PrintWriter writer3;
         try {
             writer = new PrintWriter("calcOutput.txt", "UTF-8");
             writer2 = new PrintWriter("plotVals.csv", "UTF-8");
+            writer3 = new PrintWriter("FinalQueue.txt", "UTF-8");
         } catch (Exception e){
             return;
         }
@@ -146,33 +154,48 @@ public class Calculator implements Runnable {
         SpeedContainer speed = new SpeedContainer();
         AccelerationContainer acc = new AccelerationContainer();
 
-        //AccelerationContainer senAcc = new AccelerationContainer();
         Tuple<AccelerationContainer, Long> senAcc = new Tuple<>(new AccelerationContainer(), 0L);
         AccelerationContainer oldSenAcc;
-        boolean clearedList = false;
+
+        Long currentSimulationTime = GLOBAL_SIM_ZERO_TIME;
 
         while(true){
 
             oldSenAcc = new AccelerationContainer( senAcc.a );
             senAcc = sock.getSenAcc();
 
-            if(delta(senAcc.a, oldSenAcc, 0.3)){ /*TODO: Part here works with empiric value; test and verify*/
+            if(delta(senAcc.a, oldSenAcc, 0.3)){ /*TODO: This part here works with empiric value; test and verify*/
                 /*
                  * Here we check if the accelerations delivered by the sensor have changed significantly. If so we have
                  * a kick event (or something with similar effects on the system). This means we have to trash the
                  * calculated values in positionValuesDump which no longer apply (remember we've been calculating into
                  * the future) and restart calculations from there.
                  */
-                clearedList = true;
-                currentTime = System.currentTimeMillis();
                 mhControl.pause();
+                System.out.println("Trimming List");
+                System.out.flush();
+                clearedList = true;
+                currentSimulationTime = GLOBAL_SIM_ZERO_TIME;
+                currentTime = System.currentTimeMillis();
                 for(Tuple<CoordinateContainer, Long> element : positionValuesDump){
                     if(element.b > currentTime){
                         positionValuesDump.remove(element);
+                    } else {
+                        if(element.b > currentSimulationTime){
+                            currentSimulationTime = element.b;
+                        }
                     }
                 }
                 mhControl.resume();
             }
+
+            /*
+             * we can always increase the simulation time by 10. If the queue was not trimmed (i.e. normal operation)
+             * we simply go to the next step. In case the queue was trimmed, we determined the highest valid time value
+             * in the for(...) loop above; however we are going the calculate the next value AFTER that one now.
+             */
+            currentSimulationTime += 10;
+
 
             //Maybe we have to use this to stop the sack when it gets kicked???
             /*
@@ -199,7 +222,7 @@ public class Calculator implements Runnable {
             //pos.z = pos.z + c * speed.z * h + d * senAcc.z;
 
             if(iteration % 2 == 0) {
-                writer.println("Iteration #" + iteration);
+                writer.println("Iteration #" + iteration + "@ Simtime = " + (GLOBAL_SIM_ZERO_TIME + (iteration * 10)) );
                 if(clearedList){
                     writer.println("List was trimmed");
                     clearedList = false;
@@ -216,21 +239,39 @@ public class Calculator implements Runnable {
             iteration++;
 
             try {
-                positionValuesDump.put(  new Tuple<>(pos, GLOBAL_SIM_ZERO_TIME + (iteration * 10))  );
+                positionValuesDump.put(  new Tuple<>(pos, currentSimulationTime)  );
                 //LOGGER.log(Level.INFO, "Appended a new position {0}", pos.toString());
             } catch (InterruptedException e){
                 System.err.println("Our calculator thread got interrupted, which clearly wasn't supposed to happen :-(");
                 e.printStackTrace();
             }
 
-            if (iteration > 150){
+            if((iteration % 1000) == 0){
+                System.out.println("Iteration# " + iteration);
+                System.out.flush();
+            }
+
+            if (iteration > 15000){
                 writer.flush();
                 writer.close();
                 writer2.flush();
                 writer2.close();
+
                 System.out.println("calculator finished");
                 //LOGGER.log(Level.INFO, "Exiting calculator due to max number of iterations reached");
-                break;
+                //break;
+                mhThread.stop();
+                int i = 0;
+                for(Tuple<CoordinateContainer, Long> tup : positionValuesDump){
+                    writer3.println("Element# " + i);
+                    writer3.println("PosX = " + tup.a.x + "\tPosY = " + tup.a.y);
+                    writer3.println("Time = " + tup.b);
+                    i++;
+                }
+                writer3.flush();
+                writer3.close();
+
+                System.exit(0);
             }
 
 //            if(iteration > 40000 || pos.z < 0){

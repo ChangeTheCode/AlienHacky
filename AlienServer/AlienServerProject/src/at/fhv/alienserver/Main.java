@@ -19,6 +19,8 @@ import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import static java.lang.Thread.sleep;
+
 /**
  * Class holding the main routine.
  * <p>
@@ -35,11 +37,16 @@ public class Main {
      * <p>
      * Number is saved in this awkward way because the author couldn't find a replacement for the good old #define.
      */
-    public static final int POS_CONTAINER_SIZE = 20;
+    public static final int POS_CONTAINER_SIZE = 1;
     public static long GLOBAL_SIM_ZERO_TIME = 0;
+    public static Thread mhThread;
+    public static Calculator myCalc;
     //public final static Logger LOGGER = Logger.getLogger(Main.class.getName());
 
     public static void main(String[] args) throws IOException{
+        System.out.println("Main started @:" + System.currentTimeMillis());
+        System.out.flush();
+
         /*Handler[] handlers = LOGGER.getHandlers();
         for(Handler handler : handlers){
             LOGGER.removeHandler(handler);
@@ -52,12 +59,19 @@ public class Main {
         //LOGGER.log(Level.INFO, "Instantiating utility classes");
         SockComm mySock = new SockComm();
         MHControl mhControl = new MHControl(pointContainer, POS_CONTAINER_SIZE);
-        Calculator myCalc = new Calculator(mySock, mhControl, pointContainer);
+        myCalc = new Calculator(mySock, mhControl, pointContainer);
+
+        try {
+            sleep(5000);
+        } catch (InterruptedException e){
+            e.printStackTrace();
+            System.err.println("Who the fuck just interrupted main?");
+        }
 
         //LOGGER.log(Level.INFO, "Instantiating utility class threads");
         Thread sockThread = new Thread(mySock);
         Thread calcThread = new Thread(myCalc);
-        Thread mhThread = new Thread(mhControl);
+        mhThread = new Thread(mhControl);
 
         sockThread.start();
         GLOBAL_SIM_ZERO_TIME = System.currentTimeMillis();

@@ -1,0 +1,1 @@
+Example captured after implementing correction of simulation time variable in Calculator.java (when the queue gets trimmed)
