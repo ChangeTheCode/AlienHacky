@@ -1,0 +1,2200 @@
+Iteration# 0 @ wallClockTime = 1480405563197
+@ simTime = 1480405563199 with time delta = 2
+Resulted sleeping time = 1453
+X = 47.55935722719677	Y = 14.267807168158894
+---------------------------------------------------------------
+Iteration# 1 @ wallClockTime = 1480405564785
+@ simTime = 1480405564789 with time delta = 4
+Resulted sleeping time = 1611
+X = 47.88025173700126	Y = 14.364075521100236
+---------------------------------------------------------------
+Iteration# 2 @ wallClockTime = 1480405566498
+@ simTime = 1480405566499 with time delta = 1
+Resulted sleeping time = 0
+X = 48.217198894351604	Y = 14.465159668305361
+---------------------------------------------------------------
+Iteration# 3 @ wallClockTime = 1480405566599
+@ simTime = 1480405566599 with time delta = 0
+Resulted sleeping time = 0
+X = 48.23664785206157	Y = 14.470994355618352
+---------------------------------------------------------------
+Iteration# 4 @ wallClockTime = 1480405566701
+@ simTime = 1480405566709 with time delta = 8
+Resulted sleeping time = 0
+X = 48.25802576064871	Y = 14.477407728194498
+---------------------------------------------------------------
+Iteration# 5 @ wallClockTime = 1480405566802
+@ simTime = 1480405566809 with time delta = 7
+Resulted sleeping time = 0
+X = 48.27741575762604	Y = 14.483224727287697
+---------------------------------------------------------------
+Iteration# 6 @ wallClockTime = 1480405566904
+@ simTime = 1480405566909 with time delta = 5
+Resulted sleeping time = 0
+X = 48.29677775224777	Y = 14.48903332567422
+---------------------------------------------------------------
+Iteration# 7 @ wallClockTime = 1480405567005
+@ simTime = 1480405567009 with time delta = 4
+Resulted sleeping time = 0
+X = 48.31611178495393	Y = 14.494833535486071
+---------------------------------------------------------------
+Iteration# 8 @ wallClockTime = 1480405567106
+@ simTime = 1480405567109 with time delta = 3
+Resulted sleeping time = 0
+X = 48.335417896126145	Y = 14.500625368837737
+---------------------------------------------------------------
+Iteration# 9 @ wallClockTime = 1480405567207
+@ simTime = 1480405567209 with time delta = 2
+Resulted sleeping time = 0
+X = 48.35469612608772	Y = 14.506408837826207
+---------------------------------------------------------------
+Iteration# 10 @ wallClockTime = 1480405567308
+@ simTime = 1480405567309 with time delta = 1
+Resulted sleeping time = 0
+X = 48.37394651510371	Y = 14.512183954531006
+---------------------------------------------------------------
+Iteration# 11 @ wallClockTime = 1480405567409
+@ simTime = 1480405567409 with time delta = 0
+Resulted sleeping time = 0
+X = 48.39316910338105	Y = 14.517950731014205
+---------------------------------------------------------------
+Iteration# 12 @ wallClockTime = 1480405567509
+@ simTime = 1480405567509 with time delta = 0
+Resulted sleeping time = 0
+X = 48.41236393106858	Y = 14.523709179320464
+---------------------------------------------------------------
+Iteration# 13 @ wallClockTime = 1480405567610
+@ simTime = 1480405567619 with time delta = 9
+Resulted sleeping time = 0
+X = 48.433429946785594	Y = 14.530028984035566
+---------------------------------------------------------------
+Iteration# 14 @ wallClockTime = 1480405567711
+@ simTime = 1480405567719 with time delta = 8
+Resulted sleeping time = 0
+X = 48.45256663117096	Y = 14.535769989351174
+---------------------------------------------------------------
+Iteration# 15 @ wallClockTime = 1480405567811
+@ simTime = 1480405567819 with time delta = 8
+Resulted sleeping time = 0
+X = 48.471675679025914	Y = 14.541502703707657
+---------------------------------------------------------------
+Iteration# 16 @ wallClockTime = 1480405567912
+@ simTime = 1480405567919 with time delta = 7
+Resulted sleeping time = 0
+X = 48.490757130262175	Y = 14.547227139078535
+---------------------------------------------------------------
+Iteration# 17 @ wallClockTime = 1480405568013
+@ simTime = 1480405568019 with time delta = 6
+Resulted sleeping time = 0
+X = 48.509811024733814	Y = 14.552943307420025
+---------------------------------------------------------------
+Iteration# 18 @ wallClockTime = 1480405568113
+@ simTime = 1480405568119 with time delta = 6
+Resulted sleeping time = 0
+X = 48.52883740223734	Y = 14.558651220671084
+---------------------------------------------------------------
+Iteration# 19 @ wallClockTime = 1480405568216
+@ simTime = 1480405568219 with time delta = 3
+Resulted sleeping time = 0
+X = 48.547836302511804	Y = 14.564350890753424
+---------------------------------------------------------------
+Iteration# 20 @ wallClockTime = 1480405568316
+@ simTime = 1480405568319 with time delta = 3
+Resulted sleeping time = 0
+X = 48.56680776523885	Y = 14.570042329571539
+---------------------------------------------------------------
+Iteration# 21 @ wallClockTime = 1480405568417
+@ simTime = 1480405568419 with time delta = 2
+Resulted sleeping time = 0
+X = 48.58575183004284	Y = 14.575725549012736
+---------------------------------------------------------------
+Iteration# 22 @ wallClockTime = 1480405568518
+@ simTime = 1480405568519 with time delta = 1
+Resulted sleeping time = 0
+X = 48.604668536490884	Y = 14.581400560947152
+---------------------------------------------------------------
+Iteration# 23 @ wallClockTime = 1480405568618
+@ simTime = 1480405568619 with time delta = 1
+Resulted sleeping time = 0
+X = 48.62355792409297	Y = 14.587067377227779
+---------------------------------------------------------------
+Iteration# 24 @ wallClockTime = 1480405568719
+@ simTime = 1480405568719 with time delta = 0
+Resulted sleeping time = 0
+X = 48.642420032302034	Y = 14.592726009690494
+---------------------------------------------------------------
+Iteration# 25 @ wallClockTime = 1480405568820
+@ simTime = 1480405568829 with time delta = 9
+Resulted sleeping time = 0
+X = 48.66315288755666	Y = 14.598945866266876
+---------------------------------------------------------------
+Iteration# 26 @ wallClockTime = 1480405568921
+@ simTime = 1480405568929 with time delta = 8
+Resulted sleeping time = 0
+X = 48.68195781410406	Y = 14.604587344231096
+---------------------------------------------------------------
+Iteration# 27 @ wallClockTime = 1480405569022
+@ simTime = 1480405569029 with time delta = 7
+Resulted sleeping time = 0
+X = 48.70073558323413	Y = 14.610220674970115
+---------------------------------------------------------------
+Iteration# 28 @ wallClockTime = 1480405569122
+@ simTime = 1480405569129 with time delta = 7
+Resulted sleeping time = 0
+X = 48.71948623416664	Y = 14.61584587024987
+---------------------------------------------------------------
+Iteration# 29 @ wallClockTime = 1480405569223
+@ simTime = 1480405569229 with time delta = 6
+Resulted sleeping time = 0
+X = 48.73820980606476	Y = 14.621462941819308
+---------------------------------------------------------------
+Iteration# 30 @ wallClockTime = 1480405569324
+@ simTime = 1480405569329 with time delta = 5
+Resulted sleeping time = 0
+X = 48.75690633803509	Y = 14.627071901410408
+---------------------------------------------------------------
+Iteration# 31 @ wallClockTime = 1480405569425
+@ simTime = 1480405569429 with time delta = 4
+Resulted sleeping time = 0
+X = 48.77557586912774	Y = 14.632672760738203
+---------------------------------------------------------------
+Iteration# 32 @ wallClockTime = 1480405569526
+@ simTime = 1480405569529 with time delta = 3
+Resulted sleeping time = 0
+X = 48.79421843833644	Y = 14.638265531500812
+---------------------------------------------------------------
+Iteration# 33 @ wallClockTime = 1480405569626
+@ simTime = 1480405569629 with time delta = 3
+Resulted sleeping time = 0
+X = 48.8128340845986	Y = 14.643850225379458
+---------------------------------------------------------------
+Iteration# 34 @ wallClockTime = 1480405569727
+@ simTime = 1480405569729 with time delta = 2
+Resulted sleeping time = 0
+X = 48.831422846795384	Y = 14.64942685403849
+---------------------------------------------------------------
+Iteration# 35 @ wallClockTime = 1480405569828
+@ simTime = 1480405569829 with time delta = 1
+Resulted sleeping time = 0
+X = 48.84998476375183	Y = 14.654995429125421
+---------------------------------------------------------------
+Iteration# 36 @ wallClockTime = 1480405569929
+@ simTime = 1480405569929 with time delta = 0
+Resulted sleeping time = 0
+X = 48.8685198742369	Y = 14.660555962270939
+---------------------------------------------------------------
+Iteration# 37 @ wallClockTime = 1480405570030
+@ simTime = 1480405570039 with time delta = 9
+Resulted sleeping time = 0
+X = 48.88886186089865	Y = 14.66665855826947
+---------------------------------------------------------------
+Iteration# 38 @ wallClockTime = 1480405570130
+@ simTime = 1480405570139 with time delta = 9
+Resulted sleeping time = 0
+X = 48.90734082643949	Y = 14.672202247931722
+---------------------------------------------------------------
+Iteration# 39 @ wallClockTime = 1480405570231
+@ simTime = 1480405570239 with time delta = 8
+Resulted sleeping time = 0
+X = 48.92579310530447	Y = 14.677737931591222
+---------------------------------------------------------------
+Iteration# 40 @ wallClockTime = 1480405570332
+@ simTime = 1480405570339 with time delta = 7
+Resulted sleeping time = 0
+X = 48.94421873603358	Y = 14.683265620809957
+---------------------------------------------------------------
+Iteration# 41 @ wallClockTime = 1480405570432
+@ simTime = 1480405570439 with time delta = 7
+Resulted sleeping time = 0
+X = 48.96261775711109	Y = 14.688785327133214
+---------------------------------------------------------------
+Iteration# 42 @ wallClockTime = 1480405570533
+@ simTime = 1480405570539 with time delta = 6
+Resulted sleeping time = 0
+X = 48.98099020696578	Y = 14.694297062089618
+---------------------------------------------------------------
+Iteration# 43 @ wallClockTime = 1480405570634
+@ simTime = 1480405570639 with time delta = 5
+Resulted sleeping time = 0
+X = 48.99933612397083	Y = 14.699800837191134
+---------------------------------------------------------------
+Iteration# 44 @ wallClockTime = 1480405570735
+@ simTime = 1480405570739 with time delta = 4
+Resulted sleeping time = 0
+X = 49.01765554644407	Y = 14.70529666393311
+---------------------------------------------------------------
+Iteration# 45 @ wallClockTime = 1480405570835
+@ simTime = 1480405570839 with time delta = 4
+Resulted sleeping time = 0
+X = 49.035948512647984	Y = 14.710784553794287
+---------------------------------------------------------------
+Iteration# 46 @ wallClockTime = 1480405570937
+@ simTime = 1480405570939 with time delta = 2
+Resulted sleeping time = 0
+X = 49.054215060789794	Y = 14.71626451823683
+---------------------------------------------------------------
+Iteration# 47 @ wallClockTime = 1480405571037
+@ simTime = 1480405571039 with time delta = 2
+Resulted sleeping time = 0
+X = 49.072455229021536	Y = 14.721736568706348
+---------------------------------------------------------------
+Iteration# 48 @ wallClockTime = 1480405571138
+@ simTime = 1480405571139 with time delta = 1
+Resulted sleeping time = 0
+X = 49.09066905544015	Y = 14.727200716631932
+---------------------------------------------------------------
+Iteration# 49 @ wallClockTime = 1480405571239
+@ simTime = 1480405571239 with time delta = 0
+Resulted sleeping time = 0
+X = 49.10885657808756	Y = 14.732656973426156
+---------------------------------------------------------------
+Iteration# 50 @ wallClockTime = 1480405571339
+@ simTime = 1480405571339 with time delta = 0
+Resulted sleeping time = 0
+X = 49.12701783495075	Y = 14.738105350485114
+---------------------------------------------------------------
+Iteration# 51 @ wallClockTime = 1480405571440
+@ simTime = 1480405571449 with time delta = 9
+Resulted sleeping time = 0
+X = 49.14698032830585	Y = 14.744094098491647
+---------------------------------------------------------------
+Iteration# 52 @ wallClockTime = 1480405571541
+@ simTime = 1480405571549 with time delta = 8
+Resulted sleeping time = 0
+X = 49.165086528182115	Y = 14.749525958454527
+---------------------------------------------------------------
+Iteration# 53 @ wallClockTime = 1480405571642
+@ simTime = 1480405571649 with time delta = 7
+Resulted sleeping time = 0
+X = 49.18316657971767	Y = 14.754949973915195
+---------------------------------------------------------------
+Iteration# 54 @ wallClockTime = 1480405571742
+@ simTime = 1480405571749 with time delta = 7
+Resulted sleeping time = 0
+X = 49.20122052067502	Y = 14.760366156202405
+---------------------------------------------------------------
+Iteration# 55 @ wallClockTime = 1480405571843
+@ simTime = 1480405571849 with time delta = 6
+Resulted sleeping time = 0
+X = 49.219248388762175	Y = 14.765774516628554
+---------------------------------------------------------------
+Iteration# 56 @ wallClockTime = 1480405571945
+@ simTime = 1480405571949 with time delta = 4
+Resulted sleeping time = 0
+X = 49.23725022163266	Y = 14.771175066489695
+---------------------------------------------------------------
+Iteration# 57 @ wallClockTime = 1480405572046
+@ simTime = 1480405572049 with time delta = 3
+Resulted sleeping time = 0
+X = 49.2552260568856	Y = 14.77656781706558
+---------------------------------------------------------------
+Iteration# 58 @ wallClockTime = 1480405572147
+@ simTime = 1480405572149 with time delta = 2
+Resulted sleeping time = 0
+X = 49.27317593206586	Y = 14.781952779619656
+---------------------------------------------------------------
+Iteration# 59 @ wallClockTime = 1480405572247
+@ simTime = 1480405572249 with time delta = 2
+Resulted sleeping time = 0
+X = 49.29109988466408	Y = 14.787329965399119
+---------------------------------------------------------------
+Iteration# 60 @ wallClockTime = 1480405572348
+@ simTime = 1480405572349 with time delta = 1
+Resulted sleeping time = 0
+X = 49.30899795211672	Y = 14.792699385634913
+---------------------------------------------------------------
+Iteration# 61 @ wallClockTime = 1480405572449
+@ simTime = 1480405572449 with time delta = 0
+Resulted sleeping time = 0
+X = 49.32687017180621	Y = 14.798061051541765
+---------------------------------------------------------------
+Iteration# 62 @ wallClockTime = 1480405572550
+@ simTime = 1480405572559 with time delta = 9
+Resulted sleeping time = 0
+X = 49.346484646445184	Y = 14.803945393933459
+---------------------------------------------------------------
+Iteration# 63 @ wallClockTime = 1480405572650
+@ simTime = 1480405572659 with time delta = 9
+Resulted sleeping time = 0
+X = 49.364302729161594	Y = 14.809290818748382
+---------------------------------------------------------------
+Iteration# 64 @ wallClockTime = 1480405572752
+@ simTime = 1480405572759 with time delta = 7
+Resulted sleeping time = 0
+X = 49.382095079626026	Y = 14.814628523887707
+---------------------------------------------------------------
+Iteration# 65 @ wallClockTime = 1480405572853
+@ simTime = 1480405572859 with time delta = 6
+Resulted sleeping time = 0
+X = 49.39986173500008	Y = 14.819958520499926
+---------------------------------------------------------------
+Iteration# 66 @ wallClockTime = 1480405572954
+@ simTime = 1480405572959 with time delta = 5
+Resulted sleeping time = 0
+X = 49.417602732391714	Y = 14.82528081971742
+---------------------------------------------------------------
+Iteration# 67 @ wallClockTime = 1480405573057
+@ simTime = 1480405573059 with time delta = 2
+Resulted sleeping time = 0
+X = 49.435318108855306	Y = 14.830595432656496
+---------------------------------------------------------------
+Iteration# 68 @ wallClockTime = 1480405573157
+@ simTime = 1480405573159 with time delta = 2
+Resulted sleeping time = 0
+X = 49.45300790139169	Y = 14.835902370417411
+---------------------------------------------------------------
+Iteration# 69 @ wallClockTime = 1480405573258
+@ simTime = 1480405573259 with time delta = 1
+Resulted sleeping time = 0
+X = 49.470672146948274	Y = 14.841201644084386
+---------------------------------------------------------------
+Iteration# 70 @ wallClockTime = 1480405573359
+@ simTime = 1480405573359 with time delta = 0
+Resulted sleeping time = 0
+X = 49.48831088241913	Y = 14.846493264725643
+---------------------------------------------------------------
+Iteration# 71 @ wallClockTime = 1480405573459
+@ simTime = 1480405573459 with time delta = 0
+Resulted sleeping time = 0
+X = 49.50592414464502	Y = 14.85177724339341
+---------------------------------------------------------------
+Iteration# 72 @ wallClockTime = 1480405573560
+@ simTime = 1480405573569 with time delta = 9
+Resulted sleeping time = 0
+X = 49.525284293163075	Y = 14.85758528794883
+---------------------------------------------------------------
+Iteration# 73 @ wallClockTime = 1480405573661
+@ simTime = 1480405573669 with time delta = 8
+Resulted sleeping time = 0
+X = 49.54284415968208	Y = 14.862853247904532
+---------------------------------------------------------------
+Iteration# 74 @ wallClockTime = 1480405573761
+@ simTime = 1480405573769 with time delta = 8
+Resulted sleeping time = 0
+X = 49.56037866685591	Y = 14.868113600056676
+---------------------------------------------------------------
+Iteration# 75 @ wallClockTime = 1480405573862
+@ simTime = 1480405573869 with time delta = 7
+Resulted sleeping time = 0
+X = 49.57788785130762	Y = 14.873366355392191
+---------------------------------------------------------------
+Iteration# 76 @ wallClockTime = 1480405573963
+@ simTime = 1480405573969 with time delta = 6
+Resulted sleeping time = 0
+X = 49.59537174960742	Y = 14.878611524882135
+---------------------------------------------------------------
+Iteration# 77 @ wallClockTime = 1480405574064
+@ simTime = 1480405574069 with time delta = 5
+Resulted sleeping time = 0
+X = 49.61283039827269	Y = 14.883849119481715
+---------------------------------------------------------------
+Iteration# 78 @ wallClockTime = 1480405574164
+@ simTime = 1480405574169 with time delta = 5
+Resulted sleeping time = 0
+X = 49.63026383376806	Y = 14.889079150130328
+---------------------------------------------------------------
+Iteration# 79 @ wallClockTime = 1480405574265
+@ simTime = 1480405574269 with time delta = 4
+Resulted sleeping time = 0
+X = 49.64767209250553	Y = 14.894301627751567
+---------------------------------------------------------------
+Iteration# 80 @ wallClockTime = 1480405574366
+@ simTime = 1480405574369 with time delta = 3
+Resulted sleeping time = 0
+X = 49.66505521084445	Y = 14.899516563253245
+---------------------------------------------------------------
+Iteration# 81 @ wallClockTime = 1480405574467
+@ simTime = 1480405574469 with time delta = 2
+Resulted sleeping time = 0
+X = 49.68241322509174	Y = 14.90472396752743
+---------------------------------------------------------------
+Iteration# 82 @ wallClockTime = 1480405574567
+@ simTime = 1480405574569 with time delta = 2
+Resulted sleeping time = 0
+X = 49.69974617150184	Y = 14.90992385145046
+---------------------------------------------------------------
+Iteration# 83 @ wallClockTime = 1480405574668
+@ simTime = 1480405574669 with time delta = 1
+Resulted sleeping time = 0
+X = 49.717054086276846	Y = 14.915116225882961
+---------------------------------------------------------------
+Iteration# 84 @ wallClockTime = 1480405574769
+@ simTime = 1480405574769 with time delta = 0
+Resulted sleeping time = 0
+X = 49.73433700556657	Y = 14.92030110166988
+---------------------------------------------------------------
+Iteration# 85 @ wallClockTime = 1480405574869
+@ simTime = 1480405574869 with time delta = 0
+Resulted sleeping time = 0
+X = 49.751594965468605	Y = 14.92547848964049
+---------------------------------------------------------------
+Iteration# 86 @ wallClockTime = 1480405574970
+@ simTime = 1480405574979 with time delta = 9
+Resulted sleeping time = 0
+X = 49.77053529983671	Y = 14.931160589950915
+---------------------------------------------------------------
+Iteration# 87 @ wallClockTime = 1480405575071
+@ simTime = 1480405575079 with time delta = 8
+Resulted sleeping time = 0
+X = 49.78774098342798	Y = 14.936322295028294
+---------------------------------------------------------------
+Iteration# 88 @ wallClockTime = 1480405575172
+@ simTime = 1480405575179 with time delta = 7
+Resulted sleeping time = 0
+X = 49.80492181917266	Y = 14.941476545751696
+---------------------------------------------------------------
+Iteration# 89 @ wallClockTime = 1480405575273
+@ simTime = 1480405575279 with time delta = 6
+Resulted sleeping time = 0
+X = 49.822077842955146	Y = 14.946623352886446
+---------------------------------------------------------------
+Iteration# 90 @ wallClockTime = 1480405575373
+@ simTime = 1480405575379 with time delta = 6
+Resulted sleeping time = 0
+X = 49.839209090608016	Y = 14.951762727182306
+---------------------------------------------------------------
+Iteration# 91 @ wallClockTime = 1480405575474
+@ simTime = 1480405575479 with time delta = 5
+Resulted sleeping time = 0
+X = 49.85631559791206	Y = 14.956894679373525
+---------------------------------------------------------------
+Iteration# 92 @ wallClockTime = 1480405575575
+@ simTime = 1480405575579 with time delta = 4
+Resulted sleeping time = 0
+X = 49.873397400596474	Y = 14.962019220178849
+---------------------------------------------------------------
+Iteration# 93 @ wallClockTime = 1480405575675
+@ simTime = 1480405575679 with time delta = 4
+Resulted sleeping time = 0
+X = 49.890454534338765	Y = 14.96713636030154
+---------------------------------------------------------------
+Iteration# 94 @ wallClockTime = 1480405575776
+@ simTime = 1480405575779 with time delta = 3
+Resulted sleeping time = 0
+X = 49.90748703476498	Y = 14.972246110429403
+---------------------------------------------------------------
+Iteration# 95 @ wallClockTime = 1480405575877
+@ simTime = 1480405575879 with time delta = 2
+Resulted sleeping time = 0
+X = 49.92449493744967	Y = 14.977348481234813
+---------------------------------------------------------------
+Iteration# 96 @ wallClockTime = 1480405575978
+@ simTime = 1480405575979 with time delta = 1
+Resulted sleeping time = 0
+X = 49.94147827791605	Y = 14.982443483374729
+---------------------------------------------------------------
+Iteration# 97 @ wallClockTime = 1480405576078
+@ simTime = 1480405576079 with time delta = 1
+Resulted sleeping time = 0
+X = 49.95843709163602	Y = 14.987531127490719
+---------------------------------------------------------------
+Iteration# 98 @ wallClockTime = 1480405576179
+@ simTime = 1480405576179 with time delta = 0
+Resulted sleeping time = 0
+X = 49.97537141403024	Y = 14.992611424208985
+---------------------------------------------------------------
+Iteration# 99 @ wallClockTime = 1480405576279
+@ simTime = 1480405576279 with time delta = 0
+Resulted sleeping time = 0
+X = 49.992281280468234	Y = 14.997684384140383
+---------------------------------------------------------------
+Iteration# 100 @ wallClockTime = 1480405576380
+@ simTime = 1480405576389 with time delta = 9
+Resulted sleeping time = 0
+X = 50.010868270286544	Y = 15.00326048108588
+---------------------------------------------------------------
+Iteration# 101 @ wallClockTime = 1480405576481
+@ simTime = 1480405576489 with time delta = 8
+Resulted sleeping time = 0
+X = 50.027726873406	Y = 15.008318062021717
+---------------------------------------------------------------
+Iteration# 102 @ wallClockTime = 1480405576581
+@ simTime = 1480405576589 with time delta = 8
+Resulted sleeping time = 0
+X = 50.04456112992036	Y = 15.013368338976026
+---------------------------------------------------------------
+Iteration# 103 @ wallClockTime = 1480405576682
+@ simTime = 1480405576689 with time delta = 7
+Resulted sleeping time = 0
+X = 50.061371074990134	Y = 15.018411322496958
+---------------------------------------------------------------
+Iteration# 104 @ wallClockTime = 1480405576783
+@ simTime = 1480405576789 with time delta = 6
+Resulted sleeping time = 0
+X = 50.07815674372506	Y = 15.023447023117436
+---------------------------------------------------------------
+Iteration# 105 @ wallClockTime = 1480405576883
+@ simTime = 1480405576889 with time delta = 6
+Resulted sleeping time = 0
+X = 50.09491817118417	Y = 15.028475451355167
+---------------------------------------------------------------
+Iteration# 106 @ wallClockTime = 1480405576984
+@ simTime = 1480405576989 with time delta = 5
+Resulted sleeping time = 0
+X = 50.11165539237587	Y = 15.033496617712673
+---------------------------------------------------------------
+Iteration# 107 @ wallClockTime = 1480405577085
+@ simTime = 1480405577089 with time delta = 4
+Resulted sleeping time = 0
+X = 50.12836844225801	Y = 15.038510532677313
+---------------------------------------------------------------
+Iteration# 108 @ wallClockTime = 1480405577186
+@ simTime = 1480405577189 with time delta = 3
+Resulted sleeping time = 0
+X = 50.14505735573793	Y = 15.04351720672129
+---------------------------------------------------------------
+Iteration# 109 @ wallClockTime = 1480405577287
+@ simTime = 1480405577289 with time delta = 2
+Resulted sleeping time = 0
+X = 50.16172216767261	Y = 15.048516650301691
+---------------------------------------------------------------
+Iteration# 110 @ wallClockTime = 1480405577388
+@ simTime = 1480405577389 with time delta = 1
+Resulted sleeping time = 0
+X = 50.17836291286862	Y = 15.053508873860498
+---------------------------------------------------------------
+Iteration# 111 @ wallClockTime = 1480405577488
+@ simTime = 1480405577489 with time delta = 1
+Resulted sleeping time = 0
+X = 50.194979626082336	Y = 15.05849388782461
+---------------------------------------------------------------
+Iteration# 112 @ wallClockTime = 1480405577589
+@ simTime = 1480405577589 with time delta = 0
+Resulted sleeping time = 0
+X = 50.21157234201988	Y = 15.063471702605874
+---------------------------------------------------------------
+Iteration# 113 @ wallClockTime = 1480405577689
+@ simTime = 1480405577689 with time delta = 0
+Resulted sleeping time = 0
+X = 50.22814109533729	Y = 15.0684423286011
+---------------------------------------------------------------
+Iteration# 114 @ wallClockTime = 1480405577790
+@ simTime = 1480405577799 with time delta = 9
+Resulted sleeping time = 0
+X = 50.2463250365259	Y = 15.073897510957684
+---------------------------------------------------------------
+Iteration# 115 @ wallClockTime = 1480405577891
+@ simTime = 1480405577899 with time delta = 8
+Resulted sleeping time = 0
+X = 50.26284360121717	Y = 15.078853080365066
+---------------------------------------------------------------
+Iteration# 116 @ wallClockTime = 1480405577992
+@ simTime = 1480405577999 with time delta = 7
+Resulted sleeping time = 0
+X = 50.279338310374946	Y = 15.083801493112395
+---------------------------------------------------------------
+Iteration# 117 @ wallClockTime = 1480405578093
+@ simTime = 1480405578099 with time delta = 6
+Resulted sleeping time = 0
+X = 50.29580919845055	Y = 15.088742759535075
+---------------------------------------------------------------
+Iteration# 118 @ wallClockTime = 1480405578194
+@ simTime = 1480405578199 with time delta = 5
+Resulted sleeping time = 0
+X = 50.31225629984555	Y = 15.093676889953574
+---------------------------------------------------------------
+Iteration# 119 @ wallClockTime = 1480405578294
+@ simTime = 1480405578299 with time delta = 5
+Resulted sleeping time = 0
+X = 50.32867964891186	Y = 15.098603894673468
+---------------------------------------------------------------
+Iteration# 120 @ wallClockTime = 1480405578395
+@ simTime = 1480405578399 with time delta = 4
+Resulted sleeping time = 0
+X = 50.34507927995176	Y = 15.103523783985437
+---------------------------------------------------------------
+Iteration# 121 @ wallClockTime = 1480405578496
+@ simTime = 1480405578499 with time delta = 3
+Resulted sleeping time = 0
+X = 50.36145522721798	Y = 15.108436568165303
+---------------------------------------------------------------
+Iteration# 122 @ wallClockTime = 1480405578596
+@ simTime = 1480405578599 with time delta = 3
+Resulted sleeping time = 0
+X = 50.37780752491381	Y = 15.11334225747405
+---------------------------------------------------------------
+Iteration# 123 @ wallClockTime = 1480405578697
+@ simTime = 1480405578699 with time delta = 2
+Resulted sleeping time = 0
+X = 50.39413620719312	Y = 15.118240862157842
+---------------------------------------------------------------
+Iteration# 124 @ wallClockTime = 1480405578797
+@ simTime = 1480405578799 with time delta = 2
+Resulted sleeping time = 0
+X = 50.41044130816048	Y = 15.123132392448044
+---------------------------------------------------------------
+Iteration# 125 @ wallClockTime = 1480405578898
+@ simTime = 1480405578899 with time delta = 1
+Resulted sleeping time = 0
+X = 50.42672286187117	Y = 15.128016858561253
+---------------------------------------------------------------
+Iteration# 126 @ wallClockTime = 1480405578999
+@ simTime = 1480405578999 with time delta = 0
+Resulted sleeping time = 0
+X = 50.442980902331335	Y = 15.132894270699305
+---------------------------------------------------------------
+Iteration# 127 @ wallClockTime = 1480405579100
+@ simTime = 1480405579109 with time delta = 9
+Resulted sleeping time = 0
+X = 50.46085141796238	Y = 15.138255425388618
+---------------------------------------------------------------
+Iteration# 128 @ wallClockTime = 1480405579215
+@ simTime = 1480405579219 with time delta = 4
+Resulted sleeping time = 0
+X = 50.478665991969535	Y = 15.143599797590763
+---------------------------------------------------------------
+Iteration# 129 @ wallClockTime = 1480405579315
+@ simTime = 1480405579319 with time delta = 4
+Resulted sleeping time = 0
+X = 50.4948490179776	Y = 15.148454705393185
+---------------------------------------------------------------
+Iteration# 130 @ wallClockTime = 1480405579416
+@ simTime = 1480405579419 with time delta = 3
+Resulted sleeping time = 0
+X = 50.51100867302539	Y = 15.153302601907527
+---------------------------------------------------------------
+Iteration# 131 @ wallClockTime = 1480405579517
+@ simTime = 1480405579519 with time delta = 2
+Resulted sleeping time = 0
+X = 50.52714499086445	Y = 15.158143497259246
+---------------------------------------------------------------
+Iteration# 132 @ wallClockTime = 1480405579617
+@ simTime = 1480405579619 with time delta = 2
+Resulted sleeping time = 0
+X = 50.54325800519757	Y = 15.162977401559177
+---------------------------------------------------------------
+Iteration# 133 @ wallClockTime = 1480405579718
+@ simTime = 1480405579719 with time delta = 1
+Resulted sleeping time = 0
+X = 50.559347749678835	Y = 15.167804324903553
+---------------------------------------------------------------
+Iteration# 134 @ wallClockTime = 1480405579819
+@ simTime = 1480405579819 with time delta = 0
+Resulted sleeping time = 0
+X = 50.575414257913756	Y = 15.172624277374027
+---------------------------------------------------------------
+Iteration# 135 @ wallClockTime = 1480405579920
+@ simTime = 1480405579929 with time delta = 9
+Resulted sleeping time = 0
+X = 50.593074245121414	Y = 15.177922273536325
+---------------------------------------------------------------
+Iteration# 136 @ wallClockTime = 1480405580020
+@ simTime = 1480405580029 with time delta = 9
+Resulted sleeping time = 0
+X = 50.60909204673097	Y = 15.182727614019194
+---------------------------------------------------------------
+Iteration# 137 @ wallClockTime = 1480405580121
+@ simTime = 1480405580129 with time delta = 8
+Resulted sleeping time = 0
+X = 50.62508671599157	Y = 15.187526014797372
+---------------------------------------------------------------
+Iteration# 138 @ wallClockTime = 1480405580222
+@ simTime = 1480405580229 with time delta = 7
+Resulted sleeping time = 0
+X = 50.64105828631014	Y = 15.192317485892945
+---------------------------------------------------------------
+Iteration# 139 @ wallClockTime = 1480405580322
+@ simTime = 1480405580329 with time delta = 7
+Resulted sleeping time = 0
+X = 50.65700679104535	Y = 15.19710203731351
+---------------------------------------------------------------
+Iteration# 140 @ wallClockTime = 1480405580423
+@ simTime = 1480405580429 with time delta = 6
+Resulted sleeping time = 0
+X = 50.67293226350772	Y = 15.201879679052226
+---------------------------------------------------------------
+Iteration# 141 @ wallClockTime = 1480405580523
+@ simTime = 1480405580529 with time delta = 6
+Resulted sleeping time = 0
+X = 50.688834736959656	Y = 15.20665042108781
+---------------------------------------------------------------
+Iteration# 142 @ wallClockTime = 1480405580624
+@ simTime = 1480405580629 with time delta = 5
+Resulted sleeping time = 0
+X = 50.70471424461553	Y = 15.21141427338457
+---------------------------------------------------------------
+Iteration# 143 @ wallClockTime = 1480405580725
+@ simTime = 1480405580729 with time delta = 4
+Resulted sleeping time = 0
+X = 50.72057081964173	Y = 15.21617124589243
+---------------------------------------------------------------
+Iteration# 144 @ wallClockTime = 1480405580826
+@ simTime = 1480405580829 with time delta = 3
+Resulted sleeping time = 0
+X = 50.736404495156755	Y = 15.220921348546938
+---------------------------------------------------------------
+Iteration# 145 @ wallClockTime = 1480405580926
+@ simTime = 1480405580929 with time delta = 3
+Resulted sleeping time = 0
+X = 50.752215304231285	Y = 15.225664591269297
+---------------------------------------------------------------
+Iteration# 146 @ wallClockTime = 1480405581027
+@ simTime = 1480405581029 with time delta = 2
+Resulted sleeping time = 0
+X = 50.768003279888234	Y = 15.230400983966382
+---------------------------------------------------------------
+Iteration# 147 @ wallClockTime = 1480405581128
+@ simTime = 1480405581129 with time delta = 1
+Resulted sleeping time = 0
+X = 50.78376845510283	Y = 15.235130536530756
+---------------------------------------------------------------
+Iteration# 148 @ wallClockTime = 1480405581228
+@ simTime = 1480405581229 with time delta = 1
+Resulted sleeping time = 0
+X = 50.799510862802656	Y = 15.239853258840705
+---------------------------------------------------------------
+Iteration# 149 @ wallClockTime = 1480405581329
+@ simTime = 1480405581329 with time delta = 0
+Resulted sleeping time = 0
+X = 50.815230535867784	Y = 15.244569160760243
+---------------------------------------------------------------
+Iteration# 150 @ wallClockTime = 1480405581430
+@ simTime = 1480405581439 with time delta = 9
+Resulted sleeping time = 0
+X = 50.832482625089234	Y = 15.249744787526685
+---------------------------------------------------------------
+Iteration# 151 @ wallClockTime = 1480405581530
+@ simTime = 1480405581539 with time delta = 9
+Resulted sleeping time = 0
+X = 50.84815468148824	Y = 15.254446404446387
+---------------------------------------------------------------
+Iteration# 152 @ wallClockTime = 1480405581631
+@ simTime = 1480405581639 with time delta = 8
+Resulted sleeping time = 0
+X = 50.863804104851425	Y = 15.25914123145534
+---------------------------------------------------------------
+Iteration# 153 @ wallClockTime = 1480405581732
+@ simTime = 1480405581739 with time delta = 7
+Resulted sleeping time = 0
+X = 50.87943092786463	Y = 15.2638292783593
+---------------------------------------------------------------
+Iteration# 154 @ wallClockTime = 1480405581832
+@ simTime = 1480405581839 with time delta = 7
+Resulted sleeping time = 0
+X = 50.8950351831665	Y = 15.268510554949856
+---------------------------------------------------------------
+Iteration# 155 @ wallClockTime = 1480405581933
+@ simTime = 1480405581939 with time delta = 6
+Resulted sleeping time = 0
+X = 50.910616903348505	Y = 15.273185071004457
+---------------------------------------------------------------
+Iteration# 156 @ wallClockTime = 1480405582034
+@ simTime = 1480405582039 with time delta = 5
+Resulted sleeping time = 0
+X = 50.926176120955105	Y = 15.277852836286435
+---------------------------------------------------------------
+Iteration# 157 @ wallClockTime = 1480405582134
+@ simTime = 1480405582139 with time delta = 5
+Resulted sleeping time = 0
+X = 50.94171286848371	Y = 15.282513860545018
+---------------------------------------------------------------
+Iteration# 158 @ wallClockTime = 1480405582235
+@ simTime = 1480405582239 with time delta = 4
+Resulted sleeping time = 0
+X = 50.957227178384855	Y = 15.287168153515355
+---------------------------------------------------------------
+Iteration# 159 @ wallClockTime = 1480405582336
+@ simTime = 1480405582339 with time delta = 3
+Resulted sleeping time = 0
+X = 50.972719083062145	Y = 15.291815724918541
+---------------------------------------------------------------
+Iteration# 160 @ wallClockTime = 1480405582436
+@ simTime = 1480405582439 with time delta = 3
+Resulted sleeping time = 0
+X = 50.98818861487245	Y = 15.296456584461627
+---------------------------------------------------------------
+Iteration# 161 @ wallClockTime = 1480405582537
+@ simTime = 1480405582539 with time delta = 2
+Resulted sleeping time = 0
+X = 51.003635806125835	Y = 15.301090741837644
+---------------------------------------------------------------
+Iteration# 162 @ wallClockTime = 1480405582638
+@ simTime = 1480405582639 with time delta = 1
+Resulted sleeping time = 0
+X = 51.0190606890858	Y = 15.305718206725627
+---------------------------------------------------------------
+Iteration# 163 @ wallClockTime = 1480405582739
+@ simTime = 1480405582739 with time delta = 0
+Resulted sleeping time = 0
+X = 51.03446329596917	Y = 15.310338988790637
+---------------------------------------------------------------
+Iteration# 164 @ wallClockTime = 1480405582839
+@ simTime = 1480405582839 with time delta = 0
+Resulted sleeping time = 0
+X = 51.04984365894629	Y = 15.314953097683773
+---------------------------------------------------------------
+Iteration# 165 @ wallClockTime = 1480405582941
+@ simTime = 1480405582949 with time delta = 8
+Resulted sleeping time = 0
+X = 51.066749448894775	Y = 15.320024834668322
+---------------------------------------------------------------
+Iteration# 166 @ wallClockTime = 1480405583041
+@ simTime = 1480405583049 with time delta = 8
+Resulted sleeping time = 0
+X = 51.08208318533883	Y = 15.324624955601543
+---------------------------------------------------------------
+Iteration# 167 @ wallClockTime = 1480405583142
+@ simTime = 1480405583149 with time delta = 7
+Resulted sleeping time = 0
+X = 51.09739477733693	Y = 15.329218433200971
+---------------------------------------------------------------
+Iteration# 168 @ wallClockTime = 1480405583243
+@ simTime = 1480405583249 with time delta = 6
+Resulted sleeping time = 0
+X = 51.1126842568693	Y = 15.333805277060677
+---------------------------------------------------------------
+Iteration# 169 @ wallClockTime = 1480405583344
+@ simTime = 1480405583349 with time delta = 5
+Resulted sleeping time = 0
+X = 51.12795165586996	Y = 15.338385496760873
+---------------------------------------------------------------
+Iteration# 170 @ wallClockTime = 1480405583445
+@ simTime = 1480405583449 with time delta = 4
+Resulted sleeping time = 0
+X = 51.14319700622687	Y = 15.342959101867947
+---------------------------------------------------------------
+Iteration# 171 @ wallClockTime = 1480405583546
+@ simTime = 1480405583549 with time delta = 3
+Resulted sleeping time = 0
+X = 51.15842033978191	Y = 15.347526101934458
+---------------------------------------------------------------
+Iteration# 172 @ wallClockTime = 1480405583647
+@ simTime = 1480405583649 with time delta = 2
+Resulted sleeping time = 0
+X = 51.17362168833097	Y = 15.35208650649917
+---------------------------------------------------------------
+Iteration# 173 @ wallClockTime = 1480405583747
+@ simTime = 1480405583749 with time delta = 2
+Resulted sleeping time = 0
+X = 51.18880108362402	Y = 15.356640325087083
+---------------------------------------------------------------
+Iteration# 174 @ wallClockTime = 1480405583848
+@ simTime = 1480405583849 with time delta = 1
+Resulted sleeping time = 0
+X = 51.20395855736519	Y = 15.361187567209434
+---------------------------------------------------------------
+Iteration# 175 @ wallClockTime = 1480405583949
+@ simTime = 1480405583949 with time delta = 0
+Resulted sleeping time = 0
+X = 51.21909414121283	Y = 15.365728242363724
+---------------------------------------------------------------
+Iteration# 176 @ wallClockTime = 1480405584049
+@ simTime = 1480405584049 with time delta = 0
+Resulted sleeping time = 0
+X = 51.234207866779535	Y = 15.370262360033736
+---------------------------------------------------------------
+Iteration# 177 @ wallClockTime = 1480405584150
+@ simTime = 1480405584159 with time delta = 9
+Resulted sleeping time = 0
+X = 51.250794938334096	Y = 15.375238481500109
+---------------------------------------------------------------
+Iteration# 178 @ wallClockTime = 1480405584251
+@ simTime = 1480405584259 with time delta = 8
+Resulted sleeping time = 0
+X = 51.26586288271813	Y = 15.379758864815322
+---------------------------------------------------------------
+Iteration# 179 @ wallClockTime = 1480405584351
+@ simTime = 1480405584359 with time delta = 8
+Resulted sleeping time = 0
+X = 51.280909066503796	Y = 15.38427271995102
+---------------------------------------------------------------
+Iteration# 180 @ wallClockTime = 1480405584452
+@ simTime = 1480405584459 with time delta = 7
+Resulted sleeping time = 0
+X = 51.295933521116986	Y = 15.388780056334976
+---------------------------------------------------------------
+Iteration# 181 @ wallClockTime = 1480405584553
+@ simTime = 1480405584559 with time delta = 6
+Resulted sleeping time = 0
+X = 51.31093627793822	Y = 15.39328088338134
+---------------------------------------------------------------
+Iteration# 182 @ wallClockTime = 1480405584654
+@ simTime = 1480405584659 with time delta = 5
+Resulted sleeping time = 0
+X = 51.32591736830266	Y = 15.397775210490675
+---------------------------------------------------------------
+Iteration# 183 @ wallClockTime = 1480405584754
+@ simTime = 1480405584759 with time delta = 5
+Resulted sleeping time = 0
+X = 51.34087682350026	Y = 15.402263047049956
+---------------------------------------------------------------
+Iteration# 184 @ wallClockTime = 1480405584855
+@ simTime = 1480405584859 with time delta = 4
+Resulted sleeping time = 0
+X = 51.355814674775786	Y = 15.406744402432615
+---------------------------------------------------------------
+Iteration# 185 @ wallClockTime = 1480405584955
+@ simTime = 1480405584959 with time delta = 4
+Resulted sleeping time = 0
+X = 51.37073095332885	Y = 15.41121928599854
+---------------------------------------------------------------
+Iteration# 186 @ wallClockTime = 1480405585056
+@ simTime = 1480405585059 with time delta = 3
+Resulted sleeping time = 0
+X = 51.385625690314036	Y = 15.415687707094095
+---------------------------------------------------------------
+Iteration# 187 @ wallClockTime = 1480405585157
+@ simTime = 1480405585159 with time delta = 2
+Resulted sleeping time = 0
+X = 51.40049891684093	Y = 15.42014967505216
+---------------------------------------------------------------
+Iteration# 188 @ wallClockTime = 1480405585257
+@ simTime = 1480405585259 with time delta = 2
+Resulted sleeping time = 0
+X = 51.415350663974166	Y = 15.424605199192126
+---------------------------------------------------------------
+Iteration# 189 @ wallClockTime = 1480405585358
+@ simTime = 1480405585359 with time delta = 1
+Resulted sleeping time = 0
+X = 51.43018096273352	Y = 15.429054288819934
+---------------------------------------------------------------
+Iteration# 190 @ wallClockTime = 1480405585459
+@ simTime = 1480405585459 with time delta = 0
+Resulted sleeping time = 0
+X = 51.444989844094025	Y = 15.433496953228081
+---------------------------------------------------------------
+Iteration# 191 @ wallClockTime = 1480405585560
+@ simTime = 1480405585569 with time delta = 9
+Resulted sleeping time = 0
+X = 51.46126747278362	Y = 15.438380241834958
+---------------------------------------------------------------
+Iteration# 192 @ wallClockTime = 1480405585660
+@ simTime = 1480405585669 with time delta = 9
+Resulted sleeping time = 0
+X = 51.476031460093346	Y = 15.442809438027878
+---------------------------------------------------------------
+Iteration# 193 @ wallClockTime = 1480405585761
+@ simTime = 1480405585769 with time delta = 8
+Resulted sleeping time = 0
+X = 51.49077412576888	Y = 15.44723223773054
+---------------------------------------------------------------
+Iteration# 194 @ wallClockTime = 1480405585862
+@ simTime = 1480405585869 with time delta = 7
+Resulted sleeping time = 0
+X = 51.50549550060218	Y = 15.451648650180532
+---------------------------------------------------------------
+Iteration# 195 @ wallClockTime = 1480405585962
+@ simTime = 1480405585969 with time delta = 7
+Resulted sleeping time = 0
+X = 51.52019561534073	Y = 15.456058684602098
+---------------------------------------------------------------
+Iteration# 196 @ wallClockTime = 1480405586063
+@ simTime = 1480405586069 with time delta = 6
+Resulted sleeping time = 0
+X = 51.53487450068761	Y = 15.460462350206166
+---------------------------------------------------------------
+Iteration# 197 @ wallClockTime = 1480405586164
+@ simTime = 1480405586169 with time delta = 5
+Resulted sleeping time = 0
+X = 51.54953218730157	Y = 15.464859656190356
+---------------------------------------------------------------
+Iteration# 198 @ wallClockTime = 1480405586265
+@ simTime = 1480405586269 with time delta = 4
+Resulted sleeping time = 0
+X = 51.5641687057971	Y = 15.469250611739012
+---------------------------------------------------------------
+Iteration# 199 @ wallClockTime = 1480405586366
+@ simTime = 1480405586369 with time delta = 3
+Resulted sleeping time = 0
+X = 51.578784086744434	Y = 15.47363522602321
+---------------------------------------------------------------
+Iteration# 200 @ wallClockTime = 1480405586466
+@ simTime = 1480405586469 with time delta = 3
+Resulted sleeping time = 0
+X = 51.59337836066968	Y = 15.478013508200787
+---------------------------------------------------------------
+Iteration# 201 @ wallClockTime = 1480405586567
+@ simTime = 1480405586569 with time delta = 2
+Resulted sleeping time = 0
+X = 51.60795155805488	Y = 15.482385467416345
+---------------------------------------------------------------
+Iteration# 202 @ wallClockTime = 1480405586668
+@ simTime = 1480405586669 with time delta = 1
+Resulted sleeping time = 0
+X = 51.622503709338005	Y = 15.486751112801281
+---------------------------------------------------------------
+Iteration# 203 @ wallClockTime = 1480405586769
+@ simTime = 1480405586769 with time delta = 0
+Resulted sleeping time = 0
+X = 51.63703484491312	Y = 15.491110453473816
+---------------------------------------------------------------
+Iteration# 204 @ wallClockTime = 1480405586874
+@ simTime = 1480405586879 with time delta = 5
+Resulted sleeping time = 0
+X = 51.65298253329013	Y = 15.49589475998692
+---------------------------------------------------------------
+Iteration# 205 @ wallClockTime = 1480405586975
+@ simTime = 1480405586979 with time delta = 4
+Resulted sleeping time = 0
+X = 51.6674696524135	Y = 15.500240895723929
+---------------------------------------------------------------
+Iteration# 206 @ wallClockTime = 1480405587076
+@ simTime = 1480405587079 with time delta = 3
+Resulted sleeping time = 0
+X = 51.68193584974601	Y = 15.504580754923685
+---------------------------------------------------------------
+Iteration# 207 @ wallClockTime = 1480405587177
+@ simTime = 1480405587179 with time delta = 2
+Resulted sleeping time = 0
+X = 51.6963811555022	Y = 15.508914346650544
+---------------------------------------------------------------
+Iteration# 208 @ wallClockTime = 1480405587278
+@ simTime = 1480405587279 with time delta = 1
+Resulted sleeping time = 0
+X = 51.71080559985297	Y = 15.51324167995577
+---------------------------------------------------------------
+Iteration# 209 @ wallClockTime = 1480405587378
+@ simTime = 1480405587379 with time delta = 1
+Resulted sleeping time = 0
+X = 51.7252092129256	Y = 15.517562763877557
+---------------------------------------------------------------
+Iteration# 210 @ wallClockTime = 1480405587479
+@ simTime = 1480405587479 with time delta = 0
+Resulted sleeping time = 0
+X = 51.73959202480391	Y = 15.521877607441047
+---------------------------------------------------------------
+Iteration# 211 @ wallClockTime = 1480405587580
+@ simTime = 1480405587589 with time delta = 9
+Resulted sleeping time = 0
+X = 51.75540132636885	Y = 15.526620397910525
+---------------------------------------------------------------
+Iteration# 212 @ wallClockTime = 1480405587681
+@ simTime = 1480405587689 with time delta = 8
+Resulted sleeping time = 0
+X = 51.76974053585269	Y = 15.53092216075568
+---------------------------------------------------------------
+Iteration# 213 @ wallClockTime = 1480405587781
+@ simTime = 1480405587789 with time delta = 8
+Resulted sleeping time = 0
+X = 51.784059037151636	Y = 15.535217711145359
+---------------------------------------------------------------
+Iteration# 214 @ wallClockTime = 1480405587883
+@ simTime = 1480405587889 with time delta = 6
+Resulted sleeping time = 0
+X = 51.79835686017169	Y = 15.539507058051377
+---------------------------------------------------------------
+Iteration# 215 @ wallClockTime = 1480405587984
+@ simTime = 1480405587989 with time delta = 5
+Resulted sleeping time = 0
+X = 51.81263403477572	Y = 15.543790210432586
+---------------------------------------------------------------
+Iteration# 216 @ wallClockTime = 1480405588084
+@ simTime = 1480405588089 with time delta = 5
+Resulted sleeping time = 0
+X = 51.826890590783435	Y = 15.548067177234902
+---------------------------------------------------------------
+Iteration# 217 @ wallClockTime = 1480405588185
+@ simTime = 1480405588189 with time delta = 4
+Resulted sleeping time = 0
+X = 51.8411265579715	Y = 15.552337967391322
+---------------------------------------------------------------
+Iteration# 218 @ wallClockTime = 1480405588286
+@ simTime = 1480405588289 with time delta = 3
+Resulted sleeping time = 0
+X = 51.85534196607357	Y = 15.55660258982194
+---------------------------------------------------------------
+Iteration# 219 @ wallClockTime = 1480405588386
+@ simTime = 1480405588389 with time delta = 3
+Resulted sleeping time = 0
+X = 51.86953684478035	Y = 15.560861053433975
+---------------------------------------------------------------
+Iteration# 220 @ wallClockTime = 1480405588487
+@ simTime = 1480405588489 with time delta = 2
+Resulted sleeping time = 0
+X = 51.88371122373968	Y = 15.565113367121773
+---------------------------------------------------------------
+Iteration# 221 @ wallClockTime = 1480405588588
+@ simTime = 1480405588589 with time delta = 1
+Resulted sleeping time = 0
+X = 51.89786513255658	Y = 15.56935953976684
+---------------------------------------------------------------
+Iteration# 222 @ wallClockTime = 1480405588688
+@ simTime = 1480405588689 with time delta = 1
+Resulted sleeping time = 0
+X = 51.91199860079331	Y = 15.573599580237856
+---------------------------------------------------------------
+Iteration# 223 @ wallClockTime = 1480405588789
+@ simTime = 1480405588789 with time delta = 0
+Resulted sleeping time = 0
+X = 51.926111657969436	Y = 15.577833497390692
+---------------------------------------------------------------
+Iteration# 224 @ wallClockTime = 1480405588889
+@ simTime = 1480405588889 with time delta = 0
+Resulted sleeping time = 0
+X = 51.9402043335619	Y = 15.582061300068434
+---------------------------------------------------------------
+Iteration# 225 @ wallClockTime = 1480405588990
+@ simTime = 1480405588999 with time delta = 9
+Resulted sleeping time = 0
+X = 51.95567081913594	Y = 15.586701245740644
+---------------------------------------------------------------
+Iteration# 226 @ wallClockTime = 1480405589091
+@ simTime = 1480405589099 with time delta = 8
+Resulted sleeping time = 0
+X = 51.96972080642149	Y = 15.590916241926307
+---------------------------------------------------------------
+Iteration# 227 @ wallClockTime = 1480405589191
+@ simTime = 1480405589199 with time delta = 8
+Resulted sleeping time = 0
+X = 51.98375050320671	Y = 15.595125150961874
+---------------------------------------------------------------
+Iteration# 228 @ wallClockTime = 1480405589292
+@ simTime = 1480405589299 with time delta = 7
+Resulted sleeping time = 0
+X = 51.99775993879443	Y = 15.599327981638194
+---------------------------------------------------------------
+Iteration# 229 @ wallClockTime = 1480405589393
+@ simTime = 1480405589399 with time delta = 6
+Resulted sleeping time = 0
+X = 52.011749142445176	Y = 15.603524742733416
+---------------------------------------------------------------
+Iteration# 230 @ wallClockTime = 1480405589493
+@ simTime = 1480405589499 with time delta = 6
+Resulted sleeping time = 0
+X = 52.02571814337719	Y = 15.60771544301302
+---------------------------------------------------------------
+Iteration# 231 @ wallClockTime = 1480405589594
+@ simTime = 1480405589599 with time delta = 5
+Resulted sleeping time = 0
+X = 52.03966697076653	Y = 15.611900091229824
+---------------------------------------------------------------
+Iteration# 232 @ wallClockTime = 1480405589695
+@ simTime = 1480405589699 with time delta = 4
+Resulted sleeping time = 0
+X = 52.053595653747124	Y = 15.616078696124008
+---------------------------------------------------------------
+Iteration# 233 @ wallClockTime = 1480405589795
+@ simTime = 1480405589799 with time delta = 4
+Resulted sleeping time = 0
+X = 52.067504221410836	Y = 15.62025126642312
+---------------------------------------------------------------
+Iteration# 234 @ wallClockTime = 1480405589896
+@ simTime = 1480405589899 with time delta = 3
+Resulted sleeping time = 0
+X = 52.08139270280747	Y = 15.624417810842115
+---------------------------------------------------------------
+Iteration# 235 @ wallClockTime = 1480405589997
+@ simTime = 1480405589999 with time delta = 2
+Resulted sleeping time = 0
+X = 52.09526112694495	Y = 15.62857833808336
+---------------------------------------------------------------
+Iteration# 236 @ wallClockTime = 1480405590098
+@ simTime = 1480405590099 with time delta = 1
+Resulted sleeping time = 0
+X = 52.109109522789254	Y = 15.63273285683665
+---------------------------------------------------------------
+Iteration# 237 @ wallClockTime = 1480405590198
+@ simTime = 1480405590199 with time delta = 1
+Resulted sleeping time = 0
+X = 52.12293791926453	Y = 15.636881375779234
+---------------------------------------------------------------
+Iteration# 238 @ wallClockTime = 1480405590299
+@ simTime = 1480405590299 with time delta = 0
+Resulted sleeping time = 0
+X = 52.13674634525319	Y = 15.641023903575832
+---------------------------------------------------------------
+Iteration# 239 @ wallClockTime = 1480405590400
+@ simTime = 1480405590409 with time delta = 9
+Resulted sleeping time = 0
+X = 52.1519242932399	Y = 15.645577287971847
+---------------------------------------------------------------
+Iteration# 240 @ wallClockTime = 1480405590500
+@ simTime = 1480405590509 with time delta = 9
+Resulted sleeping time = 0
+X = 52.16569085812087	Y = 15.64970725743614
+---------------------------------------------------------------
+Iteration# 241 @ wallClockTime = 1480405590601
+@ simTime = 1480405590609 with time delta = 8
+Resulted sleeping time = 0
+X = 52.17943754181024	Y = 15.653831262542951
+---------------------------------------------------------------
+Iteration# 242 @ wallClockTime = 1480405590702
+@ simTime = 1480405590709 with time delta = 7
+Resulted sleeping time = 0
+X = 52.19316437301971	Y = 15.657949311905796
+---------------------------------------------------------------
+Iteration# 243 @ wallClockTime = 1480405590802
+@ simTime = 1480405590809 with time delta = 7
+Resulted sleeping time = 0
+X = 52.206871380419585	Y = 15.662061414125754
+---------------------------------------------------------------
+Iteration# 244 @ wallClockTime = 1480405590903
+@ simTime = 1480405590909 with time delta = 6
+Resulted sleeping time = 0
+X = 52.22055859263868	Y = 15.66616757779148
+---------------------------------------------------------------
+Iteration# 245 @ wallClockTime = 1480405591004
+@ simTime = 1480405591009 with time delta = 5
+Resulted sleeping time = 0
+X = 52.2342260382645	Y = 15.670267811479228
+---------------------------------------------------------------
+Iteration# 246 @ wallClockTime = 1480405591105
+@ simTime = 1480405591109 with time delta = 4
+Resulted sleeping time = 0
+X = 52.247873745843286	Y = 15.674362123752864
+---------------------------------------------------------------
+Iteration# 247 @ wallClockTime = 1480405591205
+@ simTime = 1480405591209 with time delta = 4
+Resulted sleeping time = 0
+X = 52.26150174388003	Y = 15.678450523163889
+---------------------------------------------------------------
+Iteration# 248 @ wallClockTime = 1480405591307
+@ simTime = 1480405591309 with time delta = 2
+Resulted sleeping time = 0
+X = 52.27511006083857	Y = 15.682533018251453
+---------------------------------------------------------------
+Iteration# 249 @ wallClockTime = 1480405591410
+@ simTime = 1480405591419 with time delta = 9
+Resulted sleeping time = 0
+X = 52.290044970575565	Y = 15.68701349117255
+---------------------------------------------------------------
+Iteration# 250 @ wallClockTime = 1480405591511
+@ simTime = 1480405591519 with time delta = 8
+Resulted sleeping time = 0
+X = 52.30361206640423	Y = 15.691083619921146
+---------------------------------------------------------------
+Iteration# 251 @ wallClockTime = 1480405591612
+@ simTime = 1480405591619 with time delta = 7
+Resulted sleeping time = 0
+X = 52.31715956910751	Y = 15.695147870732129
+---------------------------------------------------------------
+Iteration# 252 @ wallClockTime = 1480405591714
+@ simTime = 1480405591719 with time delta = 5
+Resulted sleeping time = 0
+X = 52.330687506981114	Y = 15.699206252094214
+---------------------------------------------------------------
+Iteration# 253 @ wallClockTime = 1480405591815
+@ simTime = 1480405591819 with time delta = 4
+Resulted sleeping time = 0
+X = 52.34419590827991	Y = 15.703258772483851
+---------------------------------------------------------------
+Iteration# 254 @ wallClockTime = 1480405591916
+@ simTime = 1480405591919 with time delta = 3
+Resulted sleeping time = 0
+X = 52.357684801217914	Y = 15.707305440365253
+---------------------------------------------------------------
+Iteration# 255 @ wallClockTime = 1480405592016
+@ simTime = 1480405592019 with time delta = 3
+Resulted sleeping time = 0
+X = 52.37115421396843	Y = 15.711346264190407
+---------------------------------------------------------------
+Iteration# 256 @ wallClockTime = 1480405592117
+@ simTime = 1480405592119 with time delta = 2
+Resulted sleeping time = 0
+X = 52.38460417466406	Y = 15.715381252399096
+---------------------------------------------------------------
+Iteration# 257 @ wallClockTime = 1480405592218
+@ simTime = 1480405592219 with time delta = 1
+Resulted sleeping time = 0
+X = 52.39803471139678	Y = 15.719410413418913
+---------------------------------------------------------------
+Iteration# 258 @ wallClockTime = 1480405592319
+@ simTime = 1480405592319 with time delta = 0
+Resulted sleeping time = 0
+X = 52.411445852217994	Y = 15.723433755665278
+---------------------------------------------------------------
+Iteration# 259 @ wallClockTime = 1480405592420
+@ simTime = 1480405592429 with time delta = 9
+Resulted sleeping time = 0
+X = 52.42618711222796	Y = 15.727856133668267
+---------------------------------------------------------------
+Iteration# 260 @ wallClockTime = 1480405592522
+@ simTime = 1480405592529 with time delta = 7
+Resulted sleeping time = 0
+X = 52.43955759633634	Y = 15.731867278900786
+---------------------------------------------------------------
+Iteration# 261 @ wallClockTime = 1480405592623
+@ simTime = 1480405592629 with time delta = 6
+Resulted sleeping time = 0
+X = 52.45290877125914	Y = 15.735872631377624
+---------------------------------------------------------------
+Iteration# 262 @ wallClockTime = 1480405592724
+@ simTime = 1480405592729 with time delta = 5
+Resulted sleeping time = 0
+X = 52.46624066488198	Y = 15.739872199464477
+---------------------------------------------------------------
+Iteration# 263 @ wallClockTime = 1480405592825
+@ simTime = 1480405592829 with time delta = 4
+Resulted sleeping time = 0
+X = 52.47955330505026	Y = 15.743865991514957
+---------------------------------------------------------------
+Iteration# 264 @ wallClockTime = 1480405592925
+@ simTime = 1480405592929 with time delta = 4
+Resulted sleeping time = 0
+X = 52.49284671956913	Y = 15.747854015870615
+---------------------------------------------------------------
+Iteration# 265 @ wallClockTime = 1480405593026
+@ simTime = 1480405593029 with time delta = 3
+Resulted sleeping time = 0
+X = 52.506120936203594	Y = 15.751836280860955
+---------------------------------------------------------------
+Iteration# 266 @ wallClockTime = 1480405593126
+@ simTime = 1480405593129 with time delta = 3
+Resulted sleeping time = 0
+X = 52.51937598267858	Y = 15.755812794803452
+---------------------------------------------------------------
+Iteration# 267 @ wallClockTime = 1480405593227
+@ simTime = 1480405593229 with time delta = 2
+Resulted sleeping time = 0
+X = 52.532611886678964	Y = 15.759783566003565
+---------------------------------------------------------------
+Iteration# 268 @ wallClockTime = 1480405593328
+@ simTime = 1480405593329 with time delta = 1
+Resulted sleeping time = 0
+X = 52.545828675849634	Y = 15.763748602754763
+---------------------------------------------------------------
+Iteration# 269 @ wallClockTime = 1480405593428
+@ simTime = 1480405593429 with time delta = 1
+Resulted sleeping time = 0
+X = 52.55902637779555	Y = 15.767707913338539
+---------------------------------------------------------------
+Iteration# 270 @ wallClockTime = 1480405593530
+@ simTime = 1480405593539 with time delta = 9
+Resulted sleeping time = 0
+X = 52.573510644137855	Y = 15.772053193241229
+---------------------------------------------------------------
+Iteration# 271 @ wallClockTime = 1480405593630
+@ simTime = 1480405593639 with time delta = 9
+Resulted sleeping time = 0
+X = 52.586668368753166	Y = 15.776000510625824
+---------------------------------------------------------------
+Iteration# 272 @ wallClockTime = 1480405593731
+@ simTime = 1480405593739 with time delta = 8
+Resulted sleeping time = 0
+X = 52.59980709144269	Y = 15.779942127432685
+---------------------------------------------------------------
+Iteration# 273 @ wallClockTime = 1480405593832
+@ simTime = 1480405593839 with time delta = 7
+Resulted sleeping time = 0
+X = 52.61292683964836	Y = 15.783878051894385
+---------------------------------------------------------------
+Iteration# 274 @ wallClockTime = 1480405593932
+@ simTime = 1480405593939 with time delta = 7
+Resulted sleeping time = 0
+X = 52.62602764077245	Y = 15.787808292231613
+---------------------------------------------------------------
+Iteration# 275 @ wallClockTime = 1480405594033
+@ simTime = 1480405594039 with time delta = 6
+Resulted sleeping time = 0
+X = 52.63910952217768	Y = 15.791732856653178
+---------------------------------------------------------------
+Iteration# 276 @ wallClockTime = 1480405594134
+@ simTime = 1480405594139 with time delta = 5
+Resulted sleeping time = 0
+X = 52.65217251118724	Y = 15.795651753356042
+---------------------------------------------------------------
+Iteration# 277 @ wallClockTime = 1480405594235
+@ simTime = 1480405594239 with time delta = 4
+Resulted sleeping time = 0
+X = 52.66521663508485	Y = 15.799564990525328
+---------------------------------------------------------------
+Iteration# 278 @ wallClockTime = 1480405594335
+@ simTime = 1480405594339 with time delta = 4
+Resulted sleeping time = 0
+X = 52.678241921114875	Y = 15.803472576334338
+---------------------------------------------------------------
+Iteration# 279 @ wallClockTime = 1480405594436
+@ simTime = 1480405594439 with time delta = 3
+Resulted sleeping time = 0
+X = 52.691248396482294	Y = 15.807374518944565
+---------------------------------------------------------------
+Iteration# 280 @ wallClockTime = 1480405594536
+@ simTime = 1480405594539 with time delta = 3
+Resulted sleeping time = 0
+X = 52.70423608835281	Y = 15.811270826505718
+---------------------------------------------------------------
+Iteration# 281 @ wallClockTime = 1480405594637
+@ simTime = 1480405594639 with time delta = 2
+Resulted sleeping time = 0
+X = 52.71720502385288	Y = 15.815161507155736
+---------------------------------------------------------------
+Iteration# 282 @ wallClockTime = 1480405594738
+@ simTime = 1480405594739 with time delta = 1
+Resulted sleeping time = 0
+X = 52.730155230069805	Y = 15.819046569020816
+---------------------------------------------------------------
+Iteration# 283 @ wallClockTime = 1480405594838
+@ simTime = 1480405594839 with time delta = 1
+Resulted sleeping time = 0
+X = 52.743086734051765	Y = 15.822926020215405
+---------------------------------------------------------------
+Iteration# 284 @ wallClockTime = 1480405594939
+@ simTime = 1480405594939 with time delta = 0
+Resulted sleeping time = 0
+X = 52.75599956280787	Y = 15.826799868842238
+---------------------------------------------------------------
+Iteration# 285 @ wallClockTime = 1480405595040
+@ simTime = 1480405595049 with time delta = 9
+Resulted sleeping time = 0
+X = 52.7701930880788	Y = 15.831057926423513
+---------------------------------------------------------------
+Iteration# 286 @ wallClockTime = 1480405595140
+@ simTime = 1480405595149 with time delta = 9
+Resulted sleeping time = 0
+X = 52.783066770786284	Y = 15.834920031235765
+---------------------------------------------------------------
+Iteration# 287 @ wallClockTime = 1480405595241
+@ simTime = 1480405595249 with time delta = 8
+Resulted sleeping time = 0
+X = 52.79592186177139	Y = 15.838776558531295
+---------------------------------------------------------------
+Iteration# 288 @ wallClockTime = 1480405595342
+@ simTime = 1480405595349 with time delta = 7
+Resulted sleeping time = 0
+X = 52.80875838788362	Y = 15.842627516364963
+---------------------------------------------------------------
+Iteration# 289 @ wallClockTime = 1480405595443
+@ simTime = 1480405595449 with time delta = 6
+Resulted sleeping time = 0
+X = 52.82157637593371	Y = 15.84647291277999
+---------------------------------------------------------------
+Iteration# 290 @ wallClockTime = 1480405595544
+@ simTime = 1480405595549 with time delta = 5
+Resulted sleeping time = 0
+X = 52.83437585269369	Y = 15.850312755807984
+---------------------------------------------------------------
+Iteration# 291 @ wallClockTime = 1480405595644
+@ simTime = 1480405595649 with time delta = 5
+Resulted sleeping time = 0
+X = 52.847156844896915	Y = 15.854147053468951
+---------------------------------------------------------------
+Iteration# 292 @ wallClockTime = 1480405595745
+@ simTime = 1480405595749 with time delta = 4
+Resulted sleeping time = 0
+X = 52.85991937923814	Y = 15.857975813771313
+---------------------------------------------------------------
+Iteration# 293 @ wallClockTime = 1480405595846
+@ simTime = 1480405595849 with time delta = 3
+Resulted sleeping time = 0
+X = 52.87266348237356	Y = 15.861799044711935
+---------------------------------------------------------------
+Iteration# 294 @ wallClockTime = 1480405595946
+@ simTime = 1480405595949 with time delta = 3
+Resulted sleeping time = 0
+X = 52.88538918092087	Y = 15.865616754276129
+---------------------------------------------------------------
+Iteration# 295 @ wallClockTime = 1480405596047
+@ simTime = 1480405596049 with time delta = 2
+Resulted sleeping time = 0
+X = 52.89809650145932	Y = 15.869428950437673
+---------------------------------------------------------------
+Iteration# 296 @ wallClockTime = 1480405596148
+@ simTime = 1480405596149 with time delta = 1
+Resulted sleeping time = 0
+X = 52.910785470529824	Y = 15.873235641158823
+---------------------------------------------------------------
+Iteration# 297 @ wallClockTime = 1480405596248
+@ simTime = 1480405596249 with time delta = 1
+Resulted sleeping time = 0
+X = 52.92345611463492	Y = 15.87703683439035
+---------------------------------------------------------------
+Iteration# 298 @ wallClockTime = 1480405596349
+@ simTime = 1480405596349 with time delta = 0
+Resulted sleeping time = 0
+X = 52.93610846023886	Y = 15.880832538071532
+---------------------------------------------------------------
+Iteration# 299 @ wallClockTime = 1480405596450
+@ simTime = 1480405596459 with time delta = 9
+Resulted sleeping time = 0
+X = 52.94999420673726	Y = 15.884998262021053
+---------------------------------------------------------------
+Iteration# 300 @ wallClockTime = 1480405596550
+@ simTime = 1480405596559 with time delta = 9
+Resulted sleeping time = 0
+X = 52.96260822695658	Y = 15.888782468086852
+---------------------------------------------------------------
+Iteration# 301 @ wallClockTime = 1480405596651
+@ simTime = 1480405596659 with time delta = 8
+Resulted sleeping time = 0
+X = 52.97520403044899	Y = 15.89256120913458
+---------------------------------------------------------------
+Iteration# 302 @ wallClockTime = 1480405596752
+@ simTime = 1480405596759 with time delta = 7
+Resulted sleeping time = 0
+X = 52.98778164352248	Y = 15.896334493056626
+---------------------------------------------------------------
+Iteration# 303 @ wallClockTime = 1480405596852
+@ simTime = 1480405596859 with time delta = 7
+Resulted sleeping time = 0
+X = 53.00034109244699	Y = 15.900102327733977
+---------------------------------------------------------------
+Iteration# 304 @ wallClockTime = 1480405596953
+@ simTime = 1480405596959 with time delta = 6
+Resulted sleeping time = 0
+X = 53.01288240345454	Y = 15.903864721036244
+---------------------------------------------------------------
+Iteration# 305 @ wallClockTime = 1480405597054
+@ simTime = 1480405597059 with time delta = 5
+Resulted sleeping time = 0
+X = 53.02540560273929	Y = 15.907621680821666
+---------------------------------------------------------------
+Iteration# 306 @ wallClockTime = 1480405597155
+@ simTime = 1480405597159 with time delta = 4
+Resulted sleeping time = 0
+X = 53.03791071645755	Y = 15.911373214937145
+---------------------------------------------------------------
+Iteration# 307 @ wallClockTime = 1480405597255
+@ simTime = 1480405597259 with time delta = 4
+Resulted sleeping time = 0
+X = 53.05039777072787	Y = 15.91511933121824
+---------------------------------------------------------------
+Iteration# 308 @ wallClockTime = 1480405597356
+@ simTime = 1480405597359 with time delta = 3
+Resulted sleeping time = 0
+X = 53.062866791631066	Y = 15.9188600374892
+---------------------------------------------------------------
+Iteration# 309 @ wallClockTime = 1480405597457
+@ simTime = 1480405597459 with time delta = 2
+Resulted sleeping time = 0
+X = 53.0753178052103	Y = 15.922595341562968
+---------------------------------------------------------------
+Iteration# 310 @ wallClockTime = 1480405597557
+@ simTime = 1480405597559 with time delta = 2
+Resulted sleeping time = 0
+X = 53.08775083747111	Y = 15.926325251241211
+---------------------------------------------------------------
+Iteration# 311 @ wallClockTime = 1480405597658
+@ simTime = 1480405597659 with time delta = 1
+Resulted sleeping time = 0
+X = 53.10016591438151	Y = 15.930049774314329
+---------------------------------------------------------------
+Iteration# 312 @ wallClockTime = 1480405597759
+@ simTime = 1480405597759 with time delta = 0
+Resulted sleeping time = 0
+X = 53.11256306187196	Y = 15.933768918561466
+---------------------------------------------------------------
+Iteration# 313 @ wallClockTime = 1480405597860
+@ simTime = 1480405597869 with time delta = 9
+Resulted sleeping time = 0
+X = 53.126189760523076	Y = 15.937856928156801
+---------------------------------------------------------------
+Iteration# 314 @ wallClockTime = 1480405597961
+@ simTime = 1480405597969 with time delta = 8
+Resulted sleeping time = 0
+X = 53.138549325284956	Y = 15.941564797585364
+---------------------------------------------------------------
+Iteration# 315 @ wallClockTime = 1480405598064
+@ simTime = 1480405598069 with time delta = 5
+Resulted sleeping time = 0
+X = 53.150891040795614	Y = 15.945267312238556
+---------------------------------------------------------------
+Iteration# 316 @ wallClockTime = 1480405598165
+@ simTime = 1480405598169 with time delta = 4
+Resulted sleeping time = 0
+X = 53.163214932832304	Y = 15.94896447984956
+---------------------------------------------------------------
+Iteration# 317 @ wallClockTime = 1480405598265
+@ simTime = 1480405598269 with time delta = 4
+Resulted sleeping time = 0
+X = 53.175521027135055	Y = 15.952656308140382
+---------------------------------------------------------------
+Iteration# 318 @ wallClockTime = 1480405598366
+@ simTime = 1480405598369 with time delta = 3
+Resulted sleeping time = 0
+X = 53.187809349406734	Y = 15.956342804821887
+---------------------------------------------------------------
+Iteration# 319 @ wallClockTime = 1480405598467
+@ simTime = 1480405598469 with time delta = 2
+Resulted sleeping time = 0
+X = 53.2000799253131	Y = 15.960023977593798
+---------------------------------------------------------------
+Iteration# 320 @ wallClockTime = 1480405598567
+@ simTime = 1480405598569 with time delta = 2
+Resulted sleeping time = 0
+X = 53.21233278048283	Y = 15.963699834144714
+---------------------------------------------------------------
+Iteration# 321 @ wallClockTime = 1480405598668
+@ simTime = 1480405598669 with time delta = 1
+Resulted sleeping time = 0
+X = 53.22456794050759	Y = 15.96737038215214
+---------------------------------------------------------------
+Iteration# 322 @ wallClockTime = 1480405598769
+@ simTime = 1480405598769 with time delta = 0
+Resulted sleeping time = 0
+X = 53.23678543094208	Y = 15.97103562928249
+---------------------------------------------------------------
+Iteration# 323 @ wallClockTime = 1480405598871
+@ simTime = 1480405598879 with time delta = 8
+Resulted sleeping time = 0
+X = 53.25019393086221	Y = 15.975058179258534
+---------------------------------------------------------------
+Iteration# 324 @ wallClockTime = 1480405598972
+@ simTime = 1480405598979 with time delta = 7
+Resulted sleeping time = 0
+X = 53.26237441313754	Y = 15.978712323941132
+---------------------------------------------------------------
+Iteration# 325 @ wallClockTime = 1480405599073
+@ simTime = 1480405599079 with time delta = 6
+Resulted sleeping time = 0
+X = 53.2745373047863	Y = 15.982361191435764
+---------------------------------------------------------------
+Iteration# 326 @ wallClockTime = 1480405599174
+@ simTime = 1480405599179 with time delta = 5
+Resulted sleeping time = 0
+X = 53.28668263121228	Y = 15.986004789363555
+---------------------------------------------------------------
+Iteration# 327 @ wallClockTime = 1480405599274
+@ simTime = 1480405599279 with time delta = 5
+Resulted sleeping time = 0
+X = 53.29881041778252	Y = 15.989643125334629
+---------------------------------------------------------------
+Iteration# 328 @ wallClockTime = 1480405599375
+@ simTime = 1480405599379 with time delta = 4
+Resulted sleeping time = 0
+X = 53.3109206898275	Y = 15.993276206948119
+---------------------------------------------------------------
+Iteration# 329 @ wallClockTime = 1480405599476
+@ simTime = 1480405599479 with time delta = 3
+Resulted sleeping time = 0
+X = 53.32301347264107	Y = 15.996904041792186
+---------------------------------------------------------------
+Iteration# 330 @ wallClockTime = 1480405599576
+@ simTime = 1480405599579 with time delta = 3
+Resulted sleeping time = 0
+X = 53.33508879148058	Y = 16.000526637444036
+---------------------------------------------------------------
+Iteration# 331 @ wallClockTime = 1480405599677
+@ simTime = 1480405599679 with time delta = 2
+Resulted sleeping time = 0
+X = 53.34714667156686	Y = 16.00414400146992
+---------------------------------------------------------------
+Iteration# 332 @ wallClockTime = 1480405599778
+@ simTime = 1480405599779 with time delta = 1
+Resulted sleeping time = 0
+X = 53.35918713808437	Y = 16.007756141425176
+---------------------------------------------------------------
+Iteration# 333 @ wallClockTime = 1480405599878
+@ simTime = 1480405599879 with time delta = 1
+Resulted sleeping time = 0
+X = 53.37121021618118	Y = 16.01136306485422
+---------------------------------------------------------------
+Iteration# 334 @ wallClockTime = 1480405599979
+@ simTime = 1480405599979 with time delta = 0
+Resulted sleeping time = 0
+X = 53.38321593096904	Y = 16.01496477929058
+---------------------------------------------------------------
+Iteration# 335 @ wallClockTime = 1480405600080
+@ simTime = 1480405600089 with time delta = 9
+Resulted sleeping time = 0
+X = 53.39641237455668	Y = 16.01892371236687
+---------------------------------------------------------------
+Iteration# 336 @ wallClockTime = 1480405600180
+@ simTime = 1480405600189 with time delta = 9
+Resulted sleeping time = 0
+X = 53.4083816932687	Y = 16.02251450798048
+---------------------------------------------------------------
+Iteration# 337 @ wallClockTime = 1480405600281
+@ simTime = 1480405600289 with time delta = 8
+Resulted sleeping time = 0
+X = 53.42033372630919	Y = 16.02610011789262
+---------------------------------------------------------------
+Iteration# 338 @ wallClockTime = 1480405600381
+@ simTime = 1480405600389 with time delta = 8
+Resulted sleeping time = 0
+X = 53.43226849864149	Y = 16.029680549592314
+---------------------------------------------------------------
+Iteration# 339 @ wallClockTime = 1480405600482
+@ simTime = 1480405600489 with time delta = 7
+Resulted sleeping time = 0
+X = 53.44418603519294	Y = 16.033255810557744
+---------------------------------------------------------------
+Iteration# 340 @ wallClockTime = 1480405600583
+@ simTime = 1480405600589 with time delta = 6
+Resulted sleeping time = 0
+X = 53.45608636085484	Y = 16.036825908256315
+---------------------------------------------------------------
+Iteration# 341 @ wallClockTime = 1480405600683
+@ simTime = 1480405600689 with time delta = 6
+Resulted sleeping time = 0
+X = 53.46796950048255	Y = 16.04039085014463
+---------------------------------------------------------------
+Iteration# 342 @ wallClockTime = 1480405600784
+@ simTime = 1480405600789 with time delta = 5
+Resulted sleeping time = 0
+X = 53.47983547889556	Y = 16.04395064366853
+---------------------------------------------------------------
+Iteration# 343 @ wallClockTime = 1480405600885
+@ simTime = 1480405600889 with time delta = 4
+Resulted sleeping time = 0
+X = 53.491684320877475	Y = 16.04750529626311
+---------------------------------------------------------------
+Iteration# 344 @ wallClockTime = 1480405600985
+@ simTime = 1480405600989 with time delta = 4
+Resulted sleeping time = 0
+X = 53.50351605117615	Y = 16.051054815352717
+---------------------------------------------------------------
+Iteration# 345 @ wallClockTime = 1480405601086
+@ simTime = 1480405601089 with time delta = 3
+Resulted sleeping time = 0
+X = 53.51533069450365	Y = 16.054599208350968
+---------------------------------------------------------------
+Iteration# 346 @ wallClockTime = 1480405601187
+@ simTime = 1480405601189 with time delta = 2
+Resulted sleeping time = 0
+X = 53.52712827553642	Y = 16.058138482660798
+---------------------------------------------------------------
+Iteration# 347 @ wallClockTime = 1480405601288
+@ simTime = 1480405601289 with time delta = 1
+Resulted sleeping time = 0
+X = 53.5389088189152	Y = 16.061672645674438
+---------------------------------------------------------------
+Iteration# 348 @ wallClockTime = 1480405601388
+@ simTime = 1480405601389 with time delta = 1
+Resulted sleeping time = 0
+X = 53.550672349245175	Y = 16.065201704773425
+---------------------------------------------------------------
+Iteration# 349 @ wallClockTime = 1480405601490
+@ simTime = 1480405601499 with time delta = 9
+Resulted sleeping time = 0
+X = 53.56358263522705	Y = 16.06907479056799
+---------------------------------------------------------------
+Iteration# 350 @ wallClockTime = 1480405601591
+@ simTime = 1480405601599 with time delta = 8
+Resulted sleeping time = 0
+X = 53.575310532494335	Y = 16.072593159748166
+---------------------------------------------------------------
+Iteration# 351 @ wallClockTime = 1480405601692
+@ simTime = 1480405601699 with time delta = 7
+Resulted sleeping time = 0
+X = 53.58702149274248	Y = 16.076106447822607
+---------------------------------------------------------------
+Iteration# 352 @ wallClockTime = 1480405601792
+@ simTime = 1480405601799 with time delta = 7
+Resulted sleeping time = 0
+X = 53.59871554043136	Y = 16.07961466212927
+---------------------------------------------------------------
+Iteration# 353 @ wallClockTime = 1480405601893
+@ simTime = 1480405601899 with time delta = 6
+Resulted sleeping time = 0
+X = 53.61039269998549	Y = 16.08311780999551
+---------------------------------------------------------------
+Iteration# 354 @ wallClockTime = 1480405601994
+@ simTime = 1480405601999 with time delta = 5
+Resulted sleeping time = 0
+X = 53.62205299579413	Y = 16.0866158987381
+---------------------------------------------------------------
+Iteration# 355 @ wallClockTime = 1480405602094
+@ simTime = 1480405602099 with time delta = 5
+Resulted sleeping time = 0
+X = 53.63369645221129	Y = 16.090108935663245
+---------------------------------------------------------------
+Iteration# 356 @ wallClockTime = 1480405602195
+@ simTime = 1480405602199 with time delta = 4
+Resulted sleeping time = 0
+X = 53.64532309355585	Y = 16.09359692806661
+---------------------------------------------------------------
+Iteration# 357 @ wallClockTime = 1480405602296
+@ simTime = 1480405602299 with time delta = 3
+Resulted sleeping time = 0
+X = 53.65693294411155	Y = 16.09707988323332
+---------------------------------------------------------------
+Iteration# 358 @ wallClockTime = 1480405602396
+@ simTime = 1480405602399 with time delta = 3
+Resulted sleeping time = 0
+X = 53.66852602812707	Y = 16.100557808437973
+---------------------------------------------------------------
+Iteration# 359 @ wallClockTime = 1480405602498
+@ simTime = 1480405602499 with time delta = 1
+Resulted sleeping time = 0
+X = 53.68010236981604	Y = 16.104030710944663
+---------------------------------------------------------------
+Iteration# 360 @ wallClockTime = 1480405602599
+@ simTime = 1480405602599 with time delta = 0
+Resulted sleeping time = 0
+X = 53.69166199335716	Y = 16.107498598007002
+---------------------------------------------------------------
+Iteration# 361 @ wallClockTime = 1480405602700
+@ simTime = 1480405602709 with time delta = 9
+Resulted sleeping time = 0
+X = 53.704368102293635	Y = 16.111310430687944
+---------------------------------------------------------------
+Iteration# 362 @ wallClockTime = 1480405602802
+@ simTime = 1480405602809 with time delta = 7
+Resulted sleeping time = 0
+X = 53.71589268211244	Y = 16.114767804633583
+---------------------------------------------------------------
+Iteration# 363 @ wallClockTime = 1480405602903
+@ simTime = 1480405602909 with time delta = 6
+Resulted sleeping time = 0
+X = 53.72740061853608	Y = 16.118220185560673
+---------------------------------------------------------------
+Iteration# 364 @ wallClockTime = 1480405603003
+@ simTime = 1480405603009 with time delta = 6
+Resulted sleeping time = 0
+X = 53.73889193560035	Y = 16.121667580679958
+---------------------------------------------------------------
+Iteration# 365 @ wallClockTime = 1480405603104
+@ simTime = 1480405603109 with time delta = 5
+Resulted sleeping time = 0
+X = 53.75036665730636	Y = 16.125109997191764
+---------------------------------------------------------------
+Iteration# 366 @ wallClockTime = 1480405603205
+@ simTime = 1480405603209 with time delta = 4
+Resulted sleeping time = 0
+X = 53.76182480762053	Y = 16.128547442286013
+---------------------------------------------------------------
+Iteration# 367 @ wallClockTime = 1480405603305
+@ simTime = 1480405603309 with time delta = 4
+Resulted sleeping time = 0
+X = 53.7732664104747	Y = 16.131979923142268
+---------------------------------------------------------------
+Iteration# 368 @ wallClockTime = 1480405603406
+@ simTime = 1480405603409 with time delta = 3
+Resulted sleeping time = 0
+X = 53.784691489766125	Y = 16.135407446929694
+---------------------------------------------------------------
+Iteration# 369 @ wallClockTime = 1480405603506
+@ simTime = 1480405603509 with time delta = 3
+Resulted sleeping time = 0
+X = 53.796100069357564	Y = 16.138830020807127
+---------------------------------------------------------------
+Iteration# 370 @ wallClockTime = 1480405603607
+@ simTime = 1480405603609 with time delta = 2
+Resulted sleeping time = 0
+X = 53.80749217307728	Y = 16.14224765192304
+---------------------------------------------------------------
+Iteration# 371 @ wallClockTime = 1480405603708
+@ simTime = 1480405603709 with time delta = 1
+Resulted sleeping time = 0
+X = 53.81886782471917	Y = 16.14566034741561
+---------------------------------------------------------------
+Iteration# 372 @ wallClockTime = 1480405603808
+@ simTime = 1480405603809 with time delta = 1
+Resulted sleeping time = 0
+X = 53.83022704804276	Y = 16.149068114412692
+---------------------------------------------------------------
+Iteration# 373 @ wallClockTime = 1480405603909
+@ simTime = 1480405603909 with time delta = 0
+Resulted sleeping time = 0
+X = 53.841569866773234	Y = 16.152470960031835
+---------------------------------------------------------------
+Iteration# 374 @ wallClockTime = 1480405604010
+@ simTime = 1480405604019 with time delta = 9
+Resulted sleeping time = 0
+X = 53.85401842851816	Y = 16.15620552855531
+---------------------------------------------------------------
+Iteration# 375 @ wallClockTime = 1480405604110
+@ simTime = 1480405604119 with time delta = 9
+Resulted sleeping time = 0
+X = 53.86532688856891	Y = 16.159598066570535
+---------------------------------------------------------------
+Iteration# 376 @ wallClockTime = 1480405604211
+@ simTime = 1480405604219 with time delta = 8
+Resulted sleeping time = 0
+X = 53.876619017337106	Y = 16.162985705200988
+---------------------------------------------------------------
+Iteration# 377 @ wallClockTime = 1480405604312
+@ simTime = 1480405604319 with time delta = 7
+Resulted sleeping time = 0
+X = 53.88789483840779	Y = 16.1663684515222
+---------------------------------------------------------------
+Iteration# 378 @ wallClockTime = 1480405604412
+@ simTime = 1480405604419 with time delta = 7
+Resulted sleeping time = 0
+X = 53.89915437533199	Y = 16.16974631259946
+---------------------------------------------------------------
+Iteration# 379 @ wallClockTime = 1480405604513
+@ simTime = 1480405604519 with time delta = 6
+Resulted sleeping time = 0
+X = 53.9103976516267	Y = 16.17311929548788
+---------------------------------------------------------------
+Iteration# 380 @ wallClockTime = 1480405604614
+@ simTime = 1480405604619 with time delta = 5
+Resulted sleeping time = 0
+X = 53.921624690774955	Y = 16.176487407232354
+---------------------------------------------------------------
+Iteration# 381 @ wallClockTime = 1480405604715
+@ simTime = 1480405604719 with time delta = 4
+Resulted sleeping time = 0
+X = 53.93283551622585	Y = 16.17985065486762
+---------------------------------------------------------------
+Iteration# 382 @ wallClockTime = 1480405604815
+@ simTime = 1480405604819 with time delta = 4
+Resulted sleeping time = 0
+X = 53.944030151394664	Y = 16.18320904541827
+---------------------------------------------------------------
+Iteration# 383 @ wallClockTime = 1480405604916
+@ simTime = 1480405604919 with time delta = 3
+Resulted sleeping time = 0
+X = 53.95520861966283	Y = 16.18656258589871
+---------------------------------------------------------------
+Iteration# 384 @ wallClockTime = 1480405605017
+@ simTime = 1480405605019 with time delta = 2
+Resulted sleeping time = 0
+X = 53.96637094437801	Y = 16.18991128331327
+---------------------------------------------------------------
+Iteration# 385 @ wallClockTime = 1480405605118
+@ simTime = 1480405605119 with time delta = 1
+Resulted sleeping time = 0
+X = 53.977517148854176	Y = 16.193255144656124
+---------------------------------------------------------------
+Iteration# 386 @ wallClockTime = 1480405605219
+@ simTime = 1480405605219 with time delta = 0
+Resulted sleeping time = 0
+X = 53.98864725637161	Y = 16.196594176911354
+---------------------------------------------------------------
+Iteration# 387 @ wallClockTime = 1480405605320
+@ simTime = 1480405605329 with time delta = 9
+Resulted sleeping time = 0
+X = 54.00088124981335	Y = 16.20026437494388
+---------------------------------------------------------------
+Iteration# 388 @ wallClockTime = 1480405605420
+@ simTime = 1480405605429 with time delta = 9
+Resulted sleeping time = 0
+X = 54.01197761571318	Y = 16.203593284713833
+---------------------------------------------------------------
+Iteration# 389 @ wallClockTime = 1480405605521
+@ simTime = 1480405605529 with time delta = 8
+Resulted sleeping time = 0
+X = 54.02305795662941	Y = 16.206917386988703
+---------------------------------------------------------------
+Iteration# 390 @ wallClockTime = 1480405605622
+@ simTime = 1480405605629 with time delta = 7
+Resulted sleeping time = 0
+X = 54.034122295704734	Y = 16.210236688711305
+---------------------------------------------------------------
+Iteration# 391 @ wallClockTime = 1480405605722
+@ simTime = 1480405605729 with time delta = 7
+Resulted sleeping time = 0
+X = 54.045170656048484	Y = 16.21355119681443
+---------------------------------------------------------------
+Iteration# 392 @ wallClockTime = 1480405605823
+@ simTime = 1480405605829 with time delta = 6
+Resulted sleeping time = 0
+X = 54.056203060736564	Y = 16.21686091822086
+---------------------------------------------------------------
+Iteration# 393 @ wallClockTime = 1480405605923
+@ simTime = 1480405605929 with time delta = 6
+Resulted sleeping time = 0
+X = 54.0672195328116	Y = 16.220165859843373
+---------------------------------------------------------------
+Iteration# 394 @ wallClockTime = 1480405606024
+@ simTime = 1480405606029 with time delta = 5
+Resulted sleeping time = 0
+X = 54.07822009528289	Y = 16.223466028584756
+---------------------------------------------------------------
+Iteration# 395 @ wallClockTime = 1480405606125
+@ simTime = 1480405606129 with time delta = 4
+Resulted sleeping time = 0
+X = 54.089204771126525	Y = 16.226761431337856
+---------------------------------------------------------------
+Iteration# 396 @ wallClockTime = 1480405606225
+@ simTime = 1480405606229 with time delta = 4
+Resulted sleeping time = 0
+X = 54.10017358328542	Y = 16.230052074985533
+---------------------------------------------------------------
+Iteration# 397 @ wallClockTime = 1480405606326
+@ simTime = 1480405606329 with time delta = 3
+Resulted sleeping time = 0
+X = 54.11112655466937	Y = 16.23333796640072
+---------------------------------------------------------------
+Iteration# 398 @ wallClockTime = 1480405606426
+@ simTime = 1480405606429 with time delta = 3
+Resulted sleeping time = 0
+X = 54.12206370815505	Y = 16.236619112446427
+---------------------------------------------------------------
+Iteration# 399 @ wallClockTime = 1480405606527
+@ simTime = 1480405606529 with time delta = 2
+Resulted sleeping time = 0
+X = 54.13298506658614	Y = 16.239895519975754
+---------------------------------------------------------------
+Iteration# 400 @ wallClockTime = 1480405606628
+@ simTime = 1480405606629 with time delta = 1
+Resulted sleeping time = 0
+X = 54.14389065277328	Y = 16.243167195831905
+---------------------------------------------------------------
+Iteration# 401 @ wallClockTime = 1480405606728
+@ simTime = 1480405606729 with time delta = 1
+Resulted sleeping time = 0
+X = 54.15478048949421	Y = 16.246434146848184
+---------------------------------------------------------------
+Iteration# 402 @ wallClockTime = 1480405606829
+@ simTime = 1480405606829 with time delta = 0
+Resulted sleeping time = 0
+X = 54.16565459949374	Y = 16.249696379848046
+---------------------------------------------------------------
+Iteration# 403 @ wallClockTime = 1480405606929
+@ simTime = 1480405606929 with time delta = 0
+Resulted sleeping time = 0
+X = 54.17651300548386	Y = 16.25295390164509
+---------------------------------------------------------------
+Iteration# 404 @ wallClockTime = 1480405607030
+@ simTime = 1480405607039 with time delta = 9
+Resulted sleeping time = 0
+X = 54.188429932010806	Y = 16.256528979603168
+---------------------------------------------------------------
+Iteration# 405 @ wallClockTime = 1480405607130
+@ simTime = 1480405607139 with time delta = 9
+Resulted sleeping time = 0
+X = 54.199255446662136	Y = 16.259776633998563
+---------------------------------------------------------------
+Iteration# 406 @ wallClockTime = 1480405607231
+@ simTime = 1480405607239 with time delta = 8
+Resulted sleeping time = 0
+X = 54.210065327483754	Y = 16.263019598245048
+---------------------------------------------------------------
+Iteration# 407 @ wallClockTime = 1480405607332
+@ simTime = 1480405607339 with time delta = 7
+Resulted sleeping time = 0
+X = 54.2208595970535	Y = 16.266257879115972
+---------------------------------------------------------------
+Iteration# 408 @ wallClockTime = 1480405607432
+@ simTime = 1480405607439 with time delta = 7
+Resulted sleeping time = 0
+X = 54.231638277916595	Y = 16.2694914833749
+---------------------------------------------------------------
+Iteration# 409 @ wallClockTime = 1480405607533
+@ simTime = 1480405607539 with time delta = 6
+Resulted sleeping time = 0
+X = 54.24240139258571	Y = 16.272720417775634
+---------------------------------------------------------------
+Iteration# 410 @ wallClockTime = 1480405607634
+@ simTime = 1480405607639 with time delta = 5
+Resulted sleeping time = 0
+X = 54.253148963540994	Y = 16.275944689062214
+---------------------------------------------------------------
+Iteration# 411 @ wallClockTime = 1480405607734
+@ simTime = 1480405607739 with time delta = 5
+Resulted sleeping time = 0
+X = 54.26388101323012	Y = 16.279164303968955
+---------------------------------------------------------------
+Iteration# 412 @ wallClockTime = 1480405607835
+@ simTime = 1480405607839 with time delta = 4
+Resulted sleeping time = 0
+X = 54.27459756406838	Y = 16.28237926922043
+---------------------------------------------------------------
+Iteration# 413 @ wallClockTime = 1480405607936
+@ simTime = 1480405607939 with time delta = 3
+Resulted sleeping time = 0
+X = 54.28529863843867	Y = 16.285589591531515
+---------------------------------------------------------------
+Iteration# 414 @ wallClockTime = 1480405608036
+@ simTime = 1480405608039 with time delta = 3
+Resulted sleeping time = 0
+X = 54.29598425869153	Y = 16.28879527760738
+---------------------------------------------------------------
+Iteration# 415 @ wallClockTime = 1480405608137
+@ simTime = 1480405608139 with time delta = 2
+Resulted sleeping time = 0
+X = 54.30665444714529	Y = 16.291996334143512
+---------------------------------------------------------------
+Iteration# 416 @ wallClockTime = 1480405608238
+@ simTime = 1480405608239 with time delta = 1
+Resulted sleeping time = 0
+X = 54.31730922608602	Y = 16.295192767825736
+---------------------------------------------------------------
+Iteration# 417 @ wallClockTime = 1480405608338
+@ simTime = 1480405608339 with time delta = 1
+Resulted sleeping time = 0
+X = 54.327948617767575	Y = 16.298384585330204
+---------------------------------------------------------------
+Iteration# 418 @ wallClockTime = 1480405608439
+@ simTime = 1480405608439 with time delta = 0
+Resulted sleeping time = 0
+X = 54.33857264441171	Y = 16.301571793323447
+---------------------------------------------------------------
+Iteration# 419 @ wallClockTime = 1480405608539
+@ simTime = 1480405608539 with time delta = 0
+Resulted sleeping time = 0
+X = 54.34918132820808	Y = 16.304754398462354
+---------------------------------------------------------------
+Iteration# 420 @ wallClockTime = 1480405608640
+@ simTime = 1480405608649 with time delta = 9
+Resulted sleeping time = 0
+X = 54.360842183036944	Y = 16.308252654911016
+---------------------------------------------------------------
+Iteration# 421 @ wallClockTime = 1480405608740
+@ simTime = 1480405608749 with time delta = 9
+Resulted sleeping time = 0
+X = 54.37141870594436	Y = 16.311425611783243
+---------------------------------------------------------------
+Iteration# 422 @ wallClockTime = 1480405608841
+@ simTime = 1480405608849 with time delta = 8
+Resulted sleeping time = 0
+X = 54.38197995460725	Y = 16.31459398638211
+---------------------------------------------------------------
+Iteration# 423 @ wallClockTime = 1480405608942
+@ simTime = 1480405608949 with time delta = 7
+Resulted sleeping time = 0
+X = 54.39252595108414	Y = 16.31775778532518
+---------------------------------------------------------------
+Iteration# 424 @ wallClockTime = 1480405609042
+@ simTime = 1480405609049 with time delta = 7
+Resulted sleeping time = 0
+X = 54.40305671740169	Y = 16.320917015220445
+---------------------------------------------------------------
+Iteration# 425 @ wallClockTime = 1480405609143
+@ simTime = 1480405609149 with time delta = 6
+Resulted sleeping time = 0
+X = 54.41357227555477	Y = 16.32407168266637
+---------------------------------------------------------------
+Iteration# 426 @ wallClockTime = 1480405609244
+@ simTime = 1480405609249 with time delta = 5
+Resulted sleeping time = 0
+X = 54.424072647506485	Y = 16.327221794251887
+---------------------------------------------------------------
+Iteration# 427 @ wallClockTime = 1480405609344
+@ simTime = 1480405609349 with time delta = 5
+Resulted sleeping time = 0
+X = 54.434557855188196	Y = 16.330367356556405
+---------------------------------------------------------------
+Iteration# 428 @ wallClockTime = 1480405609445
+@ simTime = 1480405609449 with time delta = 4
+Resulted sleeping time = 0
+X = 54.44502792049963	Y = 16.333508376149837
+---------------------------------------------------------------
+Iteration# 429 @ wallClockTime = 1480405609546
+@ simTime = 1480405609549 with time delta = 3
+Resulted sleeping time = 0
+X = 54.45548286530887	Y = 16.33664485959261
+---------------------------------------------------------------
+Iteration# 430 @ wallClockTime = 1480405609647
+@ simTime = 1480405609649 with time delta = 2
+Resulted sleeping time = 0
+X = 54.46592271145242	Y = 16.339776813435677
+---------------------------------------------------------------
+Iteration# 431 @ wallClockTime = 1480405609747
+@ simTime = 1480405609749 with time delta = 2
+Resulted sleeping time = 0
+X = 54.476347480735235	Y = 16.34290424422052
+---------------------------------------------------------------
+Iteration# 432 @ wallClockTime = 1480405609848
+@ simTime = 1480405609849 with time delta = 1
+Resulted sleeping time = 0
+X = 54.48675719493079	Y = 16.346027158479185
+---------------------------------------------------------------
+Iteration# 433 @ wallClockTime = 1480405609948
+@ simTime = 1480405609949 with time delta = 1
+Resulted sleeping time = 0
+X = 54.497151875781114	Y = 16.349145562734282
+---------------------------------------------------------------
+Iteration# 434 @ wallClockTime = 1480405610049
+@ simTime = 1480405610049 with time delta = 0
+Resulted sleeping time = 0
+X = 54.50753154499684	Y = 16.352259463499
+---------------------------------------------------------------
+Iteration# 435 @ wallClockTime = 1480405610149
+@ simTime = 1480405610149 with time delta = 0
+Resulted sleeping time = 0
+X = 54.51789622425726	Y = 16.355368867277125
+---------------------------------------------------------------
+Iteration# 436 @ wallClockTime = 1480405610250
+@ simTime = 1480405610259 with time delta = 9
+Resulted sleeping time = 0
+X = 54.52927129361219	Y = 16.358781388083607
+---------------------------------------------------------------
+Iteration# 437 @ wallClockTime = 1480405610350
+@ simTime = 1480405610359 with time delta = 9
+Resulted sleeping time = 0
+X = 54.539604577087864	Y = 16.361881373126305
+---------------------------------------------------------------
+Iteration# 438 @ wallClockTime = 1480405610451
+@ simTime = 1480405610459 with time delta = 8
+Resulted sleeping time = 0
+X = 54.549922937596875	Y = 16.364976881279013
+---------------------------------------------------------------
+Iteration# 439 @ wallClockTime = 1480405610552
+@ simTime = 1480405610559 with time delta = 7
+Resulted sleeping time = 0
+X = 54.56022639669046	Y = 16.368067919007085
+---------------------------------------------------------------

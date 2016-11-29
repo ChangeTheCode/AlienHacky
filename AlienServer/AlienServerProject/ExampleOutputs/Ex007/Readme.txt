@@ -1,0 +1,1 @@
+Example taken after now showing simulation time in "ConsumedCoords.txt"; now one clearly see, that the values in this file and "calcOutput.txt" don't match (for orders of magnitude!)

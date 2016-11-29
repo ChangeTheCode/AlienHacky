@@ -221,20 +221,19 @@ public class Calculator implements Runnable {
             pos.y = pos.y + c * speed.y * h + d * senAcc.a.y;
             //pos.z = pos.z + c * speed.z * h + d * senAcc.z;
 
-            if(iteration % 2 == 0) {
-                writer.println("Iteration #" + iteration + "@ Simtime = " + (GLOBAL_SIM_ZERO_TIME + (iteration * 10)) );
-                if(clearedList){
-                    writer.println("List was trimmed");
-                    clearedList = false;
-                }
-                writer.println("PosX = " + pos.x + "\tPosY = " + pos.y /*+ "\tPosZ = " + pos.z*/);
-                writer.println("SpeedX = " + speed.x + "\tSpeedY = " + speed.y /*+ "\tSpeedZ = " + speed.z*/);
-                writer.println("AccX = " + acc.x + "\tAccY = " + acc.y /*+ "\tAccZ = " + acc.z*/);
-                writer.println("SenAccX = " + senAcc.a.x + "\tSenAccY = " + senAcc.a.y /*+ "\tSenAccZ = " + senAcc.z*/);
-                writer.println("---------------------------------");
 
-                writer2.println(iteration + ";" + pos.x);
+            writer.println("Iteration #" + iteration + "@ Simtime = " + (GLOBAL_SIM_ZERO_TIME + (iteration * 10)) );
+            if(clearedList){
+                writer.println("List was trimmed");
+                clearedList = false;
             }
+            writer.println("PosX = " + pos.x + "\tPosY = " + pos.y /*+ "\tPosZ = " + pos.z*/);
+            writer.println("SpeedX = " + speed.x + "\tSpeedY = " + speed.y /*+ "\tSpeedZ = " + speed.z*/);
+            writer.println("AccX = " + acc.x + "\tAccY = " + acc.y /*+ "\tAccZ = " + acc.z*/);
+            writer.println("SenAccX = " + senAcc.a.x + "\tSenAccY = " + senAcc.a.y /*+ "\tSenAccZ = " + senAcc.z*/);
+            writer.println("---------------------------------");
+
+            writer2.println(iteration + ";" + pos.x);
 
             iteration++;
 

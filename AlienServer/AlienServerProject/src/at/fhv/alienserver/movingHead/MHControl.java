@@ -130,15 +130,17 @@ public class MHControl implements Runnable{
         DMX exaggeratedDmxPacket;
 
         long currentTime = 0L;
-        long sleepingTime = -1L;
+        long sleepingTime = 0L;
         Tuple <CoordinateContainer, Long> localTupleBuffer = null; //Init with null needed for loop logic below
 
         double direction;
         double oldDirection;
-        PrintWriter writer = null;
+        PrintWriter writer_consumed = null;
+        PrintWriter writer_encountered = null;
         int iterationNumber = 0;
         try {
-            writer = new PrintWriter("ConsumedCoordinates.txt", "UTF-8");
+            writer_consumed = new PrintWriter("ConsumedCoordinates.txt", "UTF-8");
+            writer_encountered = new PrintWriter("EncounteredCoordinates.txt", "UTF-8");
         } catch(IOException e){
             e.printStackTrace();
         }
@@ -170,6 +172,11 @@ public class MHControl implements Runnable{
                     if(coordinatesFromCalculator.peek() != null){
                         //we have a value --> evaluate it below
                         localTupleBuffer = coordinatesFromCalculator.poll();
+                        writer_encountered.println("Iteration# " + iterationNumber + "@ simTime = " + localTupleBuffer.b);
+                        writer_encountered.println("With time delta = " + (localTupleBuffer.b - currentTime));
+                        writer_encountered.println("X = " + localTupleBuffer.a.x + "\tY= " + localTupleBuffer.a.y);
+                        writer_encountered.println("---------------------------------------------------------------");
+                        writer_encountered.flush();
                         if(localTupleBuffer.b >= currentTime){
                             break;
                         } else {
@@ -191,8 +198,11 @@ public class MHControl implements Runnable{
                 oldC = new CoordinateContainer(c);
                 c = localTupleBuffer.a;
                 //NOTE: In the next two lines, the debugger shows the absurdly big values for c.x; so the error has to be before this line!
-                c.x += mhOffsetX;
-                c.y += mhOffsetY;
+                //c.x += mhOffsetX;
+                c.x = c.x + (new Double(mhOffsetX)).longValue();
+                //c.y += mhOffsetY;
+                c.y = c.y + (new Double(mhOffsetY)).longValue();
+
 
                 /*
                  * First we remember the old DMX - packet to later use it to determine the time we have to wait for the
@@ -255,12 +265,13 @@ public class MHControl implements Runnable{
                 }
 
                 //Write log file
-                writer.println("Iteration# " + iterationNumber + " @ wallClockTime = " + currentTime);
-                writer.println("Time delta = " + (localTupleBuffer.b - currentTime));
-                writer.println("Resulted sleeping time = " + sleepingTime);
-                writer.println("X = " + c.x + "\tY = " + c.y);
-                writer.println("---------------------------------------------------------------");
-                writer.flush();
+                writer_consumed.println("Iteration# " + iterationNumber + " @ wallClockTime = " + currentTime);
+                writer_consumed.println("@ simTime = " + localTupleBuffer.b +" with time delta = " + (localTupleBuffer.b - currentTime));
+                writer_consumed.println("Resulted sleeping time = " + sleepingTime);
+                writer_consumed.println("X (from c) = " + c.x + "\tY (from c) = " + c.y);
+                writer_consumed.println("X = " + localTupleBuffer.a.x + "\tY= " + localTupleBuffer.a.y);
+                writer_consumed.println("---------------------------------------------------------------");
+                writer_consumed.flush();
                 iterationNumber++;
             } else {
                 yield();
