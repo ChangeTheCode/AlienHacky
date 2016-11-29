@@ -34,9 +34,9 @@ UART_Handle UART;
 UART_Params UART_params;
 
 // semaphore for the send semaphore
-Semaphore_Struct semaphore_struct;
-Semaphore_Handle semaphore_handle;
-Semaphore_Params semaphore_params;
+Semaphore_Struct send_semaphore_struct;
+Semaphore_Handle send_semaphore_handle;
+Semaphore_Params send_semaphore_params;
 
 // we are reading byte wise from the UART so we need a temporary array to keep the bytes in
 uint8_t temp_pos = 0;
@@ -53,7 +53,7 @@ BOOLEAN Alien_UART_send (uint8_t * data, uint8_t length) {
 	BOOLEAN rc = queue (SEND_QUEUE, data, length, FALSE);
 
 	// let the UART Task know that you have something to send
-	Semaphore_post (semaphore_handle);
+	Semaphore_post (send_semaphore_handle);
 
 	// finished
 	return rc;
@@ -138,9 +138,9 @@ void Alien_UART_init (void) {
     System_flush();
 
 	/* Construct a Semaphore object to be used as a resource lock, initial count 0 */
-	Semaphore_Params_init (&semaphore_params);
-	Semaphore_construct (&semaphore_struct, 0, &semaphore_params);
-	semaphore_handle = Semaphore_handle (&semaphore_struct);
+	Semaphore_Params_init (&send_semaphore_params);
+	Semaphore_construct (&send_semaphore_struct, 0, &send_semaphore_params);
+	send_semaphore_handle = Semaphore_handle (&send_semaphore_struct);
 
     System_printf ("UART semaphore setup\n");
     System_printf ("UART initialise complete\n\n");
@@ -157,7 +157,7 @@ void Alien_UART_send_task (UArg arg0, UArg arg1) {
 	// loop forever
 	while (TRUE) {
 		// wait for something or someone to wake me
-		Semaphore_pend (semaphore_handle, BIOS_WAIT_FOREVER);
+		Semaphore_pend (send_semaphore_handle, BIOS_WAIT_FOREVER);
 
 		// send everything in the send queue
 		do {

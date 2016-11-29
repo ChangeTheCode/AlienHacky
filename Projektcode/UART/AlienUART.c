@@ -34,14 +34,21 @@ uint8_t task_UART_receive_stack [UART_TASK_STACK_SIZE];
 UART_Handle UART;
 UART_Params UART_params;
 
-// semaphore for the send semaphore
-Semaphore_Struct semaphore_struct;
-Semaphore_Handle semaphore_handle;
-Semaphore_Params semaphore_params;
+// semaphore for sending
+Semaphore_Struct send_semaphore_struct;
+Semaphore_Handle send_semaphore_handle;
+Semaphore_Params send_semaphore_params;
+
+// semaphore for sending
+Semaphore_Struct receive_semaphore_struct;
+Semaphore_Handle receive_semaphore_handle;
+Semaphore_Params receive_semaphore_params;
 
 // we are reading byte wise from the UART so we need a temporary array to keep the bytes in
 uint8_t temp_pos = 0;
 uint8_t temp_data [MAX_PACKET_LENGTH] = {""};
+char char_read;
+uint8_t buffer_read [MAX_PACKET_LENGTH] = {""};
 
 // if we receive more chars than MAX_PACKET_LENGTH we need to tell the caller
 BOOLEAN buffer_overflow = FALSE;
@@ -53,7 +60,7 @@ BOOLEAN Alien_UART_send (uint8_t * data, uint8_t length) {
 	BOOLEAN rc = queue (SEND_QUEUE, data, length, FALSE);
 
 	// let the UART Task know that you have something to send
-	Semaphore_post (semaphore_handle);
+	Semaphore_post (send_semaphore_handle);
 
 	// finished
 	return rc;
@@ -82,7 +89,7 @@ void Alien_UART_init (void) {
 	UART_params.readDataMode = UART_DATA_BINARY;
 	UART_params.readMode = UART_MODE_CALLBACK;
 	UART_params.readCallback = &UART_read_callback;
-	UART_params.readReturnMode = UART_RETURN_NEWLINE;
+	UART_params.readReturnMode = UART_RETURN_FULL;
 	UART_params.readEcho = UART_ECHO_OFF;
 
 	UART_params.baudRate = 115200;
@@ -114,11 +121,17 @@ void Alien_UART_init (void) {
 	System_flush();
 
 	/* Construct a Semaphore object to be used as a resource lock, initial count 0 */
-	Semaphore_Params_init (&semaphore_params);
-	Semaphore_construct (&semaphore_struct, 0, &semaphore_params);
-	semaphore_handle = Semaphore_handle (&semaphore_struct);
+	Semaphore_Params_init (&send_semaphore_params);
+	Semaphore_construct (&send_semaphore_struct, 0, &send_semaphore_params);
+	send_semaphore_handle = Semaphore_handle (&send_semaphore_struct);
+	System_printf ("UART send semaphore setup complete\n");
 
-	System_printf ("UART semaphore setup complete\n");
+	/* Construct a Semaphore object to be used as a resource lock, initial count 0 */
+	Semaphore_Params_init (&receive_semaphore_params);
+	Semaphore_construct (&receive_semaphore_struct, 0, &receive_semaphore_params);
+	receive_semaphore_handle = Semaphore_handle (&receive_semaphore_struct);
+	System_printf ("UART receive semaphore setup complete\n");
+
 	System_printf ("UART initialise complete\n\n");
 	System_flush();
 
@@ -126,20 +139,33 @@ void Alien_UART_init (void) {
 // this gets called when you are doing the callback
 void UART_read_callback (UART_Handle UART, void * data, size_t length) {
 
-	System_printf ("In UART_read_callback function\n");
-	System_flush();
+	// check if it was our EOL char
+	if (buffer_read [0] == END_OF_RECORD) {
+		temp_data [temp_pos] = '\0';
+		System_printf ("Received: %s\n", temp_data);
+		System_flush();
 
-	if (UART == 0) return;
-	if (data == 0) return;
+		// take what you read and place it in the receive queue
+		BOOLEAN rc = queue (RECEIVE_QUEUE, temp_data, temp_pos, buffer_overflow);
 
-	// take what you read and place it in the receive queue
-	BOOLEAN rc = queue (RECEIVE_QUEUE, data, length, buffer_overflow);
+		// point to the top of the list
+		temp_pos = 0;
+		buffer_overflow = FALSE;
 
-	// TODO: Call the RF read function
-	// Semaphore_post (rftx_semaphore_handle);
+		// TODO: Call the RF read function
+		// Semaphore_post (rftx_semaphore_handle);
 
-	System_printf ("Leaving UART_read_callback function\n\n");
-	System_flush();
+	} else {
+		temp_data [temp_pos++] = buffer_read [0];
+		if (temp_pos == MAX_PACKET_LENGTH) {
+			// this should never happen, but if it does just go back on char and set the error flag
+			buffer_overflow = TRUE;
+			temp_pos--;
+		}
+	}
+
+	// wait for the next char
+	Semaphore_post (receive_semaphore_handle);
 }
 
 // UART Task
@@ -155,7 +181,7 @@ void Alien_UART_send_task (UArg arg0, UArg arg1) {
 		System_flush();
 
 		// wait for something or someone to wake me
-		Semaphore_pend (semaphore_handle, BIOS_WAIT_FOREVER);
+		Semaphore_pend (send_semaphore_handle, BIOS_WAIT_FOREVER);
 
 		System_printf ("The semaphore in Alien_UART_send_task function just woke up\n");
 		System_flush();
@@ -184,10 +210,13 @@ void Alien_UART_receive_task (UArg arg0, UArg arg1) {
 	while (1) {
 		System_printf ("Doing an Interrupt read...");
 		System_flush();
-		UART_read(UART, (void *) temp_data, MAX_PACKET_LENGTH);
+		UART_read(UART, (void *) buffer_read, 1);
+
+		// wait for the end of char from the read
+		Semaphore_pend (receive_semaphore_handle, BIOS_WAIT_FOREVER);
 
 		// message
-		System_printf ("Received: #%s#\n", temp_data);
+		System_printf ("Received: #%c#\n", buffer_read [0]);
 		System_flush();
 	}
 
