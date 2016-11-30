@@ -53,11 +53,10 @@ void tx_task_function(UArg arg0, UArg arg1)
     {
     	Semaphore_pend(sem_tx_handle, BIOS_WAIT_FOREVER);
 
-    	// write the packet payload to the uart
-		//UART_write(uart, &packetRx, packetRxLength);
 		System_printf ("In RF send\n");
 		System_flush();
 
+		// if something was sent from the server send it
     	if(Alien_UART_receive (send_packet, &send_packet_length, &send_packet_buffer_overflow))
     	{
     		send_packet [send_packet_length] ='\0';
@@ -66,24 +65,30 @@ void tx_task_function(UArg arg0, UArg arg1)
 
 			if ((!send_packet_buffer_overflow) && (send_packet_length > 0))
 			{
-				if(packet_rx[0] == 1)
-				{
-					send_packet[0] = 0xaa; 	// TODO: Abklären, was der Server ins packet schreibt und was die Bridge
-					send_packet[1] = 2;
+				/* Send packet */
+				// stop RX CMD
+				RF_Stat r = RF_cancelCmd(RF_handle, rx_cmd, 1);
 
-					/* Send packet */
-					// stop RX CMD
-					RF_Stat r = RF_cancelCmd(RF_handle, rx_cmd, 1);
-
-					// post TX CMD
-					RF_CmdHandle tx_cmd = RF_postCmd(RF_handle, (RF_Op*)&RF_cmdPropTx, RF_PriorityHighest, NULL, 0);
-				}
+				// post TX CMD
+				RF_CmdHandle tx_cmd = RF_postCmd(RF_handle, (RF_Op*)&RF_cmdPropTx, RF_PriorityHighest, NULL, 0);
 			}
-			// TODO: Warning no packet send because of bufferoverflow or invalid packet length
+			// bufferoverflow or invalid packet length
     	}
-    	else
+    	else	// else send ok for login
     	{
-    		 //TODO: Warning Alien Uart receive error
+    		// send login ok
+			if(packet_rx[0] == 1)
+			{
+				send_packet[0] = 0xaa; 	// TODO: Abklären, was der Server ins packet schreibt und was die Bridge
+				send_packet[1] = 2;
+
+				/* Send packet */
+				// stop RX CMD
+				RF_Stat r = RF_cancelCmd(RF_handle, rx_cmd, 1);
+
+				// post TX CMD
+				RF_CmdHandle tx_cmd = RF_postCmd(RF_handle, (RF_Op*)&RF_cmdPropTx, RF_PriorityHighest, NULL, 0);
+			}
     	}
 
 
