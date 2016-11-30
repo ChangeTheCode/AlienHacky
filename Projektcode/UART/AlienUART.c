@@ -167,8 +167,8 @@ void UART_read_callback (UART_Handle UART, void * data, size_t length) {
 		temp_pos = 0;
 		buffer_overflow = FALSE;
 
-		// TODO: Call the RF read function
-		// Semaphore_post (rftx_semaphore_handle);
+		// send via TX
+		Semaphore_post(sem_tx_handle);
 
 		System_printf ("Waiting for more data\n");
 		System_flush();

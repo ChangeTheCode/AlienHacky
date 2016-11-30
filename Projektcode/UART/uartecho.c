@@ -20,6 +20,7 @@ int main(void) {
 
     // Initialise the UART
     Alien_UART_init ();
+    Alien_RF_init ();
 
     // Now start BIOS
     BIOS_start();
