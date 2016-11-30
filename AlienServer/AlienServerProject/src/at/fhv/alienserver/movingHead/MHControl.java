@@ -197,6 +197,8 @@ public class MHControl implements Runnable{
 
                 oldC = new CoordinateContainer(c);
                 c = localTupleBuffer.a;
+                //System.out.println("In MHControl: Read X = " + localTupleBuffer.a.x + " Y = " + localTupleBuffer.a.y);
+                //System.out.flush();
                 //NOTE: In the next two lines, the debugger shows the absurdly big values for c.x; so the error has to be before this line!
                 //c.x += mhOffsetX;
                 c.x = c.x + (new Double(mhOffsetX)).longValue();
@@ -272,6 +274,7 @@ public class MHControl implements Runnable{
                 writer_consumed.println("X = " + localTupleBuffer.a.x + "\tY= " + localTupleBuffer.a.y);
                 writer_consumed.println("---------------------------------------------------------------");
                 writer_consumed.flush();
+
                 iterationNumber++;
             } else {
                 yield();

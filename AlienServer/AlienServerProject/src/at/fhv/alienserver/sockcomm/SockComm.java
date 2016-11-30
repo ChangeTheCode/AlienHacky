@@ -42,7 +42,6 @@ public class SockComm implements Runnable {
         } else {
             return new Tuple<>(new AccelerationContainer(), GLOBAL_SIM_ZERO_TIME + deltaTime);
         }
-
     }
 
     public void run(){

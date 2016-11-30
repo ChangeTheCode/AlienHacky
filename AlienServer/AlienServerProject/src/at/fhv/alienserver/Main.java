@@ -84,9 +84,13 @@ public class Main {
             calcThread.join();
             mhThread.join();
         } catch (InterruptedException e){
+            /*
+            FIXME: At least the calcThread WILL be interrupted to function correctly (to be notified of new acceleration values), so this won't work ... it was ugly anyways ;-)
+             */
             System.out.println("Thread(s) got interrupted: " + e);
             e.printStackTrace();
             /*
+             * FIXME: Assumption no longer holds true
              * Yes, I know that using the "stop()" call is considered deprecated but in this very specific case the
              * threads are definitely not meant to be interrupted so we're screwed anyways
              * and hence we can just kill our threads and exit the AlienServer

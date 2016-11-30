@@ -7,6 +7,7 @@ import at.fhv.alienserver.Tuple;
 import at.fhv.alienserver.movingHead.MHControl;
 import at.fhv.alienserver.sockcomm.SockComm;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.concurrent.BlockingQueue;
 
@@ -14,6 +15,8 @@ import static at.fhv.alienserver.Main.GLOBAL_SIM_ZERO_TIME;
 import static at.fhv.alienserver.Main.mhThread;
 import static java.lang.Math.signum;
 import static java.lang.Math.sqrt;
+import static java.lang.Thread.sleep;
+import static java.lang.Thread.yield;
 
 //import static at.fhv.alienserver.Main.LOGGER;
 
@@ -137,16 +140,14 @@ public class Calculator implements Runnable {
         System.out.flush();
 
         long currentTime;
-        CoordinateContainer coordinateBuffer;
 
         PrintWriter writer;
         PrintWriter writer2;
-        PrintWriter writer3;
         try {
             writer = new PrintWriter("calcOutput.txt", "UTF-8");
             writer2 = new PrintWriter("plotVals.csv", "UTF-8");
-            writer3 = new PrintWriter("FinalQueue.txt", "UTF-8");
         } catch (Exception e){
+            e.printStackTrace();
             return;
         }
 
@@ -157,7 +158,15 @@ public class Calculator implements Runnable {
         Tuple<AccelerationContainer, Long> senAcc = new Tuple<>(new AccelerationContainer(), 0L);
         AccelerationContainer oldSenAcc;
 
-        Long currentSimulationTime = GLOBAL_SIM_ZERO_TIME;
+        long currentSimulationTime = GLOBAL_SIM_ZERO_TIME;
+
+        PrintWriter writer_encountered = null;
+        try {
+            writer_encountered = new PrintWriter("EncounteredCoordinates.txt", "UTF-8");
+        } catch(IOException e){
+            e.printStackTrace();
+        }
+        //Tuple<CoordinateContainer, Long> localTupleBuffer = null;
 
         while(true){
 
@@ -227,18 +236,32 @@ public class Calculator implements Runnable {
                 writer.println("List was trimmed");
                 clearedList = false;
             }
-            writer.println("PosX = " + pos.x + "\tPosY = " + pos.y /*+ "\tPosZ = " + pos.z*/);
-            writer.println("SpeedX = " + speed.x + "\tSpeedY = " + speed.y /*+ "\tSpeedZ = " + speed.z*/);
-            writer.println("AccX = " + acc.x + "\tAccY = " + acc.y /*+ "\tAccZ = " + acc.z*/);
-            writer.println("SenAccX = " + senAcc.a.x + "\tSenAccY = " + senAcc.a.y /*+ "\tSenAccZ = " + senAcc.z*/);
-            writer.println("---------------------------------");
-
-            writer2.println(iteration + ";" + pos.x);
-
             iteration++;
 
+            //Tuple<CoordinateContainer, Long> temp;
             try {
-                positionValuesDump.put(  new Tuple<>(pos, currentSimulationTime)  );
+                //System.out.println("Trying to put: X = " + pos.x + " Y = " + pos.y);
+                //System.out.flush();
+                //if(positionValuesDump.size() >= 1){
+                //    yield();
+                //} else {
+                    positionValuesDump.put(new Tuple<>(new CoordinateContainer(pos), currentSimulationTime));
+                    writer.println("PosX = " + pos.x + "\tPosY = " + pos.y /*+ "\tPosZ = " + pos.z*/);
+                    writer.println("SpeedX = " + speed.x + "\tSpeedY = " + speed.y /*+ "\tSpeedZ = " + speed.z*/);
+                    writer.println("AccX = " + acc.x + "\tAccY = " + acc.y /*+ "\tAccZ = " + acc.z*/);
+                    writer.println("SenAccX = " + senAcc.a.x + "\tSenAccY = " + senAcc.a.y /*+ "\tSenAccZ = " + senAcc.z*/);
+                    writer.println("---------------------------------");
+
+                    writer2.println(iteration + ";" + pos.x);
+                    //sleep(50);
+                    //iteration++;
+
+                    //yield();
+                //}
+                //temp = positionValuesDump.poll();
+                //System.out.println("Just Read back: X = " + temp.a.x + " Y = " + temp.a.y);
+                //System.out.println("--------------------------------------------------------------");
+                //System.out.flush();
                 //LOGGER.log(Level.INFO, "Appended a new position {0}", pos.toString());
             } catch (InterruptedException e){
                 System.err.println("Our calculator thread got interrupted, which clearly wasn't supposed to happen :-(");
@@ -257,20 +280,23 @@ public class Calculator implements Runnable {
                 writer2.close();
 
                 System.out.println("calculator finished");
+                System.out.flush();
                 //LOGGER.log(Level.INFO, "Exiting calculator due to max number of iterations reached");
                 //break;
-                mhThread.stop();
-                int i = 0;
-                for(Tuple<CoordinateContainer, Long> tup : positionValuesDump){
-                    writer3.println("Element# " + i);
-                    writer3.println("PosX = " + tup.a.x + "\tPosY = " + tup.a.y);
-                    writer3.println("Time = " + tup.b);
-                    i++;
-                }
-                writer3.flush();
-                writer3.close();
+                //mhThread.stop();
+                //int i = 0;
 
+                /*while (positionValuesDump.size() > 0){
+                    localTupleBuffer = positionValuesDump.poll();
+                    writer_encountered.println("@ simTime = " + localTupleBuffer.b);
+                    writer_encountered.println("X = " + localTupleBuffer.a.x + "\tY= " + localTupleBuffer.a.y);
+                    writer_encountered.println("---------------------------------------------------------------");
+                    writer_encountered.flush();
+                }*/
+
+                //writer_encountered.flush();
                 System.exit(0);
+                //return;
             }
 
 //            if(iteration > 40000 || pos.z < 0){
