@@ -108,7 +108,7 @@ void read_light_sensor_values(I2C_Handle i2c, int* read_value){
 	tx_buffer[0] = DATA_LSB;
 	if (I2C_transfer(i2c, &I2C_transaction)) {
 		// pin toggle
-		System_printf("Sample: %d , %d (RAW)\n", read_value , ++read_value);
+		System_printf("Sample: %d , %d (RAW)\n", *read_value , *++read_value);
 	}
 	else {
 		System_printf("I2C Bus fault \n" );

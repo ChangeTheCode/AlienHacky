@@ -159,6 +159,8 @@ Void taskFxn(UArg arg0, UArg arg1)
 
     while(1) {
     	read_light_sensor_values(i2c, &light_transaction_values[0]);
+    	System_printf("Main Light value : %d , %d (RAW)\n", light_transaction_values[0] , light_transaction_values[1]);
+
     	PIN_setOutputValue(led_pin_handle, Board_DIO14, 1 /*! PIN_getOutputValue(Board_DIO14)*/); // Toggel Pin to measure
 
     	current_16b_light = light_transaction_values[0] << 8 | light_transaction_values[1] ;
@@ -170,11 +172,22 @@ Void taskFxn(UArg arg0, UArg arg1)
     	light_avarage = calculate_avarage(  &light_values[light_pos] ,current_16b_light, light_avarage);
 
     	// if the difference between old an new bigger then 20 % so send the gyro values
-    	if( (light_avarage * 100) / old_light_avarage >= LIGHT_LEVEL_IN_PROCENT ){ // to do a test, comment this if block out
+    	/*if( (light_avarage * 100) / old_light_avarage >= LIGHT_LEVEL_IN_PROCENT ){ // to do a test, comment this if block out
+    		Task_sleep(100);
     		MPU9150_read(MPU_handel, i2c);
 
     		// Get floating point version of the Accel Data in m/s^2.
     		MPU9150_getAccelFloat(MPU_handel, &mpu_data);
+
+    		System_printf("\n Accel value: ");
+    		int j;
+    		for(j =0; j < 22 ; j++){
+    			System_printf(" %d ", MPU_handel->data[j]);//, mpu_data.y, mpu_data.z);
+    		}
+    		System_flush();
+
+    		//System_printf("Accel value: x: %d, y: %d, z: %d", MPU_handel->data[0], MPU_handel->data[1], MPU_handel->data[2]);//, mpu_data.y, mpu_data.z);
+
 
     		// get floating point version of angular velocities in rad/sec
     		MPU9150_getGyroFloat(MPU_handel, &mpu_data);
@@ -187,7 +200,7 @@ Void taskFxn(UArg arg0, UArg arg1)
     		//TODO: how to transform the values to the world coordinates
 
     		//TOdo: if(ui32CompDCMStarted == 0) line 566 in tiva
-    	}
+    	//}*/
 
     }
 
@@ -197,6 +210,10 @@ Void taskFxn(UArg arg0, UArg arg1)
     System_printf("I2C closed!\n");
 
     System_flush();*/
+}
+
+void buttonCallbackFxn(){
+	MPU9150_read(MPU_handel, i2c);
 }
 
 
@@ -230,9 +247,9 @@ int main(void)
     	System_abort("Error initializing button pins\n");
     }
     /* Setup callback for button pins */
-    /*if (PIN_registerIntCb(button_pin_handle, &buttonCallbackFxn) != 0) {
+    if (PIN_registerIntCb(button_pin_handle, &buttonCallbackFxn) != 0) {
     	System_abort("Error registering button callback function");
-    }*/
+    }
 
 
     /* Open LED pins */
