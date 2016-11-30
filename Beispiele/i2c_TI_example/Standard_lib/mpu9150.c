@@ -43,7 +43,7 @@
 static MPU9150_Object object[MPU9150_COUNT] = {0};
 
 MPU9150_Handle MPU9150_init(unsigned int mpu9105_index,
-							I2C_Handle *i2c ,
+							I2C_Handle i2c ,
                             uint8_t i2c_addr)
 {
     //I2C_Params      i2cParams;
@@ -70,7 +70,7 @@ MPU9150_Handle MPU9150_init(unsigned int mpu9105_index,
     }
 
     /* Create I2C for usage */
-    handle->i2c = *i2c;
+    handle->i2c = i2c;
     handle->i2cAddr =  i2c_addr;
 
     /* If the I2C controller opened properly continue */
@@ -89,7 +89,7 @@ MPU9150_Handle MPU9150_init(unsigned int mpu9105_index,
     	I2C_transaction.readBuf = NULL;
 		I2C_transaction.readCount = 0;
 
-       	if (!I2C_transfer(handle->i2c, &I2C_transaction)) {
+       	if (!I2C_transfer( /*handle->i2c*/ i2c, &I2C_transaction)) {
 			return (NULL);
 		}
 
@@ -243,7 +243,7 @@ bool MPU9150_read(MPU9150_Handle handle, I2C_Handle i2c)
 	    I2C_transaction.writeBuf = write_buffer;
 	    I2C_transaction.writeCount = 1;
 	    I2C_transaction.readBuf = data;
-	    I2C_transaction.readCount = MPU9150_SENSOR_REGISTER_SET_SIZE;
+	    I2C_transaction.readCount =  MPU9150_SENSOR_REGISTER_SET_SIZE;
 
 	    /*
 	     * I2C peripherals generally have an internal burst counter.

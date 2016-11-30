@@ -55,7 +55,7 @@ typedef struct MPU9150_Object {
  *  This is a one time call
  */
 MPU9150_Handle MPU9150_init(unsigned int mpu9105_index,
-							I2C_Handle  *i2c,
+							I2C_Handle  i2c,
                             uint8_t i2c_addr);
 
 /*

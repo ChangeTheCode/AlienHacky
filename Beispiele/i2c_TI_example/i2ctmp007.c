@@ -134,6 +134,8 @@ Void taskFxn(UArg arg0, UArg arg1)
     else {
         System_printf("I2C Initialized!\n");
     }
+    // init i2c of the gyro sensor
+    MPU_handel = MPU9150_init(0, i2c, MPU9150_I2C_ADDRESS);
 
     if( ! config_light_sensor(i2c) ){
     	return;   // config of the light sensor failed Break
@@ -172,9 +174,11 @@ Void taskFxn(UArg arg0, UArg arg1)
     	light_avarage = calculate_avarage(  &light_values[light_pos] ,current_16b_light, light_avarage);
 
     	// if the difference between old an new bigger then 20 % so send the gyro values
-    	/*if( (light_avarage * 100) / old_light_avarage >= LIGHT_LEVEL_IN_PROCENT ){ // to do a test, comment this if block out
+    	//if( (light_avarage * 100) / old_light_avarage >= LIGHT_LEVEL_IN_PROCENT ){ // to do a test, comment this if block out
     		Task_sleep(100);
-    		MPU9150_read(MPU_handel, i2c);
+    		if (! MPU9150_read(MPU_handel, i2c)){
+    			System_printf("\n Read failed ");
+    		}
 
     		// Get floating point version of the Accel Data in m/s^2.
     		MPU9150_getAccelFloat(MPU_handel, &mpu_data);
@@ -200,7 +204,7 @@ Void taskFxn(UArg arg0, UArg arg1)
     		//TODO: how to transform the values to the world coordinates
 
     		//TOdo: if(ui32CompDCMStarted == 0) line 566 in tiva
-    	//}*/
+    	//}
 
     }
 
@@ -237,9 +241,6 @@ int main(void)
     task_params.stack = &task0_stack;
     Task_construct(&task0Struct, (Task_FuncPtr)taskFxn, &task_params, NULL);
 
-
-    // init i2c of the gyro sensor
-    MPU_handel = MPU9150_init(0, &i2c, MPU9150_I2C_ADDRESS);
 
     // config pin of the Interrupt of the gyro
     button_pin_handle = PIN_open(&buttonPinState, buttonPinTable);
