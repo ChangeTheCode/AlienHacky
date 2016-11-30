@@ -56,11 +56,17 @@ BOOLEAN buffer_overflow = FALSE;
 // add to the top of the queue
 BOOLEAN Alien_UART_send (uint8_t * data, uint8_t length) {
 
+	System_printf ("Alien UART send called. Sending %s\n", data);
+	System_flush();
+
 	// just add to the queue
 	BOOLEAN rc = queue (SEND_QUEUE, data, length, FALSE);
 
 	// let the UART Task know that you have something to send
 	Semaphore_post (send_semaphore_handle);
+
+	System_printf ("Alien UART send finished.\n");
+	System_flush();
 
 	// finished
 	return rc;
@@ -69,8 +75,17 @@ BOOLEAN Alien_UART_send (uint8_t * data, uint8_t length) {
 // read the next entry from the queue
 BOOLEAN Alien_UART_receive (uint8_t * data, uint8_t * length, BOOLEAN * buffer_overflow) {
 
+	System_printf ("Alien UART receive called\n");
+	System_flush();
+
 	// just get from the queue
-	return dequeue (RECEIVE_QUEUE, data, length, buffer_overflow);
+	BOOLEAN rc;
+	rc = dequeue (RECEIVE_QUEUE, data, length, buffer_overflow);
+
+	System_printf ("Alien UART receive finished. Received: %s\n", data);
+	System_flush();
+
+	return rc;
 }
 
 // UART initialise
@@ -142,7 +157,7 @@ void UART_read_callback (UART_Handle UART, void * data, size_t length) {
 	// check if it was our EOL char
 	if (buffer_read [0] == END_OF_RECORD) {
 		temp_data [temp_pos] = '\0';
-		System_printf ("Received: %s\n", temp_data);
+		System_printf ("Adding to the receive queue: %s\n", temp_data);
 		System_flush();
 
 		// take what you read and place it in the receive queue
@@ -154,6 +169,10 @@ void UART_read_callback (UART_Handle UART, void * data, size_t length) {
 
 		// TODO: Call the RF read function
 		// Semaphore_post (rftx_semaphore_handle);
+
+		System_printf ("Waiting for more data\n");
+		System_flush();
+
 
 	} else {
 		temp_data [temp_pos++] = buffer_read [0];
@@ -208,16 +227,10 @@ void Alien_UART_send_task (UArg arg0, UArg arg1) {
 void Alien_UART_receive_task (UArg arg0, UArg arg1) {
 
 	while (1) {
-		System_printf ("Doing an Interrupt read...");
-		System_flush();
 		UART_read(UART, (void *) buffer_read, 1);
 
 		// wait for the end of char from the read
 		Semaphore_pend (receive_semaphore_handle, BIOS_WAIT_FOREVER);
-
-		// message
-		System_printf ("Received: #%c#\n", buffer_read [0]);
-		System_flush();
 	}
 
 }
