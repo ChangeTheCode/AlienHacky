@@ -80,7 +80,7 @@ PIN_Handle led_pin_handle;
  */
 PIN_Config led_pin_table[] = {
     Board_LED1 | PIN_GPIO_OUTPUT_EN | PIN_GPIO_LOW | PIN_PUSHPULL | PIN_DRVSTR_MAX,
-    Board_LED2 | PIN_GPIO_OUTPUT_EN | PIN_GPIO_LOW | PIN_PUSHPULL | PIN_DRVSTR_MAX,
+    //Board_LED2 | PIN_GPIO_OUTPUT_EN | PIN_GPIO_LOW | PIN_PUSHPULL | PIN_DRVSTR_MAX,
 	Board_DIO14 | PIN_GPIO_OUTPUT_EN | PIN_GPIO_LOW | PIN_PUSHPULL | PIN_DRVSTR_MAX,
     PIN_TERMINATE
 };
@@ -157,13 +157,15 @@ Void taskFxn(UArg arg0, UArg arg1)
     int current_16b_light = 0;
     int old_light_avarage = 0;
 
+    PIN_setOutputValue(led_pin_handle, Board_DIO14 , 0); // init port
+
     MPU9150_Data mpu_data;
 
     while(1) {
-    	read_light_sensor_values(i2c, &light_transaction_values[0]);
-    	System_printf("Main Light value : %d , %d (RAW)\n", light_transaction_values[0] , light_transaction_values[1]);
+    	read_light_sensor_values(i2c, &light_transaction_values[0]); // needs 250 µs
 
-    	PIN_setOutputValue(led_pin_handle, Board_DIO14, 1 /*! PIN_getOutputValue(Board_DIO14)*/); // Toggel Pin to measure
+
+    	System_printf("Main Light value : %d , %d (RAW)\n", light_transaction_values[0] , light_transaction_values[1]);
 
     	current_16b_light = light_transaction_values[0] << 8 | light_transaction_values[1] ;
     	old_light_avarage = light_avarage; // save old value of light to see how big are the difference
@@ -176,9 +178,13 @@ Void taskFxn(UArg arg0, UArg arg1)
     	// if the difference between old an new bigger then 20 % so send the gyro values
     	//if( (light_avarage * 100) / old_light_avarage >= LIGHT_LEVEL_IN_PROCENT ){ // to do a test, comment this if block out
     		Task_sleep(100);
-    		if (! MPU9150_read(MPU_handel, i2c)){
+
+    		PIN_setOutputValue(led_pin_handle, Board_DIO14  ,1);
+    		if (! MPU9150_read(MPU_handel, i2c)){ // needs 750 µs
     			System_printf("\n Read failed ");
+    			System_flush();
     		}
+    		PIN_setOutputValue(led_pin_handle, Board_DIO14 , 0);
 
     		// Get floating point version of the Accel Data in m/s^2.
     		MPU9150_getAccelFloat(MPU_handel, &mpu_data);
@@ -248,9 +254,9 @@ int main(void)
     	System_abort("Error initializing button pins\n");
     }
     /* Setup callback for button pins */
-    if (PIN_registerIntCb(button_pin_handle, &buttonCallbackFxn) != 0) {
+    /*if (PIN_registerIntCb(button_pin_handle, &buttonCallbackFxn) != 0) {
     	System_abort("Error registering button callback function");
-    }
+    }*/
 
 
     /* Open LED pins */
@@ -260,7 +266,8 @@ int main(void)
     }
 
     PIN_setOutputValue(led_pin_handle, Board_LED0, 1);
-    PIN_setOutputValue(led_pin_handle, Board_LED1, 1);
+    //PIN_setOutputValue(led_pin_handle, Board_LED1, 1);
+    PIN_setOutputValue(led_pin_handle, Board_DIO14, 0);
 
 
     System_printf("Starting the I2C example\nSystem provider is set to SysMin."
