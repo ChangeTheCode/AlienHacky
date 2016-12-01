@@ -218,6 +218,7 @@ public class Calculator implements Runnable {
              }
              */
 
+            //TODO: Think if some or all of the following lines have to be "reset" if the list was trimmed
             acc.x = signum(acc.x) * signum(A) * sqrt(A * A * speed.x * speed.x) + b * senAcc.a.x;
             acc.y = signum(acc.y) * signum(A) * sqrt(A * A * speed.y * speed.y) + b * senAcc.a.y;
             //acc.z = signum(acc.z) * signum(A) * sqrt(A * A * speed.z * speed.z) + b * senAcc.z;
