@@ -94,14 +94,17 @@ extern const PIN_Config BoardGpioInitTable[];
 #define Board_SPI1_CLK              PIN_UNASSIGNED
 #define Board_SPI1_CSN              PIN_UNASSIGNED
 
-/* I2C */
-#define Board_I2C0_SCL0             IOID_4
-#define Board_I2C0_SDA0             IOID_5
-
 /* SPI */
 #define Board_SPI_FLASH_CS          IOID_20
 #define Board_FLASH_CS_ON           0
 #define Board_FLASH_CS_OFF          1
+
+/* I2C Interface */
+/* I2C */
+#define Board_I2C0_SDA0             IOID_9 // 5
+#define Board_I2C0_SCL0             IOID_8 //4  IOID_6
+#define Board_I2C0_SDA1             IOID_4 // IOID_8
+#define Board_I2C0_SCL1             IOID_5 // IOID_9
 
 /* Booster pack generic */
 #define Board_DIO0                  IOID_0

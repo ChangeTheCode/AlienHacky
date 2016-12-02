@@ -1,4 +1,10 @@
 eclipse.preferences.version=1
+encoding//Debug/Hardware/Sensor_lib/subdir_rules.mk=UTF-8
+encoding//Debug/Hardware/Sensor_lib/subdir_vars.mk=UTF-8
+encoding//Debug/Hardware/Standard_lib/subdir_rules.mk=UTF-8
+encoding//Debug/Hardware/Standard_lib/subdir_vars.mk=UTF-8
+encoding//Debug/Hardware/subdir_rules.mk=UTF-8
+encoding//Debug/Hardware/subdir_vars.mk=UTF-8
 encoding//Debug/makefile=UTF-8
 encoding//Debug/objects.mk=UTF-8
 encoding//Debug/smartrf_settings/subdir_rules.mk=UTF-8

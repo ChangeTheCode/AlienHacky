@@ -323,7 +323,7 @@ void calc_in_world_coordinates( gyro_value_t new_ComDCM){
  *  ======== echoFxn ========
  *  Task for this function is created statically. See the project's .cfg file.
  */
-Void taskFxn(UArg arg0, UArg arg1)
+Void sensor_task_fn(UArg arg0, UArg arg1)
 {
 
 	//
@@ -465,7 +465,7 @@ int main(void)
     Task_Params_init(&task_params);
     task_params.stackSize = TASKSTACKSIZE;
     task_params.stack = &task0_stack;
-    Task_construct(&task0Struct, (Task_FuncPtr)taskFxn, &task_params, NULL);
+    Task_construct(&task0Struct, (Task_FuncPtr)sensor_task_fn, &task_params, NULL);
 
 
     // config pin of the Interrupt of the gyro
