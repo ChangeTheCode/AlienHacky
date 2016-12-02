@@ -379,8 +379,8 @@ Void taskFxn(UArg arg0, UArg arg1)
 
 
     MPU9150_Data mpu_data;
-    gyro_value_t new_com_values;
-    CompDCMInit(&new_com_values, 1.0f / 50.0f, 0.2f, 0.6f, 0.2f);
+
+    CompDCMInit(&g_sCompDCMInst, 1.0f / 50.0f, 0.2f, 0.6f, 0.2f);
 
     while(1) {
     	read_light_sensor_values(i2c, &light_transaction_values[0]); // needs 250 µs
@@ -399,6 +399,7 @@ Void taskFxn(UArg arg0, UArg arg1)
     	// if the difference between old an new bigger then 20 % so send the gyro values
     	//if( (light_avarage * 100) / old_light_avarage >= LIGHT_LEVEL_IN_PROCENT ){ // to do a test, comment this if block out
     		Task_sleep(100);
+    		gyro_value_t new_com_values;
 
     		if (! MPU9150_read(MPU_handel, i2c)){ // needs 750 µs
     			System_printf("\n Read failed ");
