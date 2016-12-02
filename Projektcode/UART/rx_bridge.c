@@ -91,6 +91,8 @@ static void rx_task_function(UArg arg0, UArg arg1)
 
     while(1)
     {
+		System_printf ("in rx task\n");
+		System_flush();
 		/* Enter RX mode and stay forever in RX */
     	rx_cmd = RF_postCmd(RF_handle, (RF_Op*)&RF_cmdPropRx, RF_PriorityNormal, &rx_callback, IRQ_RX_ENTRY_DONE);
 		Semaphore_pend(sem_rx_handle, BIOS_WAIT_FOREVER);
