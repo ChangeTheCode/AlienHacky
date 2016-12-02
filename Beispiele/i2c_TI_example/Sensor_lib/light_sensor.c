@@ -28,10 +28,11 @@ BOOL config_light_sensor(I2C_Handle i2c){
 
 	// init command register 1
 	if (I2C_transfer(i2c, &I2C_transaction)) {
-		System_printf("Light sensor is configured! \n" );
+		//System_printf("Light sensor is configured! \n" );
 		return TRUE;
 	}else{
 		System_printf("Light sensor configured is failed! \n" );
+		System_flush();
 		return FALSE;
 	}
 }

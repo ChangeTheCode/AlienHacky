@@ -613,7 +613,7 @@ main(void)
             //
             // Get Quaternions.
             //
-            CompDCMComputeQuaternion(&g_sCompDCMInst, pfQuaternion);
+            CompDCMComputeQuaternion(&g_sCompDCMInst, pfQuaternion); // brauchen wir nicht
 
             //
             // convert mag data to micro-tesla for better human interpretation.
