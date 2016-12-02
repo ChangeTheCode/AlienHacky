@@ -64,14 +64,14 @@ static void tx_task_function(UArg arg0, UArg arg1)
     	// Login
     	if((login_ok == FALSE) && (login_sent == FALSE))
     	{
-    		packet_tx[0] = (uint8_t)(1);	//Login
+    		packet_tx[0] = '1';	//Login
 
-    		// add mac address to packet
-			uint8_t j;
-			for (j = 2; j < 8; j++)
-			{
-				packet_tx[j-1] = mac_address[j];
-			}
+//    		// add mac address to packet
+//			uint8_t j;
+//			for (j = 2; j < 8; j++)
+//			{
+//				packet_tx[j-1] = mac_address[j]; // TODO: in ascii konvertieren
+//			}
 			/* Send packet */
 			// stop RX CMD
 			if(rx_cmd > 0)

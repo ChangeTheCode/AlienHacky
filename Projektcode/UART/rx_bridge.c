@@ -116,9 +116,10 @@ void rx_callback(RF_Handle h, RF_CmdHandle ch, RF_EventMask e)
         /* Copy the payload + the status byte to the packet variable */
         memcpy(packet_rx, packet_rx_data_pointer, (packet_rx_length + 1));
 
-        Alien_UART_send(packet_rx, packet_rx_length);
+        //Alien_UART_send(packet_rx, packet_rx_length);
+        Alien_UART_send(packet_rx, 1);
 
-        Semaphore_post(sem_tx_handle);
+        //Semaphore_post(sem_tx_handle);
 
         RFQueue_nextEntry();
     }

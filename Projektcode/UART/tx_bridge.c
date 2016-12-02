@@ -51,13 +51,17 @@ void tx_task_function(UArg arg0, UArg arg1)
 
     while(1)
     {
+		System_printf ("Waiting for RF send semaphore\n");
+		System_flush();
+
     	Semaphore_pend(sem_tx_handle, BIOS_WAIT_FOREVER);
 
 		System_printf ("In RF send\n");
 		System_flush();
 
+		//TODO while uart
 		// if something was sent from the server send it
-    	if(Alien_UART_receive (send_packet, &send_packet_length, &send_packet_buffer_overflow))
+    	while(Alien_UART_receive (send_packet, &send_packet_length, &send_packet_buffer_overflow))
     	{
     		send_packet [send_packet_length] ='\0';
     		System_printf ("RTS: %s\n", send_packet);
@@ -74,23 +78,6 @@ void tx_task_function(UArg arg0, UArg arg1)
 			}
 			// bufferoverflow or invalid packet length
     	}
-    	else	// else send ok for login
-    	{
-    		// send login ok
-			if(packet_rx[0] == 1)
-			{
-				send_packet[0] = 0xaa; 	// TODO: Abklären, was der Server ins packet schreibt und was die Bridge
-				send_packet[1] = 2;
-
-				/* Send packet */
-				// stop RX CMD
-				RF_Stat r = RF_cancelCmd(RF_handle, rx_cmd, 1);
-
-				// post TX CMD
-				RF_CmdHandle tx_cmd = RF_postCmd(RF_handle, (RF_Op*)&RF_cmdPropTx, RF_PriorityHighest, NULL, 0);
-			}
-    	}
-
 
 		Semaphore_post(sem_rx_handle);
     }

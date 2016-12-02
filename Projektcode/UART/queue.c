@@ -95,7 +95,7 @@ BOOLEAN dequeue (queue_status_t queue, uint8_t * data, uint8_t * length, BOOLEAN
 	*buffer_overflow = temp->buffer_overflow;
 
 	// free up the data
-	free (temp);
+	free (temp);		// TODO bei Alien_UART_send Endlosschleife!
 
 	// fin
 	return TRUE;

@@ -119,7 +119,7 @@ void Alien_UART_init (void) {
 	Task_Params_init (&UART_send_task_params);
 	UART_send_task_params.stackSize = UART_TASK_STACK_SIZE;
 	UART_send_task_params.stack = &task_UART_send_stack;
-	UART_send_task_params.priority = 1;
+	UART_send_task_params.priority = 2;
 	Task_construct (&task_UART_send_struct, (Task_FuncPtr) Alien_UART_send_task, &UART_send_task_params, NULL);
 
 	System_printf ("UART send task setup complete\n");
