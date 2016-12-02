@@ -166,9 +166,10 @@ public class Calculator implements Runnable {
         } catch(IOException e){
             e.printStackTrace();
         }
-        //Tuple<CoordinateContainer, Long> localTupleBuffer = null;
+        Tuple<CoordinateContainer, Long> oldest;
 
         while(true){
+            oldest = new Tuple<>(new CoordinateContainer(), 0L);
 
             oldSenAcc = new AccelerationContainer( senAcc.a );
             senAcc = sock.getSenAcc();
@@ -194,6 +195,11 @@ public class Calculator implements Runnable {
                             currentSimulationTime = element.b;
                         }
                     }
+
+                    if(element.b > oldest.b){
+                        oldest.a = new CoordinateContainer(element.a);
+                        oldest.b = new Long(element.b);
+                    }
                 }
                 mhControl.resume();
             }
@@ -206,19 +212,27 @@ public class Calculator implements Runnable {
             currentSimulationTime += 10;
 
 
-            //Maybe we have to use this to stop the sack when it gets kicked???
-            /*
-            if(senAcc[0] != 0 || senAcc[1] != 0 || senAcc[2] != -9.81){
-                        acc[0] = 0;
-                        acc[1] = 0;
-                        //acc[2] = 0;
-                        speed[0] = 0;
-                        speed[1] = 0;
-                        //speed[2] = 0;
-             }
-             */
+            if(clearedList){
+                /*
+                For explanation purposes: the list gets cleared if we have a kick (or that's what we're trying to
+                accomplish). A hacky sack is a small,loosely packed cloth ball, so it has absolutely no elastic rebound
+                and little mass.
+                Hence we can safely assume (for simulation purposes), that the sack gets stopped to zero speed if it
+                hits a foot.
+                In addition to that this assumption saves a heckaton of memory operations, as otherwise we would have
+                to remember the acc and speed values at every point in time and restore them; this is not an issue in
+                case of memory consumption (we've got more than enough of that) but more of the time needed to read and
+                write all the values, which would likely slow the system down.
+                 */
+                acc.x = 0;
+                acc.y = 0;
+                speed.x = 0;
+                speed.y = 0;
 
-            //TODO: Think if some or all of the following lines have to be "reset" if the list was trimmed
+                pos.x = oldest.a.x;
+                pos.y = oldest.a.y;
+            }
+
             acc.x = signum(acc.x) * signum(A) * sqrt(A * A * speed.x * speed.x) + b * senAcc.a.x;
             acc.y = signum(acc.y) * signum(A) * sqrt(A * A * speed.y * speed.y) + b * senAcc.a.y;
             //acc.z = signum(acc.z) * signum(A) * sqrt(A * A * speed.z * speed.z) + b * senAcc.z;

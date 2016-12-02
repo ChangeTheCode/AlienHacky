@@ -1,1998 +1,2022 @@
-Iteration# 0 @ wallClockTime = 1480520324208
-@ simTime = 1480520324211 with time delta = 3
+Iteration# 0 @ wallClockTime = 1480670276535
+@ simTime = 1480670276541 with time delta = 6
 Resulted sleeping time = 1453
 X (from c) = 1.5E-4	Y (from c) = 4.4999999999999996E-5
 X = 1.5E-4	Y= 4.4999999999999996E-5
 ---------------------------------------------------------------
-Iteration# 1 @ wallClockTime = 1480520325780
-@ simTime = 1480520325781 with time delta = 1
+Iteration# 1 @ wallClockTime = 1480670278101
+@ simTime = 1480670278101 with time delta = 0
 Resulted sleeping time = 1616
-X (from c) = 12.6649419005661	Y (from c) = 3.799482570169835
-X = 12.6649419005661	Y= 3.799482570169835
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 2 @ wallClockTime = 1480520327505
-@ simTime = 1480520327511 with time delta = 6
+Iteration# 2 @ wallClockTime = 1480670279826
+@ simTime = 1480670279831 with time delta = 5
 Resulted sleeping time = 0
-X (from c) = 14.127969629024774	Y (from c) = 4.238390888707441
-X = 14.127969629024774	Y= 4.238390888707441
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 3 @ wallClockTime = 1480520327613
-@ simTime = 1480520327621 with time delta = 8
+Iteration# 3 @ wallClockTime = 1480670279932
+@ simTime = 1480670279941 with time delta = 9
 Resulted sleeping time = 0
-X (from c) = 14.21983891805633	Y (from c) = 4.2659516754169085
-X = 14.21983891805633	Y= 4.2659516754169085
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 4 @ wallClockTime = 1480520327714
-@ simTime = 1480520327721 with time delta = 7
+Iteration# 4 @ wallClockTime = 1480670280033
+@ simTime = 1480670280041 with time delta = 8
 Resulted sleeping time = 0
-X (from c) = 14.303165368320158	Y (from c) = 4.290949610496055
-X = 14.303165368320158	Y= 4.290949610496055
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 5 @ wallClockTime = 1480520327814
-@ simTime = 1480520327821 with time delta = 7
+Iteration# 5 @ wallClockTime = 1480670280133
+@ simTime = 1480670280141 with time delta = 8
 Resulted sleeping time = 0
-X (from c) = 14.386371481438328	Y (from c) = 4.315911444431505
-X = 14.386371481438328	Y= 4.315911444431505
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 6 @ wallClockTime = 1480520327915
-@ simTime = 1480520327921 with time delta = 6
+Iteration# 6 @ wallClockTime = 1480670280234
+@ simTime = 1480670280241 with time delta = 7
 Resulted sleeping time = 0
-X (from c) = 14.469457431197537	Y (from c) = 4.340837229359268
-X = 14.469457431197537	Y= 4.340837229359268
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 7 @ wallClockTime = 1480520328016
-@ simTime = 1480520328021 with time delta = 5
+Iteration# 7 @ wallClockTime = 1480670280335
+@ simTime = 1480670280341 with time delta = 6
 Resulted sleeping time = 0
-X (from c) = 14.552423391133509	Y (from c) = 4.36572701734006
-X = 14.552423391133509	Y= 4.36572701734006
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 8 @ wallClockTime = 1480520328117
-@ simTime = 1480520328121 with time delta = 4
+Iteration# 8 @ wallClockTime = 1480670280436
+@ simTime = 1480670280441 with time delta = 5
 Resulted sleeping time = 0
-X (from c) = 14.63526953453135	Y (from c) = 4.390580860359411
-X = 14.63526953453135	Y= 4.390580860359411
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 9 @ wallClockTime = 1480520328217
-@ simTime = 1480520328221 with time delta = 4
+Iteration# 9 @ wallClockTime = 1480670280537
+@ simTime = 1480670280541 with time delta = 4
 Resulted sleeping time = 0
-X (from c) = 14.717996034425916	Y (from c) = 4.415398810327781
-X = 14.717996034425916	Y= 4.415398810327781
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 10 @ wallClockTime = 1480520328318
-@ simTime = 1480520328321 with time delta = 3
+Iteration# 10 @ wallClockTime = 1480670280638
+@ simTime = 1480670280641 with time delta = 3
 Resulted sleeping time = 0
-X (from c) = 14.800603063602164	Y (from c) = 4.440180919080656
-X = 14.800603063602164	Y= 4.440180919080656
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 11 @ wallClockTime = 1480520328419
-@ simTime = 1480520328421 with time delta = 2
+Iteration# 11 @ wallClockTime = 1480670280739
+@ simTime = 1480670280741 with time delta = 2
 Resulted sleeping time = 0
-X (from c) = 14.883090794595534	Y (from c) = 4.4649272383786665
-X = 14.883090794595534	Y= 4.4649272383786665
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 12 @ wallClockTime = 1480520328520
-@ simTime = 1480520328521 with time delta = 1
+Iteration# 12 @ wallClockTime = 1480670280839
+@ simTime = 1480670280841 with time delta = 2
 Resulted sleeping time = 0
-X (from c) = 14.96545939969229	Y (from c) = 4.489637819907693
-X = 14.96545939969229	Y= 4.489637819907693
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 13 @ wallClockTime = 1480520328620
-@ simTime = 1480520328621 with time delta = 1
+Iteration# 13 @ wallClockTime = 1480670280940
+@ simTime = 1480670280941 with time delta = 1
 Resulted sleeping time = 0
-X (from c) = 15.047709050929887	Y (from c) = 4.5143127152789715
-X = 15.047709050929887	Y= 4.5143127152789715
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 14 @ wallClockTime = 1480520328721
-@ simTime = 1480520328721 with time delta = 0
+Iteration# 14 @ wallClockTime = 1480670281041
+@ simTime = 1480670281041 with time delta = 0
 Resulted sleeping time = 0
-X (from c) = 15.129839920097323	Y (from c) = 4.538951976029203
-X = 15.129839920097323	Y= 4.538951976029203
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 15 @ wallClockTime = 1480520328821
-@ simTime = 1480520328821 with time delta = 0
+Iteration# 15 @ wallClockTime = 1480670281141
+@ simTime = 1480670281141 with time delta = 0
 Resulted sleeping time = 0
-X (from c) = 15.211852178735516	Y (from c) = 4.563555653620661
-X = 15.211852178735516	Y= 4.563555653620661
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 16 @ wallClockTime = 1480520328922
-@ simTime = 1480520328931 with time delta = 9
+Iteration# 16 @ wallClockTime = 1480670281242
+@ simTime = 1480670281251 with time delta = 9
 Resulted sleeping time = 0
-X (from c) = 15.301859318032774	Y (from c) = 4.590557795409838
-X = 15.301859318032774	Y= 4.590557795409838
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 17 @ wallClockTime = 1480520329023
-@ simTime = 1480520329031 with time delta = 8
+Iteration# 17 @ wallClockTime = 1480670281343
+@ simTime = 1480670281351 with time delta = 8
 Resulted sleeping time = 0
-X (from c) = 15.383623152271756	Y (from c) = 4.615086945681532
-X = 15.383623152271756	Y= 4.615086945681532
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 18 @ wallClockTime = 1480520329123
-@ simTime = 1480520329131 with time delta = 8
+Iteration# 18 @ wallClockTime = 1480670281444
+@ simTime = 1480670281451 with time delta = 7
 Resulted sleeping time = 0
-X (from c) = 15.465268906040507	Y (from c) = 4.639580671812157
-X = 15.465268906040507	Y= 4.639580671812157
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 19 @ wallClockTime = 1480520329224
-@ simTime = 1480520329231 with time delta = 7
+Iteration# 19 @ wallClockTime = 1480670281545
+@ simTime = 1480670281551 with time delta = 6
 Resulted sleeping time = 0
-X (from c) = 15.546796749866703	Y (from c) = 4.664039024960014
-X = 15.546796749866703	Y= 4.664039024960014
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 20 @ wallClockTime = 1480520329326
-@ simTime = 1480520329331 with time delta = 5
+Iteration# 20 @ wallClockTime = 1480670281647
+@ simTime = 1480670281651 with time delta = 4
 Resulted sleeping time = 0
-X (from c) = 15.628206854031765	Y (from c) = 4.688462056209533
-X = 15.628206854031765	Y= 4.688462056209533
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 21 @ wallClockTime = 1480520329426
-@ simTime = 1480520329431 with time delta = 5
+Iteration# 21 @ wallClockTime = 1480670281747
+@ simTime = 1480670281751 with time delta = 4
 Resulted sleeping time = 0
-X (from c) = 15.709499388571198	Y (from c) = 4.712849816571361
-X = 15.709499388571198	Y= 4.712849816571361
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 22 @ wallClockTime = 1480520329527
-@ simTime = 1480520329531 with time delta = 4
+Iteration# 22 @ wallClockTime = 1480670281848
+@ simTime = 1480670281851 with time delta = 3
 Resulted sleeping time = 0
-X (from c) = 15.790674523274935	Y (from c) = 4.737202356982482
-X = 15.790674523274935	Y= 4.737202356982482
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 23 @ wallClockTime = 1480520329628
-@ simTime = 1480520329631 with time delta = 3
+Iteration# 23 @ wallClockTime = 1480670281949
+@ simTime = 1480670281951 with time delta = 2
 Resulted sleeping time = 0
-X (from c) = 15.871732427687721	Y (from c) = 4.761519728306316
-X = 15.871732427687721	Y= 4.761519728306316
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 24 @ wallClockTime = 1480520329729
-@ simTime = 1480520329731 with time delta = 2
+Iteration# 24 @ wallClockTime = 1480670282049
+@ simTime = 1480670282051 with time delta = 2
 Resulted sleeping time = 0
-X (from c) = 15.952673271109436	Y (from c) = 4.785801981332831
-X = 15.952673271109436	Y= 4.785801981332831
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 25 @ wallClockTime = 1480520329830
-@ simTime = 1480520329831 with time delta = 1
+Iteration# 25 @ wallClockTime = 1480670282150
+@ simTime = 1480670282151 with time delta = 1
 Resulted sleeping time = 0
-X (from c) = 16.033497222595475	Y (from c) = 4.810049166778643
-X = 16.033497222595475	Y= 4.810049166778643
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 26 @ wallClockTime = 1480520329931
-@ simTime = 1480520329931 with time delta = 0
+Iteration# 26 @ wallClockTime = 1480670282251
+@ simTime = 1480670282251 with time delta = 0
 Resulted sleeping time = 0
-X (from c) = 16.114204450957086	Y (from c) = 4.834261335287126
-X = 16.114204450957086	Y= 4.834261335287126
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 27 @ wallClockTime = 1480520330032
-@ simTime = 1480520330041 with time delta = 9
+Iteration# 27 @ wallClockTime = 1480670282351
+@ simTime = 1480670282351 with time delta = 0
 Resulted sleeping time = 0
-X (from c) = 16.202916235720306	Y (from c) = 4.860874870716091
-X = 16.202916235720306	Y= 4.860874870716091
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 28 @ wallClockTime = 1480520330133
-@ simTime = 1480520330141 with time delta = 8
+Iteration# 28 @ wallClockTime = 1480670282458
+@ simTime = 1480670282461 with time delta = 3
 Resulted sleeping time = 0
-X (from c) = 16.283378795067517	Y (from c) = 4.885013638520256
-X = 16.283378795067517	Y= 4.885013638520256
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 29 @ wallClockTime = 1480520330233
-@ simTime = 1480520330241 with time delta = 8
+Iteration# 29 @ wallClockTime = 1480670282558
+@ simTime = 1480670282561 with time delta = 3
 Resulted sleeping time = 0
-X (from c) = 16.363725153200193	Y (from c) = 4.909117545960058
-X = 16.363725153200193	Y= 4.909117545960058
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 30 @ wallClockTime = 1480520330334
-@ simTime = 1480520330341 with time delta = 7
+Iteration# 30 @ wallClockTime = 1480670282659
+@ simTime = 1480670282661 with time delta = 2
 Resulted sleeping time = 0
-X (from c) = 16.44395547793205	Y (from c) = 4.9331866433796145
-X = 16.44395547793205	Y= 4.9331866433796145
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 31 @ wallClockTime = 1480520330435
-@ simTime = 1480520330441 with time delta = 6
+Iteration# 31 @ wallClockTime = 1480670282760
+@ simTime = 1480670282761 with time delta = 1
 Resulted sleeping time = 0
-X (from c) = 16.524069936834483	Y (from c) = 4.957220981050343
-X = 16.524069936834483	Y= 4.957220981050343
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 32 @ wallClockTime = 1480520330535
-@ simTime = 1480520330541 with time delta = 6
+Iteration# 32 @ wallClockTime = 1480670282861
+@ simTime = 1480670282861 with time delta = 0
 Resulted sleeping time = 0
-X (from c) = 16.60406869723686	Y (from c) = 4.9812206091710545
-X = 16.60406869723686	Y= 4.9812206091710545
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 33 @ wallClockTime = 1480520330636
-@ simTime = 1480520330641 with time delta = 5
+Iteration# 33 @ wallClockTime = 1480670282961
+@ simTime = 1480670282961 with time delta = 0
 Resulted sleeping time = 0
-X (from c) = 16.683951926226907	Y (from c) = 5.005185577868071
-X = 16.683951926226907	Y= 5.005185577868071
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 34 @ wallClockTime = 1480520330737
-@ simTime = 1480520330741 with time delta = 4
+Iteration# 34 @ wallClockTime = 1480670283062
+@ simTime = 1480670283071 with time delta = 9
 Resulted sleeping time = 0
-X (from c) = 16.76371979065106	Y (from c) = 5.029115937195317
-X = 16.76371979065106	Y= 5.029115937195317
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 35 @ wallClockTime = 1480520330837
-@ simTime = 1480520330841 with time delta = 4
+Iteration# 35 @ wallClockTime = 1480670283162
+@ simTime = 1480670283171 with time delta = 9
 Resulted sleeping time = 0
-X (from c) = 16.843372457114793	Y (from c) = 5.053011737134435
-X = 16.843372457114793	Y= 5.053011737134435
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 36 @ wallClockTime = 1480520330938
-@ simTime = 1480520330941 with time delta = 3
+Iteration# 36 @ wallClockTime = 1480670283263
+@ simTime = 1480670283271 with time delta = 8
 Resulted sleeping time = 0
-X (from c) = 16.922910091982956	Y (from c) = 5.076873027594884
-X = 16.922910091982956	Y= 5.076873027594884
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 37 @ wallClockTime = 1480520331039
-@ simTime = 1480520331041 with time delta = 2
+Iteration# 37 @ wallClockTime = 1480670283364
+@ simTime = 1480670283371 with time delta = 7
 Resulted sleeping time = 0
-X (from c) = 17.002332861380168	Y (from c) = 5.100699858414048
-X = 17.002332861380168	Y= 5.100699858414048
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 38 @ wallClockTime = 1480520331139
-@ simTime = 1480520331141 with time delta = 2
+Iteration# 38 @ wallClockTime = 1480670283464
+@ simTime = 1480670283471 with time delta = 7
 Resulted sleeping time = 0
-X (from c) = 17.081640931191128	Y (from c) = 5.124492279357336
-X = 17.081640931191128	Y= 5.124492279357336
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 39 @ wallClockTime = 1480520331240
-@ simTime = 1480520331241 with time delta = 1
+Iteration# 39 @ wallClockTime = 1480670283565
+@ simTime = 1480670283571 with time delta = 6
 Resulted sleeping time = 0
-X (from c) = 17.160834467060962	Y (from c) = 5.148250340118289
-X = 17.160834467060962	Y= 5.148250340118289
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 40 @ wallClockTime = 1480520331341
-@ simTime = 1480520331341 with time delta = 0
+Iteration# 40 @ wallClockTime = 1480670283665
+@ simTime = 1480670283671 with time delta = 6
 Resulted sleeping time = 0
-X (from c) = 17.239913634395588	Y (from c) = 5.1719740903186775
-X = 17.239913634395588	Y= 5.1719740903186775
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 41 @ wallClockTime = 1480520331441
-@ simTime = 1480520331441 with time delta = 0
+Iteration# 41 @ wallClockTime = 1480670283766
+@ simTime = 1480670283771 with time delta = 5
 Resulted sleeping time = 0
-X (from c) = 17.31887859836204	Y (from c) = 5.195663579508612
-X = 17.31887859836204	Y= 5.195663579508612
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 42 @ wallClockTime = 1480520331542
-@ simTime = 1480520331551 with time delta = 9
+Iteration# 42 @ wallClockTime = 1480670283867
+@ simTime = 1480670283871 with time delta = 4
 Resulted sleeping time = 0
-X (from c) = 17.405541380601537	Y (from c) = 5.2216624141804635
-X = 17.405541380601537	Y= 5.2216624141804635
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 43 @ wallClockTime = 1480520331642
-@ simTime = 1480520331651 with time delta = 9
+Iteration# 43 @ wallClockTime = 1480670283968
+@ simTime = 1480670283971 with time delta = 3
 Resulted sleeping time = 0
-X (from c) = 17.484267150768698	Y (from c) = 5.245280145230612
-X = 17.484267150768698	Y= 5.245280145230612
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 44 @ wallClockTime = 1480520331743
-@ simTime = 1480520331751 with time delta = 8
+Iteration# 44 @ wallClockTime = 1480670284069
+@ simTime = 1480670284071 with time delta = 2
 Resulted sleeping time = 0
-X (from c) = 17.56287922793152	Y (from c) = 5.268863768379458
-X = 17.56287922793152	Y= 5.268863768379458
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 45 @ wallClockTime = 1480520331844
-@ simTime = 1480520331851 with time delta = 7
+Iteration# 45 @ wallClockTime = 1480670284169
+@ simTime = 1480670284171 with time delta = 2
 Resulted sleeping time = 0
-X (from c) = 17.641377776281466	Y (from c) = 5.29241333288444
-X = 17.641377776281466	Y= 5.29241333288444
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 46 @ wallClockTime = 1480520331944
-@ simTime = 1480520331951 with time delta = 7
+Iteration# 46 @ wallClockTime = 1480670284270
+@ simTime = 1480670284271 with time delta = 1
 Resulted sleeping time = 0
-X (from c) = 17.719762959772865	Y (from c) = 5.315928887931863
-X = 17.719762959772865	Y= 5.315928887931863
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 47 @ wallClockTime = 1480520332045
-@ simTime = 1480520332051 with time delta = 6
+Iteration# 47 @ wallClockTime = 1480670284371
+@ simTime = 1480670284371 with time delta = 0
 Resulted sleeping time = 0
-X (from c) = 17.798034942123298	Y (from c) = 5.339410482636992
-X = 17.798034942123298	Y= 5.339410482636992
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 48 @ wallClockTime = 1480520332145
-@ simTime = 1480520332151 with time delta = 6
+Iteration# 48 @ wallClockTime = 1480670284471
+@ simTime = 1480670284471 with time delta = 0
 Resulted sleeping time = 0
-X (from c) = 17.876193886813887	Y (from c) = 5.362858166044168
-X = 17.876193886813887	Y= 5.362858166044168
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 49 @ wallClockTime = 1480520332246
-@ simTime = 1480520332251 with time delta = 5
+Iteration# 49 @ wallClockTime = 1480670284572
+@ simTime = 1480670284581 with time delta = 9
 Resulted sleeping time = 0
-X (from c) = 17.95423995708967	Y (from c) = 5.3862719871269
-X = 17.95423995708967	Y= 5.3862719871269
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 50 @ wallClockTime = 1480520332347
-@ simTime = 1480520332351 with time delta = 4
+Iteration# 50 @ wallClockTime = 1480670284673
+@ simTime = 1480670284681 with time delta = 8
 Resulted sleeping time = 0
-X (from c) = 18.032173315959916	Y (from c) = 5.409651994787976
-X = 18.032173315959916	Y= 5.409651994787976
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 51 @ wallClockTime = 1480520332447
-@ simTime = 1480520332451 with time delta = 4
+Iteration# 51 @ wallClockTime = 1480670284773
+@ simTime = 1480670284781 with time delta = 8
 Resulted sleeping time = 0
-X (from c) = 18.109994126198515	Y (from c) = 5.432998237859556
-X = 18.109994126198515	Y= 5.432998237859556
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 52 @ wallClockTime = 1480520332548
-@ simTime = 1480520332551 with time delta = 3
+Iteration# 52 @ wallClockTime = 1480670284874
+@ simTime = 1480670284881 with time delta = 7
 Resulted sleeping time = 0
-X (from c) = 18.187702550344255	Y (from c) = 5.456310765103275
-X = 18.187702550344255	Y= 5.456310765103275
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 53 @ wallClockTime = 1480520332649
-@ simTime = 1480520332651 with time delta = 2
+Iteration# 53 @ wallClockTime = 1480670284975
+@ simTime = 1480670284981 with time delta = 6
 Resulted sleeping time = 0
-X (from c) = 18.265298750701202	Y (from c) = 5.47958962521036
-X = 18.265298750701202	Y= 5.47958962521036
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 54 @ wallClockTime = 1480520332749
-@ simTime = 1480520332751 with time delta = 2
+Iteration# 54 @ wallClockTime = 1480670285075
+@ simTime = 1480670285081 with time delta = 6
 Resulted sleeping time = 0
-X (from c) = 18.342782889339038	Y (from c) = 5.502834866801707
-X = 18.342782889339038	Y= 5.502834866801707
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 55 @ wallClockTime = 1480520332850
-@ simTime = 1480520332851 with time delta = 1
+Iteration# 55 @ wallClockTime = 1480670285176
+@ simTime = 1480670285181 with time delta = 5
 Resulted sleeping time = 0
-X (from c) = 18.420155128093356	Y (from c) = 5.5260465384280035
-X = 18.420155128093356	Y= 5.5260465384280035
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 56 @ wallClockTime = 1480520332950
-@ simTime = 1480520332951 with time delta = 1
+Iteration# 56 @ wallClockTime = 1480670285277
+@ simTime = 1480670285281 with time delta = 4
 Resulted sleeping time = 0
-X (from c) = 18.49741562856607	Y (from c) = 5.549224688569817
-X = 18.49741562856607	Y= 5.549224688569817
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 57 @ wallClockTime = 1480520333051
-@ simTime = 1480520333051 with time delta = 0
+Iteration# 57 @ wallClockTime = 1480670285377
+@ simTime = 1480670285381 with time delta = 4
 Resulted sleeping time = 0
-X (from c) = 18.574564552125697	Y (from c) = 5.572369365637705
-X = 18.574564552125697	Y= 5.572369365637705
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 58 @ wallClockTime = 1480520333152
-@ simTime = 1480520333161 with time delta = 9
+Iteration# 58 @ wallClockTime = 1480670285478
+@ simTime = 1480670285481 with time delta = 3
 Resulted sleeping time = 0
-X (from c) = 18.659365118821796	Y (from c) = 5.597809535646538
-X = 18.659365118821796	Y= 5.597809535646538
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 59 @ wallClockTime = 1480520333252
-@ simTime = 1480520333261 with time delta = 9
+Iteration# 59 @ wallClockTime = 1480670285579
+@ simTime = 1480670285581 with time delta = 2
 Resulted sleeping time = 0
-X (from c) = 18.73628016059076	Y (from c) = 5.620884048177224
-X = 18.73628016059076	Y= 5.620884048177224
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 60 @ wallClockTime = 1480520333353
-@ simTime = 1480520333361 with time delta = 8
+Iteration# 60 @ wallClockTime = 1480670285679
+@ simTime = 1480670285681 with time delta = 2
 Resulted sleeping time = 0
-X (from c) = 18.813084124346016	Y (from c) = 5.643925237303799
-X = 18.813084124346016	Y= 5.643925237303799
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 61 @ wallClockTime = 1480520333454
-@ simTime = 1480520333461 with time delta = 7
+Iteration# 61 @ wallClockTime = 1480670285780
+@ simTime = 1480670285781 with time delta = 1
 Resulted sleeping time = 0
-X (from c) = 18.889777170502544	Y (from c) = 5.666933151150757
-X = 18.889777170502544	Y= 5.666933151150757
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 62 @ wallClockTime = 1480520333554
-@ simTime = 1480520333561 with time delta = 7
+Iteration# 62 @ wallClockTime = 1480670285881
+@ simTime = 1480670285881 with time delta = 0
 Resulted sleeping time = 0
-X (from c) = 18.96635945924367	Y (from c) = 5.689907837773094
-X = 18.96635945924367	Y= 5.689907837773094
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 63 @ wallClockTime = 1480520333655
-@ simTime = 1480520333661 with time delta = 6
+Iteration# 63 @ wallClockTime = 1480670285981
+@ simTime = 1480670285981 with time delta = 0
 Resulted sleeping time = 0
-X (from c) = 19.042831150521373	Y (from c) = 5.712849345156405
-X = 19.042831150521373	Y= 5.712849345156405
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 64 @ wallClockTime = 1480520333756
-@ simTime = 1480520333761 with time delta = 5
+Iteration# 64 @ wallClockTime = 1480670286082
+@ simTime = 1480670286091 with time delta = 9
 Resulted sleeping time = 0
-X (from c) = 19.119192404056648	Y (from c) = 5.735757721216986
-X = 19.119192404056648	Y= 5.735757721216986
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 65 @ wallClockTime = 1480520333856
-@ simTime = 1480520333861 with time delta = 5
+Iteration# 65 @ wallClockTime = 1480670286184
+@ simTime = 1480670286191 with time delta = 7
 Resulted sleeping time = 0
-X (from c) = 19.195443379339814	Y (from c) = 5.758633013801936
-X = 19.195443379339814	Y= 5.758633013801936
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 66 @ wallClockTime = 1480520333957
-@ simTime = 1480520333961 with time delta = 4
+Iteration# 66 @ wallClockTime = 1480670286284
+@ simTime = 1480670286291 with time delta = 7
 Resulted sleeping time = 0
-X (from c) = 19.27158423563087	Y (from c) = 5.781475270689254
-X = 19.27158423563087	Y= 5.781475270689254
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 67 @ wallClockTime = 1480520334057
-@ simTime = 1480520334061 with time delta = 4
+Iteration# 67 @ wallClockTime = 1480670286385
+@ simTime = 1480670286391 with time delta = 6
 Resulted sleeping time = 0
-X (from c) = 19.347615131959813	Y (from c) = 5.804284539587938
-X = 19.347615131959813	Y= 5.804284539587938
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 68 @ wallClockTime = 1480520334158
-@ simTime = 1480520334161 with time delta = 3
+Iteration# 68 @ wallClockTime = 1480670286486
+@ simTime = 1480670286491 with time delta = 5
 Resulted sleeping time = 0
-X (from c) = 19.423536227126984	Y (from c) = 5.827060868138087
-X = 19.423536227126984	Y= 5.827060868138087
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 69 @ wallClockTime = 1480520334259
-@ simTime = 1480520334261 with time delta = 2
+Iteration# 69 @ wallClockTime = 1480670286586
+@ simTime = 1480670286591 with time delta = 5
 Resulted sleeping time = 0
-X (from c) = 19.49934767970337	Y (from c) = 5.849804303911002
-X = 19.49934767970337	Y= 5.849804303911002
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 70 @ wallClockTime = 1480520334359
-@ simTime = 1480520334361 with time delta = 2
+Iteration# 70 @ wallClockTime = 1480670286688
+@ simTime = 1480670286691 with time delta = 3
 Resulted sleeping time = 0
-X (from c) = 19.57504964803097	Y (from c) = 5.872514894409281
-X = 19.57504964803097	Y= 5.872514894409281
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 71 @ wallClockTime = 1480520334460
-@ simTime = 1480520334461 with time delta = 1
+Iteration# 71 @ wallClockTime = 1480670286791
+@ simTime = 1480670286791 with time delta = 0
 Resulted sleeping time = 0
-X (from c) = 19.650642290223104	Y (from c) = 5.8951926870669205
-X = 19.650642290223104	Y= 5.8951926870669205
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 72 @ wallClockTime = 1480520334561
-@ simTime = 1480520334561 with time delta = 0
+Iteration# 72 @ wallClockTime = 1480670286891
+@ simTime = 1480670286891 with time delta = 0
 Resulted sleeping time = 0
-X (from c) = 19.72612576416476	Y (from c) = 5.917837729249415
-X = 19.72612576416476	Y= 5.917837729249415
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 73 @ wallClockTime = 1480520334661
-@ simTime = 1480520334661 with time delta = 0
+Iteration# 73 @ wallClockTime = 1480670286992
+@ simTime = 1480670287001 with time delta = 9
 Resulted sleeping time = 0
-X (from c) = 19.801500227512904	Y (from c) = 5.940450068253858
-X = 19.801500227512904	Y= 5.940450068253858
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 74 @ wallClockTime = 1480520334762
-@ simTime = 1480520334771 with time delta = 9
+Iteration# 74 @ wallClockTime = 1480670287093
+@ simTime = 1480670287101 with time delta = 8
 Resulted sleeping time = 0
-X (from c) = 19.88422249287523	Y (from c) = 5.965266747862556
-X = 19.88422249287523	Y= 5.965266747862556
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 75 @ wallClockTime = 1480520334863
-@ simTime = 1480520334871 with time delta = 8
+Iteration# 75 @ wallClockTime = 1480670287194
+@ simTime = 1480670287201 with time delta = 7
 Resulted sleeping time = 0
-X (from c) = 19.959368638456198	Y (from c) = 5.987810591536845
-X = 19.959368638456198	Y= 5.987810591536845
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 76 @ wallClockTime = 1480520334964
-@ simTime = 1480520334971 with time delta = 7
+Iteration# 76 @ wallClockTime = 1480670287294
+@ simTime = 1480670287301 with time delta = 7
 Resulted sleeping time = 0
-X (from c) = 20.03440626060148	Y (from c) = 6.01032187818043
-X = 20.03440626060148	Y= 6.01032187818043
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 77 @ wallClockTime = 1480520335065
-@ simTime = 1480520335071 with time delta = 6
+Iteration# 77 @ wallClockTime = 1480670287395
+@ simTime = 1480670287401 with time delta = 6
 Resulted sleeping time = 0
-X (from c) = 20.109335516036822	Y (from c) = 6.032800654811035
-X = 20.109335516036822	Y= 6.032800654811035
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 78 @ wallClockTime = 1480520335166
-@ simTime = 1480520335171 with time delta = 5
+Iteration# 78 @ wallClockTime = 1480670287495
+@ simTime = 1480670287501 with time delta = 6
 Resulted sleeping time = 0
-X (from c) = 20.184156561261652	Y (from c) = 6.055246968378483
-X = 20.184156561261652	Y= 6.055246968378483
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 79 @ wallClockTime = 1480520335266
-@ simTime = 1480520335271 with time delta = 5
+Iteration# 79 @ wallClockTime = 1480670287596
+@ simTime = 1480670287601 with time delta = 5
 Resulted sleeping time = 0
-X (from c) = 20.258869552549353	Y (from c) = 6.077660865764793
-X = 20.258869552549353	Y= 6.077660865764793
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 80 @ wallClockTime = 1480520335367
-@ simTime = 1480520335371 with time delta = 4
+Iteration# 80 @ wallClockTime = 1480670287697
+@ simTime = 1480670287701 with time delta = 4
 Resulted sleeping time = 0
-X (from c) = 20.333474645947646	Y (from c) = 6.100042393784282
-X = 20.333474645947646	Y= 6.100042393784282
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 81 @ wallClockTime = 1480520335467
-@ simTime = 1480520335471 with time delta = 4
+Iteration# 81 @ wallClockTime = 1480670287797
+@ simTime = 1480670287801 with time delta = 4
 Resulted sleeping time = 0
-X (from c) = 20.407971997278896	Y (from c) = 6.122391599183658
-X = 20.407971997278896	Y= 6.122391599183658
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 82 @ wallClockTime = 1480520335568
-@ simTime = 1480520335571 with time delta = 3
+Iteration# 82 @ wallClockTime = 1480670287898
+@ simTime = 1480670287901 with time delta = 3
 Resulted sleeping time = 0
-X (from c) = 20.48236176214042	Y (from c) = 6.144708528642117
-X = 20.48236176214042	Y= 6.144708528642117
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 83 @ wallClockTime = 1480520335668
-@ simTime = 1480520335671 with time delta = 3
+Iteration# 83 @ wallClockTime = 1480670287999
+@ simTime = 1480670288001 with time delta = 2
 Resulted sleeping time = 0
-X (from c) = 20.55664409590485	Y (from c) = 6.166993228771446
-X = 20.55664409590485	Y= 6.166993228771446
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 84 @ wallClockTime = 1480520335769
-@ simTime = 1480520335771 with time delta = 2
+Iteration# 84 @ wallClockTime = 1480670288099
+@ simTime = 1480670288101 with time delta = 2
 Resulted sleeping time = 0
-X (from c) = 20.630819153720402	Y (from c) = 6.189245746116113
-X = 20.630819153720402	Y= 6.189245746116113
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 85 @ wallClockTime = 1480520335870
-@ simTime = 1480520335871 with time delta = 1
+Iteration# 85 @ wallClockTime = 1480670288200
+@ simTime = 1480670288201 with time delta = 1
 Resulted sleeping time = 0
-X (from c) = 20.70488709051127	Y (from c) = 6.211466127153372
-X = 20.70488709051127	Y= 6.211466127153372
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 86 @ wallClockTime = 1480520335970
-@ simTime = 1480520335971 with time delta = 1
+Iteration# 86 @ wallClockTime = 1480670288301
+@ simTime = 1480670288301 with time delta = 0
 Resulted sleeping time = 0
-X (from c) = 20.778848060977875	Y (from c) = 6.233654418293352
-X = 20.778848060977875	Y= 6.233654418293352
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 87 @ wallClockTime = 1480520336071
-@ simTime = 1480520336071 with time delta = 0
+Iteration# 87 @ wallClockTime = 1480670288402
+@ simTime = 1480670288411 with time delta = 9
 Resulted sleeping time = 0
-X (from c) = 20.852702219597248	Y (from c) = 6.2558106658791655
-X = 20.852702219597248	Y= 6.2558106658791655
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 88 @ wallClockTime = 1480520336171
-@ simTime = 1480520336171 with time delta = 0
+Iteration# 88 @ wallClockTime = 1480670288502
+@ simTime = 1480670288511 with time delta = 9
 Resulted sleeping time = 0
-X (from c) = 20.926449720623324	Y (from c) = 6.277934916186989
-X = 20.926449720623324	Y= 6.277934916186989
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 89 @ wallClockTime = 1480520336272
-@ simTime = 1480520336281 with time delta = 9
+Iteration# 89 @ wallClockTime = 1480670288604
+@ simTime = 1480670288611 with time delta = 7
 Resulted sleeping time = 0
-X (from c) = 21.007511511130335	Y (from c) = 6.3022534533390955
-X = 21.007511511130335	Y= 6.3022534533390955
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 90 @ wallClockTime = 1480520336373
-@ simTime = 1480520336381 with time delta = 8
+Iteration# 90 @ wallClockTime = 1480670288705
+@ simTime = 1480670288711 with time delta = 6
 Resulted sleeping time = 0
-X (from c) = 21.08103544199106	Y (from c) = 6.32431063259731
-X = 21.08103544199106	Y= 6.32431063259731
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 91 @ wallClockTime = 1480520336473
-@ simTime = 1480520336481 with time delta = 8
+Iteration# 91 @ wallClockTime = 1480670288807
+@ simTime = 1480670288811 with time delta = 4
 Resulted sleeping time = 0
-X (from c) = 21.154453192161867	Y (from c) = 6.3463359576485505
-X = 21.154453192161867	Y= 6.3463359576485505
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 92 @ wallClockTime = 1480520336574
-@ simTime = 1480520336581 with time delta = 7
+Iteration# 92 @ wallClockTime = 1480670288907
+@ simTime = 1480670288911 with time delta = 4
 Resulted sleeping time = 0
-X (from c) = 21.2277649149852	Y (from c) = 6.368329474495549
-X = 21.2277649149852	Y= 6.368329474495549
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 93 @ wallClockTime = 1480520336675
-@ simTime = 1480520336681 with time delta = 6
+Iteration# 93 @ wallClockTime = 1480670289008
+@ simTime = 1480670289011 with time delta = 3
 Resulted sleeping time = 0
-X (from c) = 21.30097076358204	Y (from c) = 6.390291229074601
-X = 21.30097076358204	Y= 6.390291229074601
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 94 @ wallClockTime = 1480520336775
-@ simTime = 1480520336781 with time delta = 6
+Iteration# 94 @ wallClockTime = 1480670289109
+@ simTime = 1480670289111 with time delta = 2
 Resulted sleeping time = 0
-X (from c) = 21.37407089085225	Y (from c) = 6.412221267255662
-X = 21.37407089085225	Y= 6.412221267255662
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 95 @ wallClockTime = 1480520336876
-@ simTime = 1480520336881 with time delta = 5
+Iteration# 95 @ wallClockTime = 1480670289209
+@ simTime = 1480670289211 with time delta = 2
 Resulted sleeping time = 0
-X (from c) = 21.447065449474863	Y (from c) = 6.434119634842445
-X = 21.447065449474863	Y= 6.434119634842445
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 96 @ wallClockTime = 1480520336976
-@ simTime = 1480520336981 with time delta = 5
+Iteration# 96 @ wallClockTime = 1480670289310
+@ simTime = 1480670289311 with time delta = 1
 Resulted sleeping time = 0
-X (from c) = 21.51995459190844	Y (from c) = 6.4559863775725175
-X = 21.51995459190844	Y= 6.4559863775725175
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 97 @ wallClockTime = 1480520337077
-@ simTime = 1480520337081 with time delta = 4
+Iteration# 97 @ wallClockTime = 1480670289410
+@ simTime = 1480670289411 with time delta = 1
 Resulted sleeping time = 0
-X (from c) = 21.592738470391346	Y (from c) = 6.4778215411173905
-X = 21.592738470391346	Y= 6.4778215411173905
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 98 @ wallClockTime = 1480520337178
-@ simTime = 1480520337181 with time delta = 3
+Iteration# 98 @ wallClockTime = 1480670289511
+@ simTime = 1480670289511 with time delta = 0
 Resulted sleeping time = 0
-X (from c) = 21.6654172369421	Y (from c) = 6.499625171082618
-X = 21.6654172369421	Y= 6.499625171082618
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 99 @ wallClockTime = 1480520337278
-@ simTime = 1480520337281 with time delta = 3
+Iteration# 99 @ wallClockTime = 1480670289612
+@ simTime = 1480670289621 with time delta = 9
 Resulted sleeping time = 0
-X (from c) = 21.737991043359678	Y (from c) = 6.521397313007891
-X = 21.737991043359678	Y= 6.521397313007891
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 100 @ wallClockTime = 1480520337379
-@ simTime = 1480520337381 with time delta = 2
+Iteration# 100 @ wallClockTime = 1480670289712
+@ simTime = 1480670289721 with time delta = 9
 Resulted sleeping time = 0
-X (from c) = 21.810460041223838	Y (from c) = 6.543138012367141
-X = 21.810460041223838	Y= 6.543138012367141
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 101 @ wallClockTime = 1480520337479
-@ simTime = 1480520337481 with time delta = 2
+Iteration# 101 @ wallClockTime = 1480670289813
+@ simTime = 1480670289821 with time delta = 8
 Resulted sleeping time = 0
-X (from c) = 21.882824381895425	Y (from c) = 6.5648473145686195
-X = 21.882824381895425	Y= 6.5648473145686195
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 102 @ wallClockTime = 1480520337580
-@ simTime = 1480520337581 with time delta = 1
+Iteration# 102 @ wallClockTime = 1480670289913
+@ simTime = 1480670289921 with time delta = 8
 Resulted sleeping time = 0
-X (from c) = 21.9550842165167	Y (from c) = 6.586525264955003
-X = 21.9550842165167	Y= 6.586525264955003
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 103 @ wallClockTime = 1480520337681
-@ simTime = 1480520337681 with time delta = 0
+Iteration# 103 @ wallClockTime = 1480670290014
+@ simTime = 1480670290021 with time delta = 7
 Resulted sleeping time = 0
-X (from c) = 22.027239696011645	Y (from c) = 6.608171908803487
-X = 22.027239696011645	Y= 6.608171908803487
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 104 @ wallClockTime = 1480520337782
-@ simTime = 1480520337791 with time delta = 9
+Iteration# 104 @ wallClockTime = 1480670290115
+@ simTime = 1480670290121 with time delta = 6
 Resulted sleeping time = 0
-X (from c) = 22.106429178191533	Y (from c) = 6.631928753457454
-X = 22.106429178191533	Y= 6.631928753457454
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 105 @ wallClockTime = 1480520337882
-@ simTime = 1480520337891 with time delta = 9
+Iteration# 105 @ wallClockTime = 1480670290215
+@ simTime = 1480670290221 with time delta = 6
 Resulted sleeping time = 0
-X (from c) = 22.17836609058516	Y (from c) = 6.653509827175541
-X = 22.17836609058516	Y= 6.653509827175541
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 106 @ wallClockTime = 1480520337983
-@ simTime = 1480520337991 with time delta = 8
+Iteration# 106 @ wallClockTime = 1480670290316
+@ simTime = 1480670290321 with time delta = 5
 Resulted sleeping time = 0
-X (from c) = 22.250199114205447	Y (from c) = 6.675059734261627
-X = 22.250199114205447	Y= 6.675059734261627
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 107 @ wallClockTime = 1480520338083
-@ simTime = 1480520338091 with time delta = 8
+Iteration# 107 @ wallClockTime = 1480670290416
+@ simTime = 1480670290421 with time delta = 5
 Resulted sleeping time = 0
-X (from c) = 22.32192839908492	Y (from c) = 6.6965785197254695
-X = 22.32192839908492	Y= 6.6965785197254695
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 108 @ wallClockTime = 1480520338184
-@ simTime = 1480520338191 with time delta = 7
+Iteration# 108 @ wallClockTime = 1480670290517
+@ simTime = 1480670290521 with time delta = 4
 Resulted sleeping time = 0
-X (from c) = 22.393554095039452	Y (from c) = 6.718066228511829
-X = 22.393554095039452	Y= 6.718066228511829
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 109 @ wallClockTime = 1480520338285
-@ simTime = 1480520338291 with time delta = 6
+Iteration# 109 @ wallClockTime = 1480670290618
+@ simTime = 1480670290621 with time delta = 3
 Resulted sleeping time = 0
-X (from c) = 22.46507635166854	Y (from c) = 6.7395229055005546
-X = 22.46507635166854	Y= 6.7395229055005546
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 110 @ wallClockTime = 1480520338385
-@ simTime = 1480520338391 with time delta = 6
+Iteration# 110 @ wallClockTime = 1480670290718
+@ simTime = 1480670290721 with time delta = 3
 Resulted sleeping time = 0
-X (from c) = 22.536495318355637	Y (from c) = 6.760948595506685
-X = 22.536495318355637	Y= 6.760948595506685
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 111 @ wallClockTime = 1480520338486
-@ simTime = 1480520338491 with time delta = 5
+Iteration# 111 @ wallClockTime = 1480670290819
+@ simTime = 1480670290821 with time delta = 2
 Resulted sleeping time = 0
-X (from c) = 22.607811144268474	Y (from c) = 6.7823433432805365
-X = 22.607811144268474	Y= 6.7823433432805365
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 112 @ wallClockTime = 1480520338587
-@ simTime = 1480520338591 with time delta = 4
+Iteration# 112 @ wallClockTime = 1480670290920
+@ simTime = 1480670290921 with time delta = 1
 Resulted sleeping time = 0
-X (from c) = 22.679023978359343	Y (from c) = 6.803707193507797
-X = 22.679023978359343	Y= 6.803707193507797
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 113 @ wallClockTime = 1480520338687
-@ simTime = 1480520338691 with time delta = 4
+Iteration# 113 @ wallClockTime = 1480670291020
+@ simTime = 1480670291021 with time delta = 1
 Resulted sleeping time = 0
-X (from c) = 22.750133969365443	Y (from c) = 6.8250401908096245
-X = 22.750133969365443	Y= 6.8250401908096245
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 114 @ wallClockTime = 1480520338788
-@ simTime = 1480520338791 with time delta = 3
+Iteration# 114 @ wallClockTime = 1480670291121
+@ simTime = 1480670291121 with time delta = 0
 Resulted sleeping time = 0
-X (from c) = 22.821141265809146	Y (from c) = 6.846342379742736
-X = 22.821141265809146	Y= 6.846342379742736
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 115 @ wallClockTime = 1480520338889
-@ simTime = 1480520338891 with time delta = 2
+Iteration# 115 @ wallClockTime = 1480670291221
+@ simTime = 1480670291221 with time delta = 0
 Resulted sleeping time = 0
-X (from c) = 22.892046015998357	Y (from c) = 6.867613804799499
-X = 22.892046015998357	Y= 6.867613804799499
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 116 @ wallClockTime = 1480520338989
-@ simTime = 1480520338991 with time delta = 2
+Iteration# 116 @ wallClockTime = 1480670291322
+@ simTime = 1480670291331 with time delta = 9
 Resulted sleeping time = 0
-X (from c) = 22.962848368026794	Y (from c) = 6.888854510408027
-X = 22.962848368026794	Y= 6.888854510408027
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 117 @ wallClockTime = 1480520339090
-@ simTime = 1480520339091 with time delta = 1
+Iteration# 117 @ wallClockTime = 1480670291423
+@ simTime = 1480670291431 with time delta = 8
 Resulted sleeping time = 0
-X (from c) = 23.03354846977429	Y (from c) = 6.910064540932278
-X = 23.03354846977429	Y= 6.910064540932278
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 118 @ wallClockTime = 1480520339191
-@ simTime = 1480520339191 with time delta = 0
+Iteration# 118 @ wallClockTime = 1480670291523
+@ simTime = 1480670291531 with time delta = 8
 Resulted sleeping time = 0
-X (from c) = 23.104146468907135	Y (from c) = 6.93124394067213
-X = 23.104146468907135	Y= 6.93124394067213
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 119 @ wallClockTime = 1480520339291
-@ simTime = 1480520339291 with time delta = 0
+Iteration# 119 @ wallClockTime = 1480670291624
+@ simTime = 1480670291631 with time delta = 7
 Resulted sleeping time = 0
-X (from c) = 23.174642512878346	Y (from c) = 6.952392753863494
-X = 23.174642512878346	Y= 6.952392753863494
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 120 @ wallClockTime = 1480520339392
-@ simTime = 1480520339401 with time delta = 9
+Iteration# 120 @ wallClockTime = 1480670291724
+@ simTime = 1480670291731 with time delta = 7
 Resulted sleeping time = 0
-X (from c) = 23.25213036627622	Y (from c) = 6.975639109882855
-X = 23.25213036627622	Y= 6.975639109882855
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 121 @ wallClockTime = 1480520339493
-@ simTime = 1480520339501 with time delta = 8
+Iteration# 121 @ wallClockTime = 1480670291825
+@ simTime = 1480670291831 with time delta = 6
 Resulted sleeping time = 0
-X (from c) = 23.32241269707765	Y (from c) = 6.996723809123283
-X = 23.32241269707765	Y= 6.996723809123283
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 122 @ wallClockTime = 1480520339594
-@ simTime = 1480520339601 with time delta = 7
+Iteration# 122 @ wallClockTime = 1480670291926
+@ simTime = 1480670291931 with time delta = 5
 Resulted sleeping time = 0
-X (from c) = 23.39259352859461	Y (from c) = 7.017778058578373
-X = 23.39259352859461	Y= 7.017778058578373
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 123 @ wallClockTime = 1480520339694
-@ simTime = 1480520339701 with time delta = 7
+Iteration# 123 @ wallClockTime = 1480670292026
+@ simTime = 1480670292031 with time delta = 5
 Resulted sleeping time = 0
-X (from c) = 23.462673007408824	Y (from c) = 7.038801902222639
-X = 23.462673007408824	Y= 7.038801902222639
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 124 @ wallClockTime = 1480520339795
-@ simTime = 1480520339801 with time delta = 6
+Iteration# 124 @ wallClockTime = 1480670292127
+@ simTime = 1480670292131 with time delta = 4
 Resulted sleeping time = 0
-X (from c) = 23.53265127989032	Y (from c) = 7.059795383967088
-X = 23.53265127989032	Y= 7.059795383967088
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 125 @ wallClockTime = 1480520339898
-@ simTime = 1480520339901 with time delta = 3
+Iteration# 125 @ wallClockTime = 1480670292227
+@ simTime = 1480670292231 with time delta = 4
 Resulted sleeping time = 0
-X (from c) = 23.60252849219775	Y (from c) = 7.080758547659316
-X = 23.60252849219775	Y= 7.080758547659316
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 126 @ wallClockTime = 1480520339999
-@ simTime = 1480520340001 with time delta = 2
+Iteration# 126 @ wallClockTime = 1480670292328
+@ simTime = 1480670292331 with time delta = 3
 Resulted sleeping time = 0
-X (from c) = 23.672304790278673	Y (from c) = 7.101691437083593
-X = 23.672304790278673	Y= 7.101691437083593
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 127 @ wallClockTime = 1480520340099
-@ simTime = 1480520340101 with time delta = 2
+Iteration# 127 @ wallClockTime = 1480670292429
+@ simTime = 1480670292431 with time delta = 2
 Resulted sleeping time = 0
-X (from c) = 23.741980319869885	Y (from c) = 7.1225940959609595
-X = 23.741980319869885	Y= 7.1225940959609595
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 128 @ wallClockTime = 1480520340206
-@ simTime = 1480520340211 with time delta = 5
+Iteration# 128 @ wallClockTime = 1480670292534
+@ simTime = 1480670292541 with time delta = 7
 Resulted sleeping time = 0
-X (from c) = 23.81844809678106	Y (from c) = 7.145534429034313
-X = 23.81844809678106	Y= 7.145534429034313
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 129 @ wallClockTime = 1480520340306
-@ simTime = 1480520340311 with time delta = 5
+Iteration# 129 @ wallClockTime = 1480670292634
+@ simTime = 1480670292641 with time delta = 7
 Resulted sleeping time = 0
-X (from c) = 23.887912571319468	Y (from c) = 7.166373771395834
-X = 23.887912571319468	Y= 7.166373771395834
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 130 @ wallClockTime = 1480520340407
-@ simTime = 1480520340411 with time delta = 4
+Iteration# 130 @ wallClockTime = 1480670292735
+@ simTime = 1480670292741 with time delta = 6
 Resulted sleeping time = 0
-X (from c) = 23.957276727692825	Y (from c) = 7.187183018307841
-X = 23.957276727692825	Y= 7.187183018307841
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 131 @ wallClockTime = 1480520340507
-@ simTime = 1480520340511 with time delta = 4
+Iteration# 131 @ wallClockTime = 1480670292836
+@ simTime = 1480670292841 with time delta = 5
 Resulted sleeping time = 0
-X (from c) = 24.026540710777123	Y (from c) = 7.207962213233128
-X = 24.026540710777123	Y= 7.207962213233128
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 132 @ wallClockTime = 1480520340608
-@ simTime = 1480520340611 with time delta = 3
+Iteration# 132 @ wallClockTime = 1480670292936
+@ simTime = 1480670292941 with time delta = 5
 Resulted sleeping time = 0
-X (from c) = 24.095704665239115	Y (from c) = 7.228711399571726
-X = 24.095704665239115	Y= 7.228711399571726
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 133 @ wallClockTime = 1480520340709
-@ simTime = 1480520340711 with time delta = 2
+Iteration# 133 @ wallClockTime = 1480670293037
+@ simTime = 1480670293041 with time delta = 4
 Resulted sleeping time = 0
-X (from c) = 24.16476873553665	Y (from c) = 7.249430620660984
-X = 24.16476873553665	Y= 7.249430620660984
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 134 @ wallClockTime = 1480520340810
-@ simTime = 1480520340811 with time delta = 1
+Iteration# 134 @ wallClockTime = 1480670293138
+@ simTime = 1480670293141 with time delta = 3
 Resulted sleeping time = 0
-X (from c) = 24.233733065918933	Y (from c) = 7.270119919775667
-X = 24.233733065918933	Y= 7.270119919775667
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 135 @ wallClockTime = 1480520340910
-@ simTime = 1480520340911 with time delta = 1
+Iteration# 135 @ wallClockTime = 1480670293239
+@ simTime = 1480670293241 with time delta = 2
 Resulted sleeping time = 0
-X (from c) = 24.302597800426863	Y (from c) = 7.290779340128049
-X = 24.302597800426863	Y= 7.290779340128049
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 136 @ wallClockTime = 1480520341011
-@ simTime = 1480520341011 with time delta = 0
+Iteration# 136 @ wallClockTime = 1480670293339
+@ simTime = 1480670293341 with time delta = 2
 Resulted sleeping time = 0
-X (from c) = 24.371363082893332	Y (from c) = 7.3114089248679885
-X = 24.371363082893332	Y= 7.3114089248679885
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 137 @ wallClockTime = 1480520341112
-@ simTime = 1480520341121 with time delta = 9
+Iteration# 137 @ wallClockTime = 1480670293440
+@ simTime = 1480670293441 with time delta = 1
 Resulted sleeping time = 0
-X (from c) = 24.44694851757107	Y (from c) = 7.334084555271309
-X = 24.44694851757107	Y= 7.334084555271309
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 138 @ wallClockTime = 1480520341213
-@ simTime = 1480520341221 with time delta = 8
+Iteration# 138 @ wallClockTime = 1480670293541
+@ simTime = 1480670293541 with time delta = 0
 Resulted sleeping time = 0
-X (from c) = 24.515505333779586	Y (from c) = 7.354651600133864
-X = 24.515505333779586	Y= 7.354651600133864
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 139 @ wallClockTime = 1480520341314
-@ simTime = 1480520341321 with time delta = 7
+Iteration# 139 @ wallClockTime = 1480670293641
+@ simTime = 1480670293641 with time delta = 0
 Resulted sleeping time = 0
-X (from c) = 24.58396314263147	Y (from c) = 7.375188942789432
-X = 24.58396314263147	Y= 7.375188942789432
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 140 @ wallClockTime = 1480520341414
-@ simTime = 1480520341421 with time delta = 7
+Iteration# 140 @ wallClockTime = 1480670293742
+@ simTime = 1480670293751 with time delta = 9
 Resulted sleeping time = 0
-X (from c) = 24.652322087109695	Y (from c) = 7.395696626132899
-X = 24.652322087109695	Y= 7.395696626132899
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 141 @ wallClockTime = 1480520341515
-@ simTime = 1480520341521 with time delta = 6
+Iteration# 141 @ wallClockTime = 1480670293843
+@ simTime = 1480670293851 with time delta = 8
 Resulted sleeping time = 0
-X (from c) = 24.72058230999072	Y (from c) = 7.416174692997208
-X = 24.72058230999072	Y= 7.416174692997208
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 142 @ wallClockTime = 1480520341616
-@ simTime = 1480520341621 with time delta = 5
+Iteration# 142 @ wallClockTime = 1480670293943
+@ simTime = 1480670293951 with time delta = 8
 Resulted sleeping time = 0
-X (from c) = 24.788743953844833	Y (from c) = 7.436623186153441
-X = 24.788743953844833	Y= 7.436623186153441
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 143 @ wallClockTime = 1480520341717
-@ simTime = 1480520341721 with time delta = 4
+Iteration# 143 @ wallClockTime = 1480670294044
+@ simTime = 1480670294051 with time delta = 7
 Resulted sleeping time = 0
-X (from c) = 24.856807161036407	Y (from c) = 7.457042148310914
-X = 24.856807161036407	Y= 7.457042148310914
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 144 @ wallClockTime = 1480520341818
-@ simTime = 1480520341821 with time delta = 3
+Iteration# 144 @ wallClockTime = 1480670294145
+@ simTime = 1480670294151 with time delta = 6
 Resulted sleeping time = 0
-X (from c) = 24.924772073724245	Y (from c) = 7.477431622117264
-X = 24.924772073724245	Y= 7.477431622117264
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 145 @ wallClockTime = 1480520341918
-@ simTime = 1480520341921 with time delta = 3
+Iteration# 145 @ wallClockTime = 1480670294245
+@ simTime = 1480670294251 with time delta = 6
 Resulted sleeping time = 0
-X (from c) = 24.992638833861815	Y (from c) = 7.497791650158534
-X = 24.992638833861815	Y= 7.497791650158534
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 146 @ wallClockTime = 1480520342019
-@ simTime = 1480520342021 with time delta = 2
+Iteration# 146 @ wallClockTime = 1480670294346
+@ simTime = 1480670294351 with time delta = 5
 Resulted sleeping time = 0
-X (from c) = 25.060407583197602	Y (from c) = 7.518122274959271
-X = 25.060407583197602	Y= 7.518122274959271
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 147 @ wallClockTime = 1480520342119
-@ simTime = 1480520342121 with time delta = 2
+Iteration# 147 @ wallClockTime = 1480670294446
+@ simTime = 1480670294451 with time delta = 5
 Resulted sleeping time = 0
-X (from c) = 25.12807846327539	Y (from c) = 7.538423538982605
-X = 25.12807846327539	Y= 7.538423538982605
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 148 @ wallClockTime = 1480520342220
-@ simTime = 1480520342221 with time delta = 1
+Iteration# 148 @ wallClockTime = 1480670294547
+@ simTime = 1480670294551 with time delta = 4
 Resulted sleeping time = 0
-X (from c) = 25.19565161543452	Y (from c) = 7.558695484630343
-X = 25.19565161543452	Y= 7.558695484630343
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 149 @ wallClockTime = 1480520342320
-@ simTime = 1480520342321 with time delta = 1
+Iteration# 149 @ wallClockTime = 1480670294648
+@ simTime = 1480670294651 with time delta = 3
 Resulted sleeping time = 0
-X (from c) = 25.263127180810248	Y (from c) = 7.578938154243061
-X = 25.263127180810248	Y= 7.578938154243061
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 150 @ wallClockTime = 1480520342421
-@ simTime = 1480520342421 with time delta = 0
+Iteration# 150 @ wallClockTime = 1480670294749
+@ simTime = 1480670294751 with time delta = 2
 Resulted sleeping time = 0
-X (from c) = 25.33050530033399	Y (from c) = 7.599151590100185
-X = 25.33050530033399	Y= 7.599151590100185
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 151 @ wallClockTime = 1480520342522
-@ simTime = 1480520342531 with time delta = 9
+Iteration# 151 @ wallClockTime = 1480670294850
+@ simTime = 1480670294851 with time delta = 1
 Resulted sleeping time = 0
-X (from c) = 25.404451706520835	Y (from c) = 7.621335511956239
-X = 25.404451706520835	Y= 7.621335511956239
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 152 @ wallClockTime = 1480520342622
-@ simTime = 1480520342631 with time delta = 9
+Iteration# 152 @ wallClockTime = 1480670294950
+@ simTime = 1480670294951 with time delta = 1
 Resulted sleeping time = 0
-X (from c) = 25.47162573010647	Y (from c) = 7.64148771903193
-X = 25.47162573010647	Y= 7.64148771903193
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 153 @ wallClockTime = 1480520342722
-@ simTime = 1480520342731 with time delta = 9
+Iteration# 153 @ wallClockTime = 1480670295051
+@ simTime = 1480670295051 with time delta = 0
 Resulted sleeping time = 0
-X (from c) = 25.538702743316232	Y (from c) = 7.661610822994859
-X = 25.538702743316232	Y= 7.661610822994859
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 154 @ wallClockTime = 1480520342823
-@ simTime = 1480520342831 with time delta = 8
+Iteration# 154 @ wallClockTime = 1480670295151
+@ simTime = 1480670295151 with time delta = 0
 Resulted sleeping time = 0
-X (from c) = 25.605682886249102	Y (from c) = 7.681704865874721
-X = 25.605682886249102	Y= 7.681704865874721
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 155 @ wallClockTime = 1480520342924
-@ simTime = 1480520342931 with time delta = 7
+Iteration# 155 @ wallClockTime = 1480670295252
+@ simTime = 1480670295261 with time delta = 9
 Resulted sleeping time = 0
-X (from c) = 25.672566298801765	Y (from c) = 7.70176988964052
-X = 25.672566298801765	Y= 7.70176988964052
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 156 @ wallClockTime = 1480520343024
-@ simTime = 1480520343031 with time delta = 7
+Iteration# 156 @ wallClockTime = 1480670295353
+@ simTime = 1480670295361 with time delta = 8
 Resulted sleeping time = 0
-X (from c) = 25.739353120668838	Y (from c) = 7.721805936200643
-X = 25.739353120668838	Y= 7.721805936200643
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 157 @ wallClockTime = 1480520343125
-@ simTime = 1480520343131 with time delta = 6
+Iteration# 157 @ wallClockTime = 1480670295453
+@ simTime = 1480670295461 with time delta = 8
 Resulted sleeping time = 0
-X (from c) = 25.806043491343218	Y (from c) = 7.741813047402957
-X = 25.806043491343218	Y= 7.741813047402957
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 158 @ wallClockTime = 1480520343225
-@ simTime = 1480520343231 with time delta = 6
+Iteration# 158 @ wallClockTime = 1480670295554
+@ simTime = 1480670295561 with time delta = 7
 Resulted sleeping time = 0
-X (from c) = 25.872637550116337	Y (from c) = 7.761791265034894
-X = 25.872637550116337	Y= 7.761791265034894
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 159 @ wallClockTime = 1480520343326
-@ simTime = 1480520343331 with time delta = 5
+Iteration# 159 @ wallClockTime = 1480670295655
+@ simTime = 1480670295661 with time delta = 6
 Resulted sleeping time = 0
-X (from c) = 25.93913543607848	Y (from c) = 7.781740630823539
-X = 25.93913543607848	Y= 7.781740630823539
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 160 @ wallClockTime = 1480520343426
-@ simTime = 1480520343431 with time delta = 5
+Iteration# 160 @ wallClockTime = 1480670295755
+@ simTime = 1480670295761 with time delta = 6
 Resulted sleeping time = 0
-X (from c) = 26.005537288119065	Y (from c) = 7.801661186435714
-X = 26.005537288119065	Y= 7.801661186435714
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 161 @ wallClockTime = 1480520343527
-@ simTime = 1480520343531 with time delta = 4
+Iteration# 161 @ wallClockTime = 1480670295856
+@ simTime = 1480670295861 with time delta = 5
 Resulted sleeping time = 0
-X (from c) = 26.07184324492692	Y (from c) = 7.821552973478068
-X = 26.07184324492692	Y= 7.821552973478068
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 162 @ wallClockTime = 1480520343628
-@ simTime = 1480520343631 with time delta = 3
+Iteration# 162 @ wallClockTime = 1480670295957
+@ simTime = 1480670295961 with time delta = 4
 Resulted sleeping time = 0
-X (from c) = 26.138053444990582	Y (from c) = 7.8414160334971665
-X = 26.138053444990582	Y= 7.8414160334971665
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 163 @ wallClockTime = 1480520343729
-@ simTime = 1480520343731 with time delta = 2
+Iteration# 163 @ wallClockTime = 1480670296058
+@ simTime = 1480670296061 with time delta = 3
 Resulted sleeping time = 0
-X (from c) = 26.204168026598587	Y (from c) = 7.861250407979569
-X = 26.204168026598587	Y= 7.861250407979569
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 164 @ wallClockTime = 1480520343829
-@ simTime = 1480520343831 with time delta = 2
+Iteration# 164 @ wallClockTime = 1480670296158
+@ simTime = 1480670296161 with time delta = 3
 Resulted sleeping time = 0
-X (from c) = 26.270187127839773	Y (from c) = 7.881056138351927
-X = 26.270187127839773	Y= 7.881056138351927
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 165 @ wallClockTime = 1480520343930
-@ simTime = 1480520343931 with time delta = 1
+Iteration# 165 @ wallClockTime = 1480670296259
+@ simTime = 1480670296261 with time delta = 2
 Resulted sleeping time = 0
-X (from c) = 26.33611088660355	Y (from c) = 7.90083326598106
-X = 26.33611088660355	Y= 7.90083326598106
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 166 @ wallClockTime = 1480520344030
-@ simTime = 1480520344031 with time delta = 1
+Iteration# 166 @ wallClockTime = 1480670296360
+@ simTime = 1480670296361 with time delta = 1
 Resulted sleeping time = 0
-X (from c) = 26.401939440580186	Y (from c) = 7.92058183217405
-X = 26.401939440580186	Y= 7.92058183217405
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 167 @ wallClockTime = 1480520344131
-@ simTime = 1480520344131 with time delta = 0
+Iteration# 167 @ wallClockTime = 1480670296460
+@ simTime = 1480670296461 with time delta = 1
 Resulted sleeping time = 0
-X (from c) = 26.467672927261102	Y (from c) = 7.9403018781783254
-X = 26.467672927261102	Y= 7.9403018781783254
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 168 @ wallClockTime = 1480520344232
-@ simTime = 1480520344241 with time delta = 9
+Iteration# 168 @ wallClockTime = 1480670296561
+@ simTime = 1480670296561 with time delta = 0
 Resulted sleeping time = 0
-X (from c) = 26.539925872140415	Y (from c) = 7.961977761642119
-X = 26.539925872140415	Y= 7.961977761642119
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 169 @ wallClockTime = 1480520344332
-@ simTime = 1480520344341 with time delta = 9
+Iteration# 169 @ wallClockTime = 1480670296662
+@ simTime = 1480670296671 with time delta = 9
 Resulted sleeping time = 0
-X (from c) = 26.605460083642072	Y (from c) = 7.981638025092618
-X = 26.605460083642072	Y= 7.981638025092618
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 170 @ wallClockTime = 1480520344433
-@ simTime = 1480520344441 with time delta = 8
+Iteration# 170 @ wallClockTime = 1480670296762
+@ simTime = 1480670296771 with time delta = 9
 Resulted sleeping time = 0
-X (from c) = 26.670899652927126	Y (from c) = 8.001269895878133
-X = 26.670899652927126	Y= 8.001269895878133
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 171 @ wallClockTime = 1480520344534
-@ simTime = 1480520344541 with time delta = 7
+Iteration# 171 @ wallClockTime = 1480670296863
+@ simTime = 1480670296871 with time delta = 8
 Resulted sleeping time = 0
-X (from c) = 26.73624471667455	Y (from c) = 8.02087341500236
-X = 26.73624471667455	Y= 8.02087341500236
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 172 @ wallClockTime = 1480520344634
-@ simTime = 1480520344641 with time delta = 7
+Iteration# 172 @ wallClockTime = 1480670296963
+@ simTime = 1480670296971 with time delta = 8
 Resulted sleeping time = 0
-X (from c) = 26.801495411365938	Y (from c) = 8.040448623409777
-X = 26.801495411365938	Y= 8.040448623409777
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 173 @ wallClockTime = 1480520344735
-@ simTime = 1480520344741 with time delta = 6
+Iteration# 173 @ wallClockTime = 1480670297064
+@ simTime = 1480670297071 with time delta = 7
 Resulted sleeping time = 0
-X (from c) = 26.866651873285786	Y (from c) = 8.05999556198573
-X = 26.866651873285786	Y= 8.05999556198573
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 174 @ wallClockTime = 1480520344835
-@ simTime = 1480520344841 with time delta = 6
+Iteration# 174 @ wallClockTime = 1480670297165
+@ simTime = 1480670297171 with time delta = 6
 Resulted sleeping time = 0
-X (from c) = 26.93171423852176	Y (from c) = 8.079514271556521
-X = 26.93171423852176	Y= 8.079514271556521
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 175 @ wallClockTime = 1480520344936
-@ simTime = 1480520344941 with time delta = 5
+Iteration# 175 @ wallClockTime = 1480670297265
+@ simTime = 1480670297271 with time delta = 6
 Resulted sleeping time = 0
-X (from c) = 26.996682642965	Y (from c) = 8.099004792889492
-X = 26.996682642965	Y= 8.099004792889492
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 176 @ wallClockTime = 1480520345037
-@ simTime = 1480520345041 with time delta = 4
+Iteration# 176 @ wallClockTime = 1480670297366
+@ simTime = 1480670297371 with time delta = 5
 Resulted sleeping time = 0
-X (from c) = 27.0615572223104	Y (from c) = 8.118467166693115
-X = 27.0615572223104	Y= 8.118467166693115
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 177 @ wallClockTime = 1480520345137
-@ simTime = 1480520345141 with time delta = 4
+Iteration# 177 @ wallClockTime = 1480670297466
+@ simTime = 1480670297471 with time delta = 5
 Resulted sleeping time = 0
-X (from c) = 27.1263381120569	Y (from c) = 8.137901433617062
-X = 27.1263381120569	Y= 8.137901433617062
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 178 @ wallClockTime = 1480520345238
-@ simTime = 1480520345241 with time delta = 3
+Iteration# 178 @ wallClockTime = 1480670297567
+@ simTime = 1480670297571 with time delta = 4
 Resulted sleeping time = 0
-X (from c) = 27.191025447507723	Y (from c) = 8.15730763425231
-X = 27.191025447507723	Y= 8.15730763425231
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 179 @ wallClockTime = 1480520345338
-@ simTime = 1480520345341 with time delta = 3
+Iteration# 179 @ wallClockTime = 1480670297667
+@ simTime = 1480670297671 with time delta = 4
 Resulted sleeping time = 0
-X (from c) = 27.25561936377071	Y (from c) = 8.176685809131207
-X = 27.25561936377071	Y= 8.176685809131207
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 180 @ wallClockTime = 1480520345439
-@ simTime = 1480520345441 with time delta = 2
+Iteration# 180 @ wallClockTime = 1480670297768
+@ simTime = 1480670297771 with time delta = 3
 Resulted sleeping time = 0
-X (from c) = 27.320119995758596	Y (from c) = 8.196035998727572
-X = 27.320119995758596	Y= 8.196035998727572
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 181 @ wallClockTime = 1480520345540
-@ simTime = 1480520345541 with time delta = 1
+Iteration# 181 @ wallClockTime = 1480670297868
+@ simTime = 1480670297871 with time delta = 3
 Resulted sleeping time = 0
-X (from c) = 27.384527478189263	Y (from c) = 8.215358243456775
-X = 27.384527478189263	Y= 8.215358243456775
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 182 @ wallClockTime = 1480520345640
-@ simTime = 1480520345641 with time delta = 1
+Iteration# 182 @ wallClockTime = 1480670297969
+@ simTime = 1480670297971 with time delta = 2
 Resulted sleeping time = 0
-X (from c) = 27.44884194558605	Y (from c) = 8.23465258367581
-X = 27.44884194558605	Y= 8.23465258367581
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 183 @ wallClockTime = 1480520345741
-@ simTime = 1480520345741 with time delta = 0
+Iteration# 183 @ wallClockTime = 1480670298070
+@ simTime = 1480670298071 with time delta = 1
 Resulted sleeping time = 0
-X (from c) = 27.513063532278014	Y (from c) = 8.2539190596834
-X = 27.513063532278014	Y= 8.2539190596834
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 184 @ wallClockTime = 1480520345841
-@ simTime = 1480520345841 with time delta = 0
+Iteration# 184 @ wallClockTime = 1480670298170
+@ simTime = 1480670298171 with time delta = 1
 Resulted sleeping time = 0
-X (from c) = 27.577192372400223	Y (from c) = 8.27315771172006
-X = 27.577192372400223	Y= 8.27315771172006
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 185 @ wallClockTime = 1480520345942
-@ simTime = 1480520345951 with time delta = 9
+Iteration# 185 @ wallClockTime = 1480670298271
+@ simTime = 1480670298271 with time delta = 0
 Resulted sleeping time = 0
-X (from c) = 27.647572746525945	Y (from c) = 8.294271823957775
-X = 27.647572746525945	Y= 8.294271823957775
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 186 @ wallClockTime = 1480520346043
-@ simTime = 1480520346051 with time delta = 8
+Iteration# 186 @ wallClockTime = 1480670298371
+@ simTime = 1480670298371 with time delta = 0
 Resulted sleeping time = 0
-X (from c) = 27.71150733314454	Y (from c) = 8.313452199943354
-X = 27.71150733314454	Y= 8.313452199943354
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 187 @ wallClockTime = 1480520346143
-@ simTime = 1480520346151 with time delta = 8
+Iteration# 187 @ wallClockTime = 1480670298472
+@ simTime = 1480670298481 with time delta = 9
 Resulted sleeping time = 0
-X (from c) = 27.775349587668845	Y (from c) = 8.332604876300648
-X = 27.775349587668845	Y= 8.332604876300648
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 188 @ wallClockTime = 1480520346244
-@ simTime = 1480520346251 with time delta = 7
+Iteration# 188 @ wallClockTime = 1480670298573
+@ simTime = 1480670298581 with time delta = 8
 Resulted sleeping time = 0
-X (from c) = 27.83909964344165	Y (from c) = 8.35172989303249
-X = 27.83909964344165	Y= 8.35172989303249
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 189 @ wallClockTime = 1480520346344
-@ simTime = 1480520346351 with time delta = 7
+Iteration# 189 @ wallClockTime = 1480670298673
+@ simTime = 1480670298681 with time delta = 8
 Resulted sleeping time = 0
-X (from c) = 27.902757633613167	Y (from c) = 8.370827290083941
-X = 27.902757633613167	Y= 8.370827290083941
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 190 @ wallClockTime = 1480520346445
-@ simTime = 1480520346451 with time delta = 6
+Iteration# 190 @ wallClockTime = 1480670298774
+@ simTime = 1480670298781 with time delta = 7
 Resulted sleeping time = 0
-X (from c) = 27.966323691141305	Y (from c) = 8.389897107342383
-X = 27.966323691141305	Y= 8.389897107342383
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 191 @ wallClockTime = 1480520346546
-@ simTime = 1480520346551 with time delta = 5
+Iteration# 191 @ wallClockTime = 1480670298875
+@ simTime = 1480670298881 with time delta = 6
 Resulted sleeping time = 0
-X (from c) = 28.02979794879198	Y (from c) = 8.408939384637584
-X = 28.02979794879198	Y= 8.408939384637584
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 192 @ wallClockTime = 1480520346647
-@ simTime = 1480520346651 with time delta = 4
+Iteration# 192 @ wallClockTime = 1480670298975
+@ simTime = 1480670298981 with time delta = 6
 Resulted sleeping time = 0
-X (from c) = 28.09318053913937	Y (from c) = 8.427954161741802
-X = 28.09318053913937	Y= 8.427954161741802
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 193 @ wallClockTime = 1480520346747
-@ simTime = 1480520346751 with time delta = 4
+Iteration# 193 @ wallClockTime = 1480670299076
+@ simTime = 1480670299081 with time delta = 5
 Resulted sleeping time = 0
-X (from c) = 28.156471594566185	Y (from c) = 8.446941478369848
-X = 28.156471594566185	Y= 8.446941478369848
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 194 @ wallClockTime = 1480520346848
-@ simTime = 1480520346851 with time delta = 3
+Iteration# 194 @ wallClockTime = 1480670299177
+@ simTime = 1480670299181 with time delta = 4
 Resulted sleeping time = 0
-X (from c) = 28.21967124726395	Y (from c) = 8.465901374179177
-X = 28.21967124726395	Y= 8.465901374179177
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 195 @ wallClockTime = 1480520346949
-@ simTime = 1480520346951 with time delta = 2
+Iteration# 195 @ wallClockTime = 1480670299277
+@ simTime = 1480670299281 with time delta = 4
 Resulted sleeping time = 0
-X (from c) = 28.282779629233293	Y (from c) = 8.48483388876998
-X = 28.282779629233293	Y= 8.48483388876998
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 196 @ wallClockTime = 1480520347050
-@ simTime = 1480520347051 with time delta = 1
+Iteration# 196 @ wallClockTime = 1480670299378
+@ simTime = 1480670299381 with time delta = 3
 Resulted sleeping time = 0
-X (from c) = 28.34579687228422	Y (from c) = 8.50373906168526
-X = 28.34579687228422	Y= 8.50373906168526
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 197 @ wallClockTime = 1480520347151
-@ simTime = 1480520347151 with time delta = 0
+Iteration# 197 @ wallClockTime = 1480670299479
+@ simTime = 1480670299481 with time delta = 2
 Resulted sleeping time = 0
-X (from c) = 28.40872310803636	Y (from c) = 8.522616932410903
-X = 28.40872310803636	Y= 8.522616932410903
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 198 @ wallClockTime = 1480520347252
-@ simTime = 1480520347261 with time delta = 9
+Iteration# 198 @ wallClockTime = 1480670299579
+@ simTime = 1480670299581 with time delta = 2
 Resulted sleeping time = 0
-X (from c) = 28.477890378370464	Y (from c) = 8.543367113511135
-X = 28.477890378370464	Y= 8.543367113511135
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 199 @ wallClockTime = 1480520347353
-@ simTime = 1480520347361 with time delta = 8
+Iteration# 199 @ wallClockTime = 1480670299680
+@ simTime = 1480670299681 with time delta = 1
 Resulted sleeping time = 0
-X (from c) = 28.540625849300252	Y (from c) = 8.562187754790072
-X = 28.540625849300252	Y= 8.562187754790072
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 200 @ wallClockTime = 1480520347454
-@ simTime = 1480520347461 with time delta = 7
+Iteration# 200 @ wallClockTime = 1480670299781
+@ simTime = 1480670299781 with time delta = 0
 Resulted sleeping time = 0
-X (from c) = 28.603270719856692	Y (from c) = 8.580981215957003
-X = 28.603270719856692	Y= 8.580981215957003
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 201 @ wallClockTime = 1480520347554
-@ simTime = 1480520347561 with time delta = 7
+Iteration# 201 @ wallClockTime = 1480670299881
+@ simTime = 1480670299881 with time delta = 0
 Resulted sleeping time = 0
-X (from c) = 28.665825120881685	Y (from c) = 8.5997475362645
-X = 28.665825120881685	Y= 8.5997475362645
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 202 @ wallClockTime = 1480520347655
-@ simTime = 1480520347661 with time delta = 6
+Iteration# 202 @ wallClockTime = 1480670299982
+@ simTime = 1480670299991 with time delta = 9
 Resulted sleeping time = 0
-X (from c) = 28.728289183028163	Y (from c) = 8.618486754908444
-X = 28.728289183028163	Y= 8.618486754908444
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 203 @ wallClockTime = 1480520347755
-@ simTime = 1480520347761 with time delta = 6
+Iteration# 203 @ wallClockTime = 1480670300082
+@ simTime = 1480670300091 with time delta = 9
 Resulted sleeping time = 0
-X (from c) = 28.79066303676037	Y (from c) = 8.637198911028108
-X = 28.79066303676037	Y= 8.637198911028108
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 204 @ wallClockTime = 1480520347856
-@ simTime = 1480520347861 with time delta = 5
+Iteration# 204 @ wallClockTime = 1480670300183
+@ simTime = 1480670300191 with time delta = 8
 Resulted sleeping time = 0
-X (from c) = 28.852946812354144	Y (from c) = 8.655884043706243
-X = 28.852946812354144	Y= 8.655884043706243
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 205 @ wallClockTime = 1480520347957
-@ simTime = 1480520347961 with time delta = 4
+Iteration# 205 @ wallClockTime = 1480670300284
+@ simTime = 1480670300291 with time delta = 7
 Resulted sleeping time = 0
-X (from c) = 28.91514063989719	Y (from c) = 8.674542191969154
-X = 28.91514063989719	Y= 8.674542191969154
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 206 @ wallClockTime = 1480520348058
-@ simTime = 1480520348061 with time delta = 3
+Iteration# 206 @ wallClockTime = 1480670300384
+@ simTime = 1480670300391 with time delta = 7
 Resulted sleeping time = 0
-X (from c) = 28.97724464928933	Y (from c) = 8.693173394786799
-X = 28.97724464928933	Y= 8.693173394786799
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 207 @ wallClockTime = 1480520348158
-@ simTime = 1480520348161 with time delta = 3
+Iteration# 207 @ wallClockTime = 1480670300485
+@ simTime = 1480670300491 with time delta = 6
 Resulted sleeping time = 0
-X (from c) = 29.039258970242802	Y (from c) = 8.71177769107284
-X = 29.039258970242802	Y= 8.71177769107284
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 208 @ wallClockTime = 1480520348259
-@ simTime = 1480520348261 with time delta = 2
+Iteration# 208 @ wallClockTime = 1480670300586
+@ simTime = 1480670300591 with time delta = 5
 Resulted sleeping time = 0
-X (from c) = 29.10118373228251	Y (from c) = 8.730355119684752
-X = 29.10118373228251	Y= 8.730355119684752
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 209 @ wallClockTime = 1480520348359
-@ simTime = 1480520348361 with time delta = 2
+Iteration# 209 @ wallClockTime = 1480670300687
+@ simTime = 1480670300691 with time delta = 4
 Resulted sleeping time = 0
-X (from c) = 29.1630190647463	Y (from c) = 8.748905719423888
-X = 29.1630190647463	Y= 8.748905719423888
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 210 @ wallClockTime = 1480520348460
-@ simTime = 1480520348461 with time delta = 1
+Iteration# 210 @ wallClockTime = 1480670300788
+@ simTime = 1480670300791 with time delta = 3
 Resulted sleeping time = 0
-X (from c) = 29.22476509678525	Y (from c) = 8.767429529035573
-X = 29.22476509678525	Y= 8.767429529035573
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 211 @ wallClockTime = 1480520348561
-@ simTime = 1480520348561 with time delta = 0
+Iteration# 211 @ wallClockTime = 1480670300889
+@ simTime = 1480670300891 with time delta = 2
 Resulted sleeping time = 0
-X (from c) = 29.28642195736391	Y (from c) = 8.785926587209172
-X = 29.28642195736391	Y= 8.785926587209172
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 212 @ wallClockTime = 1480520348661
-@ simTime = 1480520348661 with time delta = 0
+Iteration# 212 @ wallClockTime = 1480670300989
+@ simTime = 1480670300991 with time delta = 2
 Resulted sleeping time = 0
-X (from c) = 29.34798977526057	Y (from c) = 8.804396932578172
-X = 29.34798977526057	Y= 8.804396932578172
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 213 @ wallClockTime = 1480520348762
-@ simTime = 1480520348771 with time delta = 9
+Iteration# 213 @ wallClockTime = 1480670301090
+@ simTime = 1480670301091 with time delta = 1
 Resulted sleeping time = 0
-X (from c) = 29.41555946854387	Y (from c) = 8.824667840563162
-X = 29.41555946854387	Y= 8.824667840563162
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 214 @ wallClockTime = 1480520348862
-@ simTime = 1480520348871 with time delta = 9
+Iteration# 214 @ wallClockTime = 1480670301191
+@ simTime = 1480670301191 with time delta = 0
 Resulted sleeping time = 0
-X (from c) = 29.476940790562654	Y (from c) = 8.843082237168796
-X = 29.476940790562654	Y= 8.843082237168796
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 215 @ wallClockTime = 1480520348963
-@ simTime = 1480520348971 with time delta = 8
+Iteration# 215 @ wallClockTime = 1480670301291
+@ simTime = 1480670301291 with time delta = 0
 Resulted sleeping time = 0
-X (from c) = 29.5382334678226	Y (from c) = 8.861470040346779
-X = 29.5382334678226	Y= 8.861470040346779
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 216 @ wallClockTime = 1480520349063
-@ simTime = 1480520349071 with time delta = 8
+Iteration# 216 @ wallClockTime = 1480670301392
+@ simTime = 1480670301401 with time delta = 9
 Resulted sleeping time = 0
-X (from c) = 29.599437628341377	Y (from c) = 8.879831288502409
-X = 29.599437628341377	Y= 8.879831288502409
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 217 @ wallClockTime = 1480520349164
-@ simTime = 1480520349171 with time delta = 7
+Iteration# 217 @ wallClockTime = 1480670301493
+@ simTime = 1480670301501 with time delta = 8
 Resulted sleeping time = 0
-X (from c) = 29.660553399951755	Y (from c) = 8.898166019985522
-X = 29.660553399951755	Y= 8.898166019985522
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 218 @ wallClockTime = 1480520349265
-@ simTime = 1480520349271 with time delta = 6
+Iteration# 218 @ wallClockTime = 1480670301593
+@ simTime = 1480670301601 with time delta = 8
 Resulted sleeping time = 0
-X (from c) = 29.721580910301903	Y (from c) = 8.916474273090566
-X = 29.721580910301903	Y= 8.916474273090566
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 219 @ wallClockTime = 1480520349365
-@ simTime = 1480520349371 with time delta = 6
+Iteration# 219 @ wallClockTime = 1480670301694
+@ simTime = 1480670301701 with time delta = 7
 Resulted sleeping time = 0
-X (from c) = 29.782520286855664	Y (from c) = 8.934756086056693
-X = 29.782520286855664	Y= 8.934756086056693
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 220 @ wallClockTime = 1480520349466
-@ simTime = 1480520349471 with time delta = 5
+Iteration# 220 @ wallClockTime = 1480670301794
+@ simTime = 1480670301801 with time delta = 7
 Resulted sleeping time = 0
-X (from c) = 29.843371656892764	Y (from c) = 8.953011497067823
-X = 29.843371656892764	Y= 8.953011497067823
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 221 @ wallClockTime = 1480520349566
-@ simTime = 1480520349571 with time delta = 5
+Iteration# 221 @ wallClockTime = 1480670301895
+@ simTime = 1480670301901 with time delta = 6
 Resulted sleeping time = 0
-X (from c) = 29.90413514750916	Y (from c) = 8.97124054425274
-X = 29.90413514750916	Y= 8.97124054425274
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 222 @ wallClockTime = 1480520349667
-@ simTime = 1480520349671 with time delta = 4
+Iteration# 222 @ wallClockTime = 1480670301996
+@ simTime = 1480670302001 with time delta = 5
 Resulted sleeping time = 0
-X (from c) = 29.964810885617222	Y (from c) = 8.989443265685159
-X = 29.964810885617222	Y= 8.989443265685159
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 223 @ wallClockTime = 1480520349767
-@ simTime = 1480520349771 with time delta = 4
+Iteration# 223 @ wallClockTime = 1480670302096
+@ simTime = 1480670302101 with time delta = 5
 Resulted sleeping time = 0
-X (from c) = 30.02539899794606	Y (from c) = 9.00761969938381
-X = 30.02539899794606	Y= 9.00761969938381
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 224 @ wallClockTime = 1480520349868
-@ simTime = 1480520349871 with time delta = 3
+Iteration# 224 @ wallClockTime = 1480670302197
+@ simTime = 1480670302201 with time delta = 4
 Resulted sleeping time = 0
-X (from c) = 30.085899611041754	Y (from c) = 9.025769883312517
-X = 30.085899611041754	Y= 9.025769883312517
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 225 @ wallClockTime = 1480520349968
-@ simTime = 1480520349971 with time delta = 3
+Iteration# 225 @ wallClockTime = 1480670302298
+@ simTime = 1480670302301 with time delta = 3
 Resulted sleeping time = 0
-X (from c) = 30.146312851267645	Y (from c) = 9.043893855380281
-X = 30.146312851267645	Y= 9.043893855380281
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 226 @ wallClockTime = 1480520350069
-@ simTime = 1480520350071 with time delta = 2
+Iteration# 226 @ wallClockTime = 1480670302398
+@ simTime = 1480670302401 with time delta = 3
 Resulted sleeping time = 0
-X (from c) = 30.206638844804566	Y (from c) = 9.061991653441357
-X = 30.206638844804566	Y= 9.061991653441357
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 227 @ wallClockTime = 1480520350169
-@ simTime = 1480520350171 with time delta = 2
+Iteration# 227 @ wallClockTime = 1480670302499
+@ simTime = 1480670302501 with time delta = 2
 Resulted sleeping time = 0
-X (from c) = 30.266877717651138	Y (from c) = 9.080063315295327
-X = 30.266877717651138	Y= 9.080063315295327
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 228 @ wallClockTime = 1480520350270
-@ simTime = 1480520350271 with time delta = 1
+Iteration# 228 @ wallClockTime = 1480670302600
+@ simTime = 1480670302601 with time delta = 1
 Resulted sleeping time = 0
-X (from c) = 30.32702959562402	Y (from c) = 9.09810887868719
-X = 30.32702959562402	Y= 9.09810887868719
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 229 @ wallClockTime = 1480520350371
-@ simTime = 1480520350371 with time delta = 0
+Iteration# 229 @ wallClockTime = 1480670302700
+@ simTime = 1480670302701 with time delta = 1
 Resulted sleeping time = 0
-X (from c) = 30.38709460435817	Y (from c) = 9.116128381307433
-X = 30.38709460435817	Y= 9.116128381307433
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 230 @ wallClockTime = 1480520350471
-@ simTime = 1480520350471 with time delta = 0
+Iteration# 230 @ wallClockTime = 1480670302801
+@ simTime = 1480670302801 with time delta = 0
 Resulted sleeping time = 0
-X (from c) = 30.447072869307096	Y (from c) = 9.134121860792112
-X = 30.447072869307096	Y= 9.134121860792112
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 231 @ wallClockTime = 1480520350572
-@ simTime = 1480520350581 with time delta = 9
+Iteration# 231 @ wallClockTime = 1480670302901
+@ simTime = 1480670302901 with time delta = 0
 Resulted sleeping time = 0
-X (from c) = 30.51299978860088	Y (from c) = 9.153899936580244
-X = 30.51299978860088	Y= 9.153899936580244
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 232 @ wallClockTime = 1480520350672
-@ simTime = 1480520350681 with time delta = 9
+Iteration# 232 @ wallClockTime = 1480670303002
+@ simTime = 1480670303011 with time delta = 9
 Resulted sleeping time = 0
-X (from c) = 30.572796225685455	Y (from c) = 9.171838867705615
-X = 30.572796225685455	Y= 9.171838867705615
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 233 @ wallClockTime = 1480520350773
-@ simTime = 1480520350781 with time delta = 8
+Iteration# 233 @ wallClockTime = 1480670303102
+@ simTime = 1480670303111 with time delta = 9
 Resulted sleeping time = 0
-X (from c) = 30.6325063068466	Y (from c) = 9.189751892053957
-X = 30.6325063068466	Y= 9.189751892053957
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 234 @ wallClockTime = 1480520350874
-@ simTime = 1480520350881 with time delta = 7
+Iteration# 234 @ wallClockTime = 1480670303203
+@ simTime = 1480670303211 with time delta = 8
 Resulted sleeping time = 0
-X (from c) = 30.692130156796516	Y (from c) = 9.207639047038931
-X = 30.692130156796516	Y= 9.207639047038931
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 235 @ wallClockTime = 1480520350975
-@ simTime = 1480520350981 with time delta = 6
+Iteration# 235 @ wallClockTime = 1480670303303
+@ simTime = 1480670303311 with time delta = 8
 Resulted sleeping time = 0
-X (from c) = 30.75166790006729	Y (from c) = 9.225500370020164
-X = 30.75166790006729	Y= 9.225500370020164
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 236 @ wallClockTime = 1480520351076
-@ simTime = 1480520351081 with time delta = 5
+Iteration# 236 @ wallClockTime = 1480670303404
+@ simTime = 1480670303411 with time delta = 7
 Resulted sleeping time = 0
-X (from c) = 30.81111966101119	Y (from c) = 9.243335898303336
-X = 30.81111966101119	Y= 9.243335898303336
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 237 @ wallClockTime = 1480520351176
-@ simTime = 1480520351181 with time delta = 5
+Iteration# 237 @ wallClockTime = 1480670303505
+@ simTime = 1480670303511 with time delta = 6
 Resulted sleeping time = 0
-X (from c) = 30.870485563800884	Y (from c) = 9.261145669140243
-X = 30.870485563800884	Y= 9.261145669140243
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 238 @ wallClockTime = 1480520351283
-@ simTime = 1480520351291 with time delta = 8
+Iteration# 238 @ wallClockTime = 1480670303605
+@ simTime = 1480670303611 with time delta = 6
 Resulted sleeping time = 0
-X (from c) = 30.935638690548338	Y (from c) = 9.280691607164476
-X = 30.935638690548338	Y= 9.280691607164476
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 239 @ wallClockTime = 1480520351384
-@ simTime = 1480520351391 with time delta = 7
+Iteration# 239 @ wallClockTime = 1480670303706
+@ simTime = 1480670303711 with time delta = 5
 Resulted sleeping time = 0
-X (from c) = 30.99482476730983	Y (from c) = 9.298447430192924
-X = 30.99482476730983	Y= 9.298447430192924
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 240 @ wallClockTime = 1480520351485
-@ simTime = 1480520351491 with time delta = 6
+Iteration# 240 @ wallClockTime = 1480670303806
+@ simTime = 1480670303811 with time delta = 5
 Resulted sleeping time = 0
-X (from c) = 31.053925369608926	Y (from c) = 9.316177610882653
-X = 31.053925369608926	Y= 9.316177610882653
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 241 @ wallClockTime = 1480520351586
-@ simTime = 1480520351591 with time delta = 5
+Iteration# 241 @ wallClockTime = 1480670303907
+@ simTime = 1480670303911 with time delta = 4
 Resulted sleeping time = 0
-X (from c) = 31.112940620884856	Y (from c) = 9.333882186265429
-X = 31.112940620884856	Y= 9.333882186265429
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 242 @ wallClockTime = 1480520351686
-@ simTime = 1480520351691 with time delta = 5
+Iteration# 242 @ wallClockTime = 1480670304007
+@ simTime = 1480670304011 with time delta = 4
 Resulted sleeping time = 0
-X (from c) = 31.17187064439857	Y (from c) = 9.351561193319538
-X = 31.17187064439857	Y= 9.351561193319538
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 243 @ wallClockTime = 1480520351787
-@ simTime = 1480520351791 with time delta = 4
+Iteration# 243 @ wallClockTime = 1480670304108
+@ simTime = 1480670304111 with time delta = 3
 Resulted sleeping time = 0
-X (from c) = 31.23071556323303	Y (from c) = 9.369214668969878
-X = 31.23071556323303	Y= 9.369214668969878
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 244 @ wallClockTime = 1480520351888
-@ simTime = 1480520351891 with time delta = 3
+Iteration# 244 @ wallClockTime = 1480670304209
+@ simTime = 1480670304211 with time delta = 2
 Resulted sleeping time = 0
-X (from c) = 31.289475500293435	Y (from c) = 9.386842650088
-X = 31.289475500293435	Y= 9.386842650088
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 245 @ wallClockTime = 1480520351988
-@ simTime = 1480520351991 with time delta = 3
+Iteration# 245 @ wallClockTime = 1480670304309
+@ simTime = 1480670304311 with time delta = 2
 Resulted sleeping time = 0
-X (from c) = 31.348150578307497	Y (from c) = 9.40444517349222
-X = 31.348150578307497	Y= 9.40444517349222
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 246 @ wallClockTime = 1480520352089
-@ simTime = 1480520352091 with time delta = 2
+Iteration# 246 @ wallClockTime = 1480670304410
+@ simTime = 1480670304411 with time delta = 1
 Resulted sleeping time = 0
-X (from c) = 31.40674091982568	Y (from c) = 9.422022275947675
-X = 31.40674091982568	Y= 9.422022275947675
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 247 @ wallClockTime = 1480520352190
-@ simTime = 1480520352191 with time delta = 1
+Iteration# 247 @ wallClockTime = 1480670304510
+@ simTime = 1480670304511 with time delta = 1
 Resulted sleeping time = 0
-X (from c) = 31.46524664722147	Y (from c) = 9.439573994166413
-X = 31.46524664722147	Y= 9.439573994166413
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 248 @ wallClockTime = 1480520352290
-@ simTime = 1480520352291 with time delta = 1
+Iteration# 248 @ wallClockTime = 1480670304611
+@ simTime = 1480670304611 with time delta = 0
 Resulted sleeping time = 0
-X (from c) = 31.523667882691623	Y (from c) = 9.457100364807456
-X = 31.523667882691623	Y= 9.457100364807456
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 249 @ wallClockTime = 1480520352391
-@ simTime = 1480520352391 with time delta = 0
+Iteration# 249 @ wallClockTime = 1480670304712
+@ simTime = 1480670304721 with time delta = 9
 Resulted sleeping time = 0
-X (from c) = 31.582004748256427	Y (from c) = 9.474601424476893
-X = 31.582004748256427	Y= 9.474601424476893
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 250 @ wallClockTime = 1480520352492
-@ simTime = 1480520352501 with time delta = 9
+Iteration# 250 @ wallClockTime = 1480670304813
+@ simTime = 1480670304821 with time delta = 8
 Resulted sleeping time = 0
-X (from c) = 31.64612747390075	Y (from c) = 9.49383824217019
-X = 31.64612747390075	Y= 9.49383824217019
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 251 @ wallClockTime = 1480520352592
-@ simTime = 1480520352601 with time delta = 9
+Iteration# 251 @ wallClockTime = 1480670304913
+@ simTime = 1480670304921 with time delta = 8
 Resulted sleeping time = 0
-X (from c) = 31.70428748760617	Y (from c) = 9.511286246281815
-X = 31.70428748760617	Y= 9.511286246281815
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 252 @ wallClockTime = 1480520352693
-@ simTime = 1480520352701 with time delta = 8
+Iteration# 252 @ wallClockTime = 1480670305014
+@ simTime = 1480670305021 with time delta = 7
 Resulted sleeping time = 0
-X (from c) = 31.76236350865358	Y (from c) = 9.528709052596037
-X = 31.76236350865358	Y= 9.528709052596037
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 253 @ wallClockTime = 1480520352793
-@ simTime = 1480520352801 with time delta = 8
+Iteration# 253 @ wallClockTime = 1480670305115
+@ simTime = 1480670305121 with time delta = 6
 Resulted sleeping time = 0
-X (from c) = 31.82035565834223	Y (from c) = 9.546106697502632
-X = 31.82035565834223	Y= 9.546106697502632
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 254 @ wallClockTime = 1480520352894
-@ simTime = 1480520352901 with time delta = 7
+Iteration# 254 @ wallClockTime = 1480670305215
+@ simTime = 1480670305221 with time delta = 6
 Resulted sleeping time = 0
-X (from c) = 31.878264057796205	Y (from c) = 9.563479217338825
-X = 31.878264057796205	Y= 9.563479217338825
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 255 @ wallClockTime = 1480520352995
-@ simTime = 1480520353001 with time delta = 6
+Iteration# 255 @ wallClockTime = 1480670305316
+@ simTime = 1480670305321 with time delta = 5
 Resulted sleeping time = 0
-X (from c) = 31.936088827964667	Y (from c) = 9.580826648389365
-X = 31.936088827964667	Y= 9.580826648389365
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 256 @ wallClockTime = 1480520353095
-@ simTime = 1480520353101 with time delta = 6
+Iteration# 256 @ wallClockTime = 1480670305417
+@ simTime = 1480670305421 with time delta = 4
 Resulted sleeping time = 0
-X (from c) = 31.993830089622108	Y (from c) = 9.598149026886597
-X = 31.993830089622108	Y= 9.598149026886597
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 257 @ wallClockTime = 1480520353196
-@ simTime = 1480520353201 with time delta = 5
+Iteration# 257 @ wallClockTime = 1480670305517
+@ simTime = 1480670305521 with time delta = 4
 Resulted sleeping time = 0
-X (from c) = 32.0514879633686	Y (from c) = 9.615446389010545
-X = 32.0514879633686	Y= 9.615446389010545
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 258 @ wallClockTime = 1480520353297
-@ simTime = 1480520353301 with time delta = 4
+Iteration# 258 @ wallClockTime = 1480670305618
+@ simTime = 1480670305621 with time delta = 3
 Resulted sleeping time = 0
-X (from c) = 32.109062569630055	Y (from c) = 9.63271877088898
-X = 32.109062569630055	Y= 9.63271877088898
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 259 @ wallClockTime = 1480520353397
-@ simTime = 1480520353401 with time delta = 4
+Iteration# 259 @ wallClockTime = 1480670305719
+@ simTime = 1480670305721 with time delta = 2
 Resulted sleeping time = 0
-X (from c) = 32.16655402865844	Y (from c) = 9.649966208597498
-X = 32.16655402865844	Y= 9.649966208597498
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 260 @ wallClockTime = 1480520353498
-@ simTime = 1480520353501 with time delta = 3
+Iteration# 260 @ wallClockTime = 1480670305819
+@ simTime = 1480670305821 with time delta = 2
 Resulted sleeping time = 0
-X (from c) = 32.22396246053211	Y (from c) = 9.667188738159593
-X = 32.22396246053211	Y= 9.667188738159593
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 261 @ wallClockTime = 1480520353598
-@ simTime = 1480520353601 with time delta = 3
+Iteration# 261 @ wallClockTime = 1480670305920
+@ simTime = 1480670305921 with time delta = 1
 Resulted sleeping time = 0
-X (from c) = 32.28128798515594	Y (from c) = 9.684386395546747
-X = 32.28128798515594	Y= 9.684386395546747
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 262 @ wallClockTime = 1480520353699
-@ simTime = 1480520353701 with time delta = 2
+Iteration# 262 @ wallClockTime = 1480670306020
+@ simTime = 1480670306021 with time delta = 1
 Resulted sleeping time = 0
-X (from c) = 32.338530722261716	Y (from c) = 9.701559216678477
-X = 32.338530722261716	Y= 9.701559216678477
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 263 @ wallClockTime = 1480520353799
-@ simTime = 1480520353801 with time delta = 2
+Iteration# 263 @ wallClockTime = 1480670306121
+@ simTime = 1480670306121 with time delta = 0
 Resulted sleeping time = 0
-X (from c) = 32.395690791408256	Y (from c) = 9.718707237422443
-X = 32.395690791408256	Y= 9.718707237422443
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 264 @ wallClockTime = 1480520353900
-@ simTime = 1480520353901 with time delta = 1
+Iteration# 264 @ wallClockTime = 1480670306221
+@ simTime = 1480670306221 with time delta = 0
 Resulted sleeping time = 0
-X (from c) = 32.45276831198176	Y (from c) = 9.735830493594491
-X = 32.45276831198176	Y= 9.735830493594491
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 265 @ wallClockTime = 1480520354000
-@ simTime = 1480520354001 with time delta = 1
+Iteration# 265 @ wallClockTime = 1480670306322
+@ simTime = 1480670306331 with time delta = 9
 Resulted sleeping time = 0
-X (from c) = 32.50976340319597	Y (from c) = 9.752929020958756
-X = 32.50976340319597	Y= 9.752929020958756
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 266 @ wallClockTime = 1480520354101
-@ simTime = 1480520354101 with time delta = 0
+Iteration# 266 @ wallClockTime = 1480670306423
+@ simTime = 1480670306431 with time delta = 8
 Resulted sleeping time = 0
-X (from c) = 32.5666761840925	Y (from c) = 9.770002855227713
-X = 32.5666761840925	Y= 9.770002855227713
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 267 @ wallClockTime = 1480520354202
-@ simTime = 1480520354211 with time delta = 9
+Iteration# 267 @ wallClockTime = 1480670306523
+@ simTime = 1480670306531 with time delta = 8
 Resulted sleeping time = 0
-X (from c) = 32.62913704888281	Y (from c) = 9.788741114664802
-X = 32.62913704888281	Y= 9.788741114664802
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 268 @ wallClockTime = 1480520354302
-@ simTime = 1480520354311 with time delta = 9
+Iteration# 268 @ wallClockTime = 1480670306624
+@ simTime = 1480670306631 with time delta = 7
 Resulted sleeping time = 0
-X (from c) = 32.685877434534575	Y (from c) = 9.805763230360329
-X = 32.685877434534575	Y= 9.805763230360329
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 269 @ wallClockTime = 1480520354403
-@ simTime = 1480520354411 with time delta = 8
+Iteration# 269 @ wallClockTime = 1480670306725
+@ simTime = 1480670306731 with time delta = 6
 Resulted sleeping time = 0
-X (from c) = 32.742535877705514	Y (from c) = 9.822760763311607
-X = 32.742535877705514	Y= 9.822760763311607
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 270 @ wallClockTime = 1480520354504
-@ simTime = 1480520354511 with time delta = 7
+Iteration# 270 @ wallClockTime = 1480670306825
+@ simTime = 1480670306831 with time delta = 6
 Resulted sleeping time = 0
-X (from c) = 32.7991124967341	Y (from c) = 9.83973374902018
-X = 32.7991124967341	Y= 9.83973374902018
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 271 @ wallClockTime = 1480520354604
-@ simTime = 1480520354611 with time delta = 7
+Iteration# 271 @ wallClockTime = 1480670306926
+@ simTime = 1480670306931 with time delta = 5
 Resulted sleeping time = 0
-X (from c) = 32.85560740978788	Y (from c) = 9.856682222936314
-X = 32.85560740978788	Y= 9.856682222936314
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 272 @ wallClockTime = 1480520354705
-@ simTime = 1480520354711 with time delta = 6
+Iteration# 272 @ wallClockTime = 1480670307027
+@ simTime = 1480670307031 with time delta = 4
 Resulted sleeping time = 0
-X (from c) = 32.91202073486378	Y (from c) = 9.87360622045909
-X = 32.91202073486378	Y= 9.87360622045909
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 273 @ wallClockTime = 1480520354805
-@ simTime = 1480520354811 with time delta = 6
+Iteration# 273 @ wallClockTime = 1480670307127
+@ simTime = 1480670307131 with time delta = 4
 Resulted sleeping time = 0
-X (from c) = 32.96835258978831	Y (from c) = 9.890505776936449
-X = 32.96835258978831	Y= 9.890505776936449
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 274 @ wallClockTime = 1480520354906
-@ simTime = 1480520354911 with time delta = 5
+Iteration# 274 @ wallClockTime = 1480670307228
+@ simTime = 1480670307231 with time delta = 3
 Resulted sleeping time = 0
-X (from c) = 33.0246030922178	Y (from c) = 9.907380927665297
-X = 33.0246030922178	Y= 9.907380927665297
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 275 @ wallClockTime = 1480520355006
-@ simTime = 1480520355011 with time delta = 5
+Iteration# 275 @ wallClockTime = 1480670307329
+@ simTime = 1480670307331 with time delta = 2
 Resulted sleeping time = 0
-X (from c) = 33.080772359638694	Y (from c) = 9.924231707891565
-X = 33.080772359638694	Y= 9.924231707891565
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 276 @ wallClockTime = 1480520355107
-@ simTime = 1480520355111 with time delta = 4
+Iteration# 276 @ wallClockTime = 1480670307429
+@ simTime = 1480670307431 with time delta = 2
 Resulted sleeping time = 0
-X (from c) = 33.136860509367736	Y (from c) = 9.941058152810278
-X = 33.136860509367736	Y= 9.941058152810278
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 277 @ wallClockTime = 1480520355208
-@ simTime = 1480520355211 with time delta = 3
+Iteration# 277 @ wallClockTime = 1480670307530
+@ simTime = 1480670307531 with time delta = 1
 Resulted sleeping time = 0
-X (from c) = 33.19286765855227	Y (from c) = 9.957860297565638
-X = 33.19286765855227	Y= 9.957860297565638
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 278 @ wallClockTime = 1480520355308
-@ simTime = 1480520355311 with time delta = 3
+Iteration# 278 @ wallClockTime = 1480670307630
+@ simTime = 1480670307631 with time delta = 1
 Resulted sleeping time = 0
-X (from c) = 33.24879392417044	Y (from c) = 9.97463817725109
-X = 33.24879392417044	Y= 9.97463817725109
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 279 @ wallClockTime = 1480520355409
-@ simTime = 1480520355411 with time delta = 2
+Iteration# 279 @ wallClockTime = 1480670307731
+@ simTime = 1480670307731 with time delta = 0
 Resulted sleeping time = 0
-X (from c) = 33.304639423031475	Y (from c) = 9.991391826909402
-X = 33.304639423031475	Y= 9.991391826909402
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 280 @ wallClockTime = 1480520355509
-@ simTime = 1480520355511 with time delta = 2
+Iteration# 280 @ wallClockTime = 1480670307832
+@ simTime = 1480670307841 with time delta = 9
 Resulted sleeping time = 0
-X (from c) = 33.36040427177589	Y (from c) = 10.008121281532729
-X = 33.36040427177589	Y= 10.008121281532729
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 281 @ wallClockTime = 1480520355610
-@ simTime = 1480520355611 with time delta = 1
+Iteration# 281 @ wallClockTime = 1480670307933
+@ simTime = 1480670307941 with time delta = 8
 Resulted sleeping time = 0
-X (from c) = 33.41608858687578	Y (from c) = 10.024826576062695
-X = 33.41608858687578	Y= 10.024826576062695
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 282 @ wallClockTime = 1480520355711
-@ simTime = 1480520355711 with time delta = 0
+Iteration# 282 @ wallClockTime = 1480670308033
+@ simTime = 1480670308041 with time delta = 8
 Resulted sleeping time = 0
-X (from c) = 33.471692484635014	Y (from c) = 10.041507745390467
-X = 33.471692484635014	Y= 10.041507745390467
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 283 @ wallClockTime = 1480520355811
-@ simTime = 1480520355811 with time delta = 0
+Iteration# 283 @ wallClockTime = 1480670308134
+@ simTime = 1480670308141 with time delta = 7
 Resulted sleeping time = 0
-X (from c) = 33.52721608118948	Y (from c) = 10.05816482435681
-X = 33.52721608118948	Y= 10.05816482435681
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 284 @ wallClockTime = 1480520355912
-@ simTime = 1480520355921 with time delta = 9
+Iteration# 284 @ wallClockTime = 1480670308234
+@ simTime = 1480670308241 with time delta = 7
 Resulted sleeping time = 0
-X (from c) = 33.58824651733272	Y (from c) = 10.076473955199784
-X = 33.58824651733272	Y= 10.076473955199784
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 285 @ wallClockTime = 1480520356012
-@ simTime = 1480520356021 with time delta = 9
+Iteration# 285 @ wallClockTime = 1480670308335
+@ simTime = 1480670308341 with time delta = 6
 Resulted sleeping time = 0
-X (from c) = 33.64360179062892	Y (from c) = 10.093080537188643
-X = 33.64360179062892	Y= 10.093080537188643
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 286 @ wallClockTime = 1480520356113
-@ simTime = 1480520356121 with time delta = 8
+Iteration# 286 @ wallClockTime = 1480670308435
+@ simTime = 1480670308441 with time delta = 6
 Resulted sleeping time = 0
-X (from c) = 33.69887712177512	Y (from c) = 10.109663136532504
-X = 33.69887712177512	Y= 10.109663136532504
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 287 @ wallClockTime = 1480520356214
-@ simTime = 1480520356221 with time delta = 7
+Iteration# 287 @ wallClockTime = 1480670308536
+@ simTime = 1480670308541 with time delta = 5
 Resulted sleeping time = 0
-X (from c) = 33.75407262622099	Y (from c) = 10.126221787866264
-X = 33.75407262622099	Y= 10.126221787866264
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 288 @ wallClockTime = 1480520356314
-@ simTime = 1480520356321 with time delta = 7
+Iteration# 288 @ wallClockTime = 1480670308637
+@ simTime = 1480670308641 with time delta = 4
 Resulted sleeping time = 0
-X (from c) = 33.80918841924945	Y (from c) = 10.1427565257748
-X = 33.80918841924945	Y= 10.1427565257748
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 289 @ wallClockTime = 1480520356415
-@ simTime = 1480520356421 with time delta = 6
+Iteration# 289 @ wallClockTime = 1480670308738
+@ simTime = 1480670308741 with time delta = 3
 Resulted sleeping time = 0
-X (from c) = 33.864224615976944	Y (from c) = 10.159267384793047
-X = 33.864224615976944	Y= 10.159267384793047
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 290 @ wallClockTime = 1480520356516
-@ simTime = 1480520356521 with time delta = 5
+Iteration# 290 @ wallClockTime = 1480670308838
+@ simTime = 1480670308841 with time delta = 3
 Resulted sleeping time = 0
-X (from c) = 33.91918133135368	Y (from c) = 10.17575439940606
-X = 33.91918133135368	Y= 10.17575439940606
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 291 @ wallClockTime = 1480520356616
-@ simTime = 1480520356621 with time delta = 5
+Iteration# 291 @ wallClockTime = 1480670308939
+@ simTime = 1480670308941 with time delta = 2
 Resulted sleeping time = 0
-X (from c) = 33.97405868016381	Y (from c) = 10.192217604049095
-X = 33.97405868016381	Y= 10.192217604049095
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 292 @ wallClockTime = 1480520356717
-@ simTime = 1480520356721 with time delta = 4
+Iteration# 292 @ wallClockTime = 1480670309040
+@ simTime = 1480670309041 with time delta = 1
 Resulted sleeping time = 0
-X (from c) = 34.02885677702577	Y (from c) = 10.208657033107688
-X = 34.02885677702577	Y= 10.208657033107688
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 293 @ wallClockTime = 1480520356817
-@ simTime = 1480520356821 with time delta = 4
+Iteration# 293 @ wallClockTime = 1480670309140
+@ simTime = 1480670309141 with time delta = 1
 Resulted sleeping time = 0
-X (from c) = 34.08357573639247	Y (from c) = 10.225072720917696
-X = 34.08357573639247	Y= 10.225072720917696
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 294 @ wallClockTime = 1480520356918
-@ simTime = 1480520356921 with time delta = 3
+Iteration# 294 @ wallClockTime = 1480670309241
+@ simTime = 1480670309241 with time delta = 0
 Resulted sleeping time = 0
-X (from c) = 34.1382156725515	Y (from c) = 10.241464701765405
-X = 34.1382156725515	Y= 10.241464701765405
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 295 @ wallClockTime = 1480520357018
-@ simTime = 1480520357021 with time delta = 3
+Iteration# 295 @ wallClockTime = 1480670309341
+@ simTime = 1480670309341 with time delta = 0
 Resulted sleeping time = 0
-X (from c) = 34.192776699625426	Y (from c) = 10.25783300988758
-X = 34.192776699625426	Y= 10.25783300988758
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 296 @ wallClockTime = 1480520357119
-@ simTime = 1480520357121 with time delta = 2
+Iteration# 296 @ wallClockTime = 1480670309442
+@ simTime = 1480670309451 with time delta = 9
 Resulted sleeping time = 0
-X (from c) = 34.247258931571956	Y (from c) = 10.27417767947154
-X = 34.247258931571956	Y= 10.27417767947154
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 297 @ wallClockTime = 1480520357219
-@ simTime = 1480520357221 with time delta = 2
+Iteration# 297 @ wallClockTime = 1480670309542
+@ simTime = 1480670309551 with time delta = 9
 Resulted sleeping time = 0
-X (from c) = 34.3016624821843	Y (from c) = 10.290498744655238
-X = 34.3016624821843	Y= 10.290498744655238
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 298 @ wallClockTime = 1480520357320
-@ simTime = 1480520357321 with time delta = 1
+Iteration# 298 @ wallClockTime = 1480670309643
+@ simTime = 1480670309651 with time delta = 8
 Resulted sleeping time = 0
-X (from c) = 34.355987465091246	Y (from c) = 10.306796239527323
-X = 34.355987465091246	Y= 10.306796239527323
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 299 @ wallClockTime = 1480520357420
-@ simTime = 1480520357421 with time delta = 1
+Iteration# 299 @ wallClockTime = 1480670309744
+@ simTime = 1480670309751 with time delta = 7
 Resulted sleeping time = 0
-X (from c) = 34.410233993757565	Y (from c) = 10.323070198127215
-X = 34.410233993757565	Y= 10.323070198127215
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 300 @ wallClockTime = 1480520357521
-@ simTime = 1480520357521 with time delta = 0
+Iteration# 300 @ wallClockTime = 1480670309845
+@ simTime = 1480670309851 with time delta = 6
 Resulted sleeping time = 0
-X (from c) = 34.46440218148411	Y (from c) = 10.339320654445176
-X = 34.46440218148411	Y= 10.339320654445176
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 301 @ wallClockTime = 1480520357621
-@ simTime = 1480520357621 with time delta = 0
+Iteration# 301 @ wallClockTime = 1480670309945
+@ simTime = 1480670309951 with time delta = 6
 Resulted sleeping time = 0
-X (from c) = 34.518492141408124	Y (from c) = 10.355547642422383
-X = 34.518492141408124	Y= 10.355547642422383
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 302 @ wallClockTime = 1480520357722
-@ simTime = 1480520357731 with time delta = 9
+Iteration# 302 @ wallClockTime = 1480670310046
+@ simTime = 1480670310051 with time delta = 5
 Resulted sleeping time = 0
-X (from c) = 34.577855005427544	Y (from c) = 10.37335650162821
-X = 34.577855005427544	Y= 10.37335650162821
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 303 @ wallClockTime = 1480520357823
-@ simTime = 1480520357831 with time delta = 8
+Iteration# 303 @ wallClockTime = 1480670310146
+@ simTime = 1480670310151 with time delta = 5
 Resulted sleeping time = 0
-X (from c) = 34.631781120750524	Y (from c) = 10.3895343362251
-X = 34.631781120750524	Y= 10.3895343362251
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 304 @ wallClockTime = 1480520357923
-@ simTime = 1480520357931 with time delta = 8
+Iteration# 304 @ wallClockTime = 1480670310247
+@ simTime = 1480670310251 with time delta = 4
 Resulted sleeping time = 0
-X (from c) = 34.685629357863455	Y (from c) = 10.405688807358985
-X = 34.685629357863455	Y= 10.405688807358985
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 305 @ wallClockTime = 1480520358024
-@ simTime = 1480520358031 with time delta = 7
+Iteration# 305 @ wallClockTime = 1480670310348
+@ simTime = 1480670310351 with time delta = 3
 Resulted sleeping time = 0
-X (from c) = 34.73939982923536	Y (from c) = 10.421819948770557
-X = 34.73939982923536	Y= 10.421819948770557
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 306 @ wallClockTime = 1480520358124
-@ simTime = 1480520358131 with time delta = 7
+Iteration# 306 @ wallClockTime = 1480670310448
+@ simTime = 1480670310451 with time delta = 3
 Resulted sleeping time = 0
-X (from c) = 34.79309264717279	Y (from c) = 10.437927794151788
-X = 34.79309264717279	Y= 10.437927794151788
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 307 @ wallClockTime = 1480520358225
-@ simTime = 1480520358231 with time delta = 6
+Iteration# 307 @ wallClockTime = 1480670310549
+@ simTime = 1480670310551 with time delta = 2
 Resulted sleeping time = 0
-X (from c) = 34.84670792382012	Y (from c) = 10.45401237714599
-X = 34.84670792382012	Y= 10.45401237714599
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 308 @ wallClockTime = 1480520358326
-@ simTime = 1480520358331 with time delta = 5
+Iteration# 308 @ wallClockTime = 1480670310649
+@ simTime = 1480670310651 with time delta = 2
 Resulted sleeping time = 0
-X (from c) = 34.90024577115979	Y (from c) = 10.470073731347885
-X = 34.90024577115979	Y= 10.470073731347885
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 309 @ wallClockTime = 1480520358426
-@ simTime = 1480520358431 with time delta = 5
+Iteration# 309 @ wallClockTime = 1480670310750
+@ simTime = 1480670310751 with time delta = 1
 Resulted sleeping time = 0
-X (from c) = 34.95370630101245	Y (from c) = 10.486111890303688
-X = 34.95370630101245	Y= 10.486111890303688
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 310 @ wallClockTime = 1480520358527
-@ simTime = 1480520358531 with time delta = 4
+Iteration# 310 @ wallClockTime = 1480670310851
+@ simTime = 1480670310851 with time delta = 0
 Resulted sleeping time = 0
-X (from c) = 35.00708962503736	Y (from c) = 10.50212688751116
-X = 35.00708962503736	Y= 10.50212688751116
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 311 @ wallClockTime = 1480520358628
-@ simTime = 1480520358631 with time delta = 3
+Iteration# 311 @ wallClockTime = 1480670310952
+@ simTime = 1480670310961 with time delta = 9
 Resulted sleeping time = 0
-X (from c) = 35.06039585473245	Y (from c) = 10.518118756419687
-X = 35.06039585473245	Y= 10.518118756419687
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 312 @ wallClockTime = 1480520358728
-@ simTime = 1480520358731 with time delta = 3
+Iteration# 312 @ wallClockTime = 1480670311052
+@ simTime = 1480670311061 with time delta = 9
 Resulted sleeping time = 0
-X (from c) = 35.11362510143466	Y (from c) = 10.53408753043035
-X = 35.11362510143466	Y= 10.53408753043035
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 313 @ wallClockTime = 1480520358829
-@ simTime = 1480520358831 with time delta = 2
+Iteration# 313 @ wallClockTime = 1480670311153
+@ simTime = 1480670311161 with time delta = 8
 Resulted sleeping time = 0
-X (from c) = 35.16677747632013	Y (from c) = 10.550033242895992
-X = 35.16677747632013	Y= 10.550033242895992
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 314 @ wallClockTime = 1480520358929
-@ simTime = 1480520358931 with time delta = 2
+Iteration# 314 @ wallClockTime = 1480670311254
+@ simTime = 1480670311261 with time delta = 7
 Resulted sleeping time = 0
-X (from c) = 35.21985309040447	Y (from c) = 10.565955927121292
-X = 35.21985309040447	Y= 10.565955927121292
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 315 @ wallClockTime = 1480520359030
-@ simTime = 1480520359031 with time delta = 1
+Iteration# 315 @ wallClockTime = 1480670311354
+@ simTime = 1480670311361 with time delta = 7
 Resulted sleeping time = 0
-X (from c) = 35.27285205454292	Y (from c) = 10.581855616362832
-X = 35.27285205454292	Y= 10.581855616362832
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 316 @ wallClockTime = 1480520359130
-@ simTime = 1480520359131 with time delta = 1
+Iteration# 316 @ wallClockTime = 1480670311455
+@ simTime = 1480670311461 with time delta = 6
 Resulted sleeping time = 0
-X (from c) = 35.32577447943066	Y (from c) = 10.597732343829156
-X = 35.32577447943066	Y= 10.597732343829156
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 317 @ wallClockTime = 1480520359231
-@ simTime = 1480520359231 with time delta = 0
+Iteration# 317 @ wallClockTime = 1480670311556
+@ simTime = 1480670311561 with time delta = 5
 Resulted sleeping time = 0
-X (from c) = 35.37862047560302	Y (from c) = 10.613586142680864
-X = 35.37862047560302	Y= 10.613586142680864
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 318 @ wallClockTime = 1480520359331
-@ simTime = 1480520359331 with time delta = 0
+Iteration# 318 @ wallClockTime = 1480670311656
+@ simTime = 1480670311661 with time delta = 5
 Resulted sleeping time = 0
-X (from c) = 35.43139015343567	Y (from c) = 10.629417046030657
-X = 35.43139015343567	Y= 10.629417046030657
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 319 @ wallClockTime = 1480520359432
-@ simTime = 1480520359441 with time delta = 9
+Iteration# 319 @ wallClockTime = 1480670311757
+@ simTime = 1480670311761 with time delta = 4
 Resulted sleeping time = 0
-X (from c) = 35.489393536737836	Y (from c) = 10.646818061021305
-X = 35.489393536737836	Y= 10.646818061021305
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 320 @ wallClockTime = 1480520359532
-@ simTime = 1480520359541 with time delta = 9
+Iteration# 320 @ wallClockTime = 1480670311858
+@ simTime = 1480670311861 with time delta = 3
 Resulted sleeping time = 0
-X (from c) = 35.54200323998917	Y (from c) = 10.662600971996707
-X = 35.54200323998917	Y= 10.662600971996707
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 321 @ wallClockTime = 1480520359633
-@ simTime = 1480520359641 with time delta = 8
+Iteration# 321 @ wallClockTime = 1480670311958
+@ simTime = 1480670311961 with time delta = 3
 Resulted sleeping time = 0
-X (from c) = 35.59453696614676	Y (from c) = 10.678361089843985
-X = 35.59453696614676	Y= 10.678361089843985
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 322 @ wallClockTime = 1480520359734
-@ simTime = 1480520359741 with time delta = 7
+Iteration# 322 @ wallClockTime = 1480670312059
+@ simTime = 1480670312061 with time delta = 2
 Resulted sleeping time = 0
-X (from c) = 35.64699482493407	Y (from c) = 10.694098447480176
-X = 35.64699482493407	Y= 10.694098447480176
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 323 @ wallClockTime = 1480520359834
-@ simTime = 1480520359841 with time delta = 7
+Iteration# 323 @ wallClockTime = 1480670312159
+@ simTime = 1480670312161 with time delta = 2
 Resulted sleeping time = 0
-X (from c) = 35.69937692591609	Y (from c) = 10.709813077774786
-X = 35.69937692591609	Y= 10.709813077774786
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 324 @ wallClockTime = 1480520359935
-@ simTime = 1480520359941 with time delta = 6
+Iteration# 324 @ wallClockTime = 1480670312260
+@ simTime = 1480670312261 with time delta = 1
 Resulted sleeping time = 0
-X (from c) = 35.751683378499614	Y (from c) = 10.725505013549842
-X = 35.751683378499614	Y= 10.725505013549842
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 325 @ wallClockTime = 1480520360036
-@ simTime = 1480520360041 with time delta = 5
+Iteration# 325 @ wallClockTime = 1480670312361
+@ simTime = 1480670312361 with time delta = 0
 Resulted sleeping time = 0
-X (from c) = 35.80391429193341	Y (from c) = 10.74117428757998
-X = 35.80391429193341	Y= 10.74117428757998
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 326 @ wallClockTime = 1480520360136
-@ simTime = 1480520360141 with time delta = 5
+Iteration# 326 @ wallClockTime = 1480670312461
+@ simTime = 1480670312461 with time delta = 0
 Resulted sleeping time = 0
-X (from c) = 35.85606977530846	Y (from c) = 10.756820932592493
-X = 35.85606977530846	Y= 10.756820932592493
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 327 @ wallClockTime = 1480520360237
-@ simTime = 1480520360241 with time delta = 4
+Iteration# 327 @ wallClockTime = 1480670312562
+@ simTime = 1480670312571 with time delta = 9
 Resulted sleeping time = 0
-X (from c) = 35.908149937558235	Y (from c) = 10.772444981267425
-X = 35.908149937558235	Y= 10.772444981267425
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 328 @ wallClockTime = 1480520360337
-@ simTime = 1480520360341 with time delta = 4
+Iteration# 328 @ wallClockTime = 1480670312662
+@ simTime = 1480670312671 with time delta = 9
 Resulted sleeping time = 0
-X (from c) = 35.96015488745886	Y (from c) = 10.78804646623761
-X = 35.96015488745886	Y= 10.78804646623761
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 329 @ wallClockTime = 1480520360438
-@ simTime = 1480520360441 with time delta = 3
+Iteration# 329 @ wallClockTime = 1480670312763
+@ simTime = 1480670312771 with time delta = 8
 Resulted sleeping time = 0
-X (from c) = 36.01208473362938	Y (from c) = 10.803625420088766
-X = 36.01208473362938	Y= 10.803625420088766
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 330 @ wallClockTime = 1480520360538
-@ simTime = 1480520360541 with time delta = 3
+Iteration# 330 @ wallClockTime = 1480670312864
+@ simTime = 1480670312871 with time delta = 7
 Resulted sleeping time = 0
-X (from c) = 36.06393958453197	Y (from c) = 10.819181875359542
-X = 36.06393958453197	Y= 10.819181875359542
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 331 @ wallClockTime = 1480520360639
-@ simTime = 1480520360641 with time delta = 2
+Iteration# 331 @ wallClockTime = 1480670312964
+@ simTime = 1480670312971 with time delta = 7
 Resulted sleeping time = 0
-X (from c) = 36.115719548472185	Y (from c) = 10.834715864541606
-X = 36.115719548472185	Y= 10.834715864541606
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
-Iteration# 332 @ wallClockTime = 1480520360739
-@ simTime = 1480520360741 with time delta = 2
+Iteration# 332 @ wallClockTime = 1480670313065
+@ simTime = 1480670313071 with time delta = 6
 Resulted sleeping time = 0
-X (from c) = 36.16742473359914	Y (from c) = 10.850227420079694
-X = 36.16742473359914	Y= 10.850227420079694
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
+---------------------------------------------------------------
+Iteration# 333 @ wallClockTime = 1480670313165
+@ simTime = 1480670313171 with time delta = 6
+Resulted sleeping time = 0
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
+---------------------------------------------------------------
+Iteration# 334 @ wallClockTime = 1480670313266
+@ simTime = 1480670313271 with time delta = 5
+Resulted sleeping time = 0
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
+---------------------------------------------------------------
+Iteration# 335 @ wallClockTime = 1480670313366
+@ simTime = 1480670313371 with time delta = 5
+Resulted sleeping time = 0
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
+---------------------------------------------------------------
+Iteration# 336 @ wallClockTime = 1480670313467
+@ simTime = 1480670313471 with time delta = 4
+Resulted sleeping time = 0
+X (from c) = 11.030968858224327	Y (from c) = 3.3092906574673036
+X = 11.030968858224327	Y= 3.3092906574673036
 ---------------------------------------------------------------
