@@ -272,12 +272,12 @@ void calc_in_world_coordinates( gyro_value_t new_ComDCM){
 		}
 
 		// send values, of the current kick
-		pfAccel2[0] = newAccel[0][0];
+		pfAccel2[0] = newAccel[0][0]; 	// Berechnete Wert: x: 1076087173, y: 0, z: -1084576224 that's the value <- i think its wrong
 		pfAccel2[1] = newAccel[1][0];
 		pfAccel2[2] = newAccel[2][0];
 
 
-		System_printf("\n Berechnete Wert: x: %d, y: %d, z: %d \n" ,pfAccel2[0], pfAccel2[1], pfAccel2[2] );
+		System_printf("\n Berechnete Wert: x: %d, y: %d, z: %d \n" ,newAccel[0][0], newAccel[1][0], newAccel[2][0] );
 		System_flush();
 
 		//
@@ -313,6 +313,49 @@ void calc_in_world_coordinates( gyro_value_t new_ComDCM){
 				i32FPart[ui32Idx] *= -1;
 			}
 		}
+
+
+		//
+		// Print the acceleration numbers in the table.
+		//
+		/*System_printf("\n accel [5;17H%3d.%03d", i32IPart[0], i32FPart[0]);
+		System_printf(" [5;40H%3d.%03d", i32IPart[1], i32FPart[1]);
+		System_printf(" [5;63H%3d.%03d", i32IPart[2], i32FPart[2]);
+		System_flush();*/
+			// i32Ipart is the integer part of the value und i32FPart float with 3 numbers after the point
+		System_printf("\n Gyro [6;17H%3d.%03d", i32IPart[16], i32FPart[16]);
+		System_printf(" [6;40H%3d.%03d", i32IPart[17], i32FPart[17]);
+		System_printf(" [6;63H%3d.%03d", i32IPart[18], i32FPart[18]);
+		System_flush();
+
+		//todo send value is 1 high byte an 2 low bytes minimum. for the highbyte is 1 enough because you can't get a kick with more the n255 m/s
+
+		//
+		// Print the angular velocities in the table.
+		//
+		/*
+		System_printf("\n angular [7;17H%3d.%03d", i32IPart[3], i32FPart[3]);
+		System_printf(" [7;40H%3d.%03d", i32IPart[4], i32FPart[4]);
+		System_printf(" [7;63H%3d.%03d", i32IPart[5], i32FPart[5]);
+		System_flush();
+
+		//
+		// Print the magnetic data in the table.
+		//
+		System_printf("\n magneto[9;17H%3d.%03d", i32IPart[6], i32FPart[6]);
+		System_printf(" [9;40H%3d.%03d", i32IPart[7], i32FPart[7]);
+		System_printf(" [9;63H%3d.%03d", i32IPart[8], i32FPart[8]);
+		System_flush();
+
+		//
+		// Print the Eulers in a table.
+		//
+		System_printf("\n eulers [14;17H%3d.%03d", i32IPart[9], i32FPart[9]);
+		System_printf(" [14;40H%3d.%03d", i32IPart[10], i32FPart[10]);
+		System_printf(" [14;63H%3d.%03d", i32IPart[11], i32FPart[11]);
+		System_flush();*/
+
+
 	}
 }
 
@@ -386,7 +429,7 @@ Void sensor_task_fn(UArg arg0, UArg arg1)
     	read_light_sensor_values(i2c, &light_transaction_values[0]); // needs 250 µs
 
 
-    	System_printf("\n Main Light value : %d (RAW)", light_transaction_values[0] );
+    	//System_printf("\n Main Light value : %d (RAW)", light_transaction_values[0] );
 
     	current_16b_light = light_transaction_values[0] << 8 | light_transaction_values[1] ;
     	old_light_avarage = light_avarage; // save old value of light to see how big are the difference

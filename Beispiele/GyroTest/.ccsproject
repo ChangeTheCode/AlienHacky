@@ -9,5 +9,6 @@
 	<rts value="libc.a"/>
 	<createSlaveProjects value=""/>
 	<origin value="C:/ti/TivaWare_C_Series-2.1.3.156/examples/boards/ek-tm4c123gxl-boostxl-senshub/airmouse/ccs"/>
-	<isTargetManual value="true"/>
+	<isTargetManual value="false"/>
+	<connection value="common/targetdb/connections/TIXDS100v2_Connection.xml"/>
 </projectOptions>

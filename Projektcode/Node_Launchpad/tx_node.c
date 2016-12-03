@@ -149,3 +149,23 @@ static void tx_task_function(UArg arg0, UArg arg1)
 		Semaphore_post(sem_rx_handle);
     }
 }
+
+void set_new_kick_event_value(kick_vectors_t new_kick_values){
+
+/*	new_kick_values._kick_int_high_x;
+	new_kick_values._kick_float_high_x;
+	new_kick_values._kick_float_low_x;
+
+	new_kick_values._kick_int_high_y;
+	new_kick_values._kick_float_high_y;
+	new_kick_values._kick_float_low_y;
+
+	new_kick_values._kick_int_high_z;
+	new_kick_values._kick_float_high_z;
+	new_kick_values._kick_float_low_z;*/
+
+	// set values to the send buffer
+	// is it necessary that I have a semaphore_pend at the kick_controller ?
+	Semaphore_post(sem_tx_handle);
+
+}

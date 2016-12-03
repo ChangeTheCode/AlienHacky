@@ -5,8 +5,10 @@
  *      Author: Jim
  */
 #include "kick_controller.h"
+#include "tx_node_interface.h"
 
-void alien_init_i2c_task(){
+
+void alien_init_i2c_task(void){
 	/* Construct tmp007 Task thread */
 	Task_Params_init(&sensor_task_params);
 	sensor_task_params.stackSize = TASKSTACKSIZE;
@@ -141,15 +143,6 @@ void calc_in_world_coordinates( gyro_value_t new_ComDCM){
 			}
 		}
 
-		// send values, of the current kick
-		pfAccel2[0] = newAccel[0][0];
-		pfAccel2[1] = newAccel[1][0];
-		pfAccel2[2] = newAccel[2][0];
-
-
-		System_printf("\n Berechnete Wert: x: %d, y: %d, z: %d \n" ,pfAccel2[0], pfAccel2[1], pfAccel2[2] );
-		System_flush();
-
 		//
 		// Now drop back to using the data as a single array for the
 		// purpose of decomposing the float into a integer part and a
@@ -183,15 +176,129 @@ void calc_in_world_coordinates( gyro_value_t new_ComDCM){
 				i32FPart[ui32Idx] *= -1;
 			}
 		}
+
+		kick_vectors_t transport_kick_struct;
+
+		// i32Ipart is the integer part of the value und i32FPart float with 3 numbers after the point
+		//system prints only for tests
+		System_printf("\n Gyro [6;17H%3d.%03d", i32IPart[16], i32FPart[16]);
+		System_printf(" [6;40H%3d.%03d", i32IPart[17], i32FPart[17]);
+		System_printf(" [6;63H%3d.%03d", i32IPart[18], i32FPart[18]);
+		System_flush();
+
+		transport_kick_struct._kick_int_high_x = (i32IPart[16] & 0x000000ff);
+		transport_kick_struct._kick_float_high_x  = (i32FPart[16] & 0x0000ff00) >> 8;
+		transport_kick_struct._kick_float_low_x =(i32FPart[16] & 0x000000ff);
+
+		transport_kick_struct._kick_int_high_y = (i32IPart[17] & 0x000000ff);
+		transport_kick_struct._kick_float_high_y  = (i32FPart[17] & 0x0000ff00) >> 8;
+		transport_kick_struct._kick_float_low_y =(i32FPart[17] & 0x000000ff);
+
+		transport_kick_struct._kick_int_high_z = (i32IPart[17] & 0x000000ff);
+		transport_kick_struct._kick_float_high_z  = (i32FPart[17] & 0x0000ff00) >> 8;
+		transport_kick_struct._kick_float_low_z =(i32FPart[17] & 0x000000ff);
+
+		set_new_kick_event_value(transport_kick_struct);
 	}
 }
 
+// byte array is an 3 item big array
+void get_byte_value(int_fast32_t value, uint8_t* byte_array){
+	*byte_array = (value & 0x00ff0000) >> 16;  byte_array++;
+	*byte_array = (value & 0x0000ff00) >> 8;   byte_array++;
+	*byte_array =(value & 0x000000ff);
+}
 
 // main function of the task
 Void sensor_task_fn(UArg arg0, UArg arg1){
 
+	I2C_Params      I2C_params;
+	/* Create I2C for usage */
+	I2C_Params_init(&I2C_params);
+	I2C_params.bitRate = I2C_400kHz;
+	i2c = I2C_open(Board_I2C_TMP, &I2C_params);
+	if (i2c == NULL) {
+		System_abort("Error Initializing I2C\n");
+		System_flush();
+	}
+	else {
+		System_printf("I2C Initialized!\n");
+	}
+	// init i2c of the gyro sensor
+	MPU_handel = MPU9150_init(0, i2c, MPU9150_I2C_ADDRESS);
+
+	if( ! config_light_sensor(i2c) ){
+		return;   // config of the light sensor failed Break
+	}
+	Task_sleep(100);
+	if( ! config_light_sensor_reg2(i2c) ){
+		return;   // config of the light sensor failed Break
+	}
+
+
+	/* Take 20 samples and print them out onto the console */
+	int light_transaction_values[4];
+	int current_16b_light = 0;
+	int old_light_avarage = 0;
+
+	MPU9150_Data mpu_data;
+
+	CompDCMInit(&g_sCompDCMInst, 1.0f / 50.0f, 0.2f, 0.6f, 0.2f);
+
+	while(1) {
+
+		read_light_sensor_values(i2c, &light_transaction_values[0]); // needs 250 µs
+
+		// filtering light values and check if the delta is big enough
+		current_16b_light = light_transaction_values[0] << 8 | light_transaction_values[1] ;
+		old_light_avarage = light_avarage; // save old value of light to see how big are the difference
+
+		if (light_pos >= MAX_AVARAGE_COUNT){
+			light_pos = 0;
+		}
+		light_avarage = calculate_avarage(  &light_values[light_pos] ,current_16b_light, light_avarage);
+
+
+		//if( (light_avarage * 100) / old_light_avarage >= LIGHT_LEVEL_IN_PROCENT ){ // to do a test, comment this if block out
+		gyro_to_do(mpu_data);
+
+		//TODO: Calculate all necessary value like MagnetoGetFloat,Accel, gyrogetfloat and so on. Talk to Tobi and to it together
+		//TODO: how to transform the values to the world coordinates
+
+		//TOdo: if(ui32CompDCMStarted == 0) line 566 in tiva
+		//}
+	}
 }
 
+void gyro_to_do(MPU9150_Data mpu_data){
+	Task_sleep(100);
+	gyro_value_t new_com_values;
 
+	if (! MPU9150_read(MPU_handel, i2c)){ // needs 750 µs
+		System_printf("\n Read failed ");
+		System_flush();
+	}
+
+	// Get floating point version of the Accel Data in m/s^2.
+	MPU9150_getAccelFloat(MPU_handel, &mpu_data);
+	new_com_values._accel_x = mpu_data.xFloat;
+	new_com_values._accel_y = mpu_data.yFloat;
+	new_com_values._accel_z =mpu_data.zFloat;
+
+	// get floating point version of angular velocities in rad/sec
+	MPU9150_getGyroFloat(MPU_handel, &mpu_data);
+	new_com_values._gyro_x = mpu_data.xFloat;
+	new_com_values._gyro_y = mpu_data.yFloat;
+	new_com_values._gyro_z =mpu_data.zFloat;
+
+	//Get floating point version of magnetic fields strength in tesla
+	MPU9150_getMagnetoFloat(MPU_handel, &mpu_data);
+	new_com_values._magneto_x = mpu_data.xFloat;
+	new_com_values._magneto_y = mpu_data.yFloat;
+	new_com_values._magneto_z =mpu_data.zFloat;
+
+	calc_in_world_coordinates(new_com_values);
+
+}
 
 

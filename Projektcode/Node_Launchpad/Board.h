@@ -60,6 +60,10 @@ extern "C" {
 #define     Board_ADCBufChannel0    (0)
 #define     Board_ADCBufChannel1    (1)
 
+
+#define     Board_I2C0              Board_I2C
+#define     Board_I2C_TMP           Board_I2C0
+
 #define     Board_initGeneral() { \
     Power_init(); \
     if (PIN_init(BoardGpioInitTable) != PIN_SUCCESS) \

@@ -33,6 +33,8 @@
 
 #define TASKSTACKSIZE       1024
 
+int MPU9150_I2C_ADDRESS = 0x68; // the AD0 is logic level Zero(GND), thats fix on the Sensor board
+
 Task_Struct sensor_task;
 static Task_Params sensor_task_params;
 Char sensor_task_stack[TASKSTACKSIZE];
@@ -90,11 +92,15 @@ typedef struct{
 
 
 /* Function Headers */
+void alien_init_i2c_task(void);
+
 int calculate_avarage (int* p_values, int new_value, int avarage);
 
 void calc_in_world_coordinates( gyro_value_t new_ComDCM);
 
 Void sensor_task_fn(UArg arg0, UArg arg1);
+
+void gyro_to_do(MPU9150_Data mpu_data);
 
 
 #endif /* KICK_CONTROLLER_H_ */

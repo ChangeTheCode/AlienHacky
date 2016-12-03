@@ -51,6 +51,9 @@ int main(void)
     button_init();
     timer_init();
 
+    // init i2c task
+    Alien_i2c_init();
+
     // Init the RF Module
 	Alien_RF_init();
 
