@@ -170,6 +170,12 @@ void UART_read_callback (UART_Handle UART, void * data, size_t length) {
 		// send via TX
 		Semaphore_post(sem_tx_handle);
 
+		uint8_t length = 7;
+		uint8_t data [MAX_PACKET_LENGTH] = "1234567";
+
+		// trest
+		Alien_UART_send (data, length);
+
 		System_printf ("Waiting for more data\n");
 		System_flush();
 
@@ -208,12 +214,12 @@ void Alien_UART_send_task (UArg arg0, UArg arg1) {
 		// send everything in the send queue
 		do {
 			dequeue (SEND_QUEUE, data, &length, FALSE);
-			if (length > 0) {
+	//		if (length > 0) {
 				UART_write (UART, data, length);
 				data [length] = (uint8_t) '\0';
 				System_printf ("Sent %s\n", data);
 				System_flush();
-			}
+		//	}
 		} while (length > 0);
 
 		System_printf ("Finished sending data to queue\n\n");
