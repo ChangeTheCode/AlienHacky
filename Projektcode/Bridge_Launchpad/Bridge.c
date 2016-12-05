@@ -22,7 +22,7 @@ int main(void) {
     Alien_UART_init ();
 
     // Initialise the RF Module
-    // Alien_RF_init();
+    Alien_RF_init();
 
     // Now start BIOS
     BIOS_start();

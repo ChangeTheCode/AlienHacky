@@ -122,7 +122,7 @@ void rx_callback(RF_Handle h, RF_CmdHandle ch, RF_EventMask e)
 
         switch(packet_rx[1]) 		//byte 0 is the address of the sender (bridge: 0xaa)
         {
-			case 2:
+			case '2':
 				// login OK
 				// to measure the roundtrip time of a packet
 				//PIN_setOutputValue(LED_pin_handle, Board_DIO15, 1);
@@ -132,7 +132,7 @@ void rx_callback(RF_Handle h, RF_CmdHandle ch, RF_EventMask e)
 				login_ok = TRUE;
 				Semaphore_post(sem_tx_handle);
 				break;
-			case 3:
+			case '3':
 				// login not OK
 				PIN_setOutputValue(LED_pin_handle, Board_LED0, 1); 	// Red LED
 				login_ok = FALSE;

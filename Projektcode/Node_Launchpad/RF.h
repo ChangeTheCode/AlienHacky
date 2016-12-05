@@ -44,7 +44,7 @@
 #define MAX_PACKET_LENGTH (MAX_LENGTH + NUM_APPENDED_BYTES - 1)
 
 /* Packet TX Configuration */
-#define PAYLOAD_LENGTH      19
+#define PACKET_LENGTH      19
 
 
 extern PIN_Handle LED_pin_handle;
@@ -56,7 +56,7 @@ extern RF_Handle RF_handle;
 extern Semaphore_Handle sem_tx_handle;
 extern Semaphore_Handle sem_rx_handle;
 
-extern uint8_t button_pressed;
+extern uint8_t kick;
 
 extern RF_CmdHandle rx_cmd;
 

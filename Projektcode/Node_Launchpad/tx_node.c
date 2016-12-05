@@ -8,13 +8,15 @@
 #include "RF.h"
 #include "timer.h"
 
+#define PAYLOAD_LENGTH 9
+
 /***** Variable declarations *****/
 static Task_Params tx_task_params;
 Task_Struct tx_task;    /* not static so you can see in ROV */
 static uint8_t tx_task_stack[TX_TASK_STACK_SIZE];
 
-uint8_t payload[] = "HelloBigWord";
-uint8_t packet_tx[PAYLOAD_LENGTH];
+uint8_t payload[PAYLOAD_LENGTH];
+uint8_t packet_tx[PACKET_LENGTH];
 
 BOOLEAN login_ok = FALSE;
 BOOLEAN login_sent = FALSE;
@@ -39,7 +41,7 @@ static void tx_task_function(UArg arg0, UArg arg1)
     RF_Params_init(&rf_params);
     rf_params.nInactivityTimeout = 200; // 200us
 
-    RF_cmdPropTx.pktLen = PAYLOAD_LENGTH;
+    RF_cmdPropTx.pktLen = PACKET_LENGTH;
     RF_cmdPropTx.pPkt = packet_tx;
     RF_cmdPropTx.startTrigger.triggerType = TRIG_NOW;
     RF_cmdPropTx.startTrigger.pastTrig = 1;
@@ -83,16 +85,17 @@ static void tx_task_function(UArg arg0, UArg arg1)
 			RF_CmdHandle tx_cmd = RF_postCmd(RF_handle, (RF_Op*)&RF_cmdPropTx, RF_PriorityHighest, NULL, 0);
 
 			login_sent = TRUE;
+
+			Semaphore_post(sem_rx_handle);
     	}
 
     	else if(login_ok == TRUE)
     	{
         	Semaphore_pend(sem_tx_handle, BIOS_WAIT_FOREVER);
-
         	// Heartbeat
         	if(heartbeat == TRUE)
         	{
-        		packet_tx[0] = (uint8_t)(4); 	//Heartbeat
+        		packet_tx[0] = '4'; 	//Heartbeat
         		// add mac address to packet
 				uint8_t j;
 				for (j = 2; j < 8; j++)
@@ -110,26 +113,27 @@ static void tx_task_function(UArg arg0, UArg arg1)
         	}
 
         	// Send kick packet
-			if(button_pressed == 1) 	// TODO: durch Variable die beim Tritt gesetzt wird ersetzen!
+        	else if(kick == TRUE)
 			{
-				button_pressed = 0;
+				kick = FALSE;
 
 				/* Create packet with command number, 6 Byte Mac, max of 12 Byte payload */
-				packet_tx[0] = (uint8_t)(6);  //Kick
+				packet_tx[0] = '6';  //Kick
 
 				// add mac address to packet	//TODO: add address received at the login instead of mac
-				uint8_t j;
-				for (j = 2; j < 8; j++)
-				{
-					packet_tx[j-1] = mac_address[j];
-				}
+//				uint8_t j;
+//				for (j = 2; j < 8; j++)
+//				{
+//					packet_tx[j-1] = mac_address[j];
+//				}
+				packet_tx[1] = '1'; 		//TODO: add address received at the login instead of static
 
-				// add payload to packet  // TODO: add the 3 Accel Floats
+				// add payload to packet
 				uint8_t i;
-				for (i = 7; i < PAYLOAD_LENGTH; i++)
+				for (i = 0; i < PAYLOAD_LENGTH; i++)
 				{
 					//packet[i] = rand();
-					packet_tx[i] = payload[i-7];
+					packet_tx[i+1] = payload[i];
 				}
 
 				/* Send packet */
@@ -144,8 +148,31 @@ static void tx_task_function(UArg arg0, UArg arg1)
 				PIN_setOutputValue(LED_pin_handle, Board_LED0, 1);	// Red LED on
 
 				GPTimerCC26XX_start(timer_kick_handle);
+
 			}
+        	Semaphore_post(sem_rx_handle);
     	}
-		Semaphore_post(sem_rx_handle);
     }
+}
+
+void set_new_kick_event_value(kick_vectors_t new_kick_values){
+
+	payload[0] = new_kick_values._kick_int_high_x;
+	payload[1] = new_kick_values._kick_float_high_x;
+	payload[2] = new_kick_values._kick_float_low_x;
+
+	payload[3] = new_kick_values._kick_int_high_y;
+	payload[4] = new_kick_values._kick_float_high_y;
+	payload[5] = new_kick_values._kick_float_low_y;
+
+	payload[6] = new_kick_values._kick_int_high_z;
+	payload[7] = new_kick_values._kick_float_high_z;
+	payload[8] = new_kick_values._kick_float_low_z;
+
+	kick = TRUE;
+
+	// set values to the send buffer
+	// is it necessary that I have a semaphore_pend at the kick_controller ?
+	Semaphore_post(sem_tx_handle);
+
 }

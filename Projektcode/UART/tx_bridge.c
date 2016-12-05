@@ -59,25 +59,38 @@ void tx_task_function(UArg arg0, UArg arg1)
 		System_printf ("In RF send\n");
 		System_flush();
 
-		//TODO while uart
-		// if something was sent from the server send it
-    	while(Alien_UART_receive (send_packet, &send_packet_length, &send_packet_buffer_overflow))
-    	{
-    		send_packet [send_packet_length] ='\0';
-    		System_printf ("RTS: %s\n", send_packet);
-    		System_flush();
+//		//TODO while uart
+//		// if something was sent from the server send it
+//    	while(Alien_UART_receive (send_packet, &send_packet_length, &send_packet_buffer_overflow))
+//    	{
+//    		send_packet [send_packet_length] ='\0';
+//    		System_printf ("RTS: %s\n", send_packet);
+//    		System_flush();
+//
+//			if ((!send_packet_buffer_overflow) && (send_packet_length > 0))
+//			{
+//				/* Send packet */
+//				// stop RX CMD
+//				RF_Stat r = RF_cancelCmd(RF_handle, rx_cmd, 1);
+//
+//				// post TX CMD
+//				RF_CmdHandle tx_cmd = RF_postCmd(RF_handle, (RF_Op*)&RF_cmdPropTx, RF_PriorityHighest, NULL, 0);
+//			}
+//			// bufferoverflow or invalid packet length
+//    	}
 
-			if ((!send_packet_buffer_overflow) && (send_packet_length > 0))
-			{
-				/* Send packet */
-				// stop RX CMD
-				RF_Stat r = RF_cancelCmd(RF_handle, rx_cmd, 1);
+		if(packet_rx[0] == '1')
+		{
+			send_packet[0] = 0xaa; 	// TODO: der Server schreibt eigentlich das Paket!
+			send_packet[1] = '2';
 
-				// post TX CMD
-				RF_CmdHandle tx_cmd = RF_postCmd(RF_handle, (RF_Op*)&RF_cmdPropTx, RF_PriorityHighest, NULL, 0);
-			}
-			// bufferoverflow or invalid packet length
-    	}
+			/* Send packet */
+			// stop RX CMD
+			RF_Stat r = RF_cancelCmd(RF_handle, rx_cmd, 1);
+
+			// post TX CMD
+			RF_CmdHandle tx_cmd = RF_postCmd(RF_handle, (RF_Op*)&RF_cmdPropTx, RF_PriorityHighest, NULL, 0);
+		}
 
 		Semaphore_post(sem_rx_handle);
     }

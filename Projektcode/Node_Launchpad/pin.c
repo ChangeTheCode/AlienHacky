@@ -37,7 +37,7 @@ PIN_Config button_pin_table[] = {
     PIN_TERMINATE
 };
 
-uint8_t button_pressed = 0;
+uint8_t kick = FALSE;
 
 void button_callback(PIN_Handle handle, PIN_Id pinId);
 
@@ -78,7 +78,7 @@ void button_callback(PIN_Handle handle, PIN_Id pinId) {
                 // to measure the roundtrip time of a packet
 				//PIN_setOutputValue(ledPinHandle, Board_DIO15, 1);
 
-                button_pressed = 1;
+                kick = TRUE;
     			Semaphore_post(sem_tx_handle);
                 break;
 

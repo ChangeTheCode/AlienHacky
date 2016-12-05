@@ -17,4 +17,19 @@
 
 #endif
 
+typedef struct{
+	uint8_t _kick_int_high_x;	 // means:  1.
+	uint8_t _kick_float_high_x;	// 			 . 00
+	uint8_t _kick_float_low_x;  // 			 .    00
+
+	uint8_t _kick_int_high_y;	 // means:  1.
+	uint8_t _kick_float_high_y;	// 			 . 00
+	uint8_t _kick_float_low_y;  // 			 .    00
+
+	uint8_t _kick_int_high_z;	 // means:  1.
+	uint8_t _kick_float_high_z;	// 			 . 00
+	uint8_t _kick_float_low_z;  // 			 .    00
+
+}kick_vectors_t;
+
 #endif /* ALIENTYPES_H_ */

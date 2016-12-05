@@ -58,7 +58,7 @@ void heartbeat_timer_init(void)
 	BIOS_getCpuFreq(&freq);
 	GPTimerCC26XX_Value heartbeat_loadVal = freq.lo * 30 - 1; // 30 seconds (1.439.999.999)
 	GPTimerCC26XX_setLoadValue(timer_heartbeat_handle, heartbeat_loadVal);
-	GPTimerCC26XX_registerInterrupt(timer_heartbeat_handle, timer_login_callback, GPT_INT_TIMEOUT);
+	GPTimerCC26XX_registerInterrupt(timer_heartbeat_handle, timer_heartbeat_callback, GPT_INT_TIMEOUT);
 
 	GPTimerCC26XX_start(timer_heartbeat_handle);
 }
