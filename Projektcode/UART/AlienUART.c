@@ -177,7 +177,7 @@ void UART_read_callback (UART_Handle UART, void * data, size_t length) {
 		}
 	}
 
-	// wait for the next char
+	// tell the task we are finished processing and need another read
 	Semaphore_post (receive_semaphore_handle);
 }
 
@@ -188,12 +188,16 @@ void Alien_UART_send_task (UArg arg0, UArg arg1) {
 	while (TRUE) {
 		// wait for something or someone to wake me
 		Alien_Log ("In Alien_UART_send_task function waiting for semaphore...\n");
+		Semaphore_pend (send_semaphore_handle, BIOS_WAIT_FOREVER);
+		Alien_Log ("The semaphore in Alien_UART_send_task function just woke up\n");
 
 		// send everything in the send queue
 		uint8_t length;
 		uint8_t data [MAX_PACKET_LENGTH];
+		BOOLEAN buffer_overflow;
+
 		do {
-			dequeue (SEND_QUEUE, data, &length, FALSE);
+			dequeue (SEND_QUEUE, data, &length, &buffer_overflow);
 			if (length > 0) {
 				UART_write (UART, data, length);
 				data [length] = (uint8_t) '\0';
@@ -210,9 +214,10 @@ void Alien_UART_send_task (UArg arg0, UArg arg1) {
 void Alien_UART_receive_task (UArg arg0, UArg arg1) {
 
 	while (1) {
+		// call UART read which comes back immediately and calls the callback function
 		UART_read(UART, (void *) buffer_read, 1);
 
-		// wait for the end of char from the read
+		// wait for the callback function to finish
 		Semaphore_pend (receive_semaphore_handle, BIOS_WAIT_FOREVER);
 	}
 
