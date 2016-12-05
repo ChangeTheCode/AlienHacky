@@ -119,23 +119,19 @@ void rx_callback(RF_Handle h, RF_CmdHandle ch, RF_EventMask e)
         // TODO: nur fuer debug
         if (packet_rx[0] == '1')
         {
-            System_printf ("login versuch\n");
-            System_flush();
+            Alien_Log("login versuch empfangen\n");
         }
         else if(packet_rx[0] == '4')
         {
-            System_printf ("heartbeat empfangen\n");
-            System_flush();
+            Alien_Log ("heartbeat empfangen\n");
         }
         else if(packet_rx[0] == '6')
         {
-            System_printf ("kick empfangen\n");
-            System_flush();
+            Alien_Log ("kick empfangen\n");
         }
-        Semaphore_post(sem_tx_handle);
+        //Semaphore_post(sem_tx_handle);
 
-        //Alien_UART_send(packet_rx, packet_rx_length);
-        //Alien_UART_send(packet_rx, 1);
+        Alien_UART_send(packet_rx, packet_rx_length);
 
         RFQueue_nextEntry();
     }

@@ -68,17 +68,21 @@ static void tx_task_function(UArg arg0, UArg arg1)
     	{
     		packet_tx[0] = '1';	//Login
 
-//    		// add mac address to packet
-//			uint8_t j;
-//			for (j = 2; j < 8; j++)
-//			{
-//				packet_tx[j-1] = mac_address[j]; // TODO: in ascii konvertieren
-//			}
+    		// add mac address to packet
+			uint8_t j;
+			for (j = 2; j < 8; j++)
+			{
+				packet_tx[j-1] = mac_address[j]; // TODO: in ascii konvertieren
+			}
+
+			RF_cmdPropTx.pktLen = 8;
+
 			/* Send packet */
 			// stop RX CMD
+			RF_Stat r;
 			if(rx_cmd > 0)
 			{
-				RF_Stat r = RF_cancelCmd(RF_handle, rx_cmd, 1);
+				r = RF_cancelCmd(RF_handle, rx_cmd, 1);
 			}
 
 			// post TX CMD
@@ -97,14 +101,22 @@ static void tx_task_function(UArg arg0, UArg arg1)
         	{
         		packet_tx[0] = '4'; 	//Heartbeat
         		// add mac address to packet
-				uint8_t j;
-				for (j = 2; j < 8; j++)
-				{
-					packet_tx[j-1] = mac_address[j];
-				}
+//				uint8_t j;
+//				for (j = 2; j < 8; j++)
+//				{
+//					packet_tx[j-1] = mac_address[j];
+//				}
+        		packet_tx[1] = '1';			//TODO: add address received at the login instead of static
+
+				RF_cmdPropTx.pktLen = 2;
+
 				/* Send packet */
 				// stop RX CMD
-				RF_Stat r = RF_cancelCmd(RF_handle, rx_cmd, 1);
+    			RF_Stat r;
+        		if(rx_cmd > 0)
+				{
+					r = RF_cancelCmd(RF_handle, rx_cmd, 1);
+				}
 
 				// post TX CMD
 				RF_CmdHandle tx_cmd = RF_postCmd(RF_handle, (RF_Op*)&RF_cmdPropTx, RF_PriorityHighest, NULL, 0);
@@ -136,10 +148,15 @@ static void tx_task_function(UArg arg0, UArg arg1)
 					packet_tx[i+1] = payload[i];
 				}
 
+				RF_cmdPropTx.pktLen = 2 + PAYLOAD_LENGTH;
+
 				/* Send packet */
 				// stop RX CMD
-				RF_Stat r = RF_cancelCmd(RF_handle, rx_cmd, 1);
-
+				RF_Stat r;
+				if(rx_cmd > 0)
+				{
+					r = RF_cancelCmd(RF_handle, rx_cmd, 1);
+				}
 				//PIN_setOutputValue(LED_pin_handle, Board_DIO15, 0);
 
 				// post TX CMD

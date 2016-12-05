@@ -13,7 +13,7 @@
 struct node_t {
 
 	uint8_t length;
-	uint8_t data [MAX_PACKET_LENGTH];
+	uint8_t * data;
 	struct node_t * next;
 	BOOLEAN buffer_overflow;
 
@@ -40,8 +40,11 @@ BOOLEAN queue (queue_status_t queue, uint8_t * data, uint8_t length, BOOLEAN buf
 		rear = &receive_rear;
 	}
 
-	// add to the top of the queue
+	// create the struct
 	struct node_t * temp = (struct node_t *) malloc (sizeof(struct node_t));
+
+	// copy the data
+	temp->data = malloc (length);
 	memcpy ((void *) temp->data, (void *) data, length);
 	temp->length = length;
 	temp->next = NULL;
@@ -95,7 +98,8 @@ BOOLEAN dequeue (queue_status_t queue, uint8_t * data, uint8_t * length, BOOLEAN
 	*buffer_overflow = temp->buffer_overflow;
 
 	// free up the data
-	free (temp);		// TODO bei Alien_UART_send Endlosschleife!
+	free (temp->data);
+	free (temp);
 
 	// fin
 	return TRUE;
