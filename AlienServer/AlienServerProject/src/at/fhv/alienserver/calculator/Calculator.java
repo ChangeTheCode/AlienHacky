@@ -52,12 +52,7 @@ public class Calculator {
      */
     private final double h = 0.01;
 
-    private SockComm sock;
-    private MHControl mhControl;
-
     private AccelerationContainer oldSenAcc;
-    private BlockingQueue<Tuple<CoordinateContainer, Long>> positionValuesDump;
-    private Tuple<CoordinateContainer, Long>[] copyOfQueue;
 
     public Calculator(SockComm suppliedSock, MHControl mhControl, BlockingQueue<Tuple<CoordinateContainer, Long>> positionValuesDump){
         sock = suppliedSock;
@@ -73,8 +68,8 @@ public class Calculator {
         PrintWriter writer;
         PrintWriter writer2;
         try {
-            writer = new PrintWriter("calcOutput.txt", "UTF-8");
-            writer2 = new PrintWriter("plotVals.csv", "UTF-8");
+            writer = new PrintWriter("calcOutput_" + System.currentTimeMillis() + ".txt", "UTF-8");
+            writer2 = new PrintWriter("plotVals.csv_" + System.currentTimeMillis() + ".txt", "UTF-8");
         } catch (Exception e){
             e.printStackTrace();
             return null;
