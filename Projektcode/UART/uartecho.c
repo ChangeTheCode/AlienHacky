@@ -9,11 +9,15 @@
 #include <ti/sysbios/BIOS.h>
 #include <xdc/runtime/System.h>  // This is needed as Board_initGeneral () uses System_abort but didn't include it?
 
+BOOLEAN debug;
+
 int main(void) {
 
+	// are we displaying DEBUG messages
+	debug = TRUE;
+
     // Start message
-    System_printf ("AlienBridge starting. Running version 28.11.2016\n\n");
-    System_flush();
+	Alien_Log ("AlienBridge starting. Running version 28.11.2016\n\n");
 
     // Initialise the Board
     Board_initGeneral();
@@ -24,6 +28,5 @@ int main(void) {
 
     // Now start BIOS
     BIOS_start();
-
     return (0);
 }
