@@ -189,29 +189,6 @@ void Alien_UART_send_task (UArg arg0, UArg arg1) {
 		// wait for something or someone to wake me
 		Alien_Log ("In Alien_UART_send_task function waiting for semaphore...\n");
 
-		// create a dummy entry in the queue and then call Alien_receive
-		uint8_t length1 = 7;
-	 	uint8_t data1 [MAX_PACKET_LENGTH] = "1234567";
-	 	uint8_t data2 [MAX_PACKET_LENGTH] = "abcdefg";
-	 	uint8_t data3 [MAX_PACKET_LENGTH] = "xyzabcd";
-	 	BOOLEAN overflow = FALSE;
-	 	queue(RECEIVE_QUEUE, data1, length1, overflow);
-	 	queue(RECEIVE_QUEUE, data2, length1, overflow);
-	 	queue(RECEIVE_QUEUE, data3, length1, overflow);
-
-	 	uint8_t rec_length1 = 0;
-	 	uint8_t rec_length2 = 0;
-	 	uint8_t rec_length3 = 0;
-	 	uint8_t rec_data1 [MAX_PACKET_LENGTH] = "######################";
-	 	uint8_t rec_data2 [MAX_PACKET_LENGTH] = "######################";
-	 	uint8_t rec_data3 [MAX_PACKET_LENGTH] = "######################";
-	 	Alien_UART_receive (rec_data1, &rec_length1, &overflow);
-	 	Alien_UART_receive (rec_data2, &rec_length2, &overflow);
-	 	Alien_UART_receive (rec_data3, &rec_length3, &overflow);
-
-	 	Semaphore_pend (send_semaphore_handle, BIOS_WAIT_FOREVER);
-		Alien_Log ("The semaphore in Alien_UART_send_task function just woke up\n");
-
 		// send everything in the send queue
 		uint8_t length;
 		uint8_t data [MAX_PACKET_LENGTH];
