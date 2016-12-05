@@ -23,8 +23,6 @@ import static java.lang.Math.sqrt;
  * @version 1.11.2016
   */
 public class Calculator {
-    public boolean clearedList = false;
-
     /*
      * The following vars give the parameters for the calculation in state space. Please note that as of now, these
      * values are not meant to be perfect (or let alone final), they merely serve as a placeholder until testing
@@ -48,16 +46,12 @@ public class Calculator {
      */
     private final double d = 0;
     /**
-     * Step width of simulation in seconds
+     * Step width of simulation in seconds; don't make it too large ( > 0.05) as this could make the solver
+     * numerically unstable. For those who don't know what that means: you don't want that happening!
      */
     private final double h = 0.01;
 
-    private AccelerationContainer oldSenAcc;
-
-    public Calculator(SockComm suppliedSock, MHControl mhControl, BlockingQueue<Tuple<CoordinateContainer, Long>> positionValuesDump){
-        sock = suppliedSock;
-        this.positionValuesDump = positionValuesDump;
-        this.mhControl = mhControl;
+    public Calculator(){
     }
 
     public ArrayList<LongTuple<CoordinateContainer, SpeedContainer, AccelerationContainer, Long>> calculate(
@@ -86,8 +80,6 @@ public class Calculator {
         int targetIterations = new Double(seconds/h).intValue();
 
         while (iteration < targetIterations) {
-            oldSenAcc = new AccelerationContainer(senAcc);
-
             acc.x = signum(acc.x) * signum(A) * sqrt(A * A * speed.x * speed.x) + b * senAcc.x;
             acc.y = signum(acc.y) * signum(A) * sqrt(A * A * speed.y * speed.y) + b * senAcc.y;
             //acc.z = signum(acc.z) * signum(A) * sqrt(A * A * speed.z * speed.z) + b * senAcc.z;
@@ -120,7 +112,7 @@ public class Calculator {
         return positions;
     }
 
-    private boolean delta(AccelerationContainer acc1, AccelerationContainer acc2, double threshold){
+    private boolean delta_acc(AccelerationContainer acc1, AccelerationContainer acc2, double threshold){
         /*|| Math.abs(acc1.z - acc2.z) > threshold*/
         return Math.abs(acc1.x - acc2.x) > threshold || Math.abs(acc1.y - acc2.y) > threshold;
     }
