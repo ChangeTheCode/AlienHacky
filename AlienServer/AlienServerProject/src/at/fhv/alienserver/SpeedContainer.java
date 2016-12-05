@@ -11,6 +11,11 @@ public class SpeedContainer{
         //this.z =0 ;
     }
 
+    public SpeedContainer(double x, double y){
+        this.x = x;
+        this.y = y;
+    }
+
     public SpeedContainer(SpeedContainer source){
         this.x = source.x;
         this.y = source.y;

@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.atomic.DoubleAccumulator;
 
 import static java.lang.Math.signum;
 import static java.lang.Math.sqrt;
@@ -32,7 +33,8 @@ public class Calculator {
     /**
      * Change of first derivative of state variable depending on the state variable itself
      */
-    private final double A = -1.7;
+    //private final double A = -1.7;
+    private final double A = -0;
     /**
      * Change of the first derivative of state variable depending on input
      */
@@ -56,14 +58,14 @@ public class Calculator {
 
     public ArrayList<LongTuple<CoordinateContainer, SpeedContainer, AccelerationContainer, Long>> calculate(
             CoordinateContainer startPoint, SpeedContainer startSpeed, AccelerationContainer startAcc,
-            AccelerationContainer senAcc, double seconds, Long startTime)
+            AccelerationContainer senAcc, double seconds, long startTime)
     {
 
         PrintWriter writer;
         PrintWriter writer2;
         try {
-            writer = new PrintWriter("calcOutput_" + System.currentTimeMillis() + ".txt", "UTF-8");
-            writer2 = new PrintWriter("plotVals.csv_" + System.currentTimeMillis() + ".txt", "UTF-8");
+            writer = new PrintWriter("./LogFiles/calcOutput_" + System.currentTimeMillis() + ".txt", "UTF-8");
+            writer2 = new PrintWriter("./LogFiles/plotVals.csv_" + System.currentTimeMillis() + ".txt", "UTF-8");
         } catch (Exception e){
             e.printStackTrace();
             return null;
@@ -92,11 +94,12 @@ public class Calculator {
             pos.y = pos.y + c * speed.y * h + d * senAcc.y;
             //pos.z = pos.z + c * speed.z * h + d * senAcc.z;
 
+            currentSimulationTime += (1000 * h);
 
-            writer.println("Iteration #" + iteration + "@ Simtime = " + (startTime + (iteration * 10)));
+            writer.println("Iteration #" + iteration + "@ Simtime = " + currentSimulationTime);
 
             positions.add(new LongTuple<>(new CoordinateContainer(pos), new SpeedContainer(speed),
-                    new AccelerationContainer(acc), currentSimulationTime));
+                    new AccelerationContainer(acc), currentSimulationTime ) );
             writer.println("PosX = " + pos.x + "\tPosY = " + pos.y /*+ "\tPosZ = " + pos.z*/);
             writer.println("SpeedX = " + speed.x + "\tSpeedY = " + speed.y /*+ "\tSpeedZ = " + speed.z*/);
             writer.println("AccX = " + acc.x + "\tAccY = " + acc.y /*+ "\tAccZ = " + acc.z*/);
@@ -106,7 +109,7 @@ public class Calculator {
             writer2.println(iteration + ";" + pos.x);
 
             iteration++;
-            currentSimulationTime += (1000 * h);
+
         }
 
         return positions;

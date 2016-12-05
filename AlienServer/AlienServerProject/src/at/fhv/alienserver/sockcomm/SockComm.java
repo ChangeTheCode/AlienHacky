@@ -3,8 +3,6 @@ package at.fhv.alienserver.sockcomm;
 import at.fhv.alienserver.AccelerationContainer;
 import at.fhv.alienserver.Tuple;
 
-import static at.fhv.alienserver.Main.GLOBAL_SIM_ZERO_TIME;
-
 /**
  * Class for communication with AlienSock
  *
@@ -14,6 +12,8 @@ import static at.fhv.alienserver.Main.GLOBAL_SIM_ZERO_TIME;
 
 
 public class SockComm implements Runnable {
+    private long GLOBAL_SIM_ZERO_TIME = 13L; //TODO: this is a stub to make it compile
+
     public SockComm(){
         //Nothing of interest here ;-)
     }
