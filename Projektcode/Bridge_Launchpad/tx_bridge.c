@@ -27,8 +27,8 @@ void tx_task_init ()
 void tx_task_function(UArg arg0, UArg arg1)
 {
 	uint8_t send_packet[MAX_PACKET_LENGTH];
-	uint8_t send_packet_length = 0;
-	BOOLEAN send_packet_buffer_overflow = TRUE;
+//	uint8_t send_packet_length = 0;
+//	BOOLEAN send_packet_buffer_overflow = TRUE;
 
 	// rf init
 	RF_Params rf_params;
