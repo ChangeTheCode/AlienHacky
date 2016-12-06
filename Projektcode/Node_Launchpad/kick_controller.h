@@ -28,7 +28,7 @@
 #include <math.h>
 
 
-#define LIGHT_LEVEL_IN_PROCENT 20 // 20 % bigger then old value, so read gyro !
+#define LIGHT_LEVEL_IN_PROCENT 120 // 20 % bigger then old value, so read gyro !
 
 #define PRINT_SKIP_COUNT        10
 

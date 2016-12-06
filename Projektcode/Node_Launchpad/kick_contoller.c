@@ -20,7 +20,7 @@ void alien_init_i2c_task(void){
 // function to calculate average of the values.
 int calculate_avarage (int* p_values, int new_value, int avarage){
 
-	avarage = ((avarage* MAX_AVARAGE_COUNT) - *p_values) + new_value;
+	avarage = ((avarage * MAX_AVARAGE_COUNT) - *p_values) + new_value;
 
 	avarage = avarage / MAX_AVARAGE_COUNT;
 
@@ -219,6 +219,10 @@ Void sensor_task_fn(UArg arg0, UArg arg1){
 	}
 	// init i2c of the gyro sensor
 	MPU_handel = MPU9150_init(0, i2c, MPU9150_I2C_ADDRESS);
+	if(MPU_handel == NULL){
+		System_abort("MPU 9150 Init failed \n");
+		System_flush();
+	}
 
 	if( ! config_light_sensor(i2c) ){
 		System_abort("Error Initializing  light 1\n");
@@ -242,26 +246,31 @@ Void sensor_task_fn(UArg arg0, UArg arg1){
 
 	while(1) {
 
-		read_light_sensor_values(i2c, &light_transaction_values[0]); // needs 250 µs
+		if(read_light_sensor_values(i2c, &light_transaction_values[0])){ // needs 250 µs
 
-		// filtering light values and check if the delta is big enough
-		current_16b_light = light_transaction_values[0] << 8 | light_transaction_values[1] ;
-		old_light_avarage = light_avarage; // save old value of light to see how big are the difference
+			// filtering light values and check if the delta is big enough
+			current_16b_light = light_transaction_values[0];
+			old_light_avarage = light_avarage; // save old value of light to see how big are the difference
 
-		if (light_pos >= MAX_AVARAGE_COUNT){
-			light_pos = 0;
+			if (light_pos >= MAX_AVARAGE_COUNT){
+				light_pos = 0;
+			}
+			light_avarage = calculate_avarage(  &light_values[light_pos] ,current_16b_light, light_avarage);
+			light_pos ++;
+
+
+			if( (light_avarage * 100) / old_light_avarage >= LIGHT_LEVEL_IN_PROCENT ){ // to do a test, comment this if block out
+				gyro_to_do();
+
+				//TODO: Calculate all necessary value like MagnetoGetFloat,Accel, gyrogetfloat and so on. Talk to Tobi and to it together
+				//TODO: how to transform the values to the world coordinates
+
+				//TOdo: if(ui32CompDCMStarted == 0) line 566 in tiva
+			}
+		}else{
+			System_printf("\n Read light sensor failed ");
+			System_flush();
 		}
-		light_avarage = calculate_avarage(  &light_values[light_pos] ,current_16b_light, light_avarage);
-
-
-		//if( (light_avarage * 100) / old_light_avarage >= LIGHT_LEVEL_IN_PROCENT ){ // to do a test, comment this if block out
-		gyro_to_do();
-
-		//TODO: Calculate all necessary value like MagnetoGetFloat,Accel, gyrogetfloat and so on. Talk to Tobi and to it together
-		//TODO: how to transform the values to the world coordinates
-
-		//TOdo: if(ui32CompDCMStarted == 0) line 566 in tiva
-		//}
 	}
 }
 
@@ -273,6 +282,7 @@ void gyro_to_do(){
 	if (! MPU9150_read(MPU_handel, i2c)){ // needs 750 µs
 		System_printf("\n Read failed ");
 		System_flush();
+		return;
 	}
 
 	// Get floating point version of the Accel Data in m/s^2.

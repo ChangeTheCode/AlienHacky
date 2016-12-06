@@ -94,7 +94,7 @@ BOOLEAN config_light_int_threshold(I2C_Handle i2c, int threshold_top, int thresh
 }
 
 
-void read_light_sensor_values(I2C_Handle i2c, int* read_value){
+BOOLEAN read_light_sensor_values(I2C_Handle i2c, int* read_value){
 	I2C_Transaction I2C_transaction;
 	uint8_t tx_buffer[1];
 
@@ -109,13 +109,15 @@ void read_light_sensor_values(I2C_Handle i2c, int* read_value){
 	if (I2C_transfer(i2c, &I2C_transaction)) {
 		// pin toggle
 		//System_printf("Sample: %d , %d (RAW)\n", *read_value , *++read_value);
+		return true;
 	}
 	else {
-		/*System_printf("I2C Bus fault \n" );
+		System_printf("I2C Bus fault \n" );
 		System_printf("I2C Werte Slave Adresse %d ",I2C_transaction.slaveAddress );
 		System_printf("I2C Werte TX %d, %d \n", tx_buffer[0], tx_buffer[1] );
-		System_printf("I2C Werte RX %d, %d \n", rx_buffer[0], rx_buffer[1] );*/
-		//Task_sleep(20000);
+		//System_printf("I2C Werte RX %d, %d \n", rx_buffer[0], rx_buffer[1] );
+		//Task_sleep(200);
+		return false;
 	}
 
 	//System_flush();
