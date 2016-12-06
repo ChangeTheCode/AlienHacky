@@ -21,7 +21,7 @@
 
 #include <math.h>
 
-
+void Alien_i2c_init(void);
 extern alien_init_i2c_task(void);
 
 

@@ -22,6 +22,8 @@
 
 #include "Hardware/Standard_lib/mpu9150.h"
 #include "Hardware/Standard_lib/comp_dcm.h"
+
+#include "Hardware/Sensor_lib/light_sensor.h"
 #include <math.h>
 
 
@@ -100,7 +102,7 @@ void calc_in_world_coordinates( gyro_value_t new_ComDCM);
 
 Void sensor_task_fn(UArg arg0, UArg arg1);
 
-void gyro_to_do(MPU9150_Data mpu_data);
+void gyro_to_do(void);
 
 
 #endif /* KICK_CONTROLLER_H_ */

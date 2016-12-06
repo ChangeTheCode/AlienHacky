@@ -198,7 +198,12 @@ void calc_in_world_coordinates( gyro_value_t new_ComDCM){
 		transport_kick_struct._kick_float_high_z  = (i32FPart[17] & 0x0000ff00) >> 8;
 		transport_kick_struct._kick_float_low_z =(i32FPart[17] & 0x000000ff);
 
-		set_new_kick_event_value(transport_kick_struct);
+		System_printf("\n Gyro [6;17H%3d.%03d", i32IPart[16], i32FPart[16]);
+		System_printf(" [6;40H%3d.%03d", i32IPart[17], i32FPart[17]);
+		System_printf(" [6;63H%3d.%03d", i32IPart[18], i32FPart[18]);
+		System_flush();
+
+		//set_new_kick_event_value(transport_kick_struct);
 	}
 }
 
@@ -228,11 +233,15 @@ Void sensor_task_fn(UArg arg0, UArg arg1){
 	MPU_handel = MPU9150_init(0, i2c, MPU9150_I2C_ADDRESS);
 
 	if( ! config_light_sensor(i2c) ){
-		return;   // config of the light sensor failed Break
+		System_abort("Error Initializing  light 1\n");
+		System_flush();
+		//return;   // config of the light sensor failed Break
 	}
 	Task_sleep(100);
 	if( ! config_light_sensor_reg2(i2c) ){
-		return;   // config of the light sensor failed Break
+		System_abort("Error Initializing light 2\n");
+		System_flush();
+		//return;   // config of the light sensor failed Break
 	}
 
 
@@ -240,8 +249,6 @@ Void sensor_task_fn(UArg arg0, UArg arg1){
 	int light_transaction_values[4];
 	int current_16b_light = 0;
 	int old_light_avarage = 0;
-
-	MPU9150_Data mpu_data;
 
 	CompDCMInit(&g_sCompDCMInst, 1.0f / 50.0f, 0.2f, 0.6f, 0.2f);
 
@@ -260,7 +267,7 @@ Void sensor_task_fn(UArg arg0, UArg arg1){
 
 
 		//if( (light_avarage * 100) / old_light_avarage >= LIGHT_LEVEL_IN_PROCENT ){ // to do a test, comment this if block out
-		gyro_to_do(mpu_data);
+		gyro_to_do();
 
 		//TODO: Calculate all necessary value like MagnetoGetFloat,Accel, gyrogetfloat and so on. Talk to Tobi and to it together
 		//TODO: how to transform the values to the world coordinates
@@ -270,8 +277,9 @@ Void sensor_task_fn(UArg arg0, UArg arg1){
 	}
 }
 
-void gyro_to_do(MPU9150_Data mpu_data){
-	Task_sleep(100);
+void gyro_to_do(){
+	Task_sleep(100); //TODO  raus damit
+	MPU9150_Data mpu_data;
 	gyro_value_t new_com_values;
 
 	if (! MPU9150_read(MPU_handel, i2c)){ // needs 750 µs

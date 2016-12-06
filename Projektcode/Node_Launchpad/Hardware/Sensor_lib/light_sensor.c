@@ -17,7 +17,7 @@ BOOLEAN config_light_sensor(I2C_Handle i2c){
 	uint8_t tx_buffer[2];
 
     // Set config of the light sensor
-    I2C_transaction.slaveAddress = 0x44;// Lightsensor read slave adress ; 136 = schreiben 137 lesen
+    I2C_transaction.slaveAddress = 0x44;// Lightsensor read slave address ; 136 = schreiben 137 lesen
 	I2C_transaction.writeBuf = tx_buffer;
 	I2C_transaction.writeCount = 2;
 	I2C_transaction.readBuf = NULL;//rxBuffer;
@@ -80,7 +80,7 @@ BOOLEAN config_light_int_threshold(I2C_Handle i2c, int threshold_top, int thresh
 	I2C_transaction.readCount = 0;//4;
 	tx_buffer[0] = INT_HT_LSB; // interrupt Threshold register low byte
 	tx_buffer[1] = threshold_top & 0x00FF ; // clear high byte part
-	tx_buffer[2] = threshold_top >> 8  ; // clear low byte part
+	tx_buffer[2] = (threshold_top & 0xFF00) >> 8  ; // clear low byte part
 
 
 	// init command register 2
@@ -97,7 +97,6 @@ BOOLEAN config_light_int_threshold(I2C_Handle i2c, int threshold_top, int thresh
 void read_light_sensor_values(I2C_Handle i2c, int* read_value){
 	I2C_Transaction I2C_transaction;
 	uint8_t tx_buffer[1];
-	uint8_t rx_buffer[4];
 
 	/* Point to the T ambient register and read its 2 bytes */
 	I2C_transaction.slaveAddress = 0x44;

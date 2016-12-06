@@ -33,9 +33,9 @@ tCompDCM g_sCompDCMInst;
 //*****************************************************************************
 // Global counter to control and slow down the rate of data to the terminal.
 //*****************************************************************************
-#define PRINT_SKIP_COUNT  10
+//#define PRINT_SKIP_COUNT  10
 
-uint32_t g_ui32PrintSkipCounter;
+//uint32_t g_ui32PrintSkipCounter;
 
 
 

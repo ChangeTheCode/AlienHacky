@@ -19,6 +19,8 @@ uint8_t packet_tx[PAYLOAD_LENGTH];
 BOOLEAN login_ok = FALSE;
 BOOLEAN login_sent = FALSE;
 
+extern Semaphore_Handle sem_i2c_handle;
+
 static void tx_task_function(UArg arg0, UArg arg1);
 
 void tx_task_init(void)
@@ -146,7 +148,10 @@ static void tx_task_function(UArg arg0, UArg arg1)
 				GPTimerCC26XX_start(timer_kick_handle);
 			}
     	}
-		Semaphore_post(sem_rx_handle);
+		//Semaphore_post(sem_rx_handle);
+
+		Semaphore_post(sem_i2c_handle);
+
     }
 }
 

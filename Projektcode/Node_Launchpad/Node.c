@@ -38,6 +38,9 @@
 #include <ti/sysbios/BIOS.h>
 #include <xdc/runtime/System.h>  // This is needed as Board_initGeneral () uses System_abort but didn't include it?
 
+#include <ti/drivers/I2C.h>
+
+#include "Hardware/I2C.h"
 /*
  *  ======== main ========
  */
@@ -45,17 +48,19 @@ int main(void)
 {
     /* Call board init functions. */
     Board_initGeneral();
+    Board_initI2C();
 
     /* Open pins */
-    LED_init();
+/*    LED_init();
     button_init();
     timer_init();
+*/
 
     // init i2c task
-    Alien_i2c_init();
+    Alien_i2c_init();  // todo prüfen wo task_mpu9150 includiert wird
 
     // Init the RF Module
-	Alien_RF_init();
+//	Alien_RF_init();
 
     /* Start BIOS */
     BIOS_start();
