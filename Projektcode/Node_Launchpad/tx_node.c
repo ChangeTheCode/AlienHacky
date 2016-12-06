@@ -150,7 +150,7 @@ static void tx_task_function(UArg arg0, UArg arg1)
     	}
 		//Semaphore_post(sem_rx_handle);
 
-		Semaphore_post(sem_i2c_handle);
+    	Semaphore_pend(sem_tx_handle, BIOS_WAIT_FOREVER);
 
     }
 }

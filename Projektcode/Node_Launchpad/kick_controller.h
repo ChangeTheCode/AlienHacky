@@ -8,6 +8,7 @@
 #ifndef KICK_CONTROLLER_H_
 #define KICK_CONTROLLER_H_
 
+#include <xdc/std.h>
 #include <xdc/runtime/System.h>
 
 #include <ti/sysbios/BIOS.h>
@@ -68,7 +69,7 @@ float transMatrix[3][3], accelMatrix[3][1], newAccel[3][1];
 float *pfAccel2;
 
 
-uint32_t g_ui32PrintSkipCounter;
+uint32_t g_ui32_skip_counter;
 
 
 // this struct is use, to convert the sensor values in the world coordination system

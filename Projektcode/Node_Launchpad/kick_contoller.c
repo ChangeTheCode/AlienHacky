@@ -63,17 +63,6 @@ void calc_in_world_coordinates( gyro_value_t new_ComDCM){
 		CompDCMUpdate(&g_sCompDCMInst);
 	}
 
-	//
-	// Increment the skip counter.  Skip counter is used so we do not
-	// overflow the UART with data.
-	//
-	g_ui32PrintSkipCounter++;
-	if(g_ui32PrintSkipCounter >= PRINT_SKIP_COUNT)
-	{
-		//
-		// Reset skip counter.
-		//
-		g_ui32PrintSkipCounter = 0;
 
 		//
 		// Get Euler data. (Roll Pitch Yaw)
@@ -203,8 +192,7 @@ void calc_in_world_coordinates( gyro_value_t new_ComDCM){
 		System_printf(" [6;63H%3d.%03d", i32IPart[18], i32FPart[18]);
 		System_flush();
 
-		//set_new_kick_event_value(transport_kick_struct);
-	}
+		//set_new_kick_event_value(transport_kick_struct)
 }
 
 // byte array is an 3 item big array

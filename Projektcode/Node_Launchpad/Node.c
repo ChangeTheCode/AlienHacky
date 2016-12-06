@@ -47,20 +47,21 @@
 int main(void)
 {
     /* Call board init functions. */
+
     Board_initGeneral();
     Board_initI2C();
 
     /* Open pins */
-/*    LED_init();
+    LED_init();
     button_init();
     timer_init();
-*/
+
 
     // init i2c task
     Alien_i2c_init();  // todo prüfen wo task_mpu9150 includiert wird
 
     // Init the RF Module
-//	Alien_RF_init();
+	Alien_RF_init();
 
     /* Start BIOS */
     BIOS_start();
