@@ -2,6 +2,7 @@ package at.fhv.alienserver.movingHead;
 
 import at.fhv.alienserver.CoordinateContainer;
 import at.fhv.alienserver.Tuple;
+import at.fhv.alienserver.config.Config;
 
 import javax.swing.*;
 import java.awt.*;
@@ -24,7 +25,7 @@ public class Calibrator {
         ArrayBlockingQueue<Tuple<CoordinateContainer, Long>> coordinates = new ArrayBlockingQueue<>(1);
 
         //Get MH - Control up and running
-        MHControl myMH = null;
+        /*MHControl myMH = null;
         try {
             myMH = new MHControl(coordinates, 1);
         } catch (IOException e){
@@ -32,7 +33,7 @@ public class Calibrator {
             System.exit(-1);
         }
         Thread mhThread = new Thread(myMH);
-        mhThread.start();
+        mhThread.start();*/
 
         //A queue for holding the pressed keys
         ArrayBlockingQueue<Character> characterQueue = new ArrayBlockingQueue<>(1000);

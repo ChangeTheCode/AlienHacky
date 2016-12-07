@@ -5,6 +5,8 @@ public class CoordinateContainer {
     public double y;
     //public double z;
 
+    private String _name = "";
+
     public CoordinateContainer(){
         this.x = 0;
         this.y = 0;
@@ -15,6 +17,13 @@ public class CoordinateContainer {
         this.x = x;
         this.y = y;
         //this.z = z;
+    }
+
+    public CoordinateContainer(double x, double y, String name){
+        this.x = x;
+        this.y = y;
+        //this.z = z;
+        this._name = name;
     }
 
     public CoordinateContainer(CoordinateContainer source){
