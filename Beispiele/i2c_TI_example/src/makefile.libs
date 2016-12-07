@@ -1,6 +1,6 @@
 #
 # This file was generated based on the configuration script:
-#     D:\git_AlienHacky\Beispiele\i2c_TI_example\i2ctmp007.cfg
+#     C:\Users\Tobias\Documents\AlienHacky\Beispiele\i2c_TI_example\i2ctmp007.cfg
 #
 # This makefile may be included in other makefiles that need to build
 # the libraries containing the compiled source files generated as
@@ -14,7 +14,7 @@
 #
 # The absolute path to the generated source directory (at the time the
 # sources were generated) is:
-#    D:\git_AlienHacky\Beispiele\i2c_TI_example\src
+#    C:\Users\Tobias\Documents\AlienHacky\Beispiele\i2c_TI_example\src
 #
 GEN_SRC_DIR ?= ../src
 

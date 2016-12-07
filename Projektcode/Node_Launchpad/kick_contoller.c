@@ -132,6 +132,11 @@ void calc_in_world_coordinates( gyro_value_t new_ComDCM){
 			}
 		}
 
+		// send values, of the current kick
+		pfAccel2[0] = newAccel[0][0]; 	// Berechnete Wert: x: 1076087173, y: 0, z: -1084576224 that's the value <- i think its wrong
+		pfAccel2[1] = newAccel[1][0];
+		pfAccel2[2] = newAccel[2][0];
+
 		//
 		// Now drop back to using the data as a single array for the
 		// purpose of decomposing the float into a integer part and a
@@ -206,6 +211,13 @@ void get_byte_value(int_fast32_t value, uint8_t* byte_array){
 Void sensor_task_fn(UArg arg0, UArg arg1){
 // ToDo´: wenn der I2C_transfer fehlschlägt das ein System reboot gemacht wird oder eine LEd geblinkt und der Task nicht weiter läuft
 	// müsste mit BIOS_exit()
+	pfAccel = pfData;
+	pfGyro = pfData + 3;
+	pfMag = pfData + 6;
+	pfEulers = pfData + 9;
+	pfQuaternion = pfData + 12;
+
+	pfAccel2 = pfData + 16;
 
 	I2C_Params      I2C_params;
 	/* Create I2C for usage */
@@ -245,6 +257,8 @@ Void sensor_task_fn(UArg arg0, UArg arg1){
 	int old_light_avarage = 0;
 
 	CompDCMInit(&g_sCompDCMInst, 1.0f / 50.0f, 0.2f, 0.6f, 0.2f);
+
+	ui32CompDCMStarted = 0;
 
 	while(1) {
 
