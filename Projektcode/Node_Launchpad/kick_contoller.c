@@ -234,7 +234,7 @@ Void sensor_task_fn(UArg arg0, UArg arg1){
 	// init i2c of the gyro sensor
 	MPU_handel = MPU9150_init(0, i2c, MPU9150_I2C_ADDRESS);
 	if(MPU_handel == NULL){
-		System_abort("MPU 9150 Init failed \n");
+		System_abort("MPU 9150 Init failed \n");				// TODO: restart!
 		System_flush();
 	}
 
