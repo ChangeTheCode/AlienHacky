@@ -204,6 +204,8 @@ void get_byte_value(int_fast32_t value, uint8_t* byte_array){
 
 // main function of the task
 Void sensor_task_fn(UArg arg0, UArg arg1){
+// ToDo´: wenn der I2C_transfer fehlschlägt das ein System reboot gemacht wird oder eine LEd geblinkt und der Task nicht weiter läuft
+	// müsste mit BIOS_exit()
 
 	I2C_Params      I2C_params;
 	/* Create I2C for usage */
@@ -255,6 +257,7 @@ Void sensor_task_fn(UArg arg0, UArg arg1){
 			if (light_pos >= MAX_AVARAGE_COUNT){
 				light_pos = 0;
 			}
+			//ToDo: einbauen das die ersten 10 durchläufe kein durchschnitt berechnet wird, da intital das Array 0 ist
 			light_avarage = calculate_avarage(  &light_values[light_pos] ,current_16b_light, light_avarage);
 			light_pos ++;
 

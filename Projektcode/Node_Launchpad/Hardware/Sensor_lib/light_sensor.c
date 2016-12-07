@@ -63,7 +63,7 @@ BOOLEAN config_light_sensor_reg2(I2C_Handle i2c){
 
 BOOLEAN config_light_int_threshold(I2C_Handle i2c, int threshold_top, int threshold_down){
 	I2C_Transaction I2C_transaction;
-	uint8_t tx_buffer[2];
+	uint8_t tx_buffer[3];
 	int length_to_write = 0;
 
 	if( threshold_down == 0){ // if the lower threshold is 0 so don't write the register
