@@ -51,7 +51,24 @@ public class MHControl {
      */
     private final double mhOffsetY = 0;
 
-    public MHControl() throws IOException {
+    /**
+     * A coordinate container used to store the last position that we had to drive to. Needed to determine the direction
+     * if the caller wishes to have an exaggerated packet.
+     */
+    private CoordinateContainer oldPosition;
+
+    private double exaggerationFactor;
+
+    public double getExaggerationFactor() {
+        return exaggerationFactor;
+    }
+
+    public void setExaggerationFactor(double exaggerationFactor) {
+        this.exaggerationFactor = exaggerationFactor;
+    }
+
+    public MHControl(double exaggerationFactor) throws IOException {
+        this.exaggerationFactor = exaggerationFactor;
         DMX packet = new DMX();
         //The following three lines set the MH-X25 to position (0,0)
         packet.setPan(offset_pan);
@@ -65,10 +82,6 @@ public class MHControl {
         DMX dmxPacket = new DMX();
         DMX exaggeratedDmxPacket;
 
-        long currentTime = 0L;
-
-        packets.clear();
-
         position.x = position.x + mhOffsetX;
         position.y = position.y + mhOffsetY;
 
@@ -78,12 +91,14 @@ public class MHControl {
         packets.add(dmxPacket);
 
         if(exaggerate) {
-            exaggeratedDmxPacket = DMX.getExaggeratedDmx(dmxPacket, oldDmxPacket);
+            exaggeratedDmxPacket = getExaggeratedPacket(position, oldPosition, this.exaggerationFactor);
             //Change lighting to make use of exaggerated packet visible
             exaggeratedDmxPacket.shutter = (byte) 0;
             exaggeratedDmxPacket.dimmer = (byte) 0;
             packets.addFirst(exaggeratedDmxPacket);
         }
+
+        oldPosition = new CoordinateContainer(position);
 
         try {
             for (DMX packet : packets) {
@@ -98,6 +113,25 @@ public class MHControl {
             e.printStackTrace();
         }
 
+    }
+
+    private DMX getExaggeratedPacket(CoordinateContainer pos, CoordinateContainer oldPos, double factor){
+        DMX packet = new DMX();
+        CoordinateContainer tempC = new CoordinateContainer(pos);
+
+        double deltaX = pos.x - oldPos.x;
+        double deltaY = pos.y - oldPos.y;
+
+        deltaX *= factor;
+        deltaY *= factor;
+
+        tempC.x += deltaX;
+        tempC.y += deltaY;
+
+        packet.setPan(Math.atan(tempC.x / h) * 180 / Math.PI + offset_pan);
+        packet.setTilt(Math.atan(tempC.y / Math.sqrt(tempC.x * tempC.x + h * h)) * 180 / Math.PI + offset_tilt);
+
+        return packet;
     }
 
 }

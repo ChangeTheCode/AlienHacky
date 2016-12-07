@@ -61,42 +61,6 @@ class DMX {
         this.size = source.size;
     }
 
-    //TODO: Fix this function; after passing through it the debugger sometimes shows values of -1 for pan / tilt
-
-    /**
-     * Function to create a DMX packet with pan and tilt values set to max
-     * <p>
-     * This function uses its parameters to determine whether pan and tilt should increase or decrease and creates a
-     * DMX instance with pan and tilt set to either maximum or minimum (depending in which direction they should move).
-     * In other words: it "exaggerates" the motion to the limit. This helps to increase motion speed of the MH-X25
-     * since it moves faster and accelerates harder if it has to move greater distances.
-     * <p>
-     * The additions or respectively subtractions of 1 at the size comparisons serve the suppression of numeric noise.
-     *
-     * @param source The source packet from which the new packet should be constructed.
-     * @param sourcePredecessor The source packets predecessor; supplied to allow telling if pan / tilt should increase or decrease.
-     * @return DMX instance with pan and tilt set to maximum or minimum as needed.
-     */
-    static DMX getExaggeratedDmx(DMX source, DMX sourcePredecessor){
-        DMX newPacket = new DMX(source);
-
-        //Max = 540; Min = 0
-        if(source.pan > (sourcePredecessor.pan + 1)){
-            newPacket.setPan(540);
-        } else if(source.pan < (sourcePredecessor.pan - 1)){
-            newPacket.setPan(0);
-        }
-
-        //Max = 270; Min = 0
-        if(source.tilt > (sourcePredecessor.tilt + 1)){
-            newPacket.setTilt(270);
-        } else if(source.tilt < (sourcePredecessor.tilt - 1)){
-            newPacket.setTilt(0);
-        }
-
-        return newPacket;
-    }
-
     /**
      * This function returns the stored pan in degrees
      * <p>
