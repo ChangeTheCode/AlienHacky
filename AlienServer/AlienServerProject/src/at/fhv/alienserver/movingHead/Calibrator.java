@@ -2,7 +2,6 @@ package at.fhv.alienserver.movingHead;
 
 import at.fhv.alienserver.CoordinateContainer;
 import at.fhv.alienserver.Tuple;
-import at.fhv.alienserver.config.Config;
 
 import javax.swing.*;
 import java.awt.*;

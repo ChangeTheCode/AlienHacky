@@ -1,14 +1,9 @@
 package at.fhv.alienserver.calculator;
 
 import at.fhv.alienserver.*;
-import at.fhv.alienserver.movingHead.MHControl;
-import at.fhv.alienserver.sockcomm.SockComm;
 
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.atomic.DoubleAccumulator;
 
 import static java.lang.Math.signum;
 import static java.lang.Math.sqrt;
