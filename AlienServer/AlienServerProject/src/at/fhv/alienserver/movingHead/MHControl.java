@@ -4,13 +4,10 @@ import at.fhv.alienserver.CoordinateContainer;
 import at.fhv.alienserver.Tuple;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.LinkedList;
 import java.util.concurrent.BlockingQueue;
 
-import static java.lang.Math.abs;
 import static java.lang.Thread.sleep;
-import static java.lang.Thread.yield;
 
 /**
  * This class wraps the controls for the MH-X25 moving head.
