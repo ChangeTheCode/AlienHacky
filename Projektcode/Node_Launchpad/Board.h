@@ -60,6 +60,9 @@ extern "C" {
 #define     Board_ADCBufChannel0    (0)
 #define     Board_ADCBufChannel1    (1)
 
+#define     Board_I2C0              Board_I2C
+#define     Board_I2C_TMP           Board_I2C0
+
 #define     Board_initGeneral() { \
     Power_init(); \
     if (PIN_init(BoardGpioInitTable) != PIN_SUCCESS) \
@@ -69,6 +72,7 @@ extern "C" {
 
 #define     Board_initGPIO()
 #define     Board_initPWM()        PWM_init()
+#define     Board_initI2C()         I2C_init()
 #define     Board_initSPI()         SPI_init()
 #define     Board_initUART()        UART_init()
 #define     Board_initWatchdog()    Watchdog_init()

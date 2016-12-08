@@ -12,6 +12,7 @@ void alien_init_i2c_task(void){
 	Task_Params_init(&sensor_task_params);
 	sensor_task_params.stackSize = TASKSTACKSIZE;
 	sensor_task_params.stack = &sensor_task_stack;
+	sensor_task_params.priority = 1;
 	Task_construct(&sensor_task, (Task_FuncPtr)sensor_task_fn, &sensor_task_params, NULL);
 }
 
@@ -229,13 +230,14 @@ Void sensor_task_fn(UArg arg0, UArg arg1){
 	}
 	else {
 		System_printf("I2C Initialized!\n");
-	}
-	// init i2c of the gyro sensor
-	MPU_handel = MPU9150_init(0, i2c, MPU9150_I2C_ADDRESS);
-	if(MPU_handel == NULL){
-		System_abort("MPU 9150 Init failed \n");				// TODO: restart!
 		System_flush();
 	}
+//	// init i2c of the gyro sensor
+//	MPU_handel = MPU9150_init(0, i2c, MPU9150_I2C_ADDRESS);
+//	if(MPU_handel == NULL){
+//		System_abort("MPU 9150 Init failed \n");				// TODO: restart!
+//		System_flush();
+//	}
 
 	if( ! config_light_sensor(i2c) ){
 		System_abort("Error Initializing  light 1\n");

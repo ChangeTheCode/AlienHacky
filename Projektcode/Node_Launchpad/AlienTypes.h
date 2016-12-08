@@ -8,6 +8,8 @@
 #ifndef ALIENTYPES_H_
 #define ALIENTYPES_H_
 
+#include <xdc/std.h>
+
 #define BOOLEAN int
 
 #ifndef xdc_std__include

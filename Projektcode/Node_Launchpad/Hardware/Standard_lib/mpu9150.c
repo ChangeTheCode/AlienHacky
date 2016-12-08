@@ -89,7 +89,7 @@ MPU9150_Handle MPU9150_init(unsigned int mpu9105_index,
     	I2C_transaction.readBuf = NULL;
 		I2C_transaction.readCount = 0;
 
-       	if (!I2C_transfer( /*handle->i2c*/ i2c, &I2C_transaction)) {
+       	if (!I2C_transfer( handle->i2c, &I2C_transaction)) {
 			return (NULL);
 		}
 
