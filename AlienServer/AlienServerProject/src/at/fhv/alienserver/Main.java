@@ -1,5 +1,9 @@
 package at.fhv.alienserver;
 
+import at.fhv.alienserver.Common.AccelerationContainer;
+import at.fhv.alienserver.Common.CoordinateContainer;
+import at.fhv.alienserver.Common.LongTuple;
+import at.fhv.alienserver.Common.SpeedContainer;
 import at.fhv.alienserver.calculator.Calculator;
 
 import java.io.PrintWriter;

@@ -1,7 +1,7 @@
 package at.fhv.alienserver.movingHead;
 
-import at.fhv.alienserver.CoordinateContainer;
-import at.fhv.alienserver.Tuple;
+import at.fhv.alienserver.Common.CoordinateContainer;
+import at.fhv.alienserver.Common.Tuple;
 
 import java.io.IOException;
 import java.util.LinkedList;

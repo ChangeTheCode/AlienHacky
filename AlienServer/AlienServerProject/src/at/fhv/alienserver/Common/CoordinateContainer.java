@@ -1,9 +1,13 @@
-package at.fhv.alienserver;
+package at.fhv.alienserver.Common;
 
 public class CoordinateContainer {
     public double x;
     public double y;
     //public double z;
+
+    public String get_name() {
+        return _name;
+    }
 
     private String _name = "";
 

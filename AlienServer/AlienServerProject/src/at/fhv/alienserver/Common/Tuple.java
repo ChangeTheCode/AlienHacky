@@ -1,4 +1,4 @@
-package at.fhv.alienserver;
+package at.fhv.alienserver.Common;
 
 /**
  * Created by thomas on 14.11.16.
