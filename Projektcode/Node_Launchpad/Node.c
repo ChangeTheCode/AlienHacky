@@ -63,6 +63,9 @@ int main(void)
     // Init the RF Module
 	Alien_RF_init();
 
+	System_printf("main finished\n");
+	System_flush();
+
     /* Start BIOS */
     BIOS_start();
 
