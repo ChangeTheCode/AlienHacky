@@ -17,6 +17,6 @@
 void Alien_UART_init (void);
 BOOLEAN Alien_UART_send (uint8_t * data, uint8_t length);
 BOOLEAN Alien_UART_receive (uint8_t * data, uint8_t * length, BOOLEAN * buffer_overflow);
-void Alien_log (char * to_log);
+void Alien_Log (char * to_log);
 
 #endif /* ALIENUART_H_ */

@@ -3,8 +3,8 @@
  *
  */
 #include "AlienUART.h"
-#include "RF.h"
-#include "button.h"
+#include "queue.h"
+
 #include "Board.h"
 #include <ti/sysbios/BIOS.h>
 #include <xdc/runtime/System.h>  // This is needed as Board_initGeneral () uses System_abort but didn't include it?
@@ -17,15 +17,16 @@ int main(void) {
 	debug = TRUE;
 
     // Start message
-	Alien_log ("AlienBridge starting. Running version 08.12.2016\n\n");
+	Alien_Log ("AlienBridge starting. Running version 28.11.2016\n\n");
 
     // Initialise the Board
     Board_initGeneral();
 
     // Initialise the UART
     Alien_UART_init ();
+
+    // Initialise the RF
     Alien_RF_init ();
-    button_init ();
 
     // Now start BIOS
     BIOS_start();
