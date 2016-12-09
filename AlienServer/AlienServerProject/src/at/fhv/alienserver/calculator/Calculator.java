@@ -138,7 +138,8 @@ public class Calculator implements ICalculator{
     }
 
     @Override
-    public void init_Calculator(CoordinateContainer top_left, CoordinateContainer top_right, CoordinateContainer bottom_left, CoordinateContainer bottom_right) {
+    public void init_Calculator(CoordinateContainer top_left, CoordinateContainer top_right,
+                                CoordinateContainer bottom_left, CoordinateContainer bottom_right ) {
         this.tr = top_right;
         this.tl = top_left;
         this.bl = bottom_left;

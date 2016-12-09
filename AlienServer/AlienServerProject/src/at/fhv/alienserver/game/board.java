@@ -1,9 +1,7 @@
 package at.fhv.alienserver.game;
 
-import at.fhv.alienserver.Common.CoordinateContainer;
-import at.fhv.alienserver.Common.Coordinate_Name;
-import at.fhv.alienserver.Common.Kick_Container;
-import at.fhv.alienserver.Common.moving_head_color;
+import at.fhv.alienserver.Common.*;
+import at.fhv.alienserver.calculator.Calculator;
 
 import java.util.ArrayList;
 
@@ -11,6 +9,8 @@ import java.util.ArrayList;
  * Created by Jim on 07.12.2016.
  */
 public class board implements Runnable, IBoard{
+
+    private board() {}
 
     private static Thread _board_thread;
 
@@ -21,19 +21,17 @@ public class board implements Runnable, IBoard{
 
     private CoordinateContainer _start_point = null;
 
-    private CoordinateContainer _next_kick_value;
-
-    public boolean get_is_kick_speed_is_new() {
-        return _kick_speed_is_new;
-    }
-
-    public void set_kick_speed_is_new(boolean _kick_speed_is_new) {
-        this._kick_speed_is_new = _kick_speed_is_new;
-    }
+    private Ball_shot _latest_kick = null;
 
     private boolean _kick_speed_is_new = false;
 
     private static board ourInstance = new board();
+
+
+
+    public boolean get_is_kick_speed_is_new() {
+        return _kick_speed_is_new;
+    }
 
     public static board getInstance(double start_point_x, double start_point_y , double left, double right, double top, double bottom) {
         ourInstance._start_point = new CoordinateContainer(start_point_x, start_point_y, Coordinate_Name.START_POINT);
@@ -41,12 +39,10 @@ public class board implements Runnable, IBoard{
         ourInstance._top_border = top;
         ourInstance._right_border = right;
         ourInstance._left_border = left;
-        ourInstance._next_kick_value = null;
+        ourInstance._latest_kick = null;
 
         return ourInstance;
     }
-
-    private board() {}
 
     public CoordinateContainer get_start_point(){
         return this._start_point;
@@ -56,8 +52,8 @@ public class board implements Runnable, IBoard{
         ArrayList<CoordinateContainer> eges = new ArrayList<CoordinateContainer>();
 
         eges.add(new CoordinateContainer(this._left_border, this._top_border, Coordinate_Name.LEFT_TOP_CORNER ));
-        eges.add(new CoordinateContainer(this._left_border, this._bottom_border, Coordinate_Name.LEFT_TOP_CORNER));
-        eges.add(new CoordinateContainer(this._right_border, this._top_border, Coordinate_Name.RIGHT_BOTTOM_CORNER));
+        eges.add(new CoordinateContainer(this._left_border, this._bottom_border, Coordinate_Name.RIGHT_TOP_CORNER));
+        eges.add(new CoordinateContainer(this._right_border, this._top_border, Coordinate_Name.LEFT_BOTTOM_CORNER));
         eges.add(new CoordinateContainer(this._right_border, this._bottom_border, Coordinate_Name.RIGHT_BOTTOM_CORNER));
 
         return eges;
@@ -67,17 +63,17 @@ public class board implements Runnable, IBoard{
     //diese funktion soll vom Server aufgerufen werden.
     public void set_speed_kick_value (Kick_Container new_kick, long start_time){
         CoordinateContainer coor_kick = new_kick.getKick_direction_speed();
-        if(this._next_kick_value != null) {
-            _next_kick_value = null;
+        if(this._latest_kick != null) {
+            _latest_kick = null;
         }
-        this._next_kick_value = new CoordinateContainer(coor_kick.getX(), coor_kick.getY());
+        this._latest_kick.set_next_kick_value( new CoordinateContainer(coor_kick.getX(), coor_kick.getY()));
 
         _kick_speed_is_new = true;
     }
 
-    public CoordinateContainer get_next_kick_value(){
-        if(_next_kick_value != null) {
-            return this._next_kick_value;
+    public Ball_shot get_latest_kick(){
+        if(_latest_kick != null) {
+            return this._latest_kick;
         }
         return null;
     }
@@ -92,20 +88,27 @@ public class board implements Runnable, IBoard{
     }
 
     public void run(){
-        CoordinateContainer _speed_kick = new CoordinateContainer(_next_kick_value);
+        CoordinateContainer _speed_kick = new CoordinateContainer(_latest_kick.get_next_kick_value());
         long last_move_time = 0;
         boolean out_of_range = false;
+        Calculator my_Calculator = new Calculator();
+        ArrayList<CoordinateContainer> eges = get_corner_coordinate();
+
+        my_Calculator.init_Calculator(eges.get(1), eges.get(2), eges.get(3), eges.get(4));
 
         while(true){
 
             //order new coordinate form the calculator core.
             //TOdo last_move_coordinate = get_coordinate_of_time(System.currentTimeMillis());
+
+            my_Calculator.kick(10, _latest_kick.get_next_kick_value());
+
             last_move_time = System.currentTimeMillis();
 
             while (last_move_time + 10 <= System.currentTimeMillis() || ! _kick_speed_is_new ){
                 // check if there is a new kick event
                 if(_kick_speed_is_new){
-                    _next_kick_value = null;
+                    _latest_kick = null;
 
                     _kick_speed_is_new =false;
                     //Todo call calculate points
