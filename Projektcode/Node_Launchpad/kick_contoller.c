@@ -6,6 +6,7 @@
  */
 #include "kick_controller.h"
 #include "tx_node_interface.h"
+#include "C:\ti\tirtos_cc13xx_cc26xx_2_21_00_06\products\cc26xxware_2_24_03_17272\driverlib\sys_ctrl.h"
 
 void alien_init_i2c_task(void){
 	/* Construct tmp007 Task thread */
@@ -197,7 +198,7 @@ void calc_in_world_coordinates( gyro_value_t new_ComDCM){
 		System_printf(" [6;63H%3d.%03d", i32IPart[18], i32FPart[18]);
 		System_flush();
 
-		set_new_kick_event_value(transport_kick_struct);
+		//set_new_kick_event_value(transport_kick_struct);
 }
 
 // byte array is an 3 item big array
@@ -235,8 +236,10 @@ Void sensor_task_fn(UArg arg0, UArg arg1){
 	// init i2c of the gyro sensor
 	MPU_handel = MPU9150_init(0, i2c, MPU9150_I2C_ADDRESS);
 	if(MPU_handel == NULL){
-		System_abort("MPU 9150 Init failed \n");				// TODO: restart!
-		System_flush();
+		//System_abort("MPU 9150 Init failed \n");				// TODO: rote led blinken!
+		//System_flush();
+		//BIOS_exit(1);
+		SysCtrlSystemReset();
 	}
 
 	if( ! config_light_sensor(i2c) ){

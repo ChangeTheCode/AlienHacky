@@ -60,7 +60,7 @@ int main(void)
     Alien_i2c_init();
 
     // Init the RF Module
-	Alien_RF_init();
+	//Alien_RF_init();
 
     /* Start BIOS */
     BIOS_start();
