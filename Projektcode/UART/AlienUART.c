@@ -227,6 +227,14 @@ void Alien_UART_receive_task (UArg arg0, UArg arg1) {
 
 }
 
+// Just needed for testing purposes, normally not called
+void Alien_start_send_task (void) {
+
+	// tell the send task to send
+	Semaphore_post (send_semaphore_handle);
+
+}
+
 // do logging if debug set
 void Alien_log (char * to_log) {
 

@@ -16,8 +16,10 @@
 #include "Board.h"
 #include "RF.h"
 #include "queue.h"
+#include "button.h"
 
 char curr_char = 'A';
+
 
 void button_callback (PIN_Handle handle, PIN_Id pin_id);
 
@@ -30,8 +32,11 @@ PIN_Config button_pin_table [] = {
 
 PIN_State button_pin_state;
 PIN_Handle button_pin_handle;
+int code_to_test;
 
-void button_init (void) {
+void button_init (int to_test) {
+
+	code_to_test = to_test;
 
 	button_pin_handle = PIN_open(&button_pin_state, button_pin_table);
 	if(!button_pin_handle) {
@@ -58,9 +63,13 @@ void button_callback (PIN_Handle handle, PIN_Id pin_id) {
 
 	/* Debounce logic, only toggle if the button is still pushed (low) */
 	CPUdelay(8000*50);
-	if (!PIN_getInputValue(pin_id)) {
-		switch (pin_id) {
-		case Board_BUTTON0:
+
+	// check if button still pressed
+	if (PIN_getInputValue(pin_id)) return;
+
+	// Receive test
+	if (code_to_test == RECEIVE_TEST) {
+		if (pin_id == Board_BUTTON0) {
 			for (i = 0; i < length; i++) {
 				data [i] = curr_char++;
 				if (curr_char > 'z')
@@ -70,15 +79,29 @@ void button_callback (PIN_Handle handle, PIN_Id pin_id) {
 			queue (RECEIVE_QUEUE, data, length, overflow);
 			sprintf (temp_string, "Added #%s# to the receive queue\n", data);
 			Alien_log (temp_string);
-			break;
-		case Board_BUTTON1:
+		} if (pin_id == Board_BUTTON1) {
 			do {
 				Alien_UART_receive (data, &length, &overflow);
 			} while (length != 0);
-			break;
-		default:
-			/* Do nothing */
-			break;
 		}
 	}
+
+	// send test
+	if (code_to_test == SEND_TEST) {
+		if (pin_id == Board_BUTTON0) {
+			for (i = 0; i < length; i++) {
+				data [i] = curr_char++;
+				if (curr_char > 'z')
+					curr_char = 'A';
+			}
+			data [7] = '\0';
+			queue (SEND_QUEUE, data, length, overflow);
+			sprintf (temp_string, "Added #%s# to the receive queue\n", data);
+			Alien_log (temp_string);
+		} if (pin_id == Board_BUTTON1) {
+			// Wake the UART send process
+			Alien_start_send_task ();
+		}
+	}
+
 }

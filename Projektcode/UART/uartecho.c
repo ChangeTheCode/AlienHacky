@@ -17,7 +17,7 @@ int main(void) {
 	debug = TRUE;
 
     // Start message
-	Alien_log ("AlienBridge starting. Running version 08.12.2016\n\n");
+	Alien_log ("AlienBridge starting. Running version 09.12.2016\n\n");
 
     // Initialise the Board
     Board_initGeneral();
@@ -25,7 +25,8 @@ int main(void) {
     // Initialise the UART
     Alien_UART_init ();
     Alien_RF_init ();
-    button_init ();
+    // button_init (SEND_TEST);
+    // button_init (RECEIVE_TEST);
 
     // Now start BIOS
     BIOS_start();
