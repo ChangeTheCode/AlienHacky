@@ -17,7 +17,7 @@ public class Kick_Container {
         if(kick_direction_speed instanceof CoordinateContainer)
             return kick_direction_speed;
         else{
-            return new CoordinateContainer(-9999,-9999, "empty");
+            return null;
         }
     }
 

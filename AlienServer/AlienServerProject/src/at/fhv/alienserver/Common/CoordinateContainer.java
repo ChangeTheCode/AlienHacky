@@ -5,11 +5,11 @@ public class CoordinateContainer {
     public double y;
     //public double z;
 
-    public String get_name() {
+    public Coordinate_Name get_name() {
         return _name;
     }
 
-    private String _name = "";
+    private Coordinate_Name _name ;
 
     public CoordinateContainer(){
         this.x = 0;
@@ -23,7 +23,7 @@ public class CoordinateContainer {
         //this.z = z;
     }
 
-    public CoordinateContainer(double x, double y, String name){
+    public CoordinateContainer(double x, double y, Coordinate_Name name){
         this.x = x;
         this.y = y;
         //this.z = z;

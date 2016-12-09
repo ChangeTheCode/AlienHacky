@@ -1,7 +1,9 @@
 package at.fhv.alienserver.game;
 
 import at.fhv.alienserver.Common.CoordinateContainer;
+import at.fhv.alienserver.Common.Coordinate_Name;
 import at.fhv.alienserver.Common.Kick_Container;
+import at.fhv.alienserver.Common.moving_head_color;
 
 import java.util.ArrayList;
 
@@ -16,8 +18,6 @@ public class board implements Runnable{
     private double _top_border;
     private double _bottom_border;
     private double _right_border;
-
-    private static Logic _game_rules;
 
     private CoordinateContainer _start_point = null;
 
@@ -37,14 +37,13 @@ public class board implements Runnable{
 
 
     public static board getInstance(double start_point_x, double start_point_y , double left, double right, double top, double bottom) {
-        ourInstance._start_point = new CoordinateContainer(start_point_x, start_point_y);
+        ourInstance._start_point = new CoordinateContainer(start_point_x, start_point_y, Coordinate_Name.START_POINT);
         ourInstance._bottom_border = bottom;
         ourInstance._top_border = top;
         ourInstance._right_border = right;
         ourInstance._left_border = left;
         ourInstance._next_kick_value = null;
 
-        ourInstance._game_rules = Logic.getInstance();
         return ourInstance;
     }
 
@@ -57,10 +56,10 @@ public class board implements Runnable{
     public ArrayList<CoordinateContainer> get_corner_coordinate(){
         ArrayList<CoordinateContainer> eges = new ArrayList<CoordinateContainer>();
 
-        eges.add(new CoordinateContainer(this._left_border, this._top_border, "left_top_corner"));
-        eges.add(new CoordinateContainer(this._left_border, this._bottom_border, "left_bottom_corner"));
-        eges.add(new CoordinateContainer(this._right_border, this._top_border, "right_top_corner"));
-        eges.add(new CoordinateContainer(this._right_border, this._bottom_border, "right_bottom_corner"));
+        eges.add(new CoordinateContainer(this._left_border, this._top_border, Coordinate_Name.LEFT_TOP_CORNER ));
+        eges.add(new CoordinateContainer(this._left_border, this._bottom_border, Coordinate_Name.LEFT_TOP_CORNER));
+        eges.add(new CoordinateContainer(this._right_border, this._top_border, Coordinate_Name.RIGHT_BOTTOM_CORNER));
+        eges.add(new CoordinateContainer(this._right_border, this._bottom_border, Coordinate_Name.RIGHT_BOTTOM_CORNER));
 
         return eges;
     }
@@ -135,10 +134,10 @@ public class board implements Runnable{
 
 
     void do_game_over(){
-        // move_to(start_point, purple)
+        // move_to(start_point, moving_head_color.PURPLE);
         long sys_time = System.currentTimeMillis();
         int repeat = 0;
-        while (repeat < 3 ){
+        while (repeat <= 3 ){
             if((sys_time + 1000 ) >= System.currentTimeMillis()){
                 //set_intensive_of_light(0);
                 repeat ++;
@@ -154,12 +153,13 @@ public class board implements Runnable{
         if(first_call) {
             System.out.println(" Started new game ");
             first_call = false;
-            //move_to(start_point, red);
+            //move_to(start_point, moving_head_color.RED);
+
         }
         while(true) {
             if ((sys_time + 1000) >= System.currentTimeMillis()) {
                 light_intensively ^= light_intensively;
-                //set_intensive_of_light( light_intensively *100);
+                //set_intensive_of_light( light_intensively *100); // 0* 100 = 0 and 1*100 = 100, the value is %
                 sys_time = System.currentTimeMillis();
             }
             if (get_is_kick_speed_is_new()){
