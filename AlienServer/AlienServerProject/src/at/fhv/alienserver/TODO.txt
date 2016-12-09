@@ -1,16 +1,19 @@
-- MHControl auf umgestellten MH-Config umschreiben
+- MHControl auf umgestellten MH-Config umschreiben --> DONE
+    - Änderungen in oberer Zeile testen
 - berechner wrappen gemäß USE-CASE von JIM
-- Alle "Structs" auf Java mit Getter und Setter umbauen --> DONE
+- Alle "Structs" auf Java mit Getter und Setter umbauen --> DONE --> funktioniert mit calcTest
 -------------------------------------------------------------------
 Constructor calculator(coordinateContainer top_left, top_right, bottom_left, bottom_right)
 boolean calculator.kick(statzeit, coordCon kick, geschwindigkeit g );
 
+
 Coordinate_Container calculator.get_position(zeit);
 
 
-Im DMX
+Im MHControl
 Brauch ich ein
 
 Void move_to(Coordinate_Container position)
 Void move_to(Coordinate_Container position, Color color)
+Void set_light(Boolean on) //To turn on and off
 -------------------------------------------------------------------

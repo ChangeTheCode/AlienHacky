@@ -14,8 +14,8 @@ import static java.lang.Thread.sleep;
  */
 public class Main {
     public static void main(String[] args) throws Exception {
-        boolean calcTest = false;
-        boolean MHTest = true;
+        boolean calcTest = true;
+        boolean MHTest = false;
 
         if(calcTest) {
             Calculator myCalc = new Calculator();
@@ -52,7 +52,7 @@ public class Main {
             System.out.println("Speed = " + tempTuple.getB().toString());
             System.out.println("Acceleration = " + tempTuple.getC().toString());
             System.out.println("Final timestamp = " + tempTuple.getD() + "\n\n");
-            logger.println(tempTuple.getA().getX() + ";" + tempTuple.getA().getX());
+            logger.println(tempTuple.getA().getX() + ";" + tempTuple.getA().getY());
 
             ///////////////////////////////////////////////////////
 

@@ -1,6 +1,6 @@
 - MHControl auf umgestellten MH-Config umschreiben
 - berechner wrappen gemäß USE-CASE von JIM
-- Alle "Structs" auf Java mit Getter und Setter umbauen
+- Alle "Structs" auf Java mit Getter und Setter umbauen --> DONE
 -------------------------------------------------------------------
 Constructor calculator(coordinateContainer top_left, top_right, bottom_left, bottom_right)
 boolean calculator.kick(statzeit, coordCon kick, geschwindigkeit g );
@@ -8,7 +8,10 @@ boolean calculator.kick(statzeit, coordCon kick, geschwindigkeit g );
 Coordinate_Container calculator.get_position(zeit);
 
 
-Im DMX
+Im MHControl
 Brauch ich ein
 
-Void move_to(Ball_pos position)
+Void move_to(Coordinate_Container position)
+Void move_to(Coordinate_Container position, Color color)
+Void set_light(Boolean on) //To turn on and off
+-------------------------------------------------------------------

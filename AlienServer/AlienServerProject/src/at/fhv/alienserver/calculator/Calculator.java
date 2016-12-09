@@ -48,7 +48,22 @@ public class Calculator {
      */
     private final double h = 0.01;
 
-    public Calculator(){
+    private CoordinateContainer tl; // tl = top left
+    private CoordinateContainer tr; // tr = top right
+    private CoordinateContainer bl; // bl = bottom left
+    private CoordinateContainer br; // br = bottom right
+
+    public Calculator(CoordinateContainer tl, CoordinateContainer tr, CoordinateContainer bl, CoordinateContainer br){
+        this.tl = tl;
+        this.tr = tr;
+        this.bl = bl;
+        this.br = br;
+
+        /*
+         * Looka here:
+         * http://stackoverflow.com/questions/15620590/polygons-with-double-coordinates
+         * http://stackoverflow.com/questions/15958434/how-to-check-if-a-point-is-inside-a-polygon
+         */
     }
 
     public ArrayList<LongTuple<CoordinateContainer, SpeedContainer, AccelerationContainer, Long>> calculate(
