@@ -20,7 +20,7 @@ class AlienWindowListener implements WindowListener {
     public void windowClosing(WindowEvent e) {
         //System.out.println("Saving playing field dimensions in a super hacky binary file");
         //System.out.flush();
-        Calibrator.setRunning(false);
+        //Calibrator.setRunning(false);
     }
 
     @Override

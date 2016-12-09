@@ -1,0 +1,44 @@
+diff a/AlienServer/AlienServerProject/.idea/workspace.xml b/AlienServer/AlienServerProject/.idea/workspace.xml	(rejected hunks)
+@@ -1040,10 +1040,42 @@
+           <caret line="40" column="26" lean-forward="false" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
+           <folding>
+             <marker date="1481272110506" expanded="true" signature="239:337" ph="..." />
++=======
++    <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/SpeedContainer.java">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="360">
++          <caret line="20" column="21" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
++          <folding>
++            <element signature="e#83#84#0" expanded="true" />
++            <element signature="e#107#108#0" expanded="true" />
++            <element signature="e#141#142#0" expanded="true" />
++            <element signature="e#167#168#0" expanded="true" />
++            <element signature="e#195#196#0" expanded="true" />
++            <element signature="e#219#220#0" expanded="true" />
++            <element signature="e#253#254#0" expanded="true" />
++            <element signature="e#279#280#0" expanded="true" />
+           </folding>
+         </state>
+       </provider>
+     </entry>
++    <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/Tuple.java">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="108">
++          <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
++          <folding>
++            <element signature="e#154#155#0" expanded="true" />
++            <element signature="e#187#188#0" expanded="true" />
++            <element signature="e#213#214#0" expanded="true" />
++            <element signature="e#240#241#0" expanded="true" />
++            <element signature="e#264#265#0" expanded="true" />
++            <element signature="e#297#298#0" expanded="true" />
++            <element signature="e#323#324#0" expanded="true" />
++>>>>>>> AlienServer_Reworked
++          </folding>
++        </state>
++      </provider>
++    </entry>
++<<<<<<< HEAD
+     <entry file="jar://C:/Program Files/Java/jdk1.8.0_60/src.zip!/java/lang/Runnable.java">
+       <provider selected="true" editor-type-id="text-editor">
+         <state relative-caret-position="613">

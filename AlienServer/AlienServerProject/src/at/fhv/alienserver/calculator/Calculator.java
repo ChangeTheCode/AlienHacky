@@ -21,7 +21,7 @@ import static java.lang.Math.sqrt;
  * @author tri7484
  * @version 1.11.2016
   */
-public class Calculator {
+public class Calculator implements ICalculator{
     /*
      * The following vars give the parameters for the calculation in state space. Please note that as of now, these
      * values are not meant to be perfect (or let alone final), they merely serve as a placeholder until testing
@@ -51,7 +51,26 @@ public class Calculator {
      */
     private final double h = 0.01;
 
+    private CoordinateContainer tl; // tl = top left
+    private CoordinateContainer tr; // tr = top right
+    private CoordinateContainer bl; // bl = bottom left
+    private CoordinateContainer br; // br = bottom right
+
     public Calculator(){
+        //empty object
+    }
+
+    private Calculator(CoordinateContainer tl, CoordinateContainer tr, CoordinateContainer bl, CoordinateContainer br){
+        this.tl = tl;
+        this.tr = tr;
+        this.bl = bl;
+        this.br = br;
+
+        /*
+         * Looka here:
+         * http://stackoverflow.com/questions/15620590/polygons-with-double-coordinates
+         * http://stackoverflow.com/questions/15958434/how-to-check-if-a-point-is-inside-a-polygon
+         */
     }
 
     public ArrayList<LongTuple<CoordinateContainer, SpeedContainer, AccelerationContainer, Long>> calculate(
@@ -80,16 +99,16 @@ public class Calculator {
         int targetIterations = new Double(seconds/h).intValue();
 
         while (iteration < targetIterations) {
-            acc.x = signum(acc.x) * signum(A) * sqrt(A * A * speed.x * speed.x) + b * senAcc.x;
-            acc.y = signum(acc.y) * signum(A) * sqrt(A * A * speed.y * speed.y) + b * senAcc.y;
+            acc.setX( signum(acc.getX()) * signum(A) * sqrt(A * A * speed.getX() * speed.getX()) + b * senAcc.getX() );
+            acc.setY( signum(acc.getY()) * signum(A) * sqrt(A * A * speed.getY() * speed.getY()) + b * senAcc.getY() );
             //acc.z = signum(acc.z) * signum(A) * sqrt(A * A * speed.z * speed.z) + b * senAcc.z;
 
-            speed.x = speed.x + acc.x * h;
-            speed.y = speed.y + acc.y * h;
+            speed.setX( speed.getX() + acc.getX() * h );
+            speed.setY( speed.getY() + acc.getY() * h );
             //speed.z = speed.z + acc.z * h;
 
-            pos.x = pos.x + c * speed.x * h + d * senAcc.x;
-            pos.y = pos.y + c * speed.y * h + d * senAcc.y;
+            pos.setX( pos.getX() + c * speed.getX() * h + d * senAcc.getX() );
+            pos.setY( pos.getY() + c * speed.getY() * h + d * senAcc.getY() );
             //pos.z = pos.z + c * speed.z * h + d * senAcc.z;
 
             currentSimulationTime += (1000 * h);
@@ -98,13 +117,13 @@ public class Calculator {
 
             positions.add(new LongTuple<>(new CoordinateContainer(pos), new SpeedContainer(speed),
                     new AccelerationContainer(acc), currentSimulationTime ) );
-            writer.println("PosX = " + pos.x + "\tPosY = " + pos.y /*+ "\tPosZ = " + pos.z*/);
-            writer.println("SpeedX = " + speed.x + "\tSpeedY = " + speed.y /*+ "\tSpeedZ = " + speed.z*/);
-            writer.println("AccX = " + acc.x + "\tAccY = " + acc.y /*+ "\tAccZ = " + acc.z*/);
-            writer.println("SenAccX = " + senAcc.x + "\tSenAccY = " + senAcc.y /*+ "\tSenAccZ = " + senAcc.z*/);
+            writer.println("PosX = " + pos.getX() + "\tPosY = " + pos.getX() /*+ "\tPosZ = " + pos.z*/);
+            writer.println("SpeedX = " + speed.getY() + "\tSpeedY = " + speed.getY() /*+ "\tSpeedZ = " + speed.z*/);
+            writer.println("AccX = " + acc.getX() + "\tAccY = " + acc.getY() /*+ "\tAccZ = " + acc.z*/);
+            writer.println("SenAccX = " + senAcc.getX() + "\tSenAccY = " + senAcc.getY() /*+ "\tSenAccZ = " + senAcc.z*/);
             writer.println("---------------------------------");
 
-            writer2.println(iteration + ";" + pos.x);
+            writer2.println(iteration + ";" + pos.getX());
 
             iteration++;
 
@@ -115,6 +134,26 @@ public class Calculator {
 
     private boolean delta_acc(AccelerationContainer acc1, AccelerationContainer acc2, double threshold){
         /*|| Math.abs(acc1.z - acc2.z) > threshold*/
-        return Math.abs(acc1.x - acc2.x) > threshold || Math.abs(acc1.y - acc2.y) > threshold;
+        return Math.abs(acc1.getX() - acc2.getX()) > threshold || Math.abs(acc1.getY() - acc2.getY()) > threshold;
+    }
+
+    @Override
+    public void init_Calculator(CoordinateContainer top_left, CoordinateContainer top_right, CoordinateContainer bottom_left, CoordinateContainer bottom_right) {
+        this.tr = top_right;
+        this.tl = top_left;
+        this.bl = bottom_left;
+        this.br = bottom_right;
+    }
+
+    @Override
+    public boolean kick(long timestamp, CoordinateContainer kick) {
+
+        return false;
+    }
+
+    @Override
+    public CoordinateContainer get_position(long timestamp) {
+
+        return null;
     }
 }

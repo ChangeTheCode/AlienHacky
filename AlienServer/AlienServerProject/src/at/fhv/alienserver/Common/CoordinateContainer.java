@@ -1,8 +1,24 @@
 package at.fhv.alienserver.Common;
 
 public class CoordinateContainer {
-    public double x;
-    public double y;
+    public double getX() {
+        return this.x;
+    }
+
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public void setY(double y) {
+        this.y = y;
+    }
+
+    private double x;
+    private double y;
     //public double z;
 
     public Coordinate_Name get_name() {

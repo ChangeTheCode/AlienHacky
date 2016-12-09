@@ -10,7 +10,7 @@ import java.util.ArrayList;
 /**
  * Created by Jim on 07.12.2016.
  */
-public class board implements Runnable{
+public class board implements Runnable, IBoard{
 
     private static Thread _board_thread;
 
@@ -34,7 +34,6 @@ public class board implements Runnable{
     private boolean _kick_speed_is_new = false;
 
     private static board ourInstance = new board();
-
 
     public static board getInstance(double start_point_x, double start_point_y , double left, double right, double top, double bottom) {
         ourInstance._start_point = new CoordinateContainer(start_point_x, start_point_y, Coordinate_Name.START_POINT);
@@ -71,7 +70,7 @@ public class board implements Runnable{
         if(this._next_kick_value != null) {
             _next_kick_value = null;
         }
-        this._next_kick_value = new CoordinateContainer(coor_kick.x, coor_kick.y);
+        this._next_kick_value = new CoordinateContainer(coor_kick.getX(), coor_kick.getY());
 
         _kick_speed_is_new = true;
     }
@@ -133,7 +132,7 @@ public class board implements Runnable{
     }
 
 
-    void do_game_over(){
+    private void do_game_over(){
         // move_to(start_point, moving_head_color.PURPLE);
         long sys_time = System.currentTimeMillis();
         int repeat = 0;
@@ -147,7 +146,7 @@ public class board implements Runnable{
 
     }
 
-    void do_start_game(boolean first_call){
+    private void do_start_game(boolean first_call){
         long sys_time = System.currentTimeMillis();
         int light_intensively  = 0;
         if(first_call) {

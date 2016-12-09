@@ -84,22 +84,22 @@ public class Calibrator {
                 if (c == null){
                     //Currently there's no character present, so just don't do anything
                 } else if (c == 'w') {
-                    newCoordinates.x += 0.1;
+                    newCoordinates.setX( newCoordinates.getX() + 0.1 ) ;
                     coordinates.put(new Tuple<>(newCoordinates, Long.MAX_VALUE));
                     System.out.println("Pressed " + c);
                     c = null;
                 } else if (c == 's') {
-                    newCoordinates.x -= 0.1;
+                    newCoordinates.setX( newCoordinates.getX() - 0.1);
                     coordinates.put(new Tuple<>(newCoordinates, Long.MAX_VALUE));
                     System.out.println("Pressed " + c);
                     c = null;
                 } else if (c == 'd') {
-                    newCoordinates.y += 0.1;
+                    newCoordinates.setY( newCoordinates.getY() + 0.1);
                     coordinates.put(new Tuple<>(newCoordinates, Long.MAX_VALUE));
                     System.out.println("Pressed " + c);
                     c = null;
                 } else if (c == 'a') {
-                    newCoordinates.y -= 0.1;
+                    newCoordinates.setY( newCoordinates.getY() -  0.1);
                     coordinates.put(new Tuple<>(newCoordinates, Long.MAX_VALUE));
                     System.out.println("Pressed " + c);
                     c = null;
