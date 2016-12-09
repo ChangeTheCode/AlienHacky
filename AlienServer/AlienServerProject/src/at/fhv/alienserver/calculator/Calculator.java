@@ -77,16 +77,16 @@ public class Calculator {
         int targetIterations = new Double(seconds/h).intValue();
 
         while (iteration < targetIterations) {
-            acc.x = signum(acc.x) * signum(A) * sqrt(A * A * speed.x * speed.x) + b * senAcc.x;
-            acc.y = signum(acc.y) * signum(A) * sqrt(A * A * speed.y * speed.y) + b * senAcc.y;
+            acc.setX( signum(acc.getX()) * signum(A) * sqrt(A * A * speed.getX() * speed.getX()) + b * senAcc.getX() );
+            acc.setY( signum(acc.getY()) * signum(A) * sqrt(A * A * speed.getY() * speed.getY()) + b * senAcc.getY() );
             //acc.z = signum(acc.z) * signum(A) * sqrt(A * A * speed.z * speed.z) + b * senAcc.z;
 
-            speed.x = speed.x + acc.x * h;
-            speed.y = speed.y + acc.y * h;
+            speed.setX( speed.getX() + acc.getX() * h );
+            speed.setY( speed.getY() + acc.getY() * h );
             //speed.z = speed.z + acc.z * h;
 
-            pos.x = pos.x + c * speed.x * h + d * senAcc.x;
-            pos.y = pos.y + c * speed.y * h + d * senAcc.y;
+            pos.setX( pos.getX() + c * speed.getX() * h + d * senAcc.getX() );
+            pos.setY( pos.getY() + c * speed.getY() * h + d * senAcc.getY() );
             //pos.z = pos.z + c * speed.z * h + d * senAcc.z;
 
             currentSimulationTime += (1000 * h);
@@ -95,13 +95,13 @@ public class Calculator {
 
             positions.add(new LongTuple<>(new CoordinateContainer(pos), new SpeedContainer(speed),
                     new AccelerationContainer(acc), currentSimulationTime ) );
-            writer.println("PosX = " + pos.x + "\tPosY = " + pos.y /*+ "\tPosZ = " + pos.z*/);
-            writer.println("SpeedX = " + speed.x + "\tSpeedY = " + speed.y /*+ "\tSpeedZ = " + speed.z*/);
-            writer.println("AccX = " + acc.x + "\tAccY = " + acc.y /*+ "\tAccZ = " + acc.z*/);
-            writer.println("SenAccX = " + senAcc.x + "\tSenAccY = " + senAcc.y /*+ "\tSenAccZ = " + senAcc.z*/);
+            writer.println("PosX = " + pos.getX() + "\tPosY = " + pos.getX() /*+ "\tPosZ = " + pos.z*/);
+            writer.println("SpeedX = " + speed.getY() + "\tSpeedY = " + speed.getY() /*+ "\tSpeedZ = " + speed.z*/);
+            writer.println("AccX = " + acc.getX() + "\tAccY = " + acc.getY() /*+ "\tAccZ = " + acc.z*/);
+            writer.println("SenAccX = " + senAcc.getX() + "\tSenAccY = " + senAcc.getY() /*+ "\tSenAccZ = " + senAcc.z*/);
             writer.println("---------------------------------");
 
-            writer2.println(iteration + ";" + pos.x);
+            writer2.println(iteration + ";" + pos.getX());
 
             iteration++;
 
@@ -112,6 +112,6 @@ public class Calculator {
 
     private boolean delta_acc(AccelerationContainer acc1, AccelerationContainer acc2, double threshold){
         /*|| Math.abs(acc1.z - acc2.z) > threshold*/
-        return Math.abs(acc1.x - acc2.x) > threshold || Math.abs(acc1.y - acc2.y) > threshold;
+        return Math.abs(acc1.getX() - acc2.getX()) > threshold || Math.abs(acc1.getY() - acc2.getY()) > threshold;
     }
 }

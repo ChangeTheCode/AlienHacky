@@ -41,87 +41,87 @@ public class Main {
             LongTuple<CoordinateContainer, SpeedContainer, AccelerationContainer, Long> tempTuple = myList.get(myList.size() - 1);
 
             myList = myCalc.calculate(
-                    tempTuple.a, tempTuple.b, tempTuple.c,
+                    tempTuple.getA(), tempTuple.getB(), tempTuple.getC(),
                     new AccelerationContainer(0, 0)
-                    , fulltime1 - accelTime, tempTuple.d);
+                    , fulltime1 - accelTime, tempTuple.getD());
 
             tempTuple = myList.get(myList.size() - 1);
 
             System.out.println("After kick 1!");
-            System.out.println("Position = " + tempTuple.a.toString());
-            System.out.println("Speed = " + tempTuple.b.toString());
-            System.out.println("Acceleration = " + tempTuple.c.toString());
-            System.out.println("Final timestamp = " + tempTuple.d + "\n\n");
-            logger.println(tempTuple.a.x + ";" + tempTuple.a.y);
+            System.out.println("Position = " + tempTuple.getA().toString());
+            System.out.println("Speed = " + tempTuple.getB().toString());
+            System.out.println("Acceleration = " + tempTuple.getC().toString());
+            System.out.println("Final timestamp = " + tempTuple.getD() + "\n\n");
+            logger.println(tempTuple.getA().getX() + ";" + tempTuple.getA().getX());
 
             ///////////////////////////////////////////////////////
 
             myList = myCalc.calculate(
-                    tempTuple.a, new SpeedContainer(0, 0), new AccelerationContainer(0, 0),
+                    tempTuple.getA(), new SpeedContainer(0, 0), new AccelerationContainer(0, 0),
                     new AccelerationContainer(0, -1.5),
-                    accelTime, tempTuple.d);
+                    accelTime, tempTuple.getD());
 
             tempTuple = myList.get(myList.size() - 1);
 
             myList = myCalc.calculate(
-                    tempTuple.a, tempTuple.b, tempTuple.c,
+                    tempTuple.getA(), tempTuple.getB(), tempTuple.getC(),
                     new AccelerationContainer(0, 0)
-                    , fulltime2 - accelTime, tempTuple.d);
+                    , fulltime2 - accelTime, tempTuple.getD());
 
             tempTuple = myList.get(myList.size() - 1);
 
             System.out.println("After kick 2!");
-            System.out.println("Position = " + tempTuple.a.toString());
-            System.out.println("Speed = " + tempTuple.b.toString());
-            System.out.println("Acceleration = " + tempTuple.c.toString());
-            System.out.println("Final timestamp = " + tempTuple.d + "\n\n");
-            logger.println(tempTuple.a.x + ";" + tempTuple.a.y);
+            System.out.println("Position = " + tempTuple.getA().toString());
+            System.out.println("Speed = " + tempTuple.getB().toString());
+            System.out.println("Acceleration = " + tempTuple.getC().toString());
+            System.out.println("Final timestamp = " + tempTuple.getD() + "\n\n");
+            logger.println(tempTuple.getA().getX() + ";" + tempTuple.getA().getY());
 
             ///////////////////////////////////////////////////////
 
             myList = myCalc.calculate(
-                    tempTuple.a, new SpeedContainer(0, 0), new AccelerationContainer(0, 0),
+                    tempTuple.getA(), new SpeedContainer(0, 0), new AccelerationContainer(0, 0),
                     new AccelerationContainer(-2.5, 0),
-                    accelTime, tempTuple.d);
+                    accelTime, tempTuple.getD());
 
             tempTuple = myList.get(myList.size() - 1);
 
             myList = myCalc.calculate(
-                    tempTuple.a, tempTuple.b, tempTuple.c,
+                    tempTuple.getA(), tempTuple.getB(), tempTuple.getC(),
                     new AccelerationContainer(0, 0)
-                    , fulltime3 - accelTime, tempTuple.d);
+                    , fulltime3 - accelTime, tempTuple.getD());
 
             tempTuple = myList.get(myList.size() - 1);
 
             System.out.println("After kick 3!");
-            System.out.println("Position = " + tempTuple.a.toString());
-            System.out.println("Speed = " + tempTuple.b.toString());
-            System.out.println("Acceleration = " + tempTuple.c.toString());
-            System.out.println("Final timestamp = " + tempTuple.d + "\n\n");
-            logger.println(tempTuple.a.x + ";" + tempTuple.a.y);
+            System.out.println("Position = " + tempTuple.getA().toString());
+            System.out.println("Speed = " + tempTuple.getB().toString());
+            System.out.println("Acceleration = " + tempTuple.getC().toString());
+            System.out.println("Final timestamp = " + tempTuple.getD() + "\n\n");
+            logger.println(tempTuple.getA().getX() + ";" + tempTuple.getA().getY());
 
             ///////////////////////////////////////////////////////
 
             myList = myCalc.calculate(
-                    tempTuple.a, new SpeedContainer(0, 0), new AccelerationContainer(0, 0),
+                    tempTuple.getA(), new SpeedContainer(0, 0), new AccelerationContainer(0, 0),
                     new AccelerationContainer(1.5, -1),
-                    accelTime, tempTuple.d);
+                    accelTime, tempTuple.getD());
 
             tempTuple = myList.get(myList.size() - 1);
 
             myList = myCalc.calculate(
-                    tempTuple.a, tempTuple.b, tempTuple.c,
+                    tempTuple.getA(), tempTuple.getB(), tempTuple.getC(),
                     new AccelerationContainer(0, 0)
-                    , fulltime4 - accelTime, tempTuple.d);
+                    , fulltime4 - accelTime, tempTuple.getD());
 
             tempTuple = myList.get(myList.size() - 1);
 
             System.out.println("After kick 4!");
-            System.out.println("Position = " + tempTuple.a.toString());
-            System.out.println("Speed = " + tempTuple.b.toString());
-            System.out.println("Acceleration = " + tempTuple.c.toString());
-            System.out.println("Final timestamp = " + tempTuple.d + "\n\n");
-            logger.println(tempTuple.a.x + ";" + tempTuple.a.y);
+            System.out.println("Position = " + tempTuple.getA().toString());
+            System.out.println("Speed = " + tempTuple.getB().toString());
+            System.out.println("Acceleration = " + tempTuple.getC().toString());
+            System.out.println("Final timestamp = " + tempTuple.getD() + "\n\n");
+            logger.println(tempTuple.getA().getX() + ";" + tempTuple.getA().getY());
 
             ///////////////////////////////////////////////////////
 

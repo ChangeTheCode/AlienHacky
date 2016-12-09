@@ -70,7 +70,7 @@ class DMX {
      * @return Stored pan in degrees
      */
     double getPan() {
-        return this.pan / 255.0 * 540.0;
+        return this.pan / 255.0 * 180.0;
     }
 
     /**
@@ -81,7 +81,7 @@ class DMX {
      * @param pan The pan to be set in degrees; must be in range [0, 540]; if not unspecified things will occur.
      */
     void setPan(double pan) {
-        this.pan = (byte)(255.0 / 540.0 * pan);
+        this.pan = (byte)(255.0 / 180.0 * pan);
     }
 
     /**

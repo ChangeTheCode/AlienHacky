@@ -22,11 +22,13 @@ public class MHControl {
     //FIXME: Move all of the following to config.file
     /**
      * Offset of the Pan - angle; chosen to have the MH-X25 point straight to the ground for point (0, 0)
+     * FIXME: Redefine the offsets to fit the new MH-X25 settings
      */
     private final double offset_pan = 90;
     //private final double offset_pan = 180;
     /**
      * Offset of the Tilt - angle; chosen to have the MH-X25 point straight to the ground for point (0, 0)
+     * FIXME: Redefine the offsets to fit the new MH-X25 settings
      */
     private final double offset_tilt = 135 + 90;
     //private final double offset_tilt = 135;
@@ -100,14 +102,14 @@ public class MHControl {
         DMX dmxPacket = new DMX();
         DMX exaggeratedDmxPacket;
 
-        position.x = position.x + mhOffsetX;
-        position.y = position.y + mhOffsetY;
+        position.setX( position.getX() + mhOffsetX );
+        position.setY( position.getY() + mhOffsetY );
 
-        position.x *= xMirrorFactor;
-        position.y *= yMirrorFactor;
+        position.setX( position.getX() * xMirrorFactor );
+        position.setY( position.getY() * yMirrorFactor );
 
-        dmxPacket.setPan(Math.atan(position.x / h) * 180 / Math.PI + offset_pan);
-        dmxPacket.setTilt(Math.atan(position.y / Math.sqrt(position.x * position.x + h * h)) * 180 / Math.PI + offset_tilt);
+        dmxPacket.setPan(Math.atan(position.getX() / h) * 180 / Math.PI + offset_pan);
+        dmxPacket.setTilt(Math.atan(position.getY() / Math.sqrt(position.getX() * position.getX() + h * h)) * 180 / Math.PI + offset_tilt);
 
         if(selfSleep){
             sleepTime = getTimeToSleep(oldPacket, dmxPacket);
@@ -131,7 +133,9 @@ public class MHControl {
         try {
             for (DMX packet : packets) {
                 esp.sendPackets(packet);
-                sleep(150); //FIXME: this sleep call is also used when no exaggerated packet is used
+                if(packets.size() > 1) {
+                    sleep(150);
+                }
             }
             sleep(sleepTime);
         } catch (IOException e) {
@@ -147,17 +151,17 @@ public class MHControl {
         DMX packet = new DMX();
         CoordinateContainer tempC = new CoordinateContainer(pos);
 
-        double deltaX = pos.x - oldPos.x;
-        double deltaY = pos.y - oldPos.y;
+        double deltaX = pos.getX() - oldPos.getX();
+        double deltaY = pos.getY() - oldPos.getY();
 
         deltaX *= factor;
         deltaY *= factor;
 
-        tempC.x += deltaX;
-        tempC.y += deltaY;
+        tempC.setX( tempC.getX() + deltaX );
+        tempC.setY( tempC.getY() + deltaY );
 
-        packet.setPan(Math.atan(tempC.x / h) * 180 / Math.PI + offset_pan);
-        packet.setTilt(Math.atan(tempC.y / Math.sqrt(tempC.x * tempC.x + h * h)) * 180 / Math.PI + offset_tilt);
+        packet.setPan(Math.atan(tempC.getX() / h) * 180 / Math.PI + offset_pan);
+        packet.setTilt(Math.atan(tempC.getY() / Math.sqrt(tempC.getX() * tempC.getX() + h * h)) * 180 / Math.PI + offset_tilt);
 
         return packet;
     }
