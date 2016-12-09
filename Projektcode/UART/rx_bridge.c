@@ -6,6 +6,7 @@
  */
 
 #include "RF.h"
+#include "AlienUART.h"
 
 static Task_Params rx_task_params;
 Task_Struct rx_task;    /* not static so you can see in ROV */
@@ -91,10 +92,10 @@ static void rx_task_function(UArg arg0, UArg arg1)
 
     while(1)
     {
-		System_printf ("in rx task\n");
-		System_flush();
+		Alien_log ("in rx task\n");
 		/* Enter RX mode and stay forever in RX */
     	rx_cmd = RF_postCmd(RF_handle, (RF_Op*)&RF_cmdPropRx, RF_PriorityNormal, &rx_callback, IRQ_RX_ENTRY_DONE);
+
 		Semaphore_pend(sem_rx_handle, BIOS_WAIT_FOREVER);
     }
 
@@ -119,19 +120,22 @@ void rx_callback(RF_Handle h, RF_CmdHandle ch, RF_EventMask e)
         // TODO: nur fuer debug
         if (packet_rx[0] == '1')
         {
-            Alien_Log("login versuch empfangen\n");
+            Alien_log("login versuch empfangen\n");
         }
         else if(packet_rx[0] == '4')
         {
-            Alien_Log ("heartbeat empfangen\n");
+            Alien_log ("heartbeat empfangen\n");
         }
         else if(packet_rx[0] == '6')
         {
-            Alien_Log ("kick empfangen\n");
+            Alien_log ("kick empfangen\n");
         }
-        //Semaphore_post(sem_tx_handle);
 
         Alien_UART_send(packet_rx, packet_rx_length);
+
+        Semaphore_post(sem_tx_handle);
+
+
 
         RFQueue_nextEntry();
     }

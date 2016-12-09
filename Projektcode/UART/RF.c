@@ -22,6 +22,7 @@ void Alien_RF_init(void)
 
     /* Construct a Semaphore object to be used as a resource lock, inital count 0 */
     Semaphore_Params_init(&sem_params);
+    sem_params.mode = Semaphore_Mode_BINARY;
     Semaphore_construct(&sem_tx_struct, 0, &sem_params);
     Semaphore_construct(&sem_rx_struct, 0, &sem_params);
 

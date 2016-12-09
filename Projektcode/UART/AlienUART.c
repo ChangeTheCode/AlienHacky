@@ -62,7 +62,7 @@ BOOLEAN Alien_UART_send (uint8_t * data, uint8_t length) {
 	// send message
 	char temp_string [MAX_LOG_ENTRY];
 	sprintf (temp_string, "Alien UART send called. Sending %s\n", data);
-	Alien_Log (temp_string);
+	Alien_log (temp_string);
 
 	// just add to the queue
 	BOOLEAN rc = queue (SEND_QUEUE, data, length, FALSE);
@@ -71,29 +71,33 @@ BOOLEAN Alien_UART_send (uint8_t * data, uint8_t length) {
 	Semaphore_post (send_semaphore_handle);
 
 	// finished
-	Alien_Log("Alien UART send finished.\n");
+	Alien_log("Alien UART send finished.\n");
 	return rc;
 }
 
 // read the next entry from the queue
 BOOLEAN Alien_UART_receive (uint8_t * data, uint8_t * length, BOOLEAN * buffer_overflow) {
 
-	Alien_Log ("Alien UART receive called\n");
+	Alien_log ("Alien UART receive called\n");
 
 	// just get from the queue
 	BOOLEAN rc;
 	rc = dequeue (RECEIVE_QUEUE, data, length, buffer_overflow);
 
-	char temp_string [MAX_LOG_ENTRY];
-	sprintf (temp_string, "Alien UART receive finished. Received: %s\n", data);
-	Alien_Log (temp_string);
+	if (rc == FALSE) {
+		Alien_log ("Alien UART receive finished. Queue was empty\n");
+	} else {
+		char temp_string [MAX_LOG_ENTRY];
+		sprintf (temp_string, "Alien UART receive finished. Received: %s\n", data);
+		Alien_log (temp_string);
+	}
 	return rc;
 }
 
 // UART initialise
 void Alien_UART_init (void) {
 
-	Alien_Log ("UART initialise starting\n");
+	Alien_log ("UART initialise starting\n");
 
 	// initialise the UART
 	Board_initUART();
@@ -105,16 +109,16 @@ void Alien_UART_init (void) {
 	UART_params.readDataMode = UART_DATA_BINARY;
 	UART_params.readMode = UART_MODE_CALLBACK;
 	UART_params.readCallback = &UART_read_callback;
-	UART_params.readReturnMode = UART_RETURN_FULL;
+	UART_params.readReturnMode = UART_RETURN_NEWLINE;
 	UART_params.readEcho = UART_ECHO_OFF;
 
 	UART_params.baudRate = 115200;
 	UART = UART_open (Board_UART0, &UART_params);
 	if (UART == NULL)
-		Alien_Log ("Error opening the UART");
+		Alien_log ("Error opening the UART");
 
 	// proceed
-	Alien_Log ("UART port setup complete\n");
+	Alien_log ("UART port setup complete\n");
 
 	// create the UART send task
 	Task_Params_init (&UART_send_task_params);
@@ -122,7 +126,7 @@ void Alien_UART_init (void) {
 	UART_send_task_params.stack = &task_UART_send_stack;
 	UART_send_task_params.priority = 1;
 	Task_construct (&task_UART_send_struct, (Task_FuncPtr) Alien_UART_send_task, &UART_send_task_params, NULL);
-	Alien_Log ("UART send task setup complete\n");
+	Alien_log ("UART send task setup complete\n");
 
 	// create the UART receive task
 	Task_Params_init (&UART_receive_task_params);
@@ -130,21 +134,21 @@ void Alien_UART_init (void) {
 	UART_receive_task_params.stack = &task_UART_receive_stack;
 	UART_receive_task_params.priority = 1;
 	Task_construct (&task_UART_receive_struct, (Task_FuncPtr) Alien_UART_receive_task, &UART_receive_task_params, NULL);
-	Alien_Log ("UART receive task setup complete\n");
+	Alien_log ("UART receive task setup complete\n");
 
 	/* Construct a Semaphore object to be used as a resource lock, initial count 0 */
 	Semaphore_Params_init (&send_semaphore_params);
 	Semaphore_construct (&send_semaphore_struct, 0, &send_semaphore_params);
 	send_semaphore_handle = Semaphore_handle (&send_semaphore_struct);
-	Alien_Log ("UART send semaphore setup complete\n");
+	Alien_log ("UART send semaphore setup complete\n");
 
 	/* Construct a Semaphore object to be used as a resource lock, initial count 0 */
 	Semaphore_Params_init (&receive_semaphore_params);
 	Semaphore_construct (&receive_semaphore_struct, 0, &receive_semaphore_params);
 	receive_semaphore_handle = Semaphore_handle (&receive_semaphore_struct);
-	Alien_Log ("UART receive semaphore setup complete\n");
+	Alien_log ("UART receive semaphore setup complete\n");
 
-	Alien_Log ("UART initialise complete\n\n");
+	Alien_log ("UART initialise complete\n\n");
 }
 // this gets called when you are doing the callback
 void UART_read_callback (UART_Handle UART, void * data, size_t length) {
@@ -153,8 +157,8 @@ void UART_read_callback (UART_Handle UART, void * data, size_t length) {
 	if (buffer_read [0] == END_OF_RECORD) {
 		temp_data [temp_pos] = '\0';
 		char temp_string [MAX_LOG_ENTRY];
-		sprintf (temp_string, "Adding to the receive queue: %s\n", temp_data);
-		Alien_Log (temp_string);
+		sprintf (temp_string, "UART_read_callback: Adding to the receive queue: %s\n", temp_data);
+		Alien_log (temp_string);
 
 		// take what you read and place it in the receive queue
 		BOOLEAN rc = queue (RECEIVE_QUEUE, temp_data, temp_pos, buffer_overflow);
@@ -167,7 +171,7 @@ void UART_read_callback (UART_Handle UART, void * data, size_t length) {
 		Semaphore_post(sem_tx_handle);
 
 		// finished
-		Alien_Log ("Waiting for more data\n");
+		Alien_log ("UART_read_callback: Waiting for more data\n");
 	} else {
 		temp_data [temp_pos++] = buffer_read [0];
 		if (temp_pos == MAX_PACKET_LENGTH) {
@@ -187,9 +191,9 @@ void Alien_UART_send_task (UArg arg0, UArg arg1) {
 	// loop forever
 	while (TRUE) {
 		// wait for something or someone to wake me
-		Alien_Log ("In Alien_UART_send_task function waiting for semaphore...\n");
+		Alien_log ("In Alien_UART_send_task function waiting for semaphore...\n");
 		Semaphore_pend (send_semaphore_handle, BIOS_WAIT_FOREVER);
-		Alien_Log ("The semaphore in Alien_UART_send_task function just woke up\n");
+		Alien_log ("The semaphore in Alien_UART_send_task function just woke up\n");
 
 		// send everything in the send queue
 		uint8_t length;
@@ -203,10 +207,10 @@ void Alien_UART_send_task (UArg arg0, UArg arg1) {
 				data [length] = (uint8_t) '\0';
 				char temp_string [MAX_LOG_ENTRY];
 				sprintf (temp_string, "Sent %s\n", data);
-				Alien_Log (temp_string);
+				Alien_log (temp_string);
 			}
 		} while (length > 0);
-		Alien_Log ("Finished sending data to queue\n\n");
+		Alien_log ("Finished sending data to queue\n\n");
 	}
 }
 
@@ -217,14 +221,16 @@ void Alien_UART_receive_task (UArg arg0, UArg arg1) {
 		// call UART read which comes back immediately and calls the callback function
 		UART_read(UART, (void *) buffer_read, 1);
 
+		//Alien_log("in uart receive task before semaphore\n");
 		// wait for the callback function to finish
 		Semaphore_pend (receive_semaphore_handle, BIOS_WAIT_FOREVER);
+		//Alien_log("in uart receive task after semaphore\n");
 	}
 
 }
 
 // do logging if debug set
-void Alien_Log (char * to_log) {
+void Alien_log (char * to_log) {
 
 	if (debug) {
 		System_printf (to_log);

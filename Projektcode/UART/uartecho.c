@@ -3,7 +3,7 @@
  *
  */
 #include "AlienUART.h"
-#include "queue.h"
+#include "RF.h"
 
 #include "Board.h"
 #include <ti/sysbios/BIOS.h>
@@ -17,7 +17,7 @@ int main(void) {
 	debug = TRUE;
 
     // Start message
-	Alien_Log ("AlienBridge starting. Running version 28.11.2016\n\n");
+	Alien_log ("AlienBridge starting. Running version 09.12.2016\n\n");
 
     // Initialise the Board
     Board_initGeneral();

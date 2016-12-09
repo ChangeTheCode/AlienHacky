@@ -6,6 +6,8 @@
  */
 
 #include "RF.h"
+#include "AlienUART.h"
+#include "queue.h"
 
 
 /***** Variable declarations *****/
@@ -49,17 +51,31 @@ void tx_task_function(UArg arg0, UArg arg1)
 		RF_postCmd(RF_handle, (RF_Op*)&RF_cmdFs, RF_PriorityNormal, NULL, 0);
 	}
 
+	uint8_t length = 7;
+	uint8_t data [MAX_PACKET_LENGTH];
+	BOOLEAN overflow = FALSE;
+
     while(1)
     {
-		Alien_Log("Waiting for RF send semaphore\n");
+		Alien_log("Waiting for RF send semaphore\n");
 
     	Semaphore_pend(sem_tx_handle, BIOS_WAIT_FOREVER);
 
-		Alien_Log("In RF send\n");
+		Alien_log("In RF send\n");
 
 		//TODO while uart
 		// if something was sent from the server send it
-    	while(Alien_UART_receive (send_packet, &send_packet_length, &send_packet_buffer_overflow))
+//    	while(Alien_UART_receive (send_packet, &send_packet_length, &send_packet_buffer_overflow))
+		data [0] = 'H';
+		data [1] = 'a';
+		data [2] = 'l';
+		data [3] = 'l';
+		data [4] = 'l';
+		data [5] = 'o';
+		data [6] = 'o';
+		data [7] = '\0';
+		queue (RECEIVE_QUEUE, data, length, FALSE);
+		if(Alien_UART_receive (send_packet, &send_packet_length, &send_packet_buffer_overflow))
     	{
     		send_packet [send_packet_length] ='\0';
     		System_printf ("RTS: %s\n", send_packet);
@@ -75,10 +91,13 @@ void tx_task_function(UArg arg0, UArg arg1)
 
 				// post TX CMD
 				RF_CmdHandle tx_cmd = RF_postCmd(RF_handle, (RF_Op*)&RF_cmdPropTx, RF_PriorityHighest, NULL, 0);
+				System_printf("%d\n", tx_cmd);
+				System_flush();
 			}
 			// bufferoverflow or invalid packet length
     	}
-
+    	Alien_log("tx nach schleife\n");
+//
 //		if(packet_rx[0] == '1')
 //		{
 //			send_packet[0] = 0xaa; 	// TODO: der Server schreibt eigentlich das Paket!
