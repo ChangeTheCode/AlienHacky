@@ -2,7 +2,9 @@ package at.fhv.alienserver.game;
 
 import at.fhv.alienserver.Common.*;
 import at.fhv.alienserver.calculator.Calculator;
+import at.fhv.alienserver.movingHead.MHControl;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -91,6 +93,15 @@ public class board implements Runnable, IBoard{
         CoordinateContainer _speed_kick = new CoordinateContainer(_latest_kick.getKick_direction_speed());
         long last_move_time = 0;
         boolean out_of_range = false;
+        MHControl my_DMX = null;
+
+        try {
+            my_DMX = new MHControl(2.0, false,true);
+        }catch (IOException e){
+            e.printStackTrace();
+            return;
+        }
+
         Calculator my_Calculator = new Calculator();
         ArrayList<CoordinateContainer> eges = get_corner_coordinate();
 
@@ -124,8 +135,8 @@ public class board implements Runnable, IBoard{
                 if(out_of_range){
                     out_of_range = false;
 
-                    do_game_over();
-                    do_start_game(true);
+                    do_game_over(my_DMX);
+                    do_start_game(true, my_DMX);
                 }
             }// end While
 
@@ -133,13 +144,13 @@ public class board implements Runnable, IBoard{
     }
 
 
-    private void do_game_over(){
-        // move_to(start_point, moving_head_color.PURPLE);
+    private void do_game_over(MHControl dmx_control){
+        dmx_control.move_to(get_start_point(), false, moving_head_color.PURPLE);
         long sys_time = System.currentTimeMillis();
         int repeat = 0;
         while (repeat <= 3 ){
             if((sys_time + 1000 ) >= System.currentTimeMillis()){
-                //set_intensive_of_light(0);
+                dmx_control.set_light(true); // ToDo toggeln
                 repeat ++;
                 sys_time = System.currentTimeMillis();
             }
@@ -147,19 +158,20 @@ public class board implements Runnable, IBoard{
 
     }
 
-    private void do_start_game(boolean first_call){
+    private void do_start_game(boolean first_call, MHControl my_DMX){
         long sys_time = System.currentTimeMillis();
         int light_intensively  = 0;
         if(first_call) {
             System.out.println(" Started new game ");
             first_call = false;
-            //move_to(start_point, moving_head_color.RED);
+            my_DMX.move_to(get_start_point(), false, moving_head_color.RED);
 
         }
         while(true) {
             if ((sys_time + 1000) >= System.currentTimeMillis()) {
                 light_intensively ^= light_intensively;
-                //set_intensive_of_light( light_intensively *100); // 0* 100 = 0 and 1*100 = 100, the value is %
+
+                my_DMX.set_light( true);  // TOdo: toggeln
                 sys_time = System.currentTimeMillis();
             }
             if (get_is_kick_speed_is_new()){

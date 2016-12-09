@@ -203,12 +203,12 @@ public class MHControl implements IMH_Controller{
     }
 
     @Override
-    public void move_to(CoordinateContainer position) {
+    public void move_to(CoordinateContainer position, boolean exaggerate) {
 
     }
 
     @Override
-    public void move_to(CoordinateContainer position, moving_head_color color) {
+    public void move_to(CoordinateContainer position, boolean exaggerate, moving_head_color color) {
 
     }
 

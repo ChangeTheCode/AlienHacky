@@ -8,7 +8,7 @@ import at.fhv.alienserver.Common.moving_head_color;
  */
 public interface IMH_Controller {
 
-    public void move_to(CoordinateContainer position);
-    public void move_to(CoordinateContainer position, moving_head_color color);
+    public void move_to(CoordinateContainer position, boolean exaggerate);
+    public void move_to(CoordinateContainer position, boolean exaggerate, moving_head_color color);
     public void set_light(Boolean on); //To turn on and off
 }
