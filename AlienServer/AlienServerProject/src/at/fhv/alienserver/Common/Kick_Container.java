@@ -5,7 +5,10 @@ package at.fhv.alienserver.Common;
  */
 public class Kick_Container {
 
-    public long getTimestamp_of_kick() {
+    private long timestamp_of_kick = 0;
+    private CoordinateContainer kick_direction_speed = null;
+
+    public long getTimestamp() {
         return timestamp_of_kick;
     }
 
@@ -24,9 +27,6 @@ public class Kick_Container {
     public void setKick_direction_speed(CoordinateContainer kick_direction_speed) {
         this.kick_direction_speed = kick_direction_speed;
     }
-
-    private long timestamp_of_kick = 0;
-    private CoordinateContainer kick_direction_speed = null;
 
     public  Kick_Container(long timestamp, CoordinateContainer kick_direction){
         setTimestamp_of_kick(timestamp);

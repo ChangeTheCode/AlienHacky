@@ -147,9 +147,9 @@ public class Calculator implements ICalculator{
     }
 
     @Override
-    public boolean kick(long timestamp, CoordinateContainer kick) {
+    public CoordinateContainer kick(long timestamp, CoordinateContainer kick) {
 
-        return false;
+        return null;
     }
 
     @Override

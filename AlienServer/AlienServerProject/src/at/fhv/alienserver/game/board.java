@@ -21,7 +21,7 @@ public class board implements Runnable, IBoard{
 
     private CoordinateContainer _start_point = null;
 
-    private Ball_shot _latest_kick = null;
+    private Kick_Container _latest_kick = null;
 
     private boolean _kick_speed_is_new = false;
 
@@ -66,12 +66,12 @@ public class board implements Runnable, IBoard{
         if(this._latest_kick != null) {
             _latest_kick = null;
         }
-        this._latest_kick.set_next_kick_value( new CoordinateContainer(coor_kick.getX(), coor_kick.getY()));
+        this._latest_kick.setKick_direction_speed( new CoordinateContainer(coor_kick.getX(), coor_kick.getY()));
 
         _kick_speed_is_new = true;
     }
 
-    public Ball_shot get_latest_kick(){
+    public Kick_Container get_latest_kick(){
         if(_latest_kick != null) {
             return this._latest_kick;
         }
@@ -88,7 +88,7 @@ public class board implements Runnable, IBoard{
     }
 
     public void run(){
-        CoordinateContainer _speed_kick = new CoordinateContainer(_latest_kick.get_next_kick_value());
+        CoordinateContainer _speed_kick = new CoordinateContainer(_latest_kick.getKick_direction_speed());
         long last_move_time = 0;
         boolean out_of_range = false;
         Calculator my_Calculator = new Calculator();
@@ -96,14 +96,13 @@ public class board implements Runnable, IBoard{
 
         my_Calculator.init_Calculator(eges.get(1), eges.get(2), eges.get(3), eges.get(4));
 
+        CoordinateContainer next_pos = null;
         while(true){
 
-            //order new coordinate form the calculator core.
             //TOdo last_move_coordinate = get_coordinate_of_time(System.currentTimeMillis());
-
-            my_Calculator.kick(10, _latest_kick.get_next_kick_value());
-
             last_move_time = System.currentTimeMillis();
+
+            next_pos = my_Calculator.get_position(last_move_time);
 
             while (last_move_time + 10 <= System.currentTimeMillis() || ! _kick_speed_is_new ){
                 // check if there is a new kick event
@@ -111,8 +110,8 @@ public class board implements Runnable, IBoard{
                     _latest_kick = null;
 
                     _kick_speed_is_new =false;
-                    //Todo call calculate points
-                    CoordinateContainer next_pos = null; // calculate( _speed_kick.start_time, _speed_kick.x, _speed_kick,y,_speed_kick,z, last_move_coordinate, geschwindigkeit? );
+                    next_pos = my_Calculator.kick(_latest_kick.getTimestamp(), _latest_kick.getKick_direction_speed());
+
                     if(next_pos == null){
                         out_of_range = true;
                         break;
@@ -128,10 +127,9 @@ public class board implements Runnable, IBoard{
                     do_game_over();
                     do_start_game(true);
                 }
+            }// end While
 
-            }
-
-        }
+        }//end While(true)
     }
 
 

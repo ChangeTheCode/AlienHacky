@@ -1,8 +1,6 @@
 package at.fhv.alienserver.game;
 
-import at.fhv.alienserver.Common.Ball_shot;
 import at.fhv.alienserver.Common.CoordinateContainer;
-import at.fhv.alienserver.Common.Coordinate_Name;
 import at.fhv.alienserver.Common.Kick_Container;
 
 import java.util.ArrayList;
@@ -20,7 +18,7 @@ public interface IBoard {
 
     public void set_speed_kick_value (Kick_Container new_kick, long start_time);
 
-    public Ball_shot get_latest_kick();
+    public Kick_Container get_latest_kick();
 
 
 
