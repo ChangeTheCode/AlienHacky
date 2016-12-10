@@ -203,7 +203,10 @@ void Alien_UART_send_task (UArg arg0, UArg arg1) {
 		do {
 			dequeue (SEND_QUEUE, data, &length, &buffer_overflow);
 			if (length > 0) {
+				data [length] = (uint8_t) SERVER_END_OF_RECORD;
+				length = length + 1;
 				UART_write (UART, data, length);
+				length = length - 1;
 				data [length] = (uint8_t) '\0';
 				char temp_string [MAX_LOG_ENTRY];
 				sprintf (temp_string, "Sent %s\n", data);
