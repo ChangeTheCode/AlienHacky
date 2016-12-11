@@ -1,5 +1,9 @@
 package at.fhv.alienserver;
 
+import at.fhv.alienserver.Common.AccelerationContainer;
+import at.fhv.alienserver.Common.CoordinateContainer;
+import at.fhv.alienserver.Common.LongTuple;
+import at.fhv.alienserver.Common.SpeedContainer;
 import at.fhv.alienserver.calculator.Calculator;
 import at.fhv.alienserver.movingHead.MHControl;
 
@@ -18,7 +22,10 @@ public class Main {
         boolean MHTest = false;
 
         if(calcTest) {
-            Calculator myCalc = new Calculator();
+            //test
+            Calculator myCalc =new Calculator();
+            myCalc.init_Calculator(new CoordinateContainer(), new CoordinateContainer(),new CoordinateContainer(),new CoordinateContainer());
+
             double fulltime1 = 0.5;
             double fulltime2 = 0.9;
             double fulltime3 = 0.7;

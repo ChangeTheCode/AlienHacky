@@ -1,11 +1,10 @@
 package at.fhv.alienserver.movingHead;
 
-import at.fhv.alienserver.CoordinateContainer;
-import at.fhv.alienserver.Tuple;
+import at.fhv.alienserver.Common.CoordinateContainer;
+import at.fhv.alienserver.Common.moving_head_color;
 
 import java.io.IOException;
 import java.util.LinkedList;
-import java.util.concurrent.BlockingQueue;
 
 import static java.lang.Math.abs;
 import static java.lang.Thread.sleep;
@@ -16,7 +15,7 @@ import static java.lang.Thread.sleep;
  * @author tri7484
  * @version 1.11.2016
  */
-public class MHControl {
+public class MHControl implements IMH_Controller{
     private ESP esp = new ESP();
 
     //FIXME: Move all of the following to config.file
@@ -203,4 +202,18 @@ public class MHControl {
         return log + ( bits >>> 1 );
     }
 
+    @Override
+    public void move_to(CoordinateContainer position, boolean exaggerate) {
+
+    }
+
+    @Override
+    public void move_to(CoordinateContainer position, boolean exaggerate, moving_head_color color) {
+
+    }
+
+    @Override
+    public void set_light(Boolean on) {
+
+    }
 }

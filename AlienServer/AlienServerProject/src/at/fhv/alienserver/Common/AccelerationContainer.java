@@ -1,6 +1,6 @@
-package at.fhv.alienserver;
+package at.fhv.alienserver.Common;
 
-public class CoordinateContainer {
+public class AccelerationContainer {
     public double getX() {
         return x;
     }
@@ -21,19 +21,18 @@ public class CoordinateContainer {
     private double y;
     //public double z;
 
-    public CoordinateContainer(){
+    public AccelerationContainer(){
         this.x = 0;
         this.y = 0;
         //this.z = 0;
     }
 
-    public CoordinateContainer(double x, double y){
+    public AccelerationContainer(double x, double y){
         this.x = x;
         this.y = y;
-        //this.z = z;
     }
 
-    public CoordinateContainer(CoordinateContainer source){
+    public AccelerationContainer(AccelerationContainer source){
         this.x = source.x;
         this.y = source.y;
         //this.z = source.z;
@@ -42,12 +41,5 @@ public class CoordinateContainer {
     @Override
     public String toString(){
         return String.valueOf(this.x) + '|' + String.valueOf(this.y);
-    }
-
-    public CoordinateContainer fromString(String input){
-        int pipeIndex = input.indexOf('|');
-        double x = Double.parseDouble(input.substring(0, pipeIndex - 1));
-        double y = Double.parseDouble(input.substring(pipeIndex + 1, input.length() - 1));
-        return new CoordinateContainer(x, y);
     }
 }

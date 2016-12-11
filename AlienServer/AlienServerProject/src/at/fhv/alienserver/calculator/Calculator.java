@@ -1,6 +1,9 @@
 package at.fhv.alienserver.calculator;
 
-import at.fhv.alienserver.*;
+import at.fhv.alienserver.Common.AccelerationContainer;
+import at.fhv.alienserver.Common.CoordinateContainer;
+import at.fhv.alienserver.Common.LongTuple;
+import at.fhv.alienserver.Common.SpeedContainer;
 
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -18,7 +21,7 @@ import static java.lang.Math.sqrt;
  * @author tri7484
  * @version 1.11.2016
   */
-public class Calculator {
+public class Calculator implements ICalculator{
     /*
      * The following vars give the parameters for the calculation in state space. Please note that as of now, these
      * values are not meant to be perfect (or let alone final), they merely serve as a placeholder until testing
@@ -53,7 +56,11 @@ public class Calculator {
     private CoordinateContainer bl; // bl = bottom left
     private CoordinateContainer br; // br = bottom right
 
-    public Calculator(CoordinateContainer tl, CoordinateContainer tr, CoordinateContainer bl, CoordinateContainer br){
+    public Calculator(){
+        //empty object
+    }
+
+    private Calculator(CoordinateContainer tl, CoordinateContainer tr, CoordinateContainer bl, CoordinateContainer br){
         this.tl = tl;
         this.tr = tr;
         this.bl = bl;
@@ -128,5 +135,26 @@ public class Calculator {
     private boolean delta_acc(AccelerationContainer acc1, AccelerationContainer acc2, double threshold){
         /*|| Math.abs(acc1.z - acc2.z) > threshold*/
         return Math.abs(acc1.getX() - acc2.getX()) > threshold || Math.abs(acc1.getY() - acc2.getY()) > threshold;
+    }
+
+    @Override
+    public void init_Calculator(CoordinateContainer top_left, CoordinateContainer top_right,
+                                CoordinateContainer bottom_left, CoordinateContainer bottom_right ) {
+        this.tr = top_right;
+        this.tl = top_left;
+        this.bl = bottom_left;
+        this.br = bottom_right;
+    }
+
+    @Override
+    public CoordinateContainer kick(long timestamp, CoordinateContainer kick) {
+
+        return null;
+    }
+
+    @Override
+    public CoordinateContainer get_position(long timestamp) {
+
+        return null;
     }
 }
