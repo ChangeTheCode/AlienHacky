@@ -12,6 +12,7 @@
 #include <stdint.h>
 
 #define END_OF_RECORD (char) 13
+#define SERVER_END_OF_RECORD '#'
 #define MAX_LOG_ENTRY 256
 
 void Alien_UART_init (void);

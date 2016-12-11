@@ -25,7 +25,7 @@ int main(void) {
     // Initialise the UART
     Alien_UART_init ();
     Alien_RF_init ();
-    // button_init (SEND_TEST);
+    button_init (SEND_TEST);
     // button_init (RECEIVE_TEST);
 
     // Now start BIOS
