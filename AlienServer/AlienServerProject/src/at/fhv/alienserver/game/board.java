@@ -64,6 +64,9 @@ public class board implements Runnable, IBoard{
 
     //diese funktion soll vom Server aufgerufen werden.
     public void set_speed_kick_value (Kick_Container new_kick, long start_time){
+
+        System.out.println("set Speed was called ");
+        /*
         CoordinateContainer coor_kick = new_kick.getKick_direction_speed();
         if(this._latest_kick != null) {
             _latest_kick = null;
@@ -71,6 +74,7 @@ public class board implements Runnable, IBoard{
         this._latest_kick.setKick_direction_speed( new CoordinateContainer(coor_kick.getX(), coor_kick.getY()));
 
         _kick_speed_is_new = true;
+        */
     }
 
     public Kick_Container get_latest_kick(){
@@ -93,7 +97,7 @@ public class board implements Runnable, IBoard{
         CoordinateContainer _speed_kick = new CoordinateContainer(_latest_kick.getKick_direction_speed());
         long last_move_time = 0;
         boolean out_of_range = false;
-        MHControl my_DMX = null;
+        MHControl my_DMX;
 
         try {
             my_DMX = new MHControl(2.0, false,true);
