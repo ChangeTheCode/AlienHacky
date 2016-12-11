@@ -23,13 +23,13 @@ public class MHControl implements IMH_Controller{
      * Offset of the Pan - angle; chosen to have the MH-X25 point straight to the ground for point (0, 0)
      * FIXME: Redefine the offsets to fit the new MH-X25 settings
      */
-    private final double offset_pan = 90;
+    private final double offset_pan = 95; //90 degrees plus a slight deviation due to non ideal mounting
     //private final double offset_pan = 180;
     /**
      * Offset of the Tilt - angle; chosen to have the MH-X25 point straight to the ground for point (0, 0)
      * FIXME: Redefine the offsets to fit the new MH-X25 settings
      */
-    private final double offset_tilt = 135 + 90;
+    private final double offset_tilt = 43;
     //private final double offset_tilt = 135;
     /**
      * Height of the moving head's mounting point in meters; measured at the tilt-turning-axis

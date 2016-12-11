@@ -6,6 +6,7 @@ package at.fhv.alienserver.Common;
 public class Kick_Container {
 
     private long timestamp_of_kick = 0;
+    //Fixme: Why is a coordinate container used with the notation of speed????
     private CoordinateContainer kick_direction_speed = null;
 
     public long getTimestamp() {
