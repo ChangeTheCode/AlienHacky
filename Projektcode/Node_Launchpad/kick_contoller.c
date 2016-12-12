@@ -6,7 +6,8 @@
  */
 #include "kick_controller.h"
 #include "tx_node_interface.h"
-#include "C:\ti\tirtos_cc13xx_cc26xx_2_21_00_06\products\cc26xxware_2_24_03_17272\driverlib\sys_ctrl.h"
+#include "timer.h"
+//#include "C:\ti\tirtos_cc13xx_cc26xx_2_21_00_06\products\cc26xxware_2_24_03_17272\driverlib\sys_ctrl.h"
 
 void alien_init_i2c_task(void){
 	/* Construct tmp007 Task thread */
@@ -19,7 +20,7 @@ void alien_init_i2c_task(void){
 
 
 // function to calculate average of the values.
-int calculate_avarage (int* p_values, int new_value, int avarage){
+int calculate_average (int* p_values, int new_value, int avarage){
 
 	avarage = ((avarage * MAX_AVARAGE_COUNT) - *p_values) + new_value;
 
@@ -176,9 +177,7 @@ void calc_in_world_coordinates( gyro_value_t new_ComDCM){
 
 		// i32Ipart is the integer part of the value und i32FPart float with 3 numbers after the point
 		//system prints only for tests
-		System_printf("\n Gyro [6;17H%3d.%03d", i32IPart[16], i32FPart[16]);
-		System_printf(" [6;40H%3d.%03d", i32IPart[17], i32FPart[17]);
-		System_printf(" [6;63H%3d.%03d", i32IPart[18], i32FPart[18]);
+		System_printf("\n Gyro %.3f, %.3f, %.3f\n", pfAccel2[0], pfAccel2[1], pfAccel2[2]);
 		System_flush();
 
 		transport_kick_struct._kick_int_high_x = (i32IPart[16] & 0x000000ff);
@@ -193,11 +192,6 @@ void calc_in_world_coordinates( gyro_value_t new_ComDCM){
 		transport_kick_struct._kick_float_high_z  = (i32FPart[17] & 0x0000ff00) >> 8;
 		transport_kick_struct._kick_float_low_z =(i32FPart[17] & 0x000000ff);
 
-		System_printf("\n Gyro [6;17H%3d.%03d", i32IPart[16], i32FPart[16]);
-		System_printf(" [6;40H%3d.%03d", i32IPart[17], i32FPart[17]);
-		System_printf(" [6;63H%3d.%03d", i32IPart[18], i32FPart[18]);
-		System_flush();
-
 		//set_new_kick_event_value(transport_kick_struct);
 }
 
@@ -210,8 +204,6 @@ void get_byte_value(int_fast32_t value, uint8_t* byte_array){
 
 // main function of the task
 Void sensor_task_fn(UArg arg0, UArg arg1){
-// ToDo´: wenn der I2C_transfer fehlschlägt das ein System reboot gemacht wird oder eine LEd geblinkt und der Task nicht weiter läuft
-	// müsste mit BIOS_exit()
 	pfAccel = pfData;
 	pfGyro = pfData + 3;
 	pfMag = pfData + 6;
@@ -236,29 +228,42 @@ Void sensor_task_fn(UArg arg0, UArg arg1){
 	// init i2c of the gyro sensor
 	MPU_handel = MPU9150_init(0, i2c, MPU9150_I2C_ADDRESS);
 	if(MPU_handel == NULL){
-		//System_abort("MPU 9150 Init failed \n");				// TODO: rote led blinken!
+		GPTimerCC26XX_start(timer_error_handle);
+		System_printf("MPU 9150 Init failed \n");
+		System_flush();
+		while(1)		// blink red led forever
+		{
+		}
+		//System_abort("MPU 9150 Init failed \n");
 		//System_flush();
 		//BIOS_exit(1);
-		SysCtrlSystemReset();
+//		SysCtrlSystemReset();
 	}
 
 	if( ! config_light_sensor(i2c) ){
-		System_abort("Error Initializing  light 1\n");
+		GPTimerCC26XX_start(timer_error_handle);
+		System_printf("Error Initializing  light 1\n");
 		System_flush();
-		//return;   // config of the light sensor failed Break
+		while(1)		// blink red led forever
+		{
+		}
 	}
-	Task_sleep(100);
+	//Task_sleep(100);
 	if( ! config_light_sensor_reg2(i2c) ){
-		System_abort("Error Initializing light 2\n");
+		GPTimerCC26XX_start(timer_error_handle);
+		System_printf("Error Initializing light 2\n");
 		System_flush();
-		//return;   // config of the light sensor failed Break
+		while(1)		// blink red led forever
+		{
+		}
 	}
 
 
-	/* Take 20 samples and print them out onto the console */
+	/* Take 20 samples and print them out onto the console */	// TODO: ?
 	int light_transaction_values[4];
 	int current_16b_light = 0;
 	int old_light_avarage = 0;
+	int start = 0;
 
 	CompDCMInit(&g_sCompDCMInst, 1.0f / 50.0f, 0.2f, 0.6f, 0.2f);
 
@@ -275,8 +280,14 @@ Void sensor_task_fn(UArg arg0, UArg arg1){
 			if (light_pos >= MAX_AVARAGE_COUNT){
 				light_pos = 0;
 			}
-			//ToDo: einbauen das die ersten 10 durchläufe kein durchschnitt berechnet wird, da intital das Array 0 ist
-			light_avarage = calculate_avarage(  &light_values[light_pos] ,current_16b_light, light_avarage);
+			// don´t calculate the average in the first number of rows in the array rounds, because the initial array is 0
+			if(start >= MAX_AVARAGE_COUNT) {
+				light_avarage = calculate_average(  &light_values[light_pos] ,current_16b_light, light_avarage);
+			}
+			else {
+				start++;
+			}
+
 			light_pos ++;
 
 
@@ -296,7 +307,7 @@ Void sensor_task_fn(UArg arg0, UArg arg1){
 }
 
 void gyro_to_do(){
-	Task_sleep(100); //TODO  raus damit
+	//Task_sleep(100); //TODO  raus damit
 	MPU9150_Data mpu_data;
 	gyro_value_t new_com_values;
 

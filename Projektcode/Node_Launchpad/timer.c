@@ -16,6 +16,7 @@ static uint8_t timer_task_stack[TIMER_TASK_STACK_SIZE];
 GPTimerCC26XX_Handle timer_heartbeat_handle;
 GPTimerCC26XX_Handle timer_login_handle;
 GPTimerCC26XX_Handle timer_kick_handle;
+GPTimerCC26XX_Handle timer_error_handle;
 
 BOOLEAN heartbeat = FALSE;
 
@@ -41,6 +42,11 @@ void timer_login_callback(GPTimerCC26XX_Handle handle, GPTimerCC26XX_IntMask int
 void timer_kick_callback(GPTimerCC26XX_Handle handle, GPTimerCC26XX_IntMask interruptMask) {
 	PIN_setOutputValue(LED_pin_handle, Board_LED2, 0);	// Red LED off
 }
+
+void timer_error_callback(GPTimerCC26XX_Handle handle, GPTimerCC26XX_IntMask interruptMask) {
+	PIN_setOutputValue(LED_pin_handle, Board_LED2, !PIN_getOutputValue(Board_LED2));	// toggel Red LED
+}
+
 
 void heartbeat_timer_init(void)
 {
@@ -101,6 +107,25 @@ void kick_timer_init(void)
 	GPTimerCC26XX_registerInterrupt(timer_kick_handle, timer_kick_callback, GPT_INT_TIMEOUT);
 }
 
+void error_timer_init(void)
+{
+	GPTimerCC26XX_Params error_params;
+	GPTimerCC26XX_Params_init(&error_params);
+	error_params.width          = GPT_CONFIG_32BIT;
+	error_params.mode           = GPT_MODE_PERIODIC_UP;
+	error_params.debugStallMode = GPTimerCC26XX_DEBUG_STALL_OFF;
+	timer_error_handle = GPTimerCC26XX_open(Board_GPTIMER3A, &error_params);
+	if(timer_error_handle == NULL) {
+		System_abort("Failed to open GPTimer");
+	}
+
+	Types_FreqHz  freq;
+	BIOS_getCpuFreq(&freq);
+	GPTimerCC26XX_Value error_loadVal = freq.lo / 2 - 1; // 0.5 seconds
+	GPTimerCC26XX_setLoadValue(timer_error_handle, error_loadVal);
+	GPTimerCC26XX_registerInterrupt(timer_error_handle, timer_error_callback, GPT_INT_TIMEOUT);
+}
+
 void timer_task_init(void)
 {
     Task_Params_init(&timer_task_params);
@@ -117,6 +142,7 @@ static void timer_task_function(UArg arg0, UArg arg1)
 	heartbeat_timer_init();
 	login_timer_init();
 	kick_timer_init();
+	error_timer_init();
 
 	while(1) {
 	  Task_sleep(BIOS_WAIT_FOREVER);

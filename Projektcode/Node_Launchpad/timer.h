@@ -20,6 +20,7 @@ extern BOOLEAN heartbeat;
 
 extern GPTimerCC26XX_Handle timer_login_handle;
 extern GPTimerCC26XX_Handle timer_kick_handle;
+extern GPTimerCC26XX_Handle timer_error_handle;
 
 void timer_init(void);
 

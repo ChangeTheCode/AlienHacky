@@ -97,7 +97,7 @@ typedef struct{
 /* Function Headers */
 void alien_init_i2c_task(void);
 
-int calculate_avarage (int* p_values, int new_value, int avarage);
+int calculate_average (int* p_values, int new_value, int avarage);
 
 void calc_in_world_coordinates( gyro_value_t new_ComDCM);
 
