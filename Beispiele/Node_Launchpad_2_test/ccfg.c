@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2016, Texas Instruments Incorporated
+ * Copyright (c) 2015, Texas Instruments Incorporated
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -30,40 +30,21 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/***** Includes *****/
-#include <Hardware/hardware_I2C.h>
-#include "RF.h"
-#include "timer.h"
-#include "pin.h"
-#include "Board.h"
-#include <ti/sysbios/BIOS.h>
-#include <xdc/runtime/System.h>  // This is needed as Board_initGeneral () uses System_abort but didn't include it?
-
-#include <ti/drivers/I2C.h>
-
-
 /*
- *  ======== main ========
+ *  ======== ccfg.c ========
+ *  Customer Configuration for CC26xx and CC13xx devices.  This file is used to
+ *  configure Boot ROM, start-up code, and SW radio behaviour.
+ *
+ *  By default, driverlib startup_files/ccfg.c settings are used.  However, if
+ *  changes are required there are two means to do so:
+ *
+ *    1.  Remove this file and copy driverlib's startup_files/ccfg.c file in
+ *        its place.  Make all changes to the file.  Changes made are local to
+ *        the project and will not affect other projects.
+ *
+ *    2.  Perform changes to driverlib startup_files/ccfg.c file.  Changes
+ *        made to this file will be applied to all projects.  This file must
+ *        remain unmodified.
  */
-int main(void)
-{
-    /* Call board init functions. */
-    Board_initGeneral();
-    Board_initI2C();
 
-    /* Open pins */
-    //LED_init();
-    //button_init();
-    //timer_init();
-
-    // init i2c task
-    Alien_i2c_init();
-
-    // Init the RF Module
-	//Alien_RF_init();
-
-    /* Start BIOS */
-    BIOS_start();
-
-    return (0);
-}
+#include <startup_files/ccfg.c>

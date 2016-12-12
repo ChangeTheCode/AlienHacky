@@ -31,7 +31,6 @@
  */
 
 /***** Includes *****/
-#include <Hardware/hardware_I2C.h>
 #include "RF.h"
 #include "timer.h"
 #include "pin.h"
@@ -41,6 +40,7 @@
 
 #include <ti/drivers/I2C.h>
 
+#include "Hardware/I2C.h"
 
 /*
  *  ======== main ========
@@ -52,8 +52,8 @@ int main(void)
     Board_initI2C();
 
     /* Open pins */
-    //LED_init();
-    //button_init();
+    LED_init();
+    button_init();
     //timer_init();
 
     // init i2c task

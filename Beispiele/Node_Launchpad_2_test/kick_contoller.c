@@ -9,8 +9,6 @@
 #include "timer.h"
 //#include "C:\ti\tirtos_cc13xx_cc26xx_2_21_00_06\products\cc26xxware_2_24_03_17272\driverlib\sys_ctrl.h"
 
-kick_vectors_t transport_kick_struct;
-
 void alien_init_i2c_task(void){
 	/* Construct tmp007 Task thread */
 	Task_Params_init(&sensor_task_params);
@@ -175,6 +173,8 @@ void calc_in_world_coordinates( gyro_value_t new_ComDCM){
 			}
 		}
 
+		kick_vectors_t transport_kick_struct;
+
 		// i32Ipart is the integer part of the value und i32FPart float with 3 numbers after the point
 		//system prints only for tests
 		System_printf("\n Gyro %.3f, %.3f, %.3f\n", pfAccel2[0], pfAccel2[1], pfAccel2[2]);
@@ -248,7 +248,7 @@ Void sensor_task_fn(UArg arg0, UArg arg1){
 		{
 		}
 	}
-	Task_sleep(100);
+	//Task_sleep(100);
 	if( ! config_light_sensor_reg2(i2c) ){
 		GPTimerCC26XX_start(timer_error_handle);
 		System_printf("Error Initializing light 2\n");
@@ -307,7 +307,7 @@ Void sensor_task_fn(UArg arg0, UArg arg1){
 }
 
 void gyro_to_do(){
-//	Task_sleep(100); //TODO  raus damit
+	//Task_sleep(100); //TODO  raus damit
 	MPU9150_Data mpu_data;
 	gyro_value_t new_com_values;
 
