@@ -1,9 +1,6 @@
 package at.fhv.alienserver.calculator;
 
-import at.fhv.alienserver.Common.AccelerationContainer;
-import at.fhv.alienserver.Common.CoordinateContainer;
-import at.fhv.alienserver.Common.LongTuple;
-import at.fhv.alienserver.Common.SpeedContainer;
+import at.fhv.alienserver.Common.*;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -160,13 +157,13 @@ public class Calculator implements ICalculator{
     }
 
     @Override
-    public CoordinateContainer kick(long timestamp, AccelerationContainer kick) {
+    public boolean kick(Kick_Container kick) {
 
         //Trim the internal ArrayList
         //TODO: Find a more elegant solution
         int i = 0;
         int j = calcValues.size() - 1;
-        while(calcValues.get(i).getD() < timestamp && i < j){
+        while(calcValues.get(i).getD() < kick.getTimestamp() && i < j){
             i++;
         }
         //while(j > i){ /*Alternatively*/
@@ -177,9 +174,9 @@ public class Calculator implements ICalculator{
 
 
         //Reset the calculation and let it run
-        calculate(kick);
+        calculate(kick.getKick_direction_speed() );
 
-        return null;
+        return true;
     }
 
     @Override

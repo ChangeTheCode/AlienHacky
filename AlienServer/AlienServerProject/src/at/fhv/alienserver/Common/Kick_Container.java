@@ -6,7 +6,6 @@ package at.fhv.alienserver.Common;
 public class Kick_Container {
 
     private long timestamp_of_kick = 0;
-    //Fixme: Why is a coordinate container used with the notation of speed????
     private AccelerationContainer kick_direction_acc = null;
 
     public long getTimestamp() {
@@ -17,19 +16,19 @@ public class Kick_Container {
         this.timestamp_of_kick = timestamp_of_kick;
     }
 
-    public CoordinateContainer getKick_direction_speed() {
-        if(kick_direction_speed instanceof CoordinateContainer)
-            return kick_direction_speed;
+    public AccelerationContainer getKick_direction_speed() {
+        if(kick_direction_acc instanceof AccelerationContainer)
+            return kick_direction_acc;
         else{
             return null;
         }
     }
 
-    public void setKick_direction_speed(CoordinateContainer kick_direction_speed) {
-        this.kick_direction_speed = kick_direction_speed;
+    public void setKick_direction_speed(AccelerationContainer kick_direction_acc) {
+        this.kick_direction_acc = kick_direction_acc;
     }
 
-    public  Kick_Container(long timestamp, CoordinateContainer kick_direction){
+    public  Kick_Container(long timestamp, AccelerationContainer kick_direction){
         setTimestamp_of_kick(timestamp);
         setKick_direction_speed(kick_direction);
     }

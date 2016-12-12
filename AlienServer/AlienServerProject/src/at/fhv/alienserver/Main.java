@@ -1,9 +1,6 @@
 package at.fhv.alienserver;
 
-import at.fhv.alienserver.Common.AccelerationContainer;
-import at.fhv.alienserver.Common.CoordinateContainer;
-import at.fhv.alienserver.Common.LongTuple;
-import at.fhv.alienserver.Common.SpeedContainer;
+import at.fhv.alienserver.Common.*;
 import at.fhv.alienserver.calculator.Calculator;
 import at.fhv.alienserver.movingHead.MHControl;
 
@@ -26,7 +23,7 @@ public class Main {
             myCalc.init_Calculator(new CoordinateContainer(1.5, -1), new CoordinateContainer(1.5,1),
                     new CoordinateContainer(-1.5,-1),new CoordinateContainer(-1.5,1));
 
-            myCalc.kick(25,new AccelerationContainer(1,1));
+            myCalc.kick( new Kick_Container(25, new AccelerationContainer(1,1) ) );
             CoordinateContainer test = myCalc.get_position(70);
             System.out.println(test.toString());
 

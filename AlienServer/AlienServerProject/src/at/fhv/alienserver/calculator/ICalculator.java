@@ -1,7 +1,7 @@
 package at.fhv.alienserver.calculator;
 
-import at.fhv.alienserver.Common.AccelerationContainer;
 import at.fhv.alienserver.Common.CoordinateContainer;
+import at.fhv.alienserver.Common.Kick_Container;
 
 /**
  * Created by Jim on 09.12.2016.
