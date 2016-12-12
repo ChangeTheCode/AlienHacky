@@ -7,7 +7,7 @@ public class Kick_Container {
 
     private long timestamp_of_kick = 0;
     //Fixme: Why is a coordinate container used with the notation of speed????
-    private CoordinateContainer kick_direction_speed = null;
+    private AccelerationContainer kick_direction_acc = null;
 
     public long getTimestamp() {
         return timestamp_of_kick;

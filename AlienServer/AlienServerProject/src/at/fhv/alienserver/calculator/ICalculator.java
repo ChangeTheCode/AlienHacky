@@ -11,9 +11,7 @@ public interface ICalculator {
     public void init_Calculator(CoordinateContainer top_left, CoordinateContainer top_right,
                                 CoordinateContainer bottom_left, CoordinateContainer bottom_right);
 
-    //Fixme: why does kick return a CoordinateContainer? Isn't it supposed to reinitialise the calculation in the background?
-    //Fixme: why was kick supplied with a CoordinateContainer?
-    public CoordinateContainer kick(long timestamp, AccelerationContainer kick );
+    public boolean kick(Kick_Container kick);
 
 
     public CoordinateContainer get_position(long timestamp);
