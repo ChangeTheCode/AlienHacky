@@ -23,6 +23,7 @@ public class Test {
         System.out.println (my_UART.get_message());
 
         // now read 6 lines from the port
+        System.out.println ("\nReceiving 6 lines of text from the UART\n");
         StringBuffer received = new StringBuffer("");
         int i = 0;
         do {
@@ -30,7 +31,13 @@ public class Test {
                 System.out.println(received);
                 i++;
             }
+            received.setLength(0);
         } while (i< 6);
+
+        // send to the UART
+        System.out.println ("\nSend something to UART\n");
+        StringBuffer to_send = new StringBuffer("Hello there");
+        my_UART.send(to_send);
 
         System.out.println ("\nTest UART finished\n");
 

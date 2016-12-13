@@ -47,8 +47,6 @@ public class UART implements SerialPortEventListener {
 
     // error codes
     final static int NO_ERROR = 0;
-    final static int EOL_RECEIVED = 1;
-    final static int BYTE_RECEIVED = 2;
 
     final static int PORT_IN_USE = 10;
     final static int IO_OPEN_ERROR = 11;
@@ -59,9 +57,6 @@ public class UART implements SerialPortEventListener {
     final static int GENERAL_ERROR = 99;
 
     //some ascii values for for certain things
-    final static int SPACE_ASCII = 32;
-    final static int DASH_ASCII = 45;
-    final static int NEW_LINE_ASCII = 10;
     final static int END_OF_RECORD = '#';
 
     // queue for the received UART commands
@@ -112,7 +107,15 @@ public class UART implements SerialPortEventListener {
         }
     }
 
-    public boolean send(String to_send) {
+    public boolean send(StringBuffer to_send) {
+
+        try {
+            output.write(to_send.toString().getBytes());
+            output.flush();
+        } catch (Exception e) {
+            rc = WRITE_FAIL;
+            message = "Failed to write data. (" + e.toString() + ")";
+        }
 
         return true;
     }
@@ -167,35 +170,18 @@ public class UART implements SerialPortEventListener {
 
         try {
             input = serial_port.getInputStream();
+        } catch (IOException e) {
+            rc = IO_OPEN_ERROR;
+            message = "Input stream failed to open. (" + e.toString() + ")";
+            return false;
+        }
+        try {
             output = serial_port.getOutputStream();
-            write_data(0, 0);
             return true;
         } catch (IOException e) {
             rc = IO_OPEN_ERROR;
-            message = "I/O Streams failed to open. (" + e.toString() + ")";
+            message = "Output stream failed to open. (" + e.toString() + ")";
             return false;
-        }
-    }
-
-    // write data to serial
-    public void write_data(int left_throttle, int right_throttle) {
-        try {
-            output.write(left_throttle);
-            output.flush();
-
-            //this is a delimiter for the data
-            output.write(DASH_ASCII);
-            output.flush();
-
-            output.write(right_throttle);
-            output.flush();
-
-            //will be read as a byte so it is a space key
-            output.write(SPACE_ASCII);
-            output.flush();
-        } catch (Exception e) {
-            rc = WRITE_FAIL;
-            message = "Failed to write data. (" + e.toString() + ")";
         }
     }
 
