@@ -90,58 +90,17 @@ public class MHControl implements IMH_Controller{
         esp.sendPackets(packet);
     }
 
-    //Fixme: remove duplicate code if possible
-    @SuppressWarnings("Duplicates")
     @Override
     public void move_to(CoordinateContainer position, boolean exaggerate) {
-        LinkedList<DMX> packets = new LinkedList<>();
-
-        DMX dmxPacket = new DMX();
-        DMX exaggeratedDmxPacket;
-
-        position.setX( position.getX() + mhOffsetX );
-        position.setY( position.getY() + mhOffsetY );
-
-        position.setX( position.getX() * xMirrorFactor );
-        position.setY( position.getY() * yMirrorFactor );
-
-        dmxPacket.setPan(Math.atan(position.getX() / h) * 180 / Math.PI + offset_pan);
-        dmxPacket.setTilt(Math.atan(position.getY() / Math.sqrt(position.getX() * position.getX() + h * h)) * 180 / Math.PI + offset_tilt);
-
-        //TODO: Repeat tests
-        packets.add(dmxPacket);
-
-        if(exaggerate) {
-            exaggeratedDmxPacket = getExaggeratedPacket(position, oldPosition, this.exaggerationFactor);
-
-            //Change lighting to make use of exaggerated packet visible; adds no functionality, just visualisation
-            exaggeratedDmxPacket.shutter = (byte) 0;
-            exaggeratedDmxPacket.dimmer = (byte) 0;
-
-            packets.addFirst(exaggeratedDmxPacket);
-        }
-
-        oldPosition = new CoordinateContainer(position);
-        oldPacket = new DMX(dmxPacket);
-
-        try {
-            for (DMX packet : packets) {
-                esp.sendPackets(packet);
-                if(packets.size() > 1) {
-                    sleep(150);
-                }
-            }
-        } catch (IOException e) {
-            System.err.println("Couldn't transmit ESP-packet");
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        _move_to_compendious(position, exaggerate, moving_head_color.PINK);
     }
 
-    @SuppressWarnings("Duplicates")
     @Override
     public void move_to(CoordinateContainer position, boolean exaggerate, moving_head_color color) {
+        _move_to_compendious(position, exaggerate, color);
+    }
+
+    private void _move_to_compendious(CoordinateContainer position, boolean exaggerate, moving_head_color color){
         LinkedList<DMX> packets = new LinkedList<>();
 
         DMX dmxPacket = new DMX();
@@ -156,6 +115,7 @@ public class MHControl implements IMH_Controller{
         dmxPacket.setPan(Math.atan(position.getX() / h) * 180 / Math.PI + offset_pan);
         dmxPacket.setTilt(Math.atan(position.getY() / Math.sqrt(position.getX() * position.getX() + h * h)) * 180 / Math.PI + offset_tilt);
 
+        //TODO: Test this
         //Resolve the supplied colour value to a numeric value that can be fed to the MH-X25
         dmxPacket.color = (byte)color.ordinal();
 

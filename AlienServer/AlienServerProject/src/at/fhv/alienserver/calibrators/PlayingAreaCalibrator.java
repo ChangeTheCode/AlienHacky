@@ -11,14 +11,15 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by thomas on 13.12.16.
- *
- * The main function in this class serves the purpose of defining the corners of the playing area.
+ * Created by thomas on 13.12.16. The main function in this class serves the purpose of defining the corners
+ * of the playing area. To accomplish this, the user guides the light spot to the four corners of the playing area
+ * (we're supporting only four corners; deal with it) and presses a button to signal that the current position is
+ * a corner.
  */
-public class PlayingAreaCalibrator {
-    private static boolean run = true;
+class PlayingAreaCalibrator implements ICalibrator{
+    private boolean run = true;
 
-    public static void main(String[] args) throws IOException {
+    void execute() throws IOException {
         //A queue for holding the pressed keys
         ArrayBlockingQueue<Character> characterQueue = new ArrayBlockingQueue<>(1000);
 
@@ -32,7 +33,7 @@ public class PlayingAreaCalibrator {
         guiFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         guiFrame.setTitle("Input for calibrators");
         guiFrame.setLocationRelativeTo(null);
-        AlienWindowListener wListener = new AlienWindowListener();
+        AlienWindowListener wListener = new AlienWindowListener(this);
         guiFrame.addWindowListener(wListener);
         AlienKeyListener kListener = new AlienKeyListener(characterQueue);
         inputText.addKeyListener(kListener);
@@ -58,18 +59,18 @@ public class PlayingAreaCalibrator {
                     //Currently there's no character present, so just don't do anything
                 } else if (c == 'w') {
                     newCoordinates.setX( newCoordinates.getX() + 0.1 );
-                    mhc.setPosition(new CoordinateContainer(newCoordinates), false, false);
+                    mhc.move_to(new CoordinateContainer(newCoordinates), false);
                     c = null;
                 } else if (c == 's') {
                     newCoordinates.setX( newCoordinates.getX() - 0.1 );
-                    mhc.setPosition(new CoordinateContainer(newCoordinates), false, false);
+                    mhc.move_to(new CoordinateContainer(newCoordinates), false);
                     c = null;
                 } else if (c == 'd') {
                     newCoordinates.setY( newCoordinates.getY() + 0.1 );
-                    mhc.setPosition(new CoordinateContainer(newCoordinates), false, false);
+                    mhc.move_to(new CoordinateContainer(newCoordinates), false);
                     c = null;
                     newCoordinates.setY( newCoordinates.getY() - 0.1 );
-                    mhc.setPosition(new CoordinateContainer(newCoordinates), false, false);
+                    mhc.move_to(new CoordinateContainer(newCoordinates), false);
                     c = null;
                 } else if(c == '1'){
                     System.out.println("Saved corner in quadrant 1");
@@ -96,8 +97,9 @@ public class PlayingAreaCalibrator {
         }
     }
 
-    public static void setRunning(boolean status){
-        PlayingAreaCalibrator.run = status;
+    @Override
+    public void setRunning(boolean status){
+        this.run = status;
     }
 
 }

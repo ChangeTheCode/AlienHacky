@@ -4,11 +4,14 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
 /**
- * Created by thomas on 13.12.16.
+ * Created by thomas on 13.12.16. Differs from the standard window listener by the setRunning() function of its
+ * owning parent to signal it to stop, when the window gets closed.
  */
-public class AlienWindowListener implements WindowListener {
-    AlienWindowListener(){
-        /*super boring ctor*/
+class AlienWindowListener implements WindowListener {
+    private ICalibrator parent;
+
+    AlienWindowListener(ICalibrator parent){
+        this.parent = parent;
     }
 
     @Override
@@ -18,15 +21,7 @@ public class AlienWindowListener implements WindowListener {
 
     @Override
     public void windowClosing(WindowEvent e) {
-        /*
-         * Fixme: replace this hardcoded bullshit
-         * To do so, one could implement an interface that defines this method
-         * and then supply this listener with an instance of that interface.
-         * This however requires that the calibrators have no static context, so
-         * they can not contain the main. Rather they had to be instantiated in it.
-         */
-        PlayingAreaCalibrator.setRunning(false);
-        MHCalibrator.setRunning(false);
+        parent.setRunning(false);
     }
 
     @Override

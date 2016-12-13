@@ -11,13 +11,21 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by thomas on 13.12.16.
+ * Created by thomas on 13.12.16. Holds the method that calibrates the MH-X25
+ * <p>
+ * The MH is calibrated in four steps:
+ * - First the head is calibrated so that it knows the offset values to point down vertically
+ * - Second the light spot is moved to a specified distance by the user. Using the resulted angle of pan/tilt we can
+ *  calculate the mounting height of the MH.
+ * - Third the light spot is moved to a certain point by the user which is defined to have a global x - coordinate of 0.
+ *  This is used know the MH's offset in x - direction respective to the logical center of the playing area.
+ * - Fourth the previous step is repeated for the y - direction.
  */
-public class MHCalibrator{
+class MHCalibrator implements ICalibrator{
 
-    private static boolean run = true;
+    private boolean run = true;
 
-    public static void main(String[] args) throws IOException{
+    void execute() throws IOException{
         ArrayBlockingQueue<Character> characterQueue = new ArrayBlockingQueue<Character>(1000);
 
         MHControl mhc = new MHControl(2.0, false, false);
@@ -29,7 +37,7 @@ public class MHCalibrator{
         guiFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         guiFrame.setTitle("Input for calibrators");
         guiFrame.setLocationRelativeTo(null);
-        AlienWindowListener wListener = new AlienWindowListener();
+        AlienWindowListener wListener = new AlienWindowListener(this);
         guiFrame.addWindowListener(wListener);
         AlienKeyListener kListener = new AlienKeyListener(characterQueue);
         inputText.addKeyListener(kListener);
@@ -55,26 +63,28 @@ public class MHCalibrator{
                     //Currently there's no character present, so just don't do anything
                 } else if(c == 'w'){
                     newCoordinates.setX( newCoordinates.getX() + 0.01 );
-                    mhc.setPosition(new CoordinateContainer(newCoordinates), false, false);
+                    mhc.move_to(new CoordinateContainer(newCoordinates), false);
                     c = null;
                 } else if(c == 's'){
                     newCoordinates.setX( newCoordinates.getX() - 0.01 );
-                    mhc.setPosition(new CoordinateContainer(newCoordinates), false, false);
+                    mhc.move_to(new CoordinateContainer(newCoordinates), false);
                     c = null;
                 } else if(c == 'a'){
                     newCoordinates.setY( newCoordinates.getY() + 0.01 );
-                    mhc.setPosition(new CoordinateContainer(newCoordinates), false, false);
+                    mhc.move_to(new CoordinateContainer(newCoordinates), false);
                     c = null;
                 } else if(c == 'd'){
                     newCoordinates.setY( newCoordinates.getY() - 0.01 );
-                    mhc.setPosition(new CoordinateContainer(newCoordinates), false, false);
+                    mhc.move_to(new CoordinateContainer(newCoordinates), false);
                     c = null;
                 } else if(c == 'q'){
                     config.setProperty(Config.AlienServerProperties.mh_offset_pan, String.valueOf(mhc.getCurrentPan()));
                     config.setProperty(Config.AlienServerProperties.mh_offset_tilt, String.valueOf(mhc.getCurrentTilt()));
                     break;
-                }else if(!run){
+                } else if(!run){
                     return;
+                } else {
+                    c = null;
                 }
             } catch (InterruptedException e){
                 System.out.println("Exception occurred :-O");
@@ -101,19 +111,19 @@ public class MHCalibrator{
                     //Currently there's no character present, so just don't do anything
                 } else if(c == 'w'){
                     newCoordinates.setX( newCoordinates.getX() + 0.01 );
-                    mhc.setPosition(new CoordinateContainer(newCoordinates), false, false);
+                    mhc.move_to(new CoordinateContainer(newCoordinates), false);
                     c = null;
                 } else if(c == 's'){
                     newCoordinates.setX( newCoordinates.getX() - 0.01 );
-                    mhc.setPosition(new CoordinateContainer(newCoordinates), false, false);
+                    mhc.move_to(new CoordinateContainer(newCoordinates), false);
                     c = null;
                 } else if(c == 'a'){
                     newCoordinates.setY( newCoordinates.getY() + 0.01 );
-                    mhc.setPosition(new CoordinateContainer(newCoordinates), false, false);
+                    mhc.move_to(new CoordinateContainer(newCoordinates), false);
                     c = null;
                 } else if(c == 'd'){
                     newCoordinates.setY( newCoordinates.getY() - 0.01 );
-                    mhc.setPosition(new CoordinateContainer(newCoordinates), false, false);
+                    mhc.move_to(new CoordinateContainer(newCoordinates), false);
                     c = null;
                 } else if(c == 'q'){
                     /*
@@ -124,8 +134,10 @@ public class MHCalibrator{
                     config.setProperty(Config.AlienServerProperties.mh_height,
                             String.valueOf( newCoordinates.getX()/Math.tan(mhc.getCurrentPan()) ) );
                     break;
-                }else if(!run){
+                } else if(!run){
                     return;
+                } else {
+                    c = null;
                 }
             } catch (InterruptedException e){
                 System.out.println("Exception occurred :-O");
@@ -148,19 +160,19 @@ public class MHCalibrator{
                     //Currently there's no character present, so just don't do anything
                 } else if(c == 'w'){
                     newCoordinates.setX( newCoordinates.getX() + 0.01 );
-                    mhc.setPosition(new CoordinateContainer(newCoordinates), false, false);
+                    mhc.move_to(new CoordinateContainer(newCoordinates), false);
                     c = null;
                 } else if(c == 's'){
                     newCoordinates.setX( newCoordinates.getX() - 0.01 );
-                    mhc.setPosition(new CoordinateContainer(newCoordinates), false, false);
+                    mhc.move_to(new CoordinateContainer(newCoordinates), false);
                     c = null;
                 } else if(c == 'a'){
                     newCoordinates.setY( newCoordinates.getY() + 0.01 );
-                    mhc.setPosition(new CoordinateContainer(newCoordinates), false, false);
+                    mhc.move_to(new CoordinateContainer(newCoordinates), false);
                     c = null;
                 } else if(c == 'd'){
                     newCoordinates.setY( newCoordinates.getY() - 0.01 );
-                    mhc.setPosition(new CoordinateContainer(newCoordinates), false, false);
+                    mhc.move_to(new CoordinateContainer(newCoordinates), false);
                     c = null;
                 } else if(c == 'q'){
                     /*
@@ -170,8 +182,10 @@ public class MHCalibrator{
                      */
                     config.setProperty(Config.AlienServerProperties.mh_offset_x, String.valueOf(newCoordinates.getX()));
                     break;
-                }else if(!run){
+                } else if(!run){
                     return;
+                } else {
+                    c = null;
                 }
             } catch (InterruptedException e){
                 System.out.println("Exception occurred :-O");
@@ -194,19 +208,19 @@ public class MHCalibrator{
                     //Currently there's no character present, so just don't do anything
                 } else if(c == 'w'){
                     newCoordinates.setX( newCoordinates.getX() + 0.01 );
-                    mhc.setPosition(new CoordinateContainer(newCoordinates), false, false);
+                    mhc.move_to(new CoordinateContainer(newCoordinates), false);
                     c = null;
                 } else if(c == 's'){
                     newCoordinates.setX( newCoordinates.getX() - 0.01 );
-                    mhc.setPosition(new CoordinateContainer(newCoordinates), false, false);
+                    mhc.move_to(new CoordinateContainer(newCoordinates), false);
                     c = null;
                 } else if(c == 'a'){
                     newCoordinates.setY( newCoordinates.getY() + 0.01 );
-                    mhc.setPosition(new CoordinateContainer(newCoordinates), false, false);
+                    mhc.move_to(new CoordinateContainer(newCoordinates), false);
                     c = null;
                 } else if(c == 'd'){
                     newCoordinates.setY( newCoordinates.getY() - 0.01 );
-                    mhc.setPosition(new CoordinateContainer(newCoordinates), false, false);
+                    mhc.move_to(new CoordinateContainer(newCoordinates), false);
                     c = null;
                 } else if(c == 'q'){
                     /*
@@ -218,6 +232,8 @@ public class MHCalibrator{
                     break;
                 } else if(!run){
                     return;
+                } else {
+                    c = null;
                 }
             } catch (InterruptedException e){
                 System.out.println("Exception occurred :-O");
@@ -227,8 +243,9 @@ public class MHCalibrator{
         }
     }
 
-    public static void setRunning(boolean status){
-        MHCalibrator.run = status;
+    @Override
+    public void setRunning(boolean status){
+        this.run = status;
     }
 
 }
