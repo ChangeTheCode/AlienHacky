@@ -72,9 +72,10 @@ void button_callback (PIN_Handle handle, PIN_Id pin_id) {
 			Alien_log (temp_string);
 			break;
 		case Board_BUTTON1:
-			do {
-				Alien_UART_receive (data, &length, &overflow);
-			} while (length != 0);
+//			do {
+//				Alien_UART_receive (data, &length, &overflow);
+//			} while (length != 0);
+			Semaphore_post(sem_tx_handle);
 			break;
 		default:
 			/* Do nothing */

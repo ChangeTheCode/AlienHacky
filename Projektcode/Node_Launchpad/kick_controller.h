@@ -48,7 +48,7 @@ Char sensor_task_stack[TASKSTACKSIZE];
 static MPU9150_Handle MPU_handel;
 static I2C_Handle      i2c;
 static int light_values[MAX_AVARAGE_COUNT];
-static int light_pos = 0, light_avarage = 0;
+static int light_pos = 0, light_average = 0;
 
 //*****************************************************************************
 // Global Instance structure to manage the DCM state.

@@ -28,10 +28,10 @@
 
 /* RX and TX Task Config */
 #define RX_TASK_STACK_SIZE 1024
-#define RX_TASK_PRIORITY   2
+#define RX_TASK_PRIORITY   1
 
 #define TX_TASK_STACK_SIZE 1024
-#define TX_TASK_PRIORITY   1
+#define TX_TASK_PRIORITY   2
 
 /* Packet RX Configuration */
 #define DATA_ENTRY_HEADER_SIZE 8  /* Constant header size of a Generic Data Entry */
@@ -55,6 +55,7 @@ extern RF_Handle RF_handle;
 
 extern Semaphore_Handle sem_tx_handle;
 extern Semaphore_Handle sem_rx_handle;
+
 
 extern uint8_t button_pressed;
 

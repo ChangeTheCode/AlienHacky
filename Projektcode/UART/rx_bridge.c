@@ -49,7 +49,8 @@ void rx_task_init()
     rx_task_params.stackSize = RX_TASK_STACK_SIZE;
     rx_task_params.priority = RX_TASK_PRIORITY;
     rx_task_params.stack = &rx_task_stack;
-    rx_task_params.arg0 = (UInt)1000000;
+//    rx_task_params.arg0 = (UInt)1000000;
+    rx_task_params.arg0 = (UInt)0;
 
     Task_construct(&rx_task, rx_task_function, &rx_task_params, NULL);
 }
@@ -97,6 +98,11 @@ static void rx_task_function(UArg arg0, UArg arg1)
     	rx_cmd = RF_postCmd(RF_handle, (RF_Op*)&RF_cmdPropRx, RF_PriorityNormal, &rx_callback, IRQ_RX_ENTRY_DONE);
 
 		Semaphore_pend(sem_rx_handle, BIOS_WAIT_FOREVER);
+
+//    	sem_rx_handle = TRUE;
+//    	while(sem_rx_handle){
+//    		Task_yield();
+//    	}
     }
 
 }

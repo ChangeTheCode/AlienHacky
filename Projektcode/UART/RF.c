@@ -16,6 +16,7 @@ Semaphore_Handle sem_tx_handle;
 Semaphore_Struct sem_rx_struct;
 Semaphore_Handle sem_rx_handle;
 
+
 void Alien_RF_init(void)
 {
 	Semaphore_Params sem_params;

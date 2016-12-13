@@ -275,14 +275,14 @@ Void sensor_task_fn(UArg arg0, UArg arg1){
 
 			// filtering light values and check if the delta is big enough
 			current_16b_light = light_transaction_values[0];
-			old_light_avarage = light_avarage; // save old value of light to see how big are the difference
+			old_light_avarage = light_average; // save old value of light to see how big are the difference
 
 			if (light_pos >= MAX_AVARAGE_COUNT){
 				light_pos = 0;
 			}
 			// don´t calculate the average in the first number of rows in the array rounds, because the initial array is 0
 			if(start >= MAX_AVARAGE_COUNT) {
-				light_avarage = calculate_average(  &light_values[light_pos] ,current_16b_light, light_avarage);
+				light_average = calculate_average(  &light_values[light_pos] ,current_16b_light, light_average);
 			}
 			else {
 				start++;
@@ -291,7 +291,7 @@ Void sensor_task_fn(UArg arg0, UArg arg1){
 			light_pos ++;
 
 
-			if( (light_avarage * 100) / old_light_avarage >= LIGHT_LEVEL_IN_PROCENT ){ // to do a test, comment this if block out
+			if( (light_average * 100) / old_light_avarage >= LIGHT_LEVEL_IN_PROCENT ){ // to do a test, comment this if block out
 				gyro_to_do();
 
 				//TODO: Calculate all necessary value like MagnetoGetFloat,Accel, gyrogetfloat and so on. Talk to Tobi and to it together

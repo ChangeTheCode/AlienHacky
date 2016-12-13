@@ -63,19 +63,18 @@ void tx_task_function(UArg arg0, UArg arg1)
 
 		Alien_log("In RF send\n");
 
-		//TODO while uart
-		// if something was sent from the server send it
-//    	while(Alien_UART_receive (send_packet, &send_packet_length, &send_packet_buffer_overflow))
-		data [0] = 'H';
-		data [1] = 'a';
-		data [2] = 'l';
-		data [3] = 'l';
-		data [4] = 'l';
-		data [5] = 'o';
-		data [6] = 'o';
-		data [7] = '\0';
-		queue (RECEIVE_QUEUE, data, length, FALSE);
-		if(Alien_UART_receive (send_packet, &send_packet_length, &send_packet_buffer_overflow))
+//		//TODO while uart
+//		// if something was sent from the server send it
+//		data [0] = 'H';
+//		data [1] = 'a';
+//		data [2] = 'l';
+//		data [3] = 'l';
+//		data [4] = 'l';
+//		data [5] = 'o';
+//		data [6] = 'o';
+//		data [7] = '\0';
+//		queue (RECEIVE_QUEUE, data, length, overflow);
+    	while(Alien_UART_receive (send_packet, &send_packet_length, &send_packet_buffer_overflow))
     	{
     		send_packet [send_packet_length] ='\0';
     		System_printf ("RTS: %s\n", send_packet);
@@ -96,7 +95,11 @@ void tx_task_function(UArg arg0, UArg arg1)
 			}
 			// bufferoverflow or invalid packet length
     	}
+
     	Alien_log("tx nach schleife\n");
+
+//    	System_printf("empfangenes Paket: %s\n", packet_rx);
+//    	System_flush();
 //
 //		if(packet_rx[0] == '1')
 //		{

@@ -64,38 +64,38 @@ static void tx_task_function(UArg arg0, UArg arg1)
     while(1)
     {
     	// Login
-//    	if((login_ok == FALSE) && (login_sent == FALSE))
-//    	{
-//    		packet_tx[0] = '1';	//Login
-//
-//    		// add mac address to packet
-//			uint8_t j;
-//			for (j = 2; j < 8; j++)
-//			{
-//				packet_tx[j-1] = mac_address[j]; // TODO: in ascii konvertieren
-//			}
-//
-//			RF_cmdPropTx.pktLen = 8;
-//
-//			/* Send packet */
-//			// stop RX CMD
-//			RF_Stat r;
-//			if(rx_cmd > 0)
-//			{
-//				r = RF_cancelCmd(RF_handle, rx_cmd, 1);
-//			}
-//
-//			// post TX CMD
-//			RF_CmdHandle tx_cmd = RF_postCmd(RF_handle, (RF_Op*)&RF_cmdPropTx, RF_PriorityHighest, NULL, 0);
-//
-//			login_sent = TRUE;
-//
-//			Semaphore_post(sem_rx_handle);
-//			Semaphore_pend(sem_tx_handle, BIOS_WAIT_FOREVER);
-//    	}
-//
-//    	else if(login_ok == TRUE)
-//    	{
+    	if((login_ok == FALSE) && (login_sent == FALSE))
+    	{
+    		packet_tx[0] = '1';	//Login
+
+    		// add mac address to packet
+			uint8_t j;
+			for (j = 2; j < 8; j++)
+			{
+				packet_tx[j-1] = mac_address[j]; // TODO: in ascii konvertieren
+			}
+
+			RF_cmdPropTx.pktLen = 8;
+
+			/* Send packet */
+			// stop RX CMD
+			RF_Stat r;
+			if(rx_cmd > 0)
+			{
+				r = RF_cancelCmd(RF_handle, rx_cmd, 1);
+			}
+
+			// post TX CMD
+			RF_CmdHandle tx_cmd = RF_postCmd(RF_handle, (RF_Op*)&RF_cmdPropTx, RF_PriorityHighest, NULL, 0);
+
+			login_sent = TRUE;
+
+			Semaphore_post(sem_rx_handle);
+			Semaphore_pend(sem_tx_handle, BIOS_WAIT_FOREVER);
+    	}
+
+    	else if(login_ok == TRUE)
+    	{
         	Semaphore_pend(sem_tx_handle, BIOS_WAIT_FOREVER);
         	// Heartbeat
         	if(heartbeat == TRUE)
@@ -146,7 +146,7 @@ static void tx_task_function(UArg arg0, UArg arg1)
 				for (i = 0; i < PAYLOAD_LENGTH; i++)
 				{
 					//packet[i] = rand();
-					packet_tx[i+1] = payload[i];
+					packet_tx[i+2] = payload[i];
 				}
 
 				RF_cmdPropTx.pktLen = 2 + PAYLOAD_LENGTH;
@@ -167,7 +167,7 @@ static void tx_task_function(UArg arg0, UArg arg1)
 
 				GPTimerCC26XX_start(timer_kick_handle);
 
-//			}
+			}
         	Semaphore_post(sem_rx_handle);
     	}
     }

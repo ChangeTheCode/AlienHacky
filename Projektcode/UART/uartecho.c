@@ -9,6 +9,8 @@
 #include <ti/sysbios/BIOS.h>
 #include <xdc/runtime/System.h>  // This is needed as Board_initGeneral () uses System_abort but didn't include it?
 
+#include "button.h"
+
 BOOLEAN debug;
 
 int main(void) {
@@ -21,6 +23,7 @@ int main(void) {
 
     // Initialise the Board
     Board_initGeneral();
+    button_init();
 
     // Initialise the UART
     Alien_UART_init ();

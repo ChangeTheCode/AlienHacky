@@ -21,7 +21,7 @@ void Alien_UART_send_task (UArg arg0, UArg arg1);
 void Alien_UART_receive_task (UArg arg0, UArg arg1);
 void UART_read_callback (UART_Handle UART, void * data, size_t length);
 
-#define UART_TASK_STACK_SIZE 1024
+#define UART_TASK_STACK_SIZE 2048
 
 // UART send Task
 static Task_Params UART_send_task_params;
@@ -78,7 +78,7 @@ BOOLEAN Alien_UART_send (uint8_t * data, uint8_t length) {
 // read the next entry from the queue
 BOOLEAN Alien_UART_receive (uint8_t * data, uint8_t * length, BOOLEAN * buffer_overflow) {
 
-	Alien_log ("Alien UART receive called\n");
+//	Alien_log ("Alien UART receive called\n");
 
 	// just get from the queue
 	BOOLEAN rc;
@@ -86,10 +86,12 @@ BOOLEAN Alien_UART_receive (uint8_t * data, uint8_t * length, BOOLEAN * buffer_o
 
 	if (rc == FALSE) {
 		Alien_log ("Alien UART receive finished. Queue was empty\n");
-	} else {
-		char temp_string [MAX_LOG_ENTRY];
-		sprintf (temp_string, "Alien UART receive finished. Received: %s\n", data);
-		Alien_log (temp_string);
+	}
+	else {
+//		char temp_string [MAX_LOG_ENTRY];   // important: if this is uncommented, the rx task is not working anymore
+//		sprintf (temp_string, "Alien UART receive finished. Received: %s\n", data);
+//		Alien_log (temp_string);
+		Alien_log("Alien UART receive finished. Something was in the Queue. \n");
 	}
 	return rc;
 }

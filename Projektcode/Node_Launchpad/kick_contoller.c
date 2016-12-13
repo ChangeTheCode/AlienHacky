@@ -177,8 +177,8 @@ void calc_in_world_coordinates( gyro_value_t new_ComDCM){
 
 		// i32Ipart is the integer part of the value und i32FPart float with 3 numbers after the point
 		//system prints only for tests
-		System_printf("\n Gyro %.3f, %.3f, %.3f\n", pfAccel2[0], pfAccel2[1], pfAccel2[2]);
-		System_flush();
+//		System_printf("\n Gyro %.3f, %.3f, %.3f\n", pfAccel2[0], pfAccel2[1], pfAccel2[2]);
+//		System_flush();
 
 		transport_kick_struct._kick_int_high_x = (i32IPart[16] & 0x000000ff);
 		transport_kick_struct._kick_float_high_x  = (i32FPart[16] & 0x0000ff00) >> 8;
@@ -192,7 +192,7 @@ void calc_in_world_coordinates( gyro_value_t new_ComDCM){
 		transport_kick_struct._kick_float_high_z  = (i32FPart[17] & 0x0000ff00) >> 8;
 		transport_kick_struct._kick_float_low_z =(i32FPart[17] & 0x000000ff);
 
-		//set_new_kick_event_value(transport_kick_struct);
+		set_new_kick_event_value(transport_kick_struct);
 }
 
 // byte array is an 3 item big array
@@ -248,7 +248,7 @@ Void sensor_task_fn(UArg arg0, UArg arg1){
 		{
 		}
 	}
-	Task_sleep(100);
+
 	if( ! config_light_sensor_reg2(i2c) ){
 		GPTimerCC26XX_start(timer_error_handle);
 		System_printf("Error Initializing light 2\n");
@@ -262,12 +262,32 @@ Void sensor_task_fn(UArg arg0, UArg arg1){
 	/* Take 20 samples and print them out onto the console */	// TODO: ?
 	int light_transaction_values[4];
 	int current_16b_light = 0;
-	int old_light_avarage = 0;
-	int start = 0;
+	int old_light_average = 0;
 
 	CompDCMInit(&g_sCompDCMInst, 1.0f / 50.0f, 0.2f, 0.6f, 0.2f);
 
 	ui32CompDCMStarted = 0;
+
+	// average light array init
+	int i = 0;
+	int start_sum_light_values = 0;
+	for(i = 0; i < MAX_AVARAGE_COUNT; i++){
+		if(read_light_sensor_values(i2c, &light_transaction_values[0])){
+			light_values[i] = light_transaction_values[0];
+			start_sum_light_values += light_transaction_values[0];
+		}
+	}
+	light_average = start_sum_light_values / MAX_AVARAGE_COUNT;
+
+	if(light_average == 0){
+		GPTimerCC26XX_start(timer_error_handle);
+		System_printf("Error Initializing light average\n");
+		System_flush();
+		while(1)		// blink red led forever
+		{
+		}
+	}
+
 
 	while(1) {
 
@@ -275,23 +295,16 @@ Void sensor_task_fn(UArg arg0, UArg arg1){
 
 			// filtering light values and check if the delta is big enough
 			current_16b_light = light_transaction_values[0];
-			old_light_avarage = light_avarage; // save old value of light to see how big are the difference
+			old_light_average = light_average; // save old value of light to see how big are the difference
 
 			if (light_pos >= MAX_AVARAGE_COUNT){
 				light_pos = 0;
 			}
-			// don´t calculate the average in the first number of rows in the array rounds, because the initial array is 0
-			if(start >= MAX_AVARAGE_COUNT) {
-				light_avarage = calculate_average(  &light_values[light_pos] ,current_16b_light, light_avarage);
-			}
-			else {
-				start++;
-			}
+			light_average = calculate_average(  &light_values[light_pos] ,current_16b_light, light_average);
 
 			light_pos ++;
 
-
-			if( (light_avarage * 100) / old_light_avarage >= LIGHT_LEVEL_IN_PROCENT ){ // to do a test, comment this if block out
+			if( (light_average * 100) / old_light_average >= LIGHT_LEVEL_IN_PROCENT ){ // to do a test, comment this if block out
 				gyro_to_do();
 
 				//TODO: Calculate all necessary value like MagnetoGetFloat,Accel, gyrogetfloat and so on. Talk to Tobi and to it together
@@ -299,6 +312,7 @@ Void sensor_task_fn(UArg arg0, UArg arg1){
 
 				//TOdo: if(ui32CompDCMStarted == 0) line 566 in tiva
 			}
+
 		}else{
 			System_printf("\n Read light sensor failed ");
 			System_flush();
