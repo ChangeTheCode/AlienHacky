@@ -20,8 +20,8 @@ import static java.lang.Math.sqrt;
   */
 public class Calculator implements ICalculator{
     /*
-     * The following vars give the parameters for the calculation in state space. Please note that as of now, these
-     * values are not meant to be perfect (or let alone final), they merely serve as a placeholder until testing
+     * The following vars give the parameters for the calculation in state space. Please keep in mind that as of now,
+     * these values are not meant to be perfect (or let alone final), they merely serve as a placeholder until testing
      * with the physical unit can be picked up.
      */
 

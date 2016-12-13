@@ -16,6 +16,7 @@ public class AlienWindowListener implements WindowListener {
 
     @Override
     public void windowClosing(WindowEvent e) {
+        //Fixme: replace this hardcoded bullshit
         PlayingAreaCalibrator.setRunning(false);
         MHCalibrator.setRunning(false);
     }

@@ -27,39 +27,17 @@
     <splitter split-orientation="horizontal" split-proportion="0.4834931">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="Calculator.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/calculator/Calculator.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="362">
-                  <caret line="167" column="9" lean-forward="true" selection-start-line="167" selection-start-column="9" selection-end-line="167" selection-end-column="9" />
-                  <folding>
-                    <element signature="method#delta_acc#0;class#Calculator#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="MHCalibrator.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="MHCalibrator.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/calibrators/MHCalibrator.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="416">
-                  <caret line="53" column="36" lean-forward="true" selection-start-line="53" selection-start-column="36" selection-end-line="53" selection-end-column="36" />
+                <state relative-caret-position="1388">
+                  <caret line="215" column="23" lean-forward="true" selection-start-line="215" selection-start-column="23" selection-end-line="215" selection-end-column="23" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <element signature="e#538#549#0" expanded="true" />
-                    <element signature="e#2746#2747#0" expanded="true" />
-                    <element signature="e#2787#2788#0" expanded="true" />
+                    <element signature="e#592#603#0" expanded="true" />
+                    <element signature="e#11187#11188#0" expanded="true" />
+                    <element signature="e#11228#11229#0" expanded="true" />
                   </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="TODO.txt" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/TODO.txt">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="270">
-                  <caret line="15" column="43" lean-forward="false" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
-                  <folding />
                 </state>
               </provider>
             </entry>
@@ -68,31 +46,36 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="PlayingAreaCalibrator.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="PlayingAreaCalibrator.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/calibrators/PlayingAreaCalibrator.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="308">
-                  <caret line="62" column="29" lean-forward="true" selection-start-line="62" selection-start-column="29" selection-end-line="62" selection-end-column="29" />
+                <state relative-caret-position="542">
+                  <caret line="52" column="19" lean-forward="false" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="19" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <element signature="e#4988#4989#0" expanded="true" />
-                    <element signature="e#5038#5039#0" expanded="true" />
+                    <element signature="e#4490#4491#0" expanded="true" />
+                    <element signature="e#4540#4541#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="MHControl.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="MHControl.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/movingHead/MHControl.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="402">
-                  <caret line="127" column="39" lean-forward="true" selection-start-line="127" selection-start-column="39" selection-end-line="127" selection-end-column="39" />
+                <state relative-caret-position="848">
+                  <caret line="213" column="5" lean-forward="true" selection-start-line="213" selection-start-column="5" selection-end-line="213" selection-end-column="5" />
                   <folding>
                     <element signature="method#MHControl#0;class#MHControl#0" expanded="false" />
                     <element signature="method#getExaggeratedPacket#0;class#MHControl#0" expanded="false" />
                     <element signature="docComment;method#getTimeToSleep#0;class#MHControl#0" expanded="false" />
                     <element signature="method#getTimeToSleep#0;class#MHControl#0" expanded="false" />
                     <element signature="method#log2#0;class#MHControl#0" expanded="false" />
+                    <element signature="method#move_to#0;class#MHControl#0" expanded="false" />
+                    <element signature="method#move_to#1;class#MHControl#0" expanded="false" />
+                    <element signature="method#set_light#0;class#MHControl#0" expanded="false" />
+                    <element signature="method#getCurrentPan#0;class#MHControl#0" expanded="false" />
+                    <element signature="method#getCurrentTilt#0;class#MHControl#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -158,7 +141,6 @@
         <option value="$PROJECT_DIR$/src/at/fhv/alienserver/game/IBoard.java" />
         <option value="$PROJECT_DIR$/src/at/fhv/alienserver/Common/Kick_Container.java" />
         <option value="$PROJECT_DIR$/src/at/fhv/alienserver/calculator/ICalculator.java" />
-        <option value="$PROJECT_DIR$/src/at/fhv/alienserver/calculator/Calculator.java" />
         <option value="$PROJECT_DIR$/src/at/fhv/alienserver/Main.java" />
         <option value="$PROJECT_DIR$/src/at/fhv/alienserver/calibrator/AlienKeyListener.java" />
         <option value="$PROJECT_DIR$/src/at/fhv/alienserver/calibrator/AlienWindowListener.java" />
@@ -166,10 +148,11 @@
         <option value="$PROJECT_DIR$/src/at/fhv/alienserver/calibrator/PlayfieldCalibrator.java" />
         <option value="$PROJECT_DIR$/src/at/fhv/alienserver/calibrator/PlayingAreaCalibrator.java" />
         <option value="$PROJECT_DIR$/src/at/fhv/alienserver/config/Config.java" />
-        <option value="$PROJECT_DIR$/src/at/fhv/alienserver/calibrators/AlienWindowListener.java" />
         <option value="$PROJECT_DIR$/src/at/fhv/alienserver/calibrators/PlayingAreaCalibrator.java" />
-        <option value="$PROJECT_DIR$/src/at/fhv/alienserver/calibrators/MHCalibrator.java" />
+        <option value="$PROJECT_DIR$/src/at/fhv/alienserver/calculator/Calculator.java" />
         <option value="$PROJECT_DIR$/src/at/fhv/alienserver/movingHead/MHControl.java" />
+        <option value="$PROJECT_DIR$/src/at/fhv/alienserver/calibrators/AlienWindowListener.java" />
+        <option value="$PROJECT_DIR$/src/at/fhv/alienserver/calibrators/MHCalibrator.java" />
       </list>
     </option>
   </component>
@@ -912,12 +895,12 @@
       <workItem from="1481452710014" duration="8946000" />
       <workItem from="1481549026298" duration="1006000" />
       <workItem from="1481552183998" duration="156000" />
-      <workItem from="1481630613181" duration="6708000" />
+      <workItem from="1481630613181" duration="9426000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="182869000" />
+    <option name="totallyTimeSpent" value="185587000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -944,7 +927,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24967907" sideWeight="0.49304175" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33333334" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905984" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31410256" sideWeight="0.49722221" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1059,7 +1042,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="137" />
+      <option name="time" value="138" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1338,16 +1321,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/calibrators/AlienWindowListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="8" lean-forward="false" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/movingHead/Calibrator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1134">
@@ -1356,51 +1329,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/calibrators/PlayingAreaCalibrator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="62" column="29" lean-forward="true" selection-start-line="62" selection-start-column="29" selection-end-line="62" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4988#4989#0" expanded="true" />
-            <element signature="e#5038#5039#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/calibrators/MHCalibrator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="53" column="36" lean-forward="true" selection-start-line="53" selection-start-column="36" selection-end-line="53" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#538#549#0" expanded="true" />
-            <element signature="e#2746#2747#0" expanded="true" />
-            <element signature="e#2787#2788#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/calculator/Calculator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="167" column="9" lean-forward="true" selection-start-line="167" selection-start-column="9" selection-end-line="167" selection-end-column="9" />
+        <state relative-caret-position="208">
+          <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
           <folding>
             <element signature="method#delta_acc#0;class#Calculator#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/calibrators/AlienWindowListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="18" column="48" lean-forward="false" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/movingHead/MHControl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="127" column="39" lean-forward="true" selection-start-line="127" selection-start-column="39" selection-end-line="127" selection-end-column="39" />
+        <state relative-caret-position="848">
+          <caret line="213" column="5" lean-forward="true" selection-start-line="213" selection-start-column="5" selection-end-line="213" selection-end-column="5" />
           <folding>
             <element signature="method#MHControl#0;class#MHControl#0" expanded="false" />
             <element signature="method#getExaggeratedPacket#0;class#MHControl#0" expanded="false" />
             <element signature="docComment;method#getTimeToSleep#0;class#MHControl#0" expanded="false" />
             <element signature="method#getTimeToSleep#0;class#MHControl#0" expanded="false" />
             <element signature="method#log2#0;class#MHControl#0" expanded="false" />
+            <element signature="method#move_to#0;class#MHControl#0" expanded="false" />
+            <element signature="method#move_to#1;class#MHControl#0" expanded="false" />
+            <element signature="method#set_light#0;class#MHControl#0" expanded="false" />
+            <element signature="method#getCurrentPan#0;class#MHControl#0" expanded="false" />
+            <element signature="method#getCurrentTilt#0;class#MHControl#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/calibrators/PlayingAreaCalibrator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="542">
+          <caret line="52" column="19" lean-forward="false" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4490#4491#0" expanded="true" />
+            <element signature="e#4540#4541#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/calibrators/MHCalibrator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1388">
+          <caret line="215" column="23" lean-forward="true" selection-start-line="215" selection-start-column="23" selection-end-line="215" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#592#603#0" expanded="true" />
+            <element signature="e#11187#11188#0" expanded="true" />
+            <element signature="e#11228#11229#0" expanded="true" />
           </folding>
         </state>
       </provider>

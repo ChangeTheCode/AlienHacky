@@ -18,16 +18,14 @@ import static java.lang.Thread.sleep;
 public class MHControl implements IMH_Controller{
     private ESP esp = new ESP();
 
-    //FIXME: Move all of the following to config.file
+    //FIXME: Implement reading of constants from config in ctor
     /**
      * Offset of the Pan - angle; chosen to have the MH-X25 point straight to the ground for point (0, 0)
-     * FIXME: Redefine the offsets to fit the new MH-X25 settings
      */
     private final double offset_pan = 95; //90 degrees plus a slight deviation due to non ideal mounting
     //private final double offset_pan = 180;
     /**
      * Offset of the Tilt - angle; chosen to have the MH-X25 point straight to the ground for point (0, 0)
-     * FIXME: Redefine the offsets to fit the new MH-X25 settings
      */
     private final double offset_tilt = 43;
     /**
@@ -215,11 +213,23 @@ public class MHControl implements IMH_Controller{
 
     }
 
-    public void changePan(byte delta){
-
+    public double getCurrentPan(){
+        DMX tempPacket = new DMX( oldPacket );
+        return tempPacket.getPan();
     }
 
-    public void changeTilt(byte delta){
+    public double getCurrentTilt(){
+        DMX tempPacket = new DMX( oldPacket );
+        return tempPacket.getTilt();
+    }
 
+    public double getCurrentX(){
+        CoordinateContainer temp = new CoordinateContainer(oldPosition);
+        return temp.getX();
+    }
+
+    public double getCurrentY(){
+        CoordinateContainer temp = new CoordinateContainer(oldPosition);
+        return temp.getY();
     }
 }

@@ -59,26 +59,18 @@ public class PlayingAreaCalibrator {
                 } else if (c == 'w') {
                     newCoordinates.setX( newCoordinates.getX() + 0.1 );
                     mhc.setPosition(new CoordinateContainer(newCoordinates), false, false);
-                    System.out.println("Pressed " + c);
                     c = null;
                 } else if (c == 's') {
                     newCoordinates.setX( newCoordinates.getX() - 0.1 );
                     mhc.setPosition(new CoordinateContainer(newCoordinates), false, false);
-                    System.out.println("Pressed " + c);
                     c = null;
                 } else if (c == 'd') {
                     newCoordinates.setY( newCoordinates.getY() + 0.1 );
                     mhc.setPosition(new CoordinateContainer(newCoordinates), false, false);
-                    System.out.println("Pressed " + c);
                     c = null;
                     newCoordinates.setY( newCoordinates.getY() - 0.1 );
                     mhc.setPosition(new CoordinateContainer(newCoordinates), false, false);
-                    System.out.println("Pressed " + c);
                     c = null;
-                } else if (c == 'r'){
-                    String outputString = config.getProperty(Config.AlienServerProperties.quadrant1Limit);
-                    System.out.println("Tried to read a property; got: ");
-                    System.out.println(outputString);
                 } else if(c == '1'){
                     System.out.println("Saved corner in quadrant 1");
                     config.setProperty(Config.AlienServerProperties.quadrant1Limit, newCoordinates.toString());
