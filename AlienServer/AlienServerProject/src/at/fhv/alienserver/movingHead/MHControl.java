@@ -30,7 +30,6 @@ public class MHControl implements IMH_Controller{
      * FIXME: Redefine the offsets to fit the new MH-X25 settings
      */
     private final double offset_tilt = 43;
-    //private final double offset_tilt = 135;
     /**
      * Height of the moving head's mounting point in meters; measured at the tilt-turning-axis
      */
@@ -38,7 +37,6 @@ public class MHControl implements IMH_Controller{
     /**
      * Offset of the moving head relative to center of game coordinate system in x - direction
      */
-    //private final double mhOffsetX = 1.35;
     private final double mhOffsetX = 0;
     /**
      * Offset of the moving head relative to center of game coordinate system in y - direction
@@ -214,6 +212,14 @@ public class MHControl implements IMH_Controller{
 
     @Override
     public void set_light(Boolean on) {
+
+    }
+
+    public void changePan(byte delta){
+
+    }
+
+    public void changeTilt(byte delta){
 
     }
 }

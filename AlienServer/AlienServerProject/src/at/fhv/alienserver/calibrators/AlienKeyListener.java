@@ -1,13 +1,12 @@
-package at.fhv.alienserver.movingHead;
+package at.fhv.alienserver.calibrators;
 
-import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
 import java.util.concurrent.ArrayBlockingQueue;
 
 /**
- * Created by thomas on 07.11.16.
+ * Created by thomas on 13.12.16.
  */
-class AlienKeyListener implements java.awt.event.KeyListener {
+public class AlienKeyListener implements java.awt.event.KeyListener {
     private ArrayBlockingQueue<Character> KeyQueue;
 
     AlienKeyListener(ArrayBlockingQueue<Character> queue){

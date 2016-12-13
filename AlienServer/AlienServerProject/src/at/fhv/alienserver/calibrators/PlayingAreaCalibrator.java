@@ -1,8 +1,8 @@
-package at.fhv.alienserver.movingHead;
+package at.fhv.alienserver.calibrators;
 
 import at.fhv.alienserver.Common.CoordinateContainer;
-import at.fhv.alienserver.Common.Tuple;
 import at.fhv.alienserver.config.Config;
+import at.fhv.alienserver.movingHead.MHControl;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,39 +11,26 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by thomas on 07.11.16.
- * NICETOHAVE: Implement exception handling at character reading
- * NICETOHAVE: Make the system drop packets that come in while a key is being held down (to accomplish that the MH doesn't continue to move after the button has been released)
+ * Created by thomas on 13.12.16.
+ *
+ * The main function in this class serves the purpose of defining the corners of the playing area.
  */
-public class Calibrator {
-
+public class PlayingAreaCalibrator {
     private static boolean run = true;
 
-    public static void main(String[] args){
-
-        //A queue for holding the pressed keys
-        ArrayBlockingQueue<Tuple<CoordinateContainer, Long>> coordinates = new ArrayBlockingQueue<>(1);
-
-        //Get MH - Control up and running
-        /*MHControl myMH = null;
-        try {
-            myMH = new MHControl(coordinates, 1);
-        } catch (IOException e){
-            e.printStackTrace();
-            System.exit(-1);
-        }
-        Thread mhThread = new Thread(myMH);
-        mhThread.start();*/
-
+    public static void main(String[] args) throws IOException {
         //A queue for holding the pressed keys
         ArrayBlockingQueue<Character> characterQueue = new ArrayBlockingQueue<>(1000);
+
+        MHControl mhc = new MHControl(2.0, false, false);
+
 
         //Get a keylistener up and running
         JTextArea inputText = new JTextArea();
         JFrame guiFrame = new JFrame();
         guiFrame.getContentPane().setBackground(Color.BLACK);
         guiFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        guiFrame.setTitle("Input for calibrator");
+        guiFrame.setTitle("Input for calibrators");
         guiFrame.setLocationRelativeTo(null);
         AlienWindowListener wListener = new AlienWindowListener();
         guiFrame.addWindowListener(wListener);
@@ -56,26 +43,12 @@ public class Calibrator {
 
         System.out.println("Use the WASD keys to move the light spot");
         System.out.println("Use the number keys 1 - 4 to set the corner in the respective quadrant");
-        System.out.println("Close input window to terminate application");
-        System.out.println("If you don't know what quadrants are or what WASD controls are: just go home...");
+        System.out.println("Close input window to terminate application and save values");
 
         Character c;
         CoordinateContainer newCoordinates = new CoordinateContainer(0, 0);
 
-        try {
-            coordinates.put(new Tuple<>(new CoordinateContainer(0, 0), Long.MAX_VALUE));
-        } catch(InterruptedException e){
-            e.printStackTrace();
-        }
-
-        Config config = null;
-        try {
-            config = new Config();
-        } catch(IOException e){
-            System.out.println("Config utility working with \'AlienServer.properties\' file could not be loaded. Is the file there?");
-            e.printStackTrace();
-            System.exit(-1);
-        }
+        Config config = new Config();
 
         while(run) {
             try {
@@ -84,23 +57,22 @@ public class Calibrator {
                 if (c == null){
                     //Currently there's no character present, so just don't do anything
                 } else if (c == 'w') {
-                    newCoordinates.setX( newCoordinates.getX() + 0.1 ) ;
-                    coordinates.put(new Tuple<>(newCoordinates, Long.MAX_VALUE));
+                    newCoordinates.setX( newCoordinates.getX() + 0.1 );
+                    mhc.setPosition(new CoordinateContainer(newCoordinates), false, false);
                     System.out.println("Pressed " + c);
                     c = null;
                 } else if (c == 's') {
-                    newCoordinates.setX( newCoordinates.getX() - 0.1);
-                    coordinates.put(new Tuple<>(newCoordinates, Long.MAX_VALUE));
+                    newCoordinates.setX( newCoordinates.getX() - 0.1 );
+                    mhc.setPosition(new CoordinateContainer(newCoordinates), false, false);
                     System.out.println("Pressed " + c);
                     c = null;
                 } else if (c == 'd') {
-                    newCoordinates.setY( newCoordinates.getY() + 0.1);
-                    coordinates.put(new Tuple<>(newCoordinates, Long.MAX_VALUE));
+                    newCoordinates.setY( newCoordinates.getY() + 0.1 );
+                    mhc.setPosition(new CoordinateContainer(newCoordinates), false, false);
                     System.out.println("Pressed " + c);
                     c = null;
-                } else if (c == 'a') {
-                    newCoordinates.setY( newCoordinates.getY() -  0.1);
-                    coordinates.put(new Tuple<>(newCoordinates, Long.MAX_VALUE));
+                    newCoordinates.setY( newCoordinates.getY() - 0.1 );
+                    mhc.setPosition(new CoordinateContainer(newCoordinates), false, false);
                     System.out.println("Pressed " + c);
                     c = null;
                 } else if (c == 'r'){
@@ -128,20 +100,12 @@ public class Calibrator {
                 System.out.println("Exception occurred :-O");
                 e.printStackTrace();
                 //TODO: Implement exception handling
-            } catch (IOException e){
-                System.out.println("File AlienServer.properties not found. Was it moved or renamed");
-                e.printStackTrace();
             }
         }
-        /*
-         * NOTE: this call to exit() can cause a race condition with the open input window and the listeners. In the
-         * current state of the project, this race condition does not matter; should calibration problems occur in the
-         * future, this might be the problem.
-         */
-        System.exit(0);
     }
 
-    static void setRunning(boolean status){
-        Calibrator.run = status;
+    public static void setRunning(boolean status){
+        PlayingAreaCalibrator.run = status;
     }
+
 }
