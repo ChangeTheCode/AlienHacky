@@ -28,8 +28,7 @@ public class Calculator implements ICalculator{
     /**
      * Change of first derivative of state variable depending on the state variable itself
      */
-    //private final double A = -1.7;
-    private final double A = -0;
+    private final double A = -1.7;
     /**
      * Change of the first derivative of state variable depending on input
      */
@@ -65,16 +64,17 @@ public class Calculator implements ICalculator{
     }
 
     /*
-     * Looka here:
+     * Used to create this function
      * http://stackoverflow.com/questions/15620590/polygons-with-double-coordinates
      * http://stackoverflow.com/questions/15958434/how-to-check-if-a-point-is-inside-a-polygon
      */
 
     private void calculate(AccelerationContainer senAcc) {
-
-//        int iteration = 0;
-
-        //ArrayList< LongTuple<CoordinateContainer, SpeedContainer, AccelerationContainer, Long> > positions = new ArrayList<>();
+        /*
+         * Used to create this function
+         * http://stackoverflow.com/questions/15620590/polygons-with-double-coordinates
+         * http://stackoverflow.com/questions/15958434/how-to-check-if-a-point-is-inside-a-polygon
+         */
 
         CoordinateContainer pos = calcValues.get( calcValues.size() - 1 ).getA();
         SpeedContainer speed = calcValues.get( calcValues.size() - 1 ).getB();
@@ -126,7 +126,6 @@ public class Calculator implements ICalculator{
             iteration++;
 
         }
-        int dummy = 4;
 
     }
 

@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by thomas on 13.12.16.
  */
-public class MHCalibrator {
+public class MHCalibrator{
 
     private static boolean run = true;
 

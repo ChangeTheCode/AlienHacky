@@ -90,8 +90,10 @@ public class MHControl implements IMH_Controller{
         esp.sendPackets(packet);
     }
 
-    public void setPosition(CoordinateContainer position, boolean exaggerate, boolean selfSleep){
-        long sleepTime = 0;
+    //Fixme: remove duplicate code if possible
+    @SuppressWarnings("Duplicates")
+    @Override
+    public void move_to(CoordinateContainer position, boolean exaggerate) {
         LinkedList<DMX> packets = new LinkedList<>();
 
         DMX dmxPacket = new DMX();
@@ -106,10 +108,7 @@ public class MHControl implements IMH_Controller{
         dmxPacket.setPan(Math.atan(position.getX() / h) * 180 / Math.PI + offset_pan);
         dmxPacket.setTilt(Math.atan(position.getY() / Math.sqrt(position.getX() * position.getX() + h * h)) * 180 / Math.PI + offset_tilt);
 
-        if(selfSleep){
-            sleepTime = getTimeToSleep(oldPacket, dmxPacket);
-        }
-
+        //TODO: Repeat tests
         packets.add(dmxPacket);
 
         if(exaggerate) {
@@ -132,14 +131,85 @@ public class MHControl implements IMH_Controller{
                     sleep(150);
                 }
             }
-            sleep(sleepTime);
         } catch (IOException e) {
-            System.err.println("Couldn't transmit ESP-packet for shit!");
-            System.err.println(e.toString());
+            System.err.println("Couldn't transmit ESP-packet");
             e.printStackTrace();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    @SuppressWarnings("Duplicates")
+    @Override
+    public void move_to(CoordinateContainer position, boolean exaggerate, moving_head_color color) {
+        LinkedList<DMX> packets = new LinkedList<>();
+
+        DMX dmxPacket = new DMX();
+        DMX exaggeratedDmxPacket;
+
+        position.setX( position.getX() + mhOffsetX );
+        position.setY( position.getY() + mhOffsetY );
+
+        position.setX( position.getX() * xMirrorFactor );
+        position.setY( position.getY() * yMirrorFactor );
+
+        dmxPacket.setPan(Math.atan(position.getX() / h) * 180 / Math.PI + offset_pan);
+        dmxPacket.setTilt(Math.atan(position.getY() / Math.sqrt(position.getX() * position.getX() + h * h)) * 180 / Math.PI + offset_tilt);
+
+        //Resolve the supplied colour value to a numeric value that can be fed to the MH-X25
+        dmxPacket.color = (byte)color.ordinal();
+
+        //TODO: Repeat tests
+        packets.add(dmxPacket);
+
+        if(exaggerate) {
+            exaggeratedDmxPacket = getExaggeratedPacket(position, oldPosition, this.exaggerationFactor);
+
+            //Change lighting to make use of exaggerated packet visible; adds no functionality, just visualisation
+            exaggeratedDmxPacket.shutter = (byte) 0;
+            exaggeratedDmxPacket.dimmer = (byte) 0;
+
+            packets.addFirst(exaggeratedDmxPacket);
+        }
+
+        oldPosition = new CoordinateContainer(position);
+        oldPacket = new DMX(dmxPacket);
+
+        try {
+            for (DMX packet : packets) {
+                esp.sendPackets(packet);
+                if(packets.size() > 1) {
+                    sleep(150);
+                }
+            }
+        } catch (IOException e) {
+            System.err.println("Couldn't transmit ESP-packet");
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void set_light(Boolean on) {
+        DMX packet = new DMX(oldPacket);
+
+        if(on) {
+            packet.shutter = (byte) 218; //on
+            packet.dimmer = (byte) 255;
+        } else {
+            packet.shutter = (byte) 0; //off
+            packet.dimmer = (byte) 0;
+        }
+
+        try {
+            esp.sendPackets(packet);
+        } catch(IOException e){
+            System.err.println("Couldn't transmit ESP-packet");
+            e.printStackTrace();
+        }
+
+        oldPacket = new DMX(packet);
     }
 
     private DMX getExaggeratedPacket(CoordinateContainer pos, CoordinateContainer oldPos, double factor){
@@ -196,21 +266,6 @@ public class MHControl implements IMH_Controller{
         if( bits >= 16  ) { bits >>>= 4; log += 4; }
         if( bits >= 4   ) { bits >>>= 2; log += 2; }
         return log + ( bits >>> 1 );
-    }
-
-    @Override
-    public void move_to(CoordinateContainer position, boolean exaggerate) {
-
-    }
-
-    @Override
-    public void move_to(CoordinateContainer position, boolean exaggerate, moving_head_color color) {
-
-    }
-
-    @Override
-    public void set_light(Boolean on) {
-
     }
 
     public double getCurrentPan(){
