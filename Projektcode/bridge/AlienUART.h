@@ -11,7 +11,8 @@
 #include "AlienTypes.h"
 #include <stdint.h>
 
-#define END_OF_RECORD (char) 13
+//#define END_OF_RECORD (char) 13
+#define END_OF_RECORD '#'
 #define SERVER_END_OF_RECORD '#'
 #define MAX_LOG_ENTRY 256
 

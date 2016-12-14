@@ -60,9 +60,7 @@ BOOLEAN buffer_overflow = FALSE;
 BOOLEAN Alien_UART_send (uint8_t * data, uint8_t length) {
 
 	// send message
-	char temp_string [MAX_LOG_ENTRY];
-	sprintf (temp_string, "Alien UART send called. Sending %s\n", data);
-	Alien_log (temp_string);
+	Alien_log ("Alien UART send called. Sending\n");
 
 	// just add to the queue
 	BOOLEAN rc = queue (SEND_QUEUE, data, length, FALSE);
@@ -87,9 +85,7 @@ BOOLEAN Alien_UART_receive (uint8_t * data, uint8_t * length, BOOLEAN * buffer_o
 	if (rc == FALSE) {
 		Alien_log ("Alien UART receive finished. Queue was empty\n");
 	} else {
-		char temp_string [MAX_LOG_ENTRY];
-		sprintf (temp_string, "Alien UART receive finished. Received: %s\n", data);
-		Alien_log (temp_string);
+		Alien_log ("Alien UART receive finished. Data received! \n");
 	}
 	return rc;
 }
@@ -155,10 +151,7 @@ void UART_read_callback (UART_Handle UART, void * data, size_t length) {
 
 	// check if it was our EOL char
 	if (buffer_read [0] == END_OF_RECORD) {
-		temp_data [temp_pos] = '\0';
-		char temp_string [MAX_LOG_ENTRY];
-		sprintf (temp_string, "UART_read_callback: Adding to the receive queue: %s\n", temp_data);
-		Alien_log (temp_string);
+		Alien_log ("UART_read_callback: Adding to the receive queue\n");
 
 		// take what you read and place it in the receive queue
 		BOOLEAN rc = queue (RECEIVE_QUEUE, temp_data, temp_pos, buffer_overflow);
@@ -167,8 +160,10 @@ void UART_read_callback (UART_Handle UART, void * data, size_t length) {
 		temp_pos = 0;
 		buffer_overflow = FALSE;
 
+		PIN_setOutputValue(LED_pin_handle, Board_LED1, !PIN_getOutputValue(Board_LED1));
+
 		// send via TX
-		// Semaphore_post(sem_tx_handle);
+		Semaphore_post(sem_tx_handle);
 
 		// finished
 		Alien_log ("UART_read_callback: Waiting for more data\n");
@@ -177,6 +172,7 @@ void UART_read_callback (UART_Handle UART, void * data, size_t length) {
 		if (temp_pos == MAX_PACKET_LENGTH) {
 			// this should never happen, but if it does just go back on char and set the error flag
 			buffer_overflow = TRUE;
+
 			temp_pos--;
 		}
 	}
@@ -207,10 +203,7 @@ void Alien_UART_send_task (UArg arg0, UArg arg1) {
 				length = length + 1;
 				UART_write (UART, data, length);
 				length = length - 1;
-				data [length] = (uint8_t) '\0';
-				char temp_string [MAX_LOG_ENTRY];
-				sprintf (temp_string, "Sent %s\n", data);
-				Alien_log (temp_string);
+				Alien_log ("Sent something\n");
 			}
 		} while (length > 0);
 		Alien_log ("Finished sending data to queue\n\n");
