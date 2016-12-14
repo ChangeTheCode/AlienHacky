@@ -15,8 +15,8 @@ import static java.lang.Thread.sleep;
  */
 public class Main {
     public static void main(String[] args) throws Exception {
-        boolean calcTest = true;
-        boolean MHTest = false;
+        boolean calcTest = false;
+        boolean MHTest = true;
 
         //noinspection ConstantConditions
         if(calcTest) {

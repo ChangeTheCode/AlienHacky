@@ -3,6 +3,7 @@ package at.fhv.alienserver.calculator;
 import at.fhv.alienserver.Common.*;
 
 import java.awt.*;
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 
 import static java.lang.Math.signum;
@@ -53,6 +54,7 @@ public class Calculator implements ICalculator{
     private CoordinateContainer br; // br = bottom right
 
     private ArrayList< LongTuple<CoordinateContainer, SpeedContainer, AccelerationContainer, Long> > calcValues;
+    //private ArrayDeque< LongTuple<CoordinateContainer, SpeedContainer, AccelerationContainer, Long> > calcValues;
     private Polygon playField;
 
     public Calculator(){
@@ -159,17 +161,18 @@ public class Calculator implements ICalculator{
     public boolean kick(Kick_Container kick) {
 
         //Trim the internal ArrayList
-        //TODO: Find a more elegant solution
         int i = 0;
         int j = calcValues.size() - 1;
         while(calcValues.get(i).getD() < kick.getTimestamp() && i < j){
             i++;
         }
         //while(j > i){ /*Alternatively*/
-        while(j >= i && calcValues.size() > 1){
-            calcValues.remove( calcValues.get(j) );
-            j--;
-        }
+//        while(j >= i && calcValues.size() > 1){
+//            calcValues.remove( calcValues.get(j) );
+//            j--;
+//        }
+        calcValues = new ArrayList<>( calcValues.subList(0, i) );
+
 
 
         //Reset the calculation and let it run

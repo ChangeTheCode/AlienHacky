@@ -115,11 +115,9 @@ public class MHControl implements IMH_Controller{
         dmxPacket.setPan(Math.atan(position.getX() / h) * 180 / Math.PI + offset_pan);
         dmxPacket.setTilt(Math.atan(position.getY() / Math.sqrt(position.getX() * position.getX() + h * h)) * 180 / Math.PI + offset_tilt);
 
-        //TODO: Test this
         //Resolve the supplied colour value to a numeric value that can be fed to the MH-X25
-        dmxPacket.color = (byte)color.ordinal();
+        dmxPacket.color = (byte) color.getValue();
 
-        //TODO: Repeat tests
         packets.add(dmxPacket);
 
         if(exaggerate) {

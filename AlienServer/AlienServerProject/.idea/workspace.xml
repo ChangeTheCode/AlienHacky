@@ -24,7 +24,86 @@
     <favorites_list name="AlienServerProject" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="322">
+              <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CoordinateContainer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/Common/CoordinateContainer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="149">
+              <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MHControl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/movingHead/MHControl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="120" column="31" lean-forward="true" selection-start-line="120" selection-start-column="31" selection-end-line="120" selection-end-column="31" />
+              <folding>
+                <element signature="method#move_to#1;class#MHControl#0" expanded="false" />
+                <element signature="method#getExaggeratedPacket#0;class#MHControl#0" expanded="false" />
+                <element signature="docComment;method#getTimeToSleep#0;class#MHControl#0" expanded="false" />
+                <element signature="method#getTimeToSleep#0;class#MHControl#0" expanded="false" />
+                <element signature="method#log2#0;class#MHControl#0" expanded="false" />
+                <element signature="method#getCurrentPan#0;class#MHControl#0" expanded="false" />
+                <element signature="method#getCurrentTilt#0;class#MHControl#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Calculator.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/calculator/Calculator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="244">
+              <caret line="163" column="8" lean-forward="false" selection-start-line="163" selection-start-column="8" selection-end-line="163" selection-end-column="8" />
+              <folding>
+                <element signature="method#delta_acc#0;class#Calculator#0" expanded="false" />
+                <element signature="method#isInPlayfield#0;class#Calculator#0" expanded="false" />
+                <element signature="method#get_position#0;class#Calculator#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DMX.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/movingHead/DMX.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="194">
+              <caret line="37" column="35" lean-forward="true" selection-start-line="37" selection-start-column="35" selection-end-line="37" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="moving_head_color.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/Common/moving_head_color.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="16" column="4" lean-forward="false" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+              <folding>
+                <element signature="e#238#239#0" expanded="true" />
+                <element signature="e#272#273#0" expanded="true" />
+                <element signature="e#301#302#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -75,7 +154,6 @@
         <option value="$PROJECT_DIR$/src/at/fhv/alienserver/Common/CoordinateContainer.java" />
         <option value="$PROJECT_DIR$/src/at/fhv/alienserver/Common/Coordinate_Name.java" />
         <option value="$PROJECT_DIR$/src/at/fhv/alienserver/Common/Ball_shot.java" />
-        <option value="$PROJECT_DIR$/src/at/fhv/alienserver/Common/moving_head_color.java" />
         <option value="$PROJECT_DIR$/src/at/fhv/alienserver/TODO.txt" />
         <option value="$PROJECT_DIR$/src/at/fhv/alienserver/game/board.java" />
         <option value="$PROJECT_DIR$/src/at/fhv/alienserver/game/IBoard.java" />
@@ -87,16 +165,17 @@
         <option value="$PROJECT_DIR$/src/at/fhv/alienserver/calibrator/PlayfieldCalibrator.java" />
         <option value="$PROJECT_DIR$/src/at/fhv/alienserver/calibrator/PlayingAreaCalibrator.java" />
         <option value="$PROJECT_DIR$/src/at/fhv/alienserver/config/Config.java" />
-        <option value="$PROJECT_DIR$/src/at/fhv/alienserver/calculator/Calculator.java" />
         <option value="$PROJECT_DIR$/src/at/fhv/alienserver/movingHead/IMH_Controller.java" />
-        <option value="$PROJECT_DIR$/src/at/fhv/alienserver/movingHead/MHControl.java" />
-        <option value="$PROJECT_DIR$/src/at/fhv/alienserver/Main.java" />
         <option value="$PROJECT_DIR$/src/at/fhv/alienserver/calibrators/AlienWindowListener.java" />
         <option value="$PROJECT_DIR$/src/at/fhv/alienserver/calibrators/AlienKeyListener.java" />
         <option value="$PROJECT_DIR$/src/at/fhv/alienserver/calibrators/Calibration.java" />
         <option value="$PROJECT_DIR$/src/at/fhv/alienserver/calibrators/PlayingAreaCalibrator.java" />
         <option value="$PROJECT_DIR$/src/at/fhv/alienserver/calibrators/MHCalibrator.java" />
         <option value="$PROJECT_DIR$/src/at/fhv/alienserver/calibrators/ICalibrator.java" />
+        <option value="$PROJECT_DIR$/src/at/fhv/alienserver/Main.java" />
+        <option value="$PROJECT_DIR$/src/at/fhv/alienserver/Common/moving_head_color.java" />
+        <option value="$PROJECT_DIR$/src/at/fhv/alienserver/movingHead/MHControl.java" />
+        <option value="$PROJECT_DIR$/src/at/fhv/alienserver/calculator/Calculator.java" />
       </list>
     </option>
   </component>
@@ -114,10 +193,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1594" />
-    <option name="y" value="338" />
-    <option name="width" value="1932" />
-    <option name="height" value="1068" />
+    <option name="x" value="-6" />
+    <option name="y" value="-4" />
+    <option name="width" value="1612" />
+    <option name="height" value="888" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -320,8 +399,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="PackagesPane">
         <subPane>
           <PATH>
@@ -336,6 +413,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -715,7 +794,7 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
-      <command value="run-script" />
+      <command value="run" />
       <scripts />
       <node-interpreter value="project" />
       <envs />
@@ -840,11 +919,13 @@
       <workItem from="1481549026298" duration="1006000" />
       <workItem from="1481552183998" duration="156000" />
       <workItem from="1481630613181" duration="17914000" />
+      <workItem from="1481700405876" duration="97000" />
+      <workItem from="1481700545697" duration="2468000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="194075000" />
+    <option name="totallyTimeSpent" value="196640000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -856,8 +937,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1594" y="338" width="1932" height="1068" extended-state="6" />
-    <editor active="false" />
+    <frame x="-6" y="-4" width="1612" height="888" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -871,15 +952,15 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24967907" sideWeight="0.49304175" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33333334" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905984" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31410256" sideWeight="0.49722221" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32804233" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31349206" sideWeight="0.49722221" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4351852" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20766774" sideWeight="0.4953765" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21245186" sideWeight="0.4953765" order="0" side_tool="false" content_ui="combo" />
       <window_info id="JProfiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936507" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32692307" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -955,18 +1036,6 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/at/fhv/alienserver/Main.java</url>
-          <line>39</line>
-          <properties />
-          <option name="timeStamp" value="129" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/at/fhv/alienserver/calculator/Calculator.java</url>
-          <line>168</line>
-          <properties />
-          <option name="timeStamp" value="132" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/at/fhv/alienserver/Main.java</url>
           <line>27</line>
           <properties />
           <option name="timeStamp" value="136" />
@@ -975,7 +1044,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="138" />
+      <option name="time" value="141" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1054,20 +1123,8 @@
     <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/at/fhv/alienserver/calculator/Calculator.java" />
     <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/PositionContainer.java" />
     <entry file="jar:///usr/lib/jvm/java-8-oracle/jre/lib/rt.jar!/sun/misc/Unsafe.class" />
-    <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/movingHead/AlienWindowListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="8" column="46" lean-forward="false" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/movingHead/AlienKeyListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="19" column="115" lean-forward="false" selection-start-line="19" selection-start-column="115" selection-end-line="19" selection-end-column="115" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/movingHead/AlienWindowListener.java" />
+    <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/movingHead/AlienKeyListener.java" />
     <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/movingHead/ESP.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-38">
@@ -1114,7 +1171,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="15" column="43" lean-forward="false" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1133,27 +1189,6 @@
         <state relative-caret-position="252">
           <caret line="14" column="7" lean-forward="false" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/Common/CoordinateContainer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding>
-            <element signature="e#96#97#0" expanded="false" />
-            <element signature="e#125#126#0" expanded="false" />
-            <element signature="e#159#160#0" expanded="false" />
-            <element signature="e#185#186#0" expanded="false" />
-            <element signature="e#213#214#0" expanded="false" />
-            <element signature="e#237#238#0" expanded="false" />
-            <element signature="e#271#272#0" expanded="false" />
-            <element signature="e#297#298#0" expanded="false" />
-            <element signature="e#406#407#0" expanded="false" />
-            <element signature="e#434#435#0" expanded="false" />
-            <element signature="e#1060#1061#0" expanded="false" />
-            <element signature="e#1136#1137#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1199,77 +1234,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/movingHead/Calibrator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1134">
-          <caret line="71" column="13" lean-forward="false" selection-start-line="71" selection-start-column="13" selection-end-line="71" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/calculator/Calculator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="71" column="57" lean-forward="false" selection-start-line="71" selection-start-column="57" selection-end-line="71" selection-end-column="57" />
-          <folding>
-            <element signature="method#calculate#0;class#Calculator#0" expanded="false" />
-            <element signature="method#delta_acc#0;class#Calculator#0" expanded="false" />
-            <element signature="method#isInPlayfield#0;class#Calculator#0" expanded="false" />
-            <element signature="method#kick#0;class#Calculator#0" expanded="false" />
-            <element signature="method#get_position#0;class#Calculator#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/movingHead/DMX.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="31" column="4" lean-forward="false" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/movingHead/Calibrator.java" />
     <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/movingHead/IMH_Controller.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/Common/moving_head_color.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="12" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/movingHead/MHControl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="105" column="34" lean-forward="true" selection-start-line="105" selection-start-column="34" selection-end-line="105" selection-end-column="34" />
-          <folding>
-            <element signature="method#MHControl#0;class#MHControl#0" expanded="false" />
-            <element signature="method#move_to#0;class#MHControl#0" expanded="false" />
-            <element signature="method#move_to#1;class#MHControl#0" expanded="false" />
-            <element signature="method#getExaggeratedPacket#0;class#MHControl#0" expanded="false" />
-            <element signature="docComment;method#getTimeToSleep#0;class#MHControl#0" expanded="false" />
-            <element signature="method#getTimeToSleep#0;class#MHControl#0" expanded="false" />
-            <element signature="method#log2#0;class#MHControl#0" expanded="false" />
-            <element signature="method#getCurrentPan#0;class#MHControl#0" expanded="false" />
-            <element signature="method#getCurrentTilt#0;class#MHControl#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1333,6 +1303,72 @@
         <state relative-caret-position="144">
           <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/movingHead/DMX.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="37" column="35" lean-forward="true" selection-start-line="37" selection-start-column="35" selection-end-line="37" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/Common/moving_head_color.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" column="4" lean-forward="false" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+          <folding>
+            <element signature="e#238#239#0" expanded="true" />
+            <element signature="e#272#273#0" expanded="true" />
+            <element signature="e#301#302#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/Common/CoordinateContainer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/movingHead/MHControl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="120" column="31" lean-forward="true" selection-start-line="120" selection-start-column="31" selection-end-line="120" selection-end-column="31" />
+          <folding>
+            <element signature="method#move_to#1;class#MHControl#0" expanded="false" />
+            <element signature="method#getExaggeratedPacket#0;class#MHControl#0" expanded="false" />
+            <element signature="docComment;method#getTimeToSleep#0;class#MHControl#0" expanded="false" />
+            <element signature="method#getTimeToSleep#0;class#MHControl#0" expanded="false" />
+            <element signature="method#log2#0;class#MHControl#0" expanded="false" />
+            <element signature="method#getCurrentPan#0;class#MHControl#0" expanded="false" />
+            <element signature="method#getCurrentTilt#0;class#MHControl#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/at/fhv/alienserver/calculator/Calculator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="163" column="8" lean-forward="false" selection-start-line="163" selection-start-column="8" selection-end-line="163" selection-end-column="8" />
+          <folding>
+            <element signature="method#delta_acc#0;class#Calculator#0" expanded="false" />
+            <element signature="method#isInPlayfield#0;class#Calculator#0" expanded="false" />
+            <element signature="method#get_position#0;class#Calculator#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

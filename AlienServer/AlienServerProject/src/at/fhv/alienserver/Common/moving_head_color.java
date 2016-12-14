@@ -8,7 +8,11 @@ public enum moving_head_color {
 
     private int value;
 
-    private moving_head_color(int value) { this.value = value; }
+    private moving_head_color(int value) {
+        this.value = value;
+    }
 
-
+    public int getValue() {
+            return value;
+    }
 }
