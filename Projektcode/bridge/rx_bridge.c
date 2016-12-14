@@ -1,12 +1,12 @@
 /*
- * rx.c
+ * rx_bridge.c
  *
- *  Created on: 13. Nov. 2016
+ *  Created on: 14. Nov. 2016
  *      Author: Tobias
  */
 
 #include "RF.h"
-#include "timer.h"
+#include "AlienUART.h"
 
 static Task_Params rx_task_params;
 Task_Struct rx_task;    /* not static so you can see in ROV */
@@ -21,7 +21,6 @@ uint8_t packet_rx[MAX_PACKET_LENGTH]; /* The length byte is stored in a separate
 
 static void rx_task_function(UArg arg0, UArg arg1);
 static void rx_callback(RF_Handle h, RF_CmdHandle ch, RF_EventMask e);
-
 
 /* Buffer which contains all Data Entries for receiving data.
  * Pragmas are needed to make sure this buffer is 4 byte aligned (requirement from the RF Core) */
@@ -44,12 +43,14 @@ static void rx_callback(RF_Handle h, RF_CmdHandle ch, RF_EventMask e);
 
 RF_CmdHandle rx_cmd;
 
-void rx_task_init(void) {
+void rx_task_init()
+{
     Task_Params_init(&rx_task_params);
     rx_task_params.stackSize = RX_TASK_STACK_SIZE;
     rx_task_params.priority = RX_TASK_PRIORITY;
     rx_task_params.stack = &rx_task_stack;
-    rx_task_params.arg0 = (UInt)1000000;
+//    rx_task_params.arg0 = (UInt)1000000;
+    rx_task_params.arg0 = (UInt)0;
 
     Task_construct(&rx_task, rx_task_function, &rx_task_params, NULL);
 }
@@ -79,12 +80,8 @@ static void rx_task_function(UArg arg0, UArg arg1)
     RF_cmdPropRx.maxPktLen = MAX_LENGTH;        /* Implement packet length filtering to avoid PROP_ERROR_RXBUF */
     RF_cmdPropRx.pktConf.bRepeatOk = 0;
     RF_cmdPropRx.pktConf.bRepeatNok = 1;
-    RF_cmdPropRx.pktConf.bChkAddress = 1;
-//    RF_cmdPropRx.address0 = 0xaa;
-//    RF_cmdPropRx.address1 = 0xaa;
-    RF_cmdPropRx.address0 = '!';
-    RF_cmdPropRx.address1 = '!';
     RF_cmdPropRx.rxConf.bAppendStatus = 0;
+    RF_cmdPropRx.pktConf.bChkAddress = 0;
 
     if (!RF_handle) {
 		/* Request access to the radio */
@@ -96,9 +93,16 @@ static void rx_task_function(UArg arg0, UArg arg1)
 
     while(1)
     {
-		/* Enter RX mode and stay in RX until a packet arrives */
+		Alien_log ("in rx task\n");
+		/* Enter RX mode and stay forever in RX */
     	rx_cmd = RF_postCmd(RF_handle, (RF_Op*)&RF_cmdPropRx, RF_PriorityNormal, &rx_callback, IRQ_RX_ENTRY_DONE);
+
 		Semaphore_pend(sem_rx_handle, BIOS_WAIT_FOREVER);
+
+//    	sem_rx_handle = TRUE;
+//    	while(sem_rx_handle){
+//    		Task_yield();
+//    	}
     }
 
 }
@@ -107,9 +111,6 @@ void rx_callback(RF_Handle h, RF_CmdHandle ch, RF_EventMask e)
 {
     if (e & RF_EventRxEntryDone)
     {
-        /* Toggle pin to indicate RX */
-        //PIN_setOutputValue(LED_pin_handle, Board_LED2, !PIN_getOutputValue(Board_LED2));	// Red LED
-
         /* Get current unhandled data entry */
         current_data_entry = RFQueue_getDataEntry();
 
@@ -122,29 +123,25 @@ void rx_callback(RF_Handle h, RF_CmdHandle ch, RF_EventMask e)
         /* Copy the payload + the status byte to the packet variable */
         memcpy(packet_rx, packet_rx_data_pointer, (packet_rx_length + 1));
 
-        //PIN_setOutputValue(LED_pin_handle, Board_LED1, !PIN_getOutputValue(Board_LED1));
-
-        switch(packet_rx[1]) 		//byte 0 is the address of the sender (bridge: 0xaa)
+        // TODO: nur fuer debug
+        if (packet_rx[0] == '1')
         {
-			case '2':
-				// login OK
-				// to measure the roundtrip time of a packet
-				//PIN_setOutputValue(LED_pin_handle, Board_DIO15, 1);
-
-				/* Toggle pin to indicate OK */  // only for debug purposes ( later only turn on the green LED )
-				PIN_setOutputValue(LED_pin_handle, Board_LED1, 1);	// Green LED
-				login_ok = TRUE;
-				Semaphore_post(sem_tx_handle);
-				break;
-			case '3':
-				// login not OK
-				PIN_setOutputValue(LED_pin_handle, Board_LED0, 1); 	// Red LED
-				login_ok = FALSE;
-				GPTimerCC26XX_start(timer_login_handle); // try again after 30 seconds
-				break;
-			default:
-				break;
+            Alien_log("login versuch empfangen\n");
         }
+        else if(packet_rx[0] == '4')
+        {
+            Alien_log ("heartbeat empfangen\n");
+        }
+        else if(packet_rx[0] == '6')
+        {
+            Alien_log ("kick empfangen\n");
+        }
+
+        Alien_UART_send(packet_rx, packet_rx_length);
+
+        Semaphore_post(sem_tx_handle);
+
+
 
         RFQueue_nextEntry();
     }
