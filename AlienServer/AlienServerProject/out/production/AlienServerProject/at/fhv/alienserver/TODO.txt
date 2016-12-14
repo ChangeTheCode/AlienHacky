@@ -1,5 +1,5 @@
 - MHControl auf umgestellten MH-Config umschreiben --> DONE
-    - Änderungen in oberer Zeile testen
+    - Änderungen in oberer Zeile testen --> Done
 - berechner wrappen gemäß USE-CASE von JIM
 - Alle "Structs" auf Java mit Getter und Setter umbauen --> DONE --> funktioniert mit calcTest
 -------------------------------------------------------------------

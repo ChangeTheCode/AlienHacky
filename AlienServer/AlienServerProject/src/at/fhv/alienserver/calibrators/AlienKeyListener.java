@@ -1,11 +1,11 @@
-package at.fhv.alienserver.movingHead;
+package at.fhv.alienserver.calibrators;
 
-import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
 import java.util.concurrent.ArrayBlockingQueue;
 
 /**
- * Created by thomas on 07.11.16.
+ * Created by thomas on 13.12.16. Differs from the standard java key listener by its functionality of changing every
+ * caught character to a supplied ArrayBlockingQueue
  */
 class AlienKeyListener implements java.awt.event.KeyListener {
     private ArrayBlockingQueue<Character> KeyQueue;
@@ -17,9 +17,9 @@ class AlienKeyListener implements java.awt.event.KeyListener {
     @Override
     public void keyPressed(KeyEvent e){
         char c = e.getKeyChar();
-        if(c == 'w' || c == 'a' || c == 's' || c == 'd' || c == '1' || c == '2' || c == '3' || c == '4' || c == 'r') {
+        //if(c == 'w' || c == 'a' || c == 's' || c == 'd' || c == '1' || c == '2' || c == '3' || c == '4') {
             KeyQueue.add(c);
-        }
+        //}
     }
 
     @Override

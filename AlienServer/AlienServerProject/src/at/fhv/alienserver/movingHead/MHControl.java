@@ -18,19 +18,16 @@ import static java.lang.Thread.sleep;
 public class MHControl implements IMH_Controller{
     private ESP esp = new ESP();
 
-    //FIXME: Move all of the following to config.file
+    //FIXME: Implement reading of constants from config in ctor
     /**
      * Offset of the Pan - angle; chosen to have the MH-X25 point straight to the ground for point (0, 0)
-     * FIXME: Redefine the offsets to fit the new MH-X25 settings
      */
-    private final double offset_pan = 90;
+    private final double offset_pan = 95; //90 degrees plus a slight deviation due to non ideal mounting
     //private final double offset_pan = 180;
     /**
      * Offset of the Tilt - angle; chosen to have the MH-X25 point straight to the ground for point (0, 0)
-     * FIXME: Redefine the offsets to fit the new MH-X25 settings
      */
-    private final double offset_tilt = 135 + 90;
-    //private final double offset_tilt = 135;
+    private final double offset_tilt = 43;
     /**
      * Height of the moving head's mounting point in meters; measured at the tilt-turning-axis
      */
@@ -38,7 +35,6 @@ public class MHControl implements IMH_Controller{
     /**
      * Offset of the moving head relative to center of game coordinate system in x - direction
      */
-    //private final double mhOffsetX = 1.35;
     private final double mhOffsetX = 0;
     /**
      * Offset of the moving head relative to center of game coordinate system in y - direction
@@ -94,8 +90,17 @@ public class MHControl implements IMH_Controller{
         esp.sendPackets(packet);
     }
 
-    public void setPosition(CoordinateContainer position, boolean exaggerate, boolean selfSleep){
-        long sleepTime = 0;
+    @Override
+    public void move_to(CoordinateContainer position, boolean exaggerate) {
+        _move_to_compendious(position, exaggerate, moving_head_color.PINK);
+    }
+
+    @Override
+    public void move_to(CoordinateContainer position, boolean exaggerate, moving_head_color color) {
+        _move_to_compendious(position, exaggerate, color);
+    }
+
+    private void _move_to_compendious(CoordinateContainer position, boolean exaggerate, moving_head_color color){
         LinkedList<DMX> packets = new LinkedList<>();
 
         DMX dmxPacket = new DMX();
@@ -110,9 +115,8 @@ public class MHControl implements IMH_Controller{
         dmxPacket.setPan(Math.atan(position.getX() / h) * 180 / Math.PI + offset_pan);
         dmxPacket.setTilt(Math.atan(position.getY() / Math.sqrt(position.getX() * position.getX() + h * h)) * 180 / Math.PI + offset_tilt);
 
-        if(selfSleep){
-            sleepTime = getTimeToSleep(oldPacket, dmxPacket);
-        }
+        //Resolve the supplied colour value to a numeric value that can be fed to the MH-X25
+        dmxPacket.color = (byte) color.getValue();
 
         packets.add(dmxPacket);
 
@@ -136,14 +140,34 @@ public class MHControl implements IMH_Controller{
                     sleep(150);
                 }
             }
-            sleep(sleepTime);
         } catch (IOException e) {
-            System.err.println("Couldn't transmit ESP-packet for shit!");
-            System.err.println(e.toString());
+            System.err.println("Couldn't transmit ESP-packet");
             e.printStackTrace();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void set_light(Boolean on) {
+        DMX packet = new DMX(oldPacket);
+
+        if(on) {
+            packet.shutter = (byte) 218; //on
+            packet.dimmer = (byte) 255;
+        } else {
+            packet.shutter = (byte) 0; //off
+            packet.dimmer = (byte) 0;
+        }
+
+        try {
+            esp.sendPackets(packet);
+        } catch(IOException e){
+            System.err.println("Couldn't transmit ESP-packet");
+            e.printStackTrace();
+        }
+
+        oldPacket = new DMX(packet);
     }
 
     private DMX getExaggeratedPacket(CoordinateContainer pos, CoordinateContainer oldPos, double factor){
@@ -202,18 +226,23 @@ public class MHControl implements IMH_Controller{
         return log + ( bits >>> 1 );
     }
 
-    @Override
-    public void move_to(CoordinateContainer position, boolean exaggerate) {
-
+    public double getCurrentPan(){
+        DMX tempPacket = new DMX( oldPacket );
+        return tempPacket.getPan();
     }
 
-    @Override
-    public void move_to(CoordinateContainer position, boolean exaggerate, moving_head_color color) {
-
+    public double getCurrentTilt(){
+        DMX tempPacket = new DMX( oldPacket );
+        return tempPacket.getTilt();
     }
 
-    @Override
-    public void set_light(Boolean on) {
+    public double getCurrentX(){
+        CoordinateContainer temp = new CoordinateContainer(oldPosition);
+        return temp.getX();
+    }
 
+    public double getCurrentY(){
+        CoordinateContainer temp = new CoordinateContainer(oldPosition);
+        return temp.getY();
     }
 }
