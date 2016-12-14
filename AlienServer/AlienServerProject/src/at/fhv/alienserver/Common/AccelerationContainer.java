@@ -38,6 +38,10 @@ public class AccelerationContainer {
         //this.z = source.z;
     }
 
+    public boolean isZero(){
+        return ( this.x == 0 && this.y == 0 );
+    }
+
     @Override
     public String toString(){
         return String.valueOf(this.x) + '|' + String.valueOf(this.y);

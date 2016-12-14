@@ -1,8 +1,10 @@
 package at.fhv.alienserver.calculator;
 
 import at.fhv.alienserver.Common.*;
+import at.fhv.alienserver.config.Config;
 
 import java.awt.*;
+import java.io.IOException;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 
@@ -29,19 +31,24 @@ public class Calculator implements ICalculator{
     /**
      * Change of first derivative of state variable depending on the state variable itself
      */
-    private final double A = -1.7;
+    //private final double A = -1.7;
+    private double A;
     /**
      * Change of the first derivative of state variable depending on input
      */
-    private final double b = 1.5;
+    //private final double b = 1.5;
+    private double b;
     /**
      * Change of output depending on state variable
      */
-    private final double c = 1;
+    //private final double c = 1;
+    private double c;
     /**
      * Change of output depending directly on the input
      */
-    private final double d = 0;
+    //private final double d = 0;
+    private double d;
+
     /**
      * Step width of simulation in seconds; don't make it too large ( > 0.05) as this could make the solver
      * numerically unstable. For those who don't know what that means: you don't want that happening!
@@ -57,10 +64,16 @@ public class Calculator implements ICalculator{
     //private ArrayDeque< LongTuple<CoordinateContainer, SpeedContainer, AccelerationContainer, Long> > calcValues;
     private Polygon playField;
 
-    public Calculator(){
+    public Calculator() throws IOException{
         calcValues = new ArrayList<>(0);
         calcValues.add( new LongTuple<>(new CoordinateContainer(0,0), new SpeedContainer(0,0),
                 new AccelerationContainer(0,0), 0L) );
+
+        Config config = new Config();
+        this.A = Double.valueOf(config.getProperty(Config.AlienServerProperties.calculator_A));
+        this.b = Double.valueOf(config.getProperty(Config.AlienServerProperties.calculator_b));
+        this.c = Double.valueOf(config.getProperty(Config.AlienServerProperties.calculator_c));
+        this.d = Double.valueOf(config.getProperty(Config.AlienServerProperties.calculator_d));
 
         playField = new Polygon();
     }
@@ -71,15 +84,19 @@ public class Calculator implements ICalculator{
      * http://stackoverflow.com/questions/15958434/how-to-check-if-a-point-is-inside-a-polygon
      */
 
-    private void calculate(AccelerationContainer senAcc) {
+    /**
+     * Function to handle the simulation of the flight of the virtual hacky sack.
+     *
+     * @param senAcc Acceleration Container giving the measured sensor acceleration values.
+     * @param simStartTime Long value giving the timestamp at which simulation should resume. Supply null to just c
+     *                     continue from the last timestamp value in the internal ArrayList.
+     * @return true if computation is logically possible, else false
+     */
+    private boolean calculate(AccelerationContainer senAcc, Long simStartTime) {
         /*
          * Used to create this function
          * http://stackoverflow.com/questions/15620590/polygons-with-double-coordinates
          * http://stackoverflow.com/questions/15958434/how-to-check-if-a-point-is-inside-a-polygon
-         */
-        /*
-        TODO: In the special case of zero acc the calculate func here never terminates because we're always within the playing area
-        Maybe think of a way we can handle this; e.g. plausibility check and ret false if it can't terminate
          */
 
         CoordinateContainer pos = calcValues.get( calcValues.size() - 1 ).getA();
@@ -87,7 +104,18 @@ public class Calculator implements ICalculator{
         AccelerationContainer acc = calcValues.get( calcValues.size() - 1 ).getC();
         AccelerationContainer locSenAcc = new AccelerationContainer(senAcc);
 
-        long currentSimulationTime = calcValues.get( calcValues.size() - 1 ).getD();
+        if (speed.isZero() && acc.isZero() && locSenAcc.isZero()) {
+            //In this case the calculation would never terminate. Return false to signal this.
+            return false;
+        }
+
+        long currentSimulationTime;
+        if(simStartTime == null) {
+            currentSimulationTime = calcValues.get(calcValues.size() - 1).getD();
+        } else {
+            currentSimulationTime = simStartTime;
+        }
+
         int iteration = 0;
 
         /*
@@ -133,6 +161,7 @@ public class Calculator implements ICalculator{
 
         }
 
+        return true;
     }
 
     private boolean delta_acc(AccelerationContainer acc1, AccelerationContainer acc2, double threshold){
@@ -177,10 +206,7 @@ public class Calculator implements ICalculator{
         calcValues = new ArrayList<>( calcValues.subList(0, i+1) );
 
         //Reset the calculation and let it run
-        //Fixme: Make use of the kick timestamp or think how it can be integrated in the calcValues
-        calculate(kick.getKick_direction_speed() );
-
-        return true;
+        return calculate( kick.getKick_direction_speed(), kick.getTimestamp() );
     }
 
     @Override

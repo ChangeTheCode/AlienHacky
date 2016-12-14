@@ -34,7 +34,11 @@ public class Config {
         mh_offset_x,
         mh_offset_y,
         mh_height,
-        com_port
+        com_port,
+        calculator_A,
+        calculator_b,
+        calculator_c,
+        calculator_d
     }
 
     private static final Map<AlienServerProperties, String> propertyEnum2propertyString = new HashMap<>();
@@ -49,6 +53,10 @@ public class Config {
         propertyEnum2propertyString.put(AlienServerProperties.mh_offset_y, "MHOffsetY");
         propertyEnum2propertyString.put(AlienServerProperties.mh_height, "MHHeight");
         propertyEnum2propertyString.put(AlienServerProperties.com_port, "ComPort");
+        propertyEnum2propertyString.put(AlienServerProperties.calculator_A, "CalculatorA");
+        propertyEnum2propertyString.put(AlienServerProperties.calculator_b, "CalculatorB");
+        propertyEnum2propertyString.put(AlienServerProperties.calculator_c, "CalculatorC");
+        propertyEnum2propertyString.put(AlienServerProperties.calculator_d, "CalculatorD");
     }
 
     public boolean  setProperty(AlienServerProperties property, String value) throws IOException{
