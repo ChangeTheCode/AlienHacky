@@ -77,10 +77,11 @@ public class Calculator implements ICalculator{
          * http://stackoverflow.com/questions/15620590/polygons-with-double-coordinates
          * http://stackoverflow.com/questions/15958434/how-to-check-if-a-point-is-inside-a-polygon
          */
-
         /*
-        Fixme: on first iteration there's a null pointer exception here!
+        TODO: In the special case of zero acc the calculate func here never terminates because we're always within the playing area
+        Maybe think of a way we can handle this; e.g. plausibility check and ret false if it can't terminate
          */
+
         CoordinateContainer pos = calcValues.get( calcValues.size() - 1 ).getA();
         SpeedContainer speed = calcValues.get( calcValues.size() - 1 ).getB();
         AccelerationContainer acc = calcValues.get( calcValues.size() - 1 ).getC();
@@ -176,6 +177,7 @@ public class Calculator implements ICalculator{
         calcValues = new ArrayList<>( calcValues.subList(0, i+1) );
 
         //Reset the calculation and let it run
+        //Fixme: Make use of the kick timestamp or think how it can be integrated in the calcValues
         calculate(kick.getKick_direction_speed() );
 
         return true;
