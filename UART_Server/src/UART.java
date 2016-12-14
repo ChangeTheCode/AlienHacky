@@ -57,7 +57,8 @@ public class UART implements SerialPortEventListener {
     final static int GENERAL_ERROR = 99;
 
     //some ascii values for for certain things
-    final static int END_OF_RECORD = '#';
+    final static char END_OF_RECORD = '#';
+    final static char BRIDGE_KENNZ = '!';
 
     // queue for the received UART commands
     Queue queue = new LinkedList();
