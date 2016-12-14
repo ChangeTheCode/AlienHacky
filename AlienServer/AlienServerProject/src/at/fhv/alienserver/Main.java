@@ -1,15 +1,16 @@
 package at.fhv.alienserver;
 
-<<<<<<< HEAD
-import at.fhv.alienserver.Common.*;
-=======
 import at.fhv.alienserver.Common.AccelerationContainer;
 import at.fhv.alienserver.Common.CoordinateContainer;
 import at.fhv.alienserver.Common.Kick_Container;
->>>>>>> AlienServer_Reworked
 import at.fhv.alienserver.calculator.Calculator;
 import at.fhv.alienserver.game.board;
 import at.fhv.alienserver.movingHead.MHControl;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.lang.reflect.Array;
+
 import static java.lang.Thread.sleep;
 
 /**
@@ -20,9 +21,9 @@ import static java.lang.Thread.sleep;
  */
 public class Main {
     public static void main(String[] args) throws Exception {
-        boolean calcTest = true;
+        boolean calcTest = false;
         boolean MHTest = false;
-        boolean game_board_test =false;
+        boolean game_board_test =true;
 
         //noinspection ConstantConditions
         if(calcTest) {
@@ -87,7 +88,29 @@ public class Main {
         if(game_board_test) {
             board game_board = board.getInstance(0, 0, 2.4, 2.4, 3, 3);
             game_board.start();
-            game_board.set_speed_kick_value(new Kick_Container(1222222, new CoordinateContainer(1, 1)), 1222222);
+            //game_board.set_speed_kick_value(new Kick_Container(1222222, new AccelerationContainer(1, 1)), 1222222);
+
+
+            double x;
+            double y;
+            BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+            String input;
+            while(true){
+
+                System.out.print("Gebe 2 zahlen ein als Schuss! x : y ");
+                input = in.readLine();
+                String[] number = input.split(":");
+
+
+                for (int i = 0; i< number.length; i++){
+                    System.out.print(number[i]);
+                }
+                x = Integer.parseInt(number[0]);
+                y = Integer.parseInt(number[1]);
+                game_board.set_speed_kick_value( new Kick_Container( System.currentTimeMillis(), new AccelerationContainer(x,y)));
+
+            }
+
         }
 
     }

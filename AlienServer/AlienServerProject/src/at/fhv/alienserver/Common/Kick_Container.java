@@ -17,8 +17,8 @@ public class Kick_Container {
     }
 
     public AccelerationContainer getKick_direction_speed() {
-        if(kick_direction_acc instanceof AccelerationContainer)
-            return kick_direction_acc;
+        if(this.kick_direction_acc instanceof AccelerationContainer)
+            return this.kick_direction_acc;
         else{
             return null;
         }
