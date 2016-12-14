@@ -78,6 +78,9 @@ public class Calculator implements ICalculator{
          * http://stackoverflow.com/questions/15958434/how-to-check-if-a-point-is-inside-a-polygon
          */
 
+        /*
+        Fixme: on first iteration there's a null pointer exception here!
+         */
         CoordinateContainer pos = calcValues.get( calcValues.size() - 1 ).getA();
         SpeedContainer speed = calcValues.get( calcValues.size() - 1 ).getB();
         AccelerationContainer acc = calcValues.get( calcValues.size() - 1 ).getC();
@@ -111,7 +114,7 @@ public class Calculator implements ICalculator{
             calcValues.add(new LongTuple<>(new CoordinateContainer(pos), new SpeedContainer(speed),
                     new AccelerationContainer(acc), currentSimulationTime) );
 
-            if( iteration == (0.14 / h) ){
+            if( iteration == (int)(0.14 / h) ){
                 locSenAcc = new AccelerationContainer(0,0);
             }
 
@@ -159,6 +162,8 @@ public class Calculator implements ICalculator{
 
     @Override
     public boolean kick(Kick_Container kick) {
+        //the following code isn't exactly easy to read.
+        //we both know it, but we're gonna have to live with it
 
         //Trim the internal ArrayList
         int i = 0;
@@ -166,14 +171,9 @@ public class Calculator implements ICalculator{
         while(calcValues.get(i).getD() < kick.getTimestamp() && i < j){
             i++;
         }
-        //while(j > i){ /*Alternatively*/
-//        while(j >= i && calcValues.size() > 1){
-//            calcValues.remove( calcValues.get(j) );
-//            j--;
-//        }
-        calcValues = new ArrayList<>( calcValues.subList(0, i) );
 
-
+        //Drain the values that are still valid to a new ArrayList
+        calcValues = new ArrayList<>( calcValues.subList(0, i+1) );
 
         //Reset the calculation and let it run
         calculate(kick.getKick_direction_speed() );
@@ -184,7 +184,10 @@ public class Calculator implements ICalculator{
     @Override
     public CoordinateContainer get_position(long timestamp) {
         int i = 0;
-        while (calcValues.get(i).getD() < timestamp){
+        while (i < calcValues.size()){
+            if(calcValues.get(i).getD() >= timestamp){
+                break;
+            }
             i++;
         }
         try{

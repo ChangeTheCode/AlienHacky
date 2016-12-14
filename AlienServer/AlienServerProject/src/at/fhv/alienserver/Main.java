@@ -15,8 +15,8 @@ import static java.lang.Thread.sleep;
  */
 public class Main {
     public static void main(String[] args) throws Exception {
-        boolean calcTest = false;
-        boolean MHTest = true;
+        boolean calcTest = true;
+        boolean MHTest = false;
 
         //noinspection ConstantConditions
         if(calcTest) {
@@ -24,8 +24,27 @@ public class Main {
             myCalc.init_Calculator(new CoordinateContainer(1.5, -1), new CoordinateContainer(1.5,1),
                     new CoordinateContainer(-1.5,-1),new CoordinateContainer(-1.5,1));
 
-            myCalc.kick( new Kick_Container(25, new AccelerationContainer(1,1) ) );
-            CoordinateContainer test = myCalc.get_position(70);
+            /*
+            Points in time:
+            0.5
+            0.5 + 0.9 = 1.4
+            0.5 + 0.9 + 0.7 = 2.1
+            0.5 + 0.9 + 0.7 + 1.0 = 3.1
+             */
+
+            myCalc.kick( new Kick_Container(0, new AccelerationContainer(27.27,14.16) ) );
+            CoordinateContainer test = myCalc.get_position(10);
+            test= myCalc.get_position(500);
+
+            myCalc.kick( new Kick_Container(500, new AccelerationContainer(0, -1.5)) );
+            test = myCalc.get_position(1400);
+
+            myCalc.kick( new Kick_Container(1400, new AccelerationContainer(-2.5, 0)) );
+            test = myCalc.get_position(2100);
+
+            myCalc.kick( new Kick_Container( 2100, new AccelerationContainer(1.5, -1) ) );
+            test = myCalc.get_position(3100);
+
             System.out.println(test.toString());
         }
 
