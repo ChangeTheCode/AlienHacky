@@ -40,7 +40,7 @@ BOOLEAN queue (queue_status_t queue, uint8_t * data, uint8_t length, BOOLEAN buf
 		rear = &receive_rear;
 	}
 
-	// create the struct
+	// create the structure
 	struct node_t * temp = (struct node_t *) malloc (sizeof(struct node_t));
 
 	// copy the data

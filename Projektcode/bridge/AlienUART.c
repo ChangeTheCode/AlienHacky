@@ -1,7 +1,7 @@
 /*
  * Alien_UART.c
  *
- *  Created on: 13. Nov. 2016
+ *  Created on: 13. November 2016
  *      Author: Ursus Schneider
  */
 #include "RF.h"
@@ -60,7 +60,7 @@ BOOLEAN buffer_overflow = FALSE;
 BOOLEAN Alien_UART_send (uint8_t * data, uint8_t length) {
 
 	// send message
-	Alien_log ("Alien UART send called. Sending\n");
+	Alien_log ("Alien UART send called\n");
 
 	// just add to the queue
 	BOOLEAN rc = queue (SEND_QUEUE, data, length, FALSE);
@@ -69,7 +69,7 @@ BOOLEAN Alien_UART_send (uint8_t * data, uint8_t length) {
 	Semaphore_post (send_semaphore_handle);
 
 	// finished
-	Alien_log("Alien UART send finished.\n");
+	Alien_log("Alien UART send finished\n");
 	return rc;
 }
 
@@ -85,7 +85,7 @@ BOOLEAN Alien_UART_receive (uint8_t * data, uint8_t * length, BOOLEAN * buffer_o
 	if (rc == FALSE) {
 		Alien_log ("Alien UART receive finished. Queue was empty\n");
 	} else {
-		Alien_log ("Alien UART receive finished. Data received! \n");
+		Alien_log ("Alien UART receive finished. Data was received\n");
 	}
 	return rc;
 }
@@ -111,7 +111,7 @@ void Alien_UART_init (void) {
 	UART_params.baudRate = 115200;
 	UART = UART_open (Board_UART0, &UART_params);
 	if (UART == NULL)
-		Alien_log ("Error opening the UART");
+		Alien_log ("Error opening the UART\n");
 
 	// proceed
 	Alien_log ("UART port setup complete\n");
@@ -151,7 +151,7 @@ void UART_read_callback (UART_Handle UART, void * data, size_t length) {
 
 	// check if it was our EOL char
 	if (buffer_read [0] == END_OF_RECORD) {
-		Alien_log ("UART_read_callback: Adding to the receive queue\n");
+		Alien_log ("UART_read_callback. Adding to the receive queue\n");
 
 		// take what you read and place it in the receive queue
 		BOOLEAN rc = queue (RECEIVE_QUEUE, temp_data, temp_pos, buffer_overflow);
@@ -160,13 +160,14 @@ void UART_read_callback (UART_Handle UART, void * data, size_t length) {
 		temp_pos = 0;
 		buffer_overflow = FALSE;
 
-		PIN_setOutputValue(LED_pin_handle, Board_LED1, !PIN_getOutputValue(Board_LED1));
+		// toggle LED to show you received something
+		PIN_setOutputValue (LED_pin_handle, Board_LED1, !PIN_getOutputValue(Board_LED1));
 
 		// send via TX
 		Semaphore_post(sem_tx_handle);
 
 		// finished
-		Alien_log ("UART_read_callback: Waiting for more data\n");
+		Alien_log ("UART_read_callback. Waiting for data\n");
 	} else {
 		temp_data [temp_pos++] = buffer_read [0];
 		if (temp_pos == MAX_PACKET_LENGTH) {
@@ -203,10 +204,10 @@ void Alien_UART_send_task (UArg arg0, UArg arg1) {
 				length = length + 1;
 				UART_write (UART, data, length);
 				length = length - 1;
-				Alien_log ("Sent something\n");
+				Alien_log ("Sent data via the UART driver\n");
 			}
 		} while (length > 0);
-		Alien_log ("Finished sending data to queue\n\n");
+		Alien_log ("Finished sending data via UART\n\n");
 	}
 }
 
@@ -220,14 +221,6 @@ void Alien_UART_receive_task (UArg arg0, UArg arg1) {
 		// wait for the callback function to finish
 		Semaphore_pend (receive_semaphore_handle, BIOS_WAIT_FOREVER);
 	}
-
-}
-
-// Just needed for testing purposes, normally not called
-void Alien_start_send_task (void) {
-
-	// tell the send task to send
-	Semaphore_post (send_semaphore_handle);
 
 }
 
