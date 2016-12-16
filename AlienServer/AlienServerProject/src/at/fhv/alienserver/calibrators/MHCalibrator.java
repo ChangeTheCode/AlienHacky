@@ -81,10 +81,12 @@ class MHCalibrator implements ICalibrator{
                     config.setProperty(Config.AlienServerProperties.mh_offset_pan, String.valueOf(mhc.getCurrentPan()));
                     config.setProperty(Config.AlienServerProperties.mh_offset_tilt, String.valueOf(mhc.getCurrentTilt()));
                     break;
-                } else if(!run){
-                    return;
                 } else {
                     c = null;
+                }
+
+                if(!run){
+                    return;
                 }
             } catch (InterruptedException e){
                 System.out.println("Exception occurred :-O");
@@ -134,10 +136,12 @@ class MHCalibrator implements ICalibrator{
                     config.setProperty(Config.AlienServerProperties.mh_height,
                             String.valueOf( newCoordinates.getX()/Math.tan(mhc.getCurrentPan()) ) );
                     break;
-                } else if(!run){
-                    return;
                 } else {
                     c = null;
+                }
+
+                if(!run){
+                    return;
                 }
             } catch (InterruptedException e){
                 System.out.println("Exception occurred :-O");
@@ -182,10 +186,12 @@ class MHCalibrator implements ICalibrator{
                      */
                     config.setProperty(Config.AlienServerProperties.mh_offset_x, String.valueOf(newCoordinates.getX()));
                     break;
-                } else if(!run){
-                    return;
                 } else {
                     c = null;
+                }
+
+                if(!run){
+                    return;
                 }
             } catch (InterruptedException e){
                 System.out.println("Exception occurred :-O");
@@ -230,10 +236,12 @@ class MHCalibrator implements ICalibrator{
                      */
                     config.setProperty(Config.AlienServerProperties.mh_offset_y, String.valueOf(newCoordinates.getY()));
                     break;
-                } else if(!run){
-                    return;
                 } else {
                     c = null;
+                }
+
+                if(!run){
+                    return;
                 }
             } catch (InterruptedException e){
                 System.out.println("Exception occurred :-O");
