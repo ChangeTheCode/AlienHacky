@@ -1,8 +1,11 @@
+/**
+ * Code to test the UART Class
+ *
+ * Created by Ursus Schneider on 09.12.2016.
+ *
+ */
 import static java.lang.System.exit;
 
-/**
- * Created by Ursus Schneider on 09.12.2016.
- */
 public class Test {
 
     public static final String 	VERSION = "14.12.2016";
@@ -30,11 +33,11 @@ public class Test {
             if (my_UART.receive(received) == true) {
                 System.out.println("Received: " + received);
 
-            //    if (received.toString().substring (0,1).equals("1")) {
-                    StringBuffer to_send = new StringBuffer(UART.BRIDGE_KENNZ + '2' + UART.END_OF_RECORD);
-                    my_UART.send(to_send);
-                    System.out.println("Sent: " + to_send);
-            //    }
+                //    if (received.toString().substring (0,1).equals("1")) {
+                StringBuffer to_send = new StringBuffer(UART.BRIDGE_KENNZ + '2' + UART.END_OF_RECORD);
+                my_UART.send(to_send);
+                System.out.println("Sent: " + to_send);
+                //    }
                 i++;
             }
             received.setLength(0);
