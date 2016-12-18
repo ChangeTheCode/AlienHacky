@@ -41,19 +41,30 @@
 
 #include <ti/drivers/I2C.h>
 
+BOOLEAN debug;
 
 /*
  *  ======== main ========
  */
 int main(void)
 {
+	// are we displaying DEBUG messages
+	debug = TRUE;
+
+    // Start message
+	Alien_log ("AlienNode starting. Running version 18.12.2016\n\n");
+
     /* Call board init functions. */
     Board_initGeneral();
+
+    // Initialize the Board I2C
     Board_initI2C();
 
     /* Open pins */
     LED_init();
     button_init();
+
+    // Initialize the timer
     timer_init();
 
     // init i2c task

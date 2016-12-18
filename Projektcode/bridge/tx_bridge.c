@@ -5,7 +5,7 @@
  *      Author: Tobias
  */
 
-#include "RF.h"
+#include <RF.h>
 #include "AlienUART.h"
 #include "queue.h"
 
@@ -49,36 +49,22 @@ void tx_task_function(UArg arg0, UArg arg1)
 
 		/* Set the frequency */
 		RF_postCmd(RF_handle, (RF_Op*)&RF_cmdFs, RF_PriorityNormal, NULL, 0);
-	}
 
-	uint8_t length = 7;
-	uint8_t data [MAX_PACKET_LENGTH];
-	BOOLEAN overflow = FALSE;
+		Alien_log("RF handle opened in tx Task\n");
+	}
 
     while(1)
     {
-		Alien_log("Waiting for RF send semaphore\n");
+		Alien_log("In tx task\n");
 
     	Semaphore_pend(sem_tx_handle, BIOS_WAIT_FOREVER);
 
-		Alien_log("In RF send\n");
+		Alien_log("Tx Semaphore called\n");
 
-//		//TODO while uart
-//		// if something was sent from the server send it
-//		data [0] = 'H';
-//		data [1] = 'a';
-//		data [2] = 'l';
-//		data [3] = 'l';
-//		data [4] = 'l';
-//		data [5] = 'o';
-//		data [6] = 'o';
-//		data [7] = '\0';
-//		queue (RECEIVE_QUEUE, data, length, overflow);
+		// if something was sent from the server send it
     	while(Alien_UART_receive (send_packet, &send_packet_length, &send_packet_buffer_overflow))
     	{
     		send_packet [send_packet_length] ='\0';
-    		System_printf ("RTS: %s\n", send_packet);
-    		System_flush();
 
 			if ((!send_packet_buffer_overflow) && (send_packet_length > 0))
 			{
@@ -92,29 +78,14 @@ void tx_task_function(UArg arg0, UArg arg1)
 				RF_CmdHandle tx_cmd = RF_postCmd(RF_handle, (RF_Op*)&RF_cmdPropTx, RF_PriorityHighest, NULL, 0);
 
 				PIN_setOutputValue(LED_pin_handle, Board_LED2, !PIN_getOutputValue(Board_LED2));
-				System_printf("%d\n", tx_cmd);
-				System_flush();
+
+				Alien_log("Packet sent! \n");
 			}
-			// bufferoverflow or invalid packet length
+			else
+			{
+				Alien_log("TX: Packet not send because of bufferoverflow or invalid packet length! \n");
+			}
     	}
-
-    	Alien_log("tx nach schleife\n");
-
-//    	System_printf("empfangenes Paket: %s\n", packet_rx);
-//    	System_flush();
-//
-//		if(packet_rx[0] == '1')
-//		{
-//			send_packet[0] = 0xaa; 	// TODO: der Server schreibt eigentlich das Paket!
-//			send_packet[1] = '2';
-//
-//			/* Send packet */
-//			// stop RX CMD
-//			RF_Stat r = RF_cancelCmd(RF_handle, rx_cmd, 1);
-//
-//			// post TX CMD
-//			RF_CmdHandle tx_cmd = RF_postCmd(RF_handle, (RF_Op*)&RF_cmdPropTx, RF_PriorityHighest, NULL, 0);
-//		}
 
 		Semaphore_post(sem_rx_handle);
     }

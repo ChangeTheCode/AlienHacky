@@ -5,7 +5,7 @@
  *      Author: Tobias
  */
 
-#include "RF.h"
+#include <RF.h>
 #include "AlienUART.h"
 
 static Task_Params rx_task_params;
@@ -49,7 +49,6 @@ void rx_task_init()
     rx_task_params.stackSize = RX_TASK_STACK_SIZE;
     rx_task_params.priority = RX_TASK_PRIORITY;
     rx_task_params.stack = &rx_task_stack;
-//    rx_task_params.arg0 = (UInt)1000000;
     rx_task_params.arg0 = (UInt)0;
 
     Task_construct(&rx_task, rx_task_function, &rx_task_params, NULL);
@@ -89,6 +88,8 @@ static void rx_task_function(UArg arg0, UArg arg1)
 
 		/* Set the frequency */
 		RF_postCmd(RF_handle, (RF_Op*)&RF_cmdFs, RF_PriorityNormal, NULL, 0);
+
+		Alien_log("RF handle opened in rx Task\n");
 	}
 
     while(1)
@@ -99,10 +100,6 @@ static void rx_task_function(UArg arg0, UArg arg1)
 
 		Semaphore_pend(sem_rx_handle, BIOS_WAIT_FOREVER);
 
-//    	sem_rx_handle = TRUE;
-//    	while(sem_rx_handle){
-//    		Task_yield();
-//    	}
     }
 
 }
@@ -123,25 +120,23 @@ void rx_callback(RF_Handle h, RF_CmdHandle ch, RF_EventMask e)
         /* Copy the payload + the status byte to the packet variable */
         memcpy(packet_rx, packet_rx_data_pointer, (packet_rx_length + 1));
 
-        // TODO: nur fuer debug
+        // only for debug
         if (packet_rx[0] == '1')
         {
-            Alien_log("login versuch empfangen\n");
+            Alien_log("RX: login attempt received\n");
         }
         else if(packet_rx[0] == '4')
         {
-            Alien_log ("heartbeat empfangen\n");
+            Alien_log ("RX: heartbeat received\n");
         }
         else if(packet_rx[0] == '6')
         {
-            Alien_log ("kick empfangen\n");
+            Alien_log ("RX: kick received\n");
         }
 
         Alien_UART_send(packet_rx, packet_rx_length);
 
         Semaphore_post(sem_tx_handle);
-
-
 
         RFQueue_nextEntry();
     }

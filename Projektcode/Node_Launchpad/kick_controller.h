@@ -28,7 +28,7 @@
 #include <math.h>
 
 
-#define LIGHT_LEVEL_IN_PROCENT 120 // 20 % bigger then old value, so read gyro !
+#define LIGHT_LEVEL_IN_PROCENT 150 // average 50 % higher then old average, so read gyro !
 
 #define PRINT_SKIP_COUNT        10
 
@@ -43,7 +43,6 @@ static Task_Params sensor_task_params;
 Char sensor_task_stack[TASKSTACKSIZE];
 
 
-
 // variables for i2c communication
 static MPU9150_Handle MPU_handel;
 static I2C_Handle      i2c;
@@ -54,10 +53,8 @@ static int light_pos = 0, light_average = 0;
 // Global Instance structure to manage the DCM state.
 //*****************************************************************************
 tCompDCM g_sCompDCMInst;
-int_fast32_t i32IPart[20], i32FPart[20];
+int_fast32_t i32IPart[3], i32FPart[3];
 uint_fast32_t ui32Idx, ui32CompDCMStarted;
-float pfData[20];
-float *pfAccel, *pfGyro, *pfMag, *pfEulers, *pfQuaternion;
 
 float eYaw, ePitch, eRoll;
 float radVal = 3.14159265f/180.0f;
@@ -65,9 +62,6 @@ float radVal = 3.14159265f/180.0f;
 int c, d, k;
 float sum = 0.0f;
 float transMatrix[3][3], accelMatrix[3][1], newAccel[3][1];
-
-float *pfAccel2;
-
 
 uint32_t g_ui32_skip_counter;
 
@@ -93,7 +87,6 @@ typedef struct{
 }gyro_value_t;
 
 
-
 /* Function Headers */
 void alien_init_i2c_task(void);
 
@@ -101,7 +94,7 @@ int calculate_average (int* p_values, int new_value, int avarage);
 
 void calc_in_world_coordinates( gyro_value_t new_ComDCM);
 
-Void sensor_task_fn(UArg arg0, UArg arg1);
+void sensor_task_fn(UArg arg0, UArg arg1);
 
 void gyro_to_do(void);
 

@@ -11,10 +11,15 @@
 #include "AlienTypes.h"
 #include <stdint.h>
 
-#define END_OF_RECORD (char) 13
+//#define END_OF_RECORD (char) 13
+#define END_OF_RECORD '#'
+#define SERVER_END_OF_RECORD '#'
+#define MAX_LOG_ENTRY 256
 
 void Alien_UART_init (void);
 BOOLEAN Alien_UART_send (uint8_t * data, uint8_t length);
 BOOLEAN Alien_UART_receive (uint8_t * data, uint8_t * length, BOOLEAN * buffer_overflow);
+void Alien_log (char * to_log);
+void Alien_start_send_task (void);
 
 #endif /* ALIENUART_H_ */
