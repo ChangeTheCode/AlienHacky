@@ -60,7 +60,7 @@ static void rx_task_function(UArg arg0, UArg arg1)
     RF_Params rf_params;
     RF_Params_init(&rf_params);
 
-    rf_params.nInactivityTimeout = 200; // 200us
+    //rf_params.nInactivityTimeout = 200; // 200us
 
     if( RFQueue_defineQueue(&rx_data_queue,
                             rxDataEntryBuffer,
@@ -92,10 +92,15 @@ static void rx_task_function(UArg arg0, UArg arg1)
 
 		/* Set the frequency */
 		RF_postCmd(RF_handle, (RF_Op*)&RF_cmdFs, RF_PriorityNormal, NULL, 0);
+
+		Alien_log("RF handle opened in rx Task\n");
 	}
+
+    Alien_log("Rx task initialized\n");
 
     while(1)
     {
+    	Alien_log ("In rx task\n");
 		/* Enter RX mode and stay in RX until a packet arrives */
     	rx_cmd = RF_postCmd(RF_handle, (RF_Op*)&RF_cmdPropRx, RF_PriorityNormal, &rx_callback, IRQ_RX_ENTRY_DONE);
 		Semaphore_pend(sem_rx_handle, BIOS_WAIT_FOREVER);
@@ -107,9 +112,6 @@ void rx_callback(RF_Handle h, RF_CmdHandle ch, RF_EventMask e)
 {
     if (e & RF_EventRxEntryDone)
     {
-        /* Toggle pin to indicate RX */
-        //PIN_setOutputValue(LED_pin_handle, Board_LED2, !PIN_getOutputValue(Board_LED2));	// Red LED
-
         /* Get current unhandled data entry */
         current_data_entry = RFQueue_getDataEntry();
 
@@ -122,27 +124,29 @@ void rx_callback(RF_Handle h, RF_CmdHandle ch, RF_EventMask e)
         /* Copy the payload + the status byte to the packet variable */
         memcpy(packet_rx, packet_rx_data_pointer, (packet_rx_length + 1));
 
-        //PIN_setOutputValue(LED_pin_handle, Board_LED1, !PIN_getOutputValue(Board_LED1));
-
-        switch(packet_rx[1]) 		//byte 0 is the address of the sender (bridge: 0xaa)
+        switch(packet_rx[1]) 		//byte 0 is the address of the sender (bridge: '!')
         {
 			case '2':
 				// login OK
 				// to measure the roundtrip time of a packet
 				//PIN_setOutputValue(LED_pin_handle, Board_DIO15, 1);
+				Alien_log("Login OK arrived\n");
 
-				/* Toggle pin to indicate OK */  // only for debug purposes ( later only turn on the green LED )
+				/* Turn green LED on to indicate OK */
 				PIN_setOutputValue(LED_pin_handle, Board_LED1, 1);	// Green LED
 				login_ok = TRUE;
 				Semaphore_post(sem_tx_handle);
 				break;
 			case '3':
 				// login not OK
+				Alien_log("Login NOT OK arrived\n");
+
 				PIN_setOutputValue(LED_pin_handle, Board_LED0, 1); 	// Red LED
 				login_ok = FALSE;
 				GPTimerCC26XX_start(timer_login_handle); // try again after 30 seconds
 				break;
 			default:
+				Semaphore_post(sem_tx_handle);
 				break;
         }
 

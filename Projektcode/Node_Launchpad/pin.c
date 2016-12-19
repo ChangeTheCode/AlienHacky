@@ -37,9 +37,6 @@ PIN_Config button_pin_table[] = {
     PIN_TERMINATE
 };
 
-uint8_t kick = FALSE;
-
-void button_callback(PIN_Handle handle, PIN_Id pinId);
 
 void LED_init(void)
 {
@@ -48,48 +45,6 @@ void LED_init(void)
     {
         System_abort("Error initializing board LED pins\n");
     }
-}
 
-void button_init(void)
-{
-    button_pin_handle = PIN_open(&button_pin_state, button_pin_table);
-	if(!button_pin_handle) {
-		System_abort("Error initializing button pins\n");
-	}
-
-	/* Setup callback for button pins */
-	if (PIN_registerIntCb(button_pin_handle, &button_callback) != 0) {
-		System_abort("Error registering button callback function");
-	}
-}
-
-void button_callback(PIN_Handle handle, PIN_Id pinId) {
-    uint32_t currVal = 0;
-
-    /* Debounce logic, only toggle if the button is still pushed (low) */
-    CPUdelay(8000*50);
-    if (!PIN_getInputValue(pinId)) {
-        /* Toggle LED based on the button pressed */
-        switch (pinId) {
-            case Board_BUTTON0:
-                currVal =  PIN_getOutputValue(Board_LED0);
-                //PIN_setOutputValue(LED_pin_handle, Board_LED0, !currVal);
-
-                // to measure the roundtrip time of a packet
-				//PIN_setOutputValue(ledPinHandle, Board_DIO15, 1);
-
-                kick = TRUE;
-    			Semaphore_post(sem_tx_handle);
-                break;
-
-            case Board_BUTTON1:
-                currVal =  PIN_getOutputValue(Board_LED1);
-                PIN_setOutputValue(LED_pin_handle, Board_LED1, !currVal);
-                break;
-
-            default:
-                /* Do nothing */
-                break;
-        }
-    }
+    Alien_log("LED initialized\n");
 }

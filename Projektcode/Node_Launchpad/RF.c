@@ -33,4 +33,6 @@ void Alien_RF_init(void)
     /* Initialize tasks */
 	rx_task_init();
 	tx_task_init();
+
+	Alien_log("Alien RF initialized\n");
 }

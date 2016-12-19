@@ -6,6 +6,7 @@
  */
 
 #include <Hardware/hardware_I2C.h>
+#include "AlienUART.h"
 
 Semaphore_Handle sem_i2c_handle;
 Semaphore_Struct sem_i2c_struct;
@@ -25,5 +26,7 @@ void Alien_i2c_init(void)
 
     /* Initialize tasks */
     alien_init_i2c_task();
+
+    Alien_log("I2C initialized\n");
 }
 

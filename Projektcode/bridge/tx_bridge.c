@@ -53,6 +53,8 @@ void tx_task_function(UArg arg0, UArg arg1)
 		Alien_log("RF handle opened in tx Task\n");
 	}
 
+	Alien_log("Tx task initialized\n");
+
     while(1)
     {
 		Alien_log("In tx task\n");
@@ -83,7 +85,7 @@ void tx_task_function(UArg arg0, UArg arg1)
 			}
 			else
 			{
-				Alien_log("TX: Packet not send because of bufferoverflow or invalid packet length! \n");
+				Alien_log("TX: Packet not send because of bufferoverflow or invalid packet length from UART! \n");
 			}
     	}
 

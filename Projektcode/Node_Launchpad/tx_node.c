@@ -21,6 +21,8 @@ uint8_t packet_tx[PACKET_LENGTH];
 BOOLEAN login_ok = FALSE;
 BOOLEAN login_sent = FALSE;
 
+uint8_t kick;
+
 static void tx_task_function(UArg arg0, UArg arg1);
 
 void tx_task_init(void)
@@ -39,7 +41,7 @@ static void tx_task_function(UArg arg0, UArg arg1)
 	// rf init
     RF_Params rf_params;
     RF_Params_init(&rf_params);
-    rf_params.nInactivityTimeout = 200; // 200us
+    //rf_params.nInactivityTimeout = 200; // 200us
 
     RF_cmdPropTx.pktLen = PACKET_LENGTH;
     RF_cmdPropTx.pPkt = packet_tx;
@@ -53,6 +55,8 @@ static void tx_task_function(UArg arg0, UArg arg1)
 
 		/* Set the frequency */
 		RF_postCmd(RF_handle, (RF_Op*)&RF_cmdFs, RF_PriorityNormal, NULL, 0);
+
+		Alien_log("RF handle opened in tx Task\n");
 	}
 
     // get MAC-Address
@@ -61,11 +65,17 @@ static void tx_task_function(UArg arg0, UArg arg1)
 	int y;
 	for(y = 0; y < 8; y++) mac_address[y] = mac_address_int >> (8-1-y)*8;
 
+	Alien_log("Tx task initialized\n");
+
     while(1)
     {
+    	Alien_log("In tx task\n");
+
     	// Login
     	if((login_ok == FALSE) && (login_sent == FALSE))
     	{
+    		Alien_log("TX: login_ok = False and login_sent = False\n");
+
     		packet_tx[0] = '1';	//Login
 
     		// add mac address to packet
@@ -88,25 +98,27 @@ static void tx_task_function(UArg arg0, UArg arg1)
 			// post TX CMD
 			RF_CmdHandle tx_cmd = RF_postCmd(RF_handle, (RF_Op*)&RF_cmdPropTx, RF_PriorityHighest, NULL, 0);
 
+			Alien_log("TX: Login packet sent\n");
+
 			login_sent = TRUE;
 
 			Semaphore_post(sem_rx_handle);
-			Semaphore_pend(sem_tx_handle, BIOS_WAIT_FOREVER);
     	}
 
-    	else if(login_ok == TRUE)
+    	Semaphore_pend(sem_tx_handle, BIOS_WAIT_FOREVER);
+
+    	Alien_log("Tx Semaphore called\n");
+
+    	if(login_ok == TRUE)
     	{
-        	Semaphore_pend(sem_tx_handle, BIOS_WAIT_FOREVER);
+    		Alien_log("TX: login_ok = True\n");
         	// Heartbeat
         	if(heartbeat == TRUE)
         	{
+        		Alien_log("TX: heartbeat\n");
         		packet_tx[0] = '4'; 	//Heartbeat
-        		// add mac address to packet
-//				uint8_t j;
-//				for (j = 2; j < 8; j++)
-//				{
-//					packet_tx[j-1] = mac_address[j];
-//				}
+
+        		// add address to packet
         		packet_tx[1] = '1';			//TODO: add address received at the login instead of static
 
 				RF_cmdPropTx.pktLen = 2;
@@ -122,12 +134,18 @@ static void tx_task_function(UArg arg0, UArg arg1)
 				// post TX CMD
 				RF_CmdHandle tx_cmd = RF_postCmd(RF_handle, (RF_Op*)&RF_cmdPropTx, RF_PriorityHighest, NULL, 0);
 
+				Alien_log("TX: Heartbeat packet sent\n");
+
 				heartbeat = FALSE;
+
+				Semaphore_post(sem_rx_handle);
         	}
 
         	// Send kick packet
         	else if(kick == TRUE)
 			{
+        		Alien_log("TX: kick\n");
+
 				kick = FALSE;
 
 				/* Create packet with command number, 6 Byte Mac, max of 12 Byte payload */
@@ -158,22 +176,26 @@ static void tx_task_function(UArg arg0, UArg arg1)
 				{
 					r = RF_cancelCmd(RF_handle, rx_cmd, 1);
 				}
-				//PIN_setOutputValue(LED_pin_handle, Board_DIO15, 0);
 
 				// post TX CMD
 				RF_CmdHandle tx_cmd = RF_postCmd(RF_handle, (RF_Op*)&RF_cmdPropTx, RF_PriorityHighest, NULL, 0);
+
+				Alien_log("TX: Kick packet sent\n");
 
 				PIN_setOutputValue(LED_pin_handle, Board_LED0, 1);	// Red LED on
 
 				GPTimerCC26XX_start(timer_kick_handle);
 
+				Semaphore_post(sem_rx_handle);
 			}
-        	Semaphore_post(sem_rx_handle);
     	}
     }
 }
 
+// set values of the kick in the send buffer
 void set_new_kick_event_value(kick_vectors_t new_kick_values){
+
+	Alien_log("Set new kick event value\n");
 
 	payload[0] = new_kick_values._kick_int_high_x;
 	payload[1] = new_kick_values._kick_float_high_x;
@@ -189,8 +211,5 @@ void set_new_kick_event_value(kick_vectors_t new_kick_values){
 
 	kick = TRUE;
 
-	// set values to the send buffer
-	// is it necessary that I have a semaphore_pend at the kick_controller ?
 	Semaphore_post(sem_tx_handle);
-
 }

@@ -29,7 +29,6 @@ void timer_init(void)
 }
 
 void timer_heartbeat_callback(GPTimerCC26XX_Handle handle, GPTimerCC26XX_IntMask interruptMask) {
-	//PIN_setOutputValue(LED_pin_handle, Board_LED2, !PIN_getOutputValue(Board_LED2));	// Red LED
 	heartbeat = TRUE;
 	Semaphore_post(sem_tx_handle);
 }
@@ -143,6 +142,8 @@ static void timer_task_function(UArg arg0, UArg arg1)
 	login_timer_init();
 	kick_timer_init();
 	error_timer_init();
+
+	Alien_log("Timer initialized\n");
 
 	while(1) {
 	  Task_sleep(BIOS_WAIT_FOREVER);

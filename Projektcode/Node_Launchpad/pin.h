@@ -9,6 +9,5 @@
 #define PIN_H_
 
 void LED_init(void);
-void button_init(void);
 
 #endif /* PIN_H_ */

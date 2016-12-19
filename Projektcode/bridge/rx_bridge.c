@@ -92,10 +92,12 @@ static void rx_task_function(UArg arg0, UArg arg1)
 		Alien_log("RF handle opened in rx Task\n");
 	}
 
+    Alien_log("Rx task initialized\n");
+
     while(1)
     {
-		Alien_log ("in rx task\n");
-		/* Enter RX mode and stay forever in RX */
+		Alien_log ("In rx task\n");
+		/* Enter RX mode and stay in RX until a packet arrives */
     	rx_cmd = RF_postCmd(RF_handle, (RF_Op*)&RF_cmdPropRx, RF_PriorityNormal, &rx_callback, IRQ_RX_ENTRY_DONE);
 
 		Semaphore_pend(sem_rx_handle, BIOS_WAIT_FOREVER);

@@ -28,9 +28,7 @@
 #include <math.h>
 
 
-#define LIGHT_LEVEL_IN_PROCENT 150 // average 50 % higher then old average, so read gyro !
-
-#define PRINT_SKIP_COUNT        10
+#define LIGHT_LEVEL_IN_PROCENT 200 // average 100 % higher then old average, so read gyro !
 
 #define MAX_AVARAGE_COUNT 10 // filter size for the light array
 
@@ -61,7 +59,7 @@ float radVal = 3.14159265f/180.0f;
 
 int c, d, k;
 float sum = 0.0f;
-float transMatrix[3][3], accelMatrix[3][1], newAccel[3][1];
+float transMatrix[3][3], accelMatrix[3][1], world_accel[3][1];
 
 uint32_t g_ui32_skip_counter;
 
@@ -96,7 +94,7 @@ void calc_in_world_coordinates( gyro_value_t new_ComDCM);
 
 void sensor_task_fn(UArg arg0, UArg arg1);
 
-void gyro_to_do(void);
+void send_gyro_data(void);
 
 
 #endif /* KICK_CONTROLLER_H_ */

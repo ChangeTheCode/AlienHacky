@@ -52,7 +52,7 @@ int main(void)
 	debug = TRUE;
 
     // Start message
-	Alien_log ("AlienNode starting. Running version 18.12.2016\n\n");
+	Alien_log ("AlienNode starting. Running version 19.12.2016\n\n");
 
     /* Call board init functions. */
     Board_initGeneral();
@@ -62,15 +62,14 @@ int main(void)
 
     /* Open pins */
     LED_init();
-    button_init();
 
     // Initialize the timer
     timer_init();
 
-    // init i2c task
+    // Initialize the i2c task
     Alien_i2c_init();
 
-    // Init the RF Module
+    // Initialize the RF Module
 	Alien_RF_init();
 
     /* Start BIOS */

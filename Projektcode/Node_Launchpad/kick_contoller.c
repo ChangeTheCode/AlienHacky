@@ -9,9 +9,13 @@
 #include "timer.h"
 
 kick_vectors_t transport_kick_struct;
+BOOLEAN gyro_init_done = FALSE;
+
+void calibrate_gyro(void);
+int init_light_average_array(void);
 
 void alien_init_i2c_task(void){
-	/* Construct tmp007 Task thread */
+	/* Construct i2c Task thread */
 	Task_Params_init(&sensor_task_params);
 	sensor_task_params.stackSize = TASKSTACKSIZE;
 	sensor_task_params.stack = &sensor_task_stack;
@@ -32,7 +36,7 @@ int calculate_average (int* p_values, int new_value, int avarage){
 	return avarage;
 }
 
-//TODO: aufteilen der Funktion ist so unschön
+// transform the accelerations in the world accelerations
 void calc_in_world_coordinates( gyro_value_t new_ComDCM){
 	//
 	// Check if this is our first data ever.
@@ -129,7 +133,7 @@ void calc_in_world_coordinates( gyro_value_t new_ComDCM){
 				sum = sum + transMatrix[c][k]*accelMatrix[k][d];
 			}
 
-			newAccel[c][d] = sum;
+			world_accel[c][d] = sum;
 			sum = 0;
 		}
 	}
@@ -144,13 +148,13 @@ void calc_in_world_coordinates( gyro_value_t new_ComDCM){
 		//
 		// Conver float value to a integer truncating the decimal part.
 		//
-		i32IPart[ui32Idx] = (int32_t) newAccel[ui32Idx][0];
+		i32IPart[ui32Idx] = (int32_t) world_accel[ui32Idx][0];
 
 		//
 		// Multiply by 1000 to preserve first three decimal values.
 		// Truncates at the 3rd decimal place.
 		//
-		i32FPart[ui32Idx] = (int32_t) (newAccel[ui32Idx][0] * 1000.0f);
+		i32FPart[ui32Idx] = (int32_t) (world_accel[ui32Idx][0] * 1000.0f);
 
 		//
 		// Subtract off the integer part from this newly formed decimal
@@ -168,10 +172,7 @@ void calc_in_world_coordinates( gyro_value_t new_ComDCM){
 		}
 	}
 
-	// i32Ipart is the integer part of the value und i32FPart float with 3 numbers after the point
-	//system prints only for tests
-	System_printf("\n Gyro %.3f, %.3f, %.3f\n", newAccel[0][0], newAccel[1][0], newAccel[2][0]);
-	System_flush();
+	// i32Ipart is the integer part of the value and i32FPart the float part with 3 numbers after the point
 
 	transport_kick_struct._kick_int_high_x = (i32IPart[0] & 0x000000ff);
 	transport_kick_struct._kick_float_high_x  = (i32FPart[0] & 0x0000ff00) >> 8;
@@ -185,15 +186,18 @@ void calc_in_world_coordinates( gyro_value_t new_ComDCM){
 	transport_kick_struct._kick_float_high_z  = (i32FPart[2] & 0x0000ff00) >> 8;
 	transport_kick_struct._kick_float_low_z =(i32FPart[2] & 0x000000ff);
 
-	//set_new_kick_event_value(transport_kick_struct);
+	if(gyro_init_done)
+	{
+		set_new_kick_event_value(transport_kick_struct);
+	}
 }
 
-// byte array is an 3 item big array
-void get_byte_value(int_fast32_t value, uint8_t* byte_array){
-	*byte_array = (value & 0x00ff0000) >> 16;  byte_array++;
-	*byte_array = (value & 0x0000ff00) >> 8;   byte_array++;
-	*byte_array =(value & 0x000000ff);
-}
+//// byte array is an 3 item big array
+//void get_byte_value(int_fast32_t value, uint8_t* byte_array){
+//	*byte_array = (value & 0x00ff0000) >> 16;  byte_array++;
+//	*byte_array = (value & 0x0000ff00) >> 8;   byte_array++;
+//	*byte_array =(value & 0x000000ff);
+//}
 
 // main function of the task
 void sensor_task_fn(UArg arg0, UArg arg1){
@@ -222,6 +226,7 @@ void sensor_task_fn(UArg arg0, UArg arg1){
 		Alien_log("Gyro Initialized!\n");
 	}
 
+	// init i2c of the light sensor
 	if( ! config_light_sensor(i2c) ){
 		GPTimerCC26XX_start(timer_error_handle);
 		Alien_log("Error Initializing  light 1\n");
@@ -233,6 +238,7 @@ void sensor_task_fn(UArg arg0, UArg arg1){
 		Alien_log("Light sensor Initialized!\n");
 	}
 
+	// config the light sensor
 	if( ! config_light_sensor_reg2(i2c) ){
 		GPTimerCC26XX_start(timer_error_handle);
 		Alien_log("Error Initializing light 2\n");
@@ -244,26 +250,14 @@ void sensor_task_fn(UArg arg0, UArg arg1){
 		Alien_log("Light sensor configured!\n");
 	}
 
-
-	int light_transaction_values[4];
-	int current_16b_light = 0;
-	int old_light_average = 0;
-
+	// DCM init
 	CompDCMInit(&g_sCompDCMInst, 1.0f / 50.0f, 0.2f, 0.6f, 0.2f);
 
-	ui32CompDCMStarted = 0;
+	// calibrate the gyro
+	calibrate_gyro();
 
-	// average light array init
-	int i = 0;
-	int start_sum_light_values = 0;
-	for(i = 0; i < MAX_AVARAGE_COUNT; i++){
-		if(read_light_sensor_values(i2c, &light_transaction_values[0])){
-			light_values[i] = light_transaction_values[0];
-			start_sum_light_values += light_transaction_values[0];
-		}
-	}
-	light_average = start_sum_light_values / MAX_AVARAGE_COUNT;
-
+	// initialize the light average array
+	 light_average = init_light_average_array();
 	if(light_average == 0){
 		GPTimerCC26XX_start(timer_error_handle);
 		Alien_log("Error Initializing light average\n");
@@ -275,6 +269,9 @@ void sensor_task_fn(UArg arg0, UArg arg1){
 		Alien_log("Light average array Initialized!\n");
 	}
 
+	int light_transaction_values[4];
+	int current_16b_light = 0;
+	int old_light_average = 0;
 
 	while(1) {
 
@@ -292,7 +289,7 @@ void sensor_task_fn(UArg arg0, UArg arg1){
 			light_pos ++;
 
 			if( (light_average * 100) / old_light_average >= LIGHT_LEVEL_IN_PROCENT ){
-				gyro_to_do();
+				send_gyro_data();
 			}
 
 		}else{
@@ -301,7 +298,42 @@ void sensor_task_fn(UArg arg0, UArg arg1){
 	}
 }
 
-void gyro_to_do(){
+// calibrate the gyro
+void calibrate_gyro(void){
+	ui32CompDCMStarted = 0;
+
+	int j = 0;
+	for (j = 0; j < 20; j++)
+	{
+		send_gyro_data();
+	}
+
+	gyro_init_done = TRUE;
+
+	Alien_log("Gyro calibrated\n");
+}
+
+// initialize the light average array
+int init_light_average_array(void){
+	int light_transaction_values[4];
+
+	int i = 0;
+	int start_sum_light_values = 0;
+	int average = 0;
+
+	for(i = 0; i < MAX_AVARAGE_COUNT; i++){
+		if(read_light_sensor_values(i2c, &light_transaction_values[0])){
+			light_values[i] = light_transaction_values[0];
+			start_sum_light_values += light_transaction_values[0];
+		}
+	}
+	average = start_sum_light_values / MAX_AVARAGE_COUNT;
+
+	return average;
+}
+
+// read the accelerations and magnetic data
+void send_gyro_data(){
 	MPU9150_Data mpu_data;
 	gyro_value_t new_com_values;
 
@@ -329,7 +361,6 @@ void gyro_to_do(){
 	new_com_values._magneto_z = mpu_data.zFloat;
 
 	calc_in_world_coordinates(new_com_values);
-
 }
 
 
