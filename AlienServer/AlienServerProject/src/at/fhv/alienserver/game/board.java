@@ -13,6 +13,8 @@ import java.util.ArrayList;
  */
 public class board implements Runnable, IBoard{
 
+    //TODO: Spielstand einbauen
+
     private board() {}
 
     private static Thread _board_thread;
