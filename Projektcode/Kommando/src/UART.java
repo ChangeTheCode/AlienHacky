@@ -1,23 +1,12 @@
 /**
- * Created by Ursus Schneider on 09.12.2016.
- * <p>
- * Using the RXTX Library that all the examples are based off
- * <p>
- * macOS Setup:
- * <p>
- * Drivers:                        http://blog.brianhemeryck.me/installing-rxtx-on-mac-os-mountain-lion/
- * missing piece for Intel here:   http://blog.iharder.net/2009/08/18/rxtx-java-6-and-librxtxserial-jnilib-on-intel-mac-os-x/#comment-163295
- * Add the module to the IDE:      http://stackoverflow.com/questions/1051640/correct-way-to-add-external-jars-lib-jar-to-an-intellij-idea-project
- * <p>
- * How to use RXTX:                https://blog.henrypoon.com/blog/2011/01/01/serial-communication-in-java-with-example-program/
- * <p>
- * If you get the error Application unknown maybe you do not have a lock directory:
- * <p>
- * http://stackoverflow.com/questions/9044758/gnu-io-portinuseexception-unknown-application
- * <p>
- * sudo mkdir /var/lock
- * sudo chmod go+rwx /var/lock
- */
+*
+ *
+ * this is just a test version of UART for Kommando!!!!
+ *
+ *
+ *
+ *
+ * */
 
 import gnu.io.*;
 
@@ -70,10 +59,12 @@ public class UART implements SerialPortEventListener {
 
     public UART (String port_to_open) {
 
-        load_ports();
-        if (!connect(port_to_open)) return;
-        if (!init_io_stream()) return;
-        if (!init_listener()) return;
+        // add a couple of things to the queue
+        queue.add ("1123456");   // Login ==> player 0
+        queue.add ("1345678");   // Login ==> player 1
+        queue.add ("41");   // heatbeat ==> for player 1
+        queue.add ("44");   // heatbeat ==> for not here player
+        queue.add ("61999111222");   //==> kick for player 1
 
         // fin
         rc = NO_ERROR;
@@ -110,14 +101,7 @@ public class UART implements SerialPortEventListener {
 
     public boolean send(StringBuffer to_send) {
 
-        try {
-            output.write(to_send.toString().getBytes());
-            output.flush();
-        } catch (Exception e) {
-            rc = WRITE_FAIL;
-            message = "Failed to write data. (" + e.toString() + ")";
-        }
-
+        // yip - we sent it :o)
         return true;
     }
 
@@ -126,6 +110,7 @@ public class UART implements SerialPortEventListener {
 
         if (queue.isEmpty()) return false;
 
+        to_receive.setLength(0);
         to_receive.append(queue.remove());
         return true;
     }

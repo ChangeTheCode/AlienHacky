@@ -3,7 +3,7 @@
  */
 public class Test {
 
-    public static final String VERSION = "18.12.2016";
+    public static final String VERSION = "20.12.2016";
 
     public static void main(String[] args) throws InterruptedException {
 

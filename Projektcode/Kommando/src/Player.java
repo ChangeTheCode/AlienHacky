@@ -1,13 +1,12 @@
 public class Player {
 
-    public static int NO_PLAYER = 0;
+    public static int NO_PLAYER = -1;
 
     private StringBuffer mac_address = new StringBuffer("");
-    int player_number = 0;
+    int player_number = NO_PLAYER;
 
     public Player () {
-        this.mac_address.setLength(0);
-        this.player_number = 0;
+        clear_player();
     }
 
     public Player (StringBuffer mac_address, int player_number) {
@@ -29,6 +28,11 @@ public class Player {
 
     public void setPlayer_number(int player_number) {
         this.player_number = player_number;
+    }
+
+    public void clear_player () {
+        this.mac_address.setLength(0);
+        this.player_number = NO_PLAYER;
     }
 
 }
