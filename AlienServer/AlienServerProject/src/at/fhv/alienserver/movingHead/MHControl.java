@@ -2,8 +2,10 @@ package at.fhv.alienserver.movingHead;
 
 import at.fhv.alienserver.Common.CoordinateContainer;
 import at.fhv.alienserver.Common.moving_head_color;
+import at.fhv.alienserver.config.Config;
 
 import java.io.IOException;
+import java.util.DoubleSummaryStatistics;
 import java.util.LinkedList;
 
 import static java.lang.Math.abs;
@@ -22,23 +24,28 @@ public class MHControl implements IMH_Controller{
     /**
      * Offset of the Pan - angle; chosen to have the MH-X25 point straight to the ground for point (0, 0)
      */
-    private final double offset_pan = 95; //90 degrees plus a slight deviation due to non ideal mounting
+    //private final double offset_pan = 95; //90 degrees plus a slight deviation due to non ideal mounting
+    private double offset_pan;
     /**
      * Offset of the Tilt - angle; chosen to have the MH-X25 point straight to the ground for point (0, 0)
      */
-    private final double offset_tilt = 43;
+    //private final double offset_tilt = 43;
+    private double offset_tilt;
     /**
      * Height of the moving head's mounting point in meters; measured at the tilt-turning-axis
      */
-    private final double h = 2.57;
+    //private final double h = 2.57;
+    private double h;
     /**
      * Offset of the moving head relative to center of game coordinate system in x - direction
      */
-    private final double mhOffsetX = 0;
+    //private final double mhOffsetX = 0;
+    private double mhOffsetX;
     /**
      * Offset of the moving head relative to center of game coordinate system in y - direction
      */
-    private final double mhOffsetY = 0;
+    //private final double mhOffsetY = 0;
+    private double mhOffsetY;
 
     /**
      * A coordinate container used to store the last position that we had to drive to. Needed to determine the direction
@@ -69,6 +76,38 @@ public class MHControl implements IMH_Controller{
 
     public MHControl(double exaggerationFactor, boolean mirrorX, boolean mirrorY) throws IOException {
         this.exaggerationFactor = exaggerationFactor;
+
+        Config conf = new Config();
+        try {
+            this.offset_pan = Double.valueOf(conf.getProperty(Config.AlienServerProperties.mh_offset_pan));
+        } catch (NumberFormatException e){
+            this.offset_pan = 90;
+        }
+
+        try {
+            this.offset_tilt = Double.valueOf(conf.getProperty(Config.AlienServerProperties.mh_offset_tilt));
+        } catch (NumberFormatException e){
+            this.offset_tilt = 45;
+        }
+
+        try {
+            this.h = Double.valueOf(conf.getProperty(Config.AlienServerProperties.mh_height));
+        } catch (NumberFormatException e) {
+            this.h = 2.57;
+        }
+
+        try {
+            this.mhOffsetX = Double.valueOf(conf.getProperty(Config.AlienServerProperties.mh_offset_x));
+        } catch (NumberFormatException e){
+            this.mhOffsetX = 0;
+        }
+
+        try {
+            this.mhOffsetY = Double.valueOf(conf.getProperty(Config.AlienServerProperties.mh_offset_y));
+        } catch (NumberFormatException e){
+            this.mhOffsetY = 0;
+        }
+
         if(mirrorX){
             xMirrorFactor = -1;
         } else {

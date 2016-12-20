@@ -70,10 +70,30 @@ public class Calculator implements ICalculator{
                 new AccelerationContainer(0,0), 0L) );
 
         Config config = new Config();
-        this.A = Double.valueOf(config.getProperty(Config.AlienServerProperties.calculator_A));
-        this.b = Double.valueOf(config.getProperty(Config.AlienServerProperties.calculator_b));
-        this.c = Double.valueOf(config.getProperty(Config.AlienServerProperties.calculator_c));
-        this.d = Double.valueOf(config.getProperty(Config.AlienServerProperties.calculator_d));
+
+        try {
+            this.A = Double.valueOf(config.getProperty(Config.AlienServerProperties.calculator_A));
+        } catch (NumberFormatException e){
+            this.A = -1.7;
+        }
+
+        try {
+            this.b = Double.valueOf(config.getProperty(Config.AlienServerProperties.calculator_b));
+        } catch (NumberFormatException e){
+            this.b = 1.5;
+        }
+
+        try {
+            this.c = Double.valueOf(config.getProperty(Config.AlienServerProperties.calculator_c));
+        } catch (NumberFormatException e){
+            this.c = 1;
+        }
+
+        try {
+            this.d = Double.valueOf(config.getProperty(Config.AlienServerProperties.calculator_d));
+        } catch (NumberFormatException e){
+            this.d = 0;
+        }
 
         playField = new Polygon();
     }
