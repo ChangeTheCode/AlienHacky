@@ -78,8 +78,10 @@ class MHCalibrator implements ICalibrator{
                     mhc.move_to(new CoordinateContainer(newCoordinates), false);
                     c = null;
                 } else if(c == 'q'){
-                    config.setProperty(Config.AlienServerProperties.mh_offset_pan, String.valueOf(mhc.getCurrentPan()));
-                    config.setProperty(Config.AlienServerProperties.mh_offset_tilt, String.valueOf(mhc.getCurrentTilt()));
+                    String debug1 = String.valueOf(mhc.getCurrentPan());
+                    config.setProperty(Config.AlienServerProperties.mh_offset_pan, debug1);
+                    String debug2 = String.valueOf(mhc.getCurrentTilt());
+                    config.setProperty(Config.AlienServerProperties.mh_offset_tilt, debug2);
                     break;
                 } else {
                     c = null;
@@ -150,10 +152,12 @@ class MHCalibrator implements ICalibrator{
             }
         }
 
+        mhc = null;
+        mhc = new MHControl(2.0, false, false);
         newCoordinates = null;
         newCoordinates = new CoordinateContainer();
 
-        System.out.println("Please move the light spot only in x direction so that it is at a global x value of 1");
+        System.out.println("\nPlease move the light spot only in x direction so that it is at a global x value of 0");
         System.out.println("Press q to finish this step");
         //Third loop: use input distance to find offset in x direction
         while(true){
@@ -201,9 +205,11 @@ class MHCalibrator implements ICalibrator{
         }
 
 
+        mhc = null;
+        mhc = new MHControl(2.0, false, false);
         newCoordinates = null;
         newCoordinates = new CoordinateContainer();
-        System.out.println("Please move the light spot only in y direction so that it is at a global x value of 1");
+        System.out.println("\nPlease move the light spot only in y direction so that it is at a global y value of 0");
         System.out.println("Press q to finish this step");
         //Fourth loop: use input distance to find offset in y direction
         while(true){
@@ -249,6 +255,8 @@ class MHCalibrator implements ICalibrator{
                 //TODO: Implement exception handling
             }
         }
+        guiFrame.setVisible(false);
+        guiFrame.dispose();
     }
 
     @Override

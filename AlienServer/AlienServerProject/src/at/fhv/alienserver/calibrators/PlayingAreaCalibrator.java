@@ -42,9 +42,9 @@ class PlayingAreaCalibrator implements ICalibrator{
         guiFrame.setVisible(true);
         // Did we seriously just need 12 lines of code to have a key-listener?!?!
 
-        System.out.println("Use the WASD keys to move the light spot");
+        System.out.println("\nUse the WASD keys to move the light spot");
         System.out.println("Use the number keys 1 - 4 to set the corner in the respective quadrant");
-        System.out.println("Close input window to terminate application and save values");
+        System.out.println("Press q to finish this step");
 
         Character c;
         CoordinateContainer newCoordinates = new CoordinateContainer(0, 0);
@@ -58,18 +58,19 @@ class PlayingAreaCalibrator implements ICalibrator{
                 if (c == null){
                     //Currently there's no character present, so just don't do anything
                 } else if (c == 'w') {
-                    newCoordinates.setX( newCoordinates.getX() + 0.1 );
+                    newCoordinates.setX( newCoordinates.getX() + 0.05 );
                     mhc.move_to(new CoordinateContainer(newCoordinates), false);
                     c = null;
                 } else if (c == 's') {
-                    newCoordinates.setX( newCoordinates.getX() - 0.1 );
+                    newCoordinates.setX( newCoordinates.getX() - 0.05 );
                     mhc.move_to(new CoordinateContainer(newCoordinates), false);
                     c = null;
                 } else if (c == 'd') {
-                    newCoordinates.setY( newCoordinates.getY() + 0.1 );
+                    newCoordinates.setY(newCoordinates.getY() + 0.05);
                     mhc.move_to(new CoordinateContainer(newCoordinates), false);
                     c = null;
-                    newCoordinates.setY( newCoordinates.getY() - 0.1 );
+                } else if (c == 'a'){
+                    newCoordinates.setY( newCoordinates.getY() - 0.05 );
                     mhc.move_to(new CoordinateContainer(newCoordinates), false);
                     c = null;
                 } else if(c == '1'){
@@ -88,6 +89,8 @@ class PlayingAreaCalibrator implements ICalibrator{
                     System.out.println("Saved corner in quadrant 4");
                     config.setProperty(Config.AlienServerProperties.quadrant4Limit, newCoordinates.toString());
                     c = null;
+                } else if(c == 'q'){
+                    this.setRunning(false);
                 }
             } catch (InterruptedException e) {
                 System.out.println("Exception occurred :-O");

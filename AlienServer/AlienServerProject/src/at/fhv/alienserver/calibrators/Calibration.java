@@ -22,7 +22,6 @@ public class Calibration {
             System.exit(-1);
         }
 
-
         try {
             playCalib.execute();
         } catch (IOException e) {

@@ -23,7 +23,6 @@ public class MHControl implements IMH_Controller{
      * Offset of the Pan - angle; chosen to have the MH-X25 point straight to the ground for point (0, 0)
      */
     private final double offset_pan = 95; //90 degrees plus a slight deviation due to non ideal mounting
-    //private final double offset_pan = 180;
     /**
      * Offset of the Tilt - angle; chosen to have the MH-X25 point straight to the ground for point (0, 0)
      */
@@ -53,6 +52,9 @@ public class MHControl implements IMH_Controller{
      */
     private DMX oldPacket;
 
+    private double oldPan;
+    private double oldTilt;
+
     private double exaggerationFactor;
     private int xMirrorFactor;
     private int yMirrorFactor;
@@ -79,13 +81,16 @@ public class MHControl implements IMH_Controller{
             yMirrorFactor = 1;
         }
 
-        DMX packet = new DMX();
+        DMX packet = new DMX();//private final double offset_pan = 180;
+
         //The following three lines set the MH-X25 to position (0,0)
         packet.setPan(offset_pan);
         packet.setTilt(offset_tilt);
 
         oldPacket = new DMX(packet);
         oldPosition = new CoordinateContainer(0,0);
+        oldPan = offset_pan;
+        oldTilt = offset_tilt;
 
         esp.sendPackets(packet);
     }
@@ -113,7 +118,9 @@ public class MHControl implements IMH_Controller{
         position.setY( position.getY() * yMirrorFactor );
 
         dmxPacket.setPan(Math.atan(position.getX() / h) * 180 / Math.PI + offset_pan);
+        oldPan = Math.atan(position.getX() / h) * 180 / Math.PI + offset_pan;
         dmxPacket.setTilt(Math.atan(position.getY() / Math.sqrt(position.getX() * position.getX() + h * h)) * 180 / Math.PI + offset_tilt);
+        oldTilt = Math.atan(position.getY() / Math.sqrt(position.getX() * position.getX() + h * h)) * 180 / Math.PI + offset_tilt;
 
         //Resolve the supplied colour value to a numeric value that can be fed to the MH-X25
         dmxPacket.color = (byte) color.getValue();
@@ -227,13 +234,11 @@ public class MHControl implements IMH_Controller{
     }
 
     public double getCurrentPan(){
-        DMX tempPacket = new DMX( oldPacket );
-        return tempPacket.getPan();
+        return oldPan;
     }
 
     public double getCurrentTilt(){
-        DMX tempPacket = new DMX( oldPacket );
-        return tempPacket.getTilt();
+        return oldTilt;
     }
 
     public double getCurrentX(){

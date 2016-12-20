@@ -65,12 +65,15 @@ class DMX {
      * This function returns the stored pan in degrees
      * <p>
      * Internally this function maps the numeric range of an unsigned byte (0 to 255) to possible range for the pan
-     * angle(0 to 540).
+     * angle(0 to 180).
      *
      * @return Stored pan in degrees
      */
     double getPan() {
-        return this.pan / 255.0 * 180.0;
+        //Fixme: Unknown bug here! Don't use
+        //double debug = this.pan / 255.0 * 180.0;
+        double debug = this.pan / 180.0 * 255.0;
+        return debug;
     }
 
     /**
@@ -78,7 +81,7 @@ class DMX {
      * <p>
      * Internally it maps the possible range of 0 to 540 degrees to the numeric range of an unsigned byte (0 to 255).
      *
-     * @param pan The pan to be set in degrees; must be in range [0, 540]; if not unspecified things will occur.
+     * @param pan The pan to be set in degrees; must be in range [0, 180]; if not unspecified things will occur.
      */
     void setPan(double pan) {
         this.pan = (byte)(255.0 / 180.0 * pan);
@@ -93,6 +96,7 @@ class DMX {
      * @return Stored tilt in degrees
      */
     double getTilt() {
+        //Fixme: Unconfirmed if there's a bug here! Don't use to be safe!
         return this.tilt / 255.0 * 270.0;
     }
 
