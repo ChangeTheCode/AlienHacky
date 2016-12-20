@@ -5,7 +5,6 @@ import at.fhv.alienserver.config.Config;
 
 import java.awt.*;
 import java.io.IOException;
-import java.util.ArrayDeque;
 import java.util.ArrayList;
 
 import static java.lang.Math.signum;
@@ -114,7 +113,7 @@ public class Calculator implements ICalculator{
      */
     private boolean calculate(AccelerationContainer senAcc, Long simStartTime) {
         /*
-         * Used to create this function
+         * Used to create this function and the called "isInPlayField()"
          * http://stackoverflow.com/questions/15620590/polygons-with-double-coordinates
          * http://stackoverflow.com/questions/15958434/how-to-check-if-a-point-is-inside-a-polygon
          */
@@ -145,7 +144,7 @@ public class Calculator implements ICalculator{
          * from the sock to 0|0 after 0.12 seconds or respectively 0.12 / h iterations.
          */
 
-        while (isInPlayfield(pos)) {
+        while (isInPlayingArea(pos)) {
             acc.setX( signum(acc.getX()) * signum(A) * sqrt(A * A * speed.getX() * speed.getX()) + b * locSenAcc.getX() );
             acc.setY( signum(acc.getY()) * signum(A) * sqrt(A * A * speed.getY() * speed.getY()) + b * locSenAcc.getY() );
             //acc.z = signum(acc.z) * signum(A) * sqrt(A * A * speed.z * speed.z) + b * senAcc.z;
@@ -189,7 +188,7 @@ public class Calculator implements ICalculator{
         return Math.abs(acc1.getX() - acc2.getX()) > threshold || Math.abs(acc1.getY() - acc2.getY()) > threshold;
     }
 
-    private boolean isInPlayfield(CoordinateContainer point){
+    private boolean isInPlayingArea(CoordinateContainer point){
         return playField.contains(point.getX()*1000, point.getY()*1000);
     }
 

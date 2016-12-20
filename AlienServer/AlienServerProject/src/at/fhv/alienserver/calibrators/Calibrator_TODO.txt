@@ -1,5 +1,0 @@
-Werte, die noch erfasst werden müssen:
-
-Durch fragen des Users:
- - Welcher serielle Port soll verwendet werden (evtl. mit Auflistung aller Verfügbaren)
- - Wie sollen die werte A bis d im Calculator sein? (hier mit Funktionalität "enter blank for default")
