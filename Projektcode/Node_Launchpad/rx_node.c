@@ -128,15 +128,19 @@ void rx_callback(RF_Handle h, RF_CmdHandle ch, RF_EventMask e)
         {
 			case '2':
 				// login OK
-				// to measure the roundtrip time of a packet
-				//PIN_setOutputValue(LED_pin_handle, Board_DIO15, 1);
-				Alien_log("Login OK arrived\n");
+				if(packet_rx[2] != 0)
+				{
+					Alien_log("Login OK arrived\n");
 
-				/* Turn green LED on to indicate OK */
-				PIN_setOutputValue(LED_pin_handle, Board_LED1, 1);	// Green LED
-				login_ok = TRUE;
-				Semaphore_post(sem_tx_handle);
-				break;
+					/* Turn green LED on to indicate OK */
+					PIN_setOutputValue(LED_pin_handle, Board_LED1, 1);	// Green LED
+
+					node_address = packet_rx[2];		// set address of the node
+					login_ok = TRUE;
+					Semaphore_post(sem_tx_handle);
+					break;
+				}
+				// if without address go to login not ok
 			case '3':
 				// login not OK
 				Alien_log("Login NOT OK arrived\n");

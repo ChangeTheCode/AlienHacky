@@ -49,7 +49,7 @@ BOOLEAN debug;
 int main(void)
 {
 	// are we displaying DEBUG messages
-	debug = TRUE;
+	debug = FALSE;
 
     // Start message
 	Alien_log ("AlienNode starting. Running version 19.12.2016\n\n");
@@ -77,3 +77,5 @@ int main(void)
 
     return (0);
 }
+
+

@@ -28,9 +28,9 @@
 #include <math.h>
 
 
-#define LIGHT_LEVEL_IN_PROCENT 200 // average 100 % higher then old average, so read gyro !
+#define LIGHT_LEVEL_IN_PERCENT 105 // average 100 % higher then old average, so read gyro !
 
-#define MAX_AVARAGE_COUNT 10 // filter size for the light array
+#define MAX_AVARAGE_COUNT 1000 // filter size for the light array
 
 #define TASKSTACKSIZE       1024
 

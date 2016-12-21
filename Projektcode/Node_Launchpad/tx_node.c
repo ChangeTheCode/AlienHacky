@@ -24,6 +24,7 @@ BOOLEAN login_sent = FALSE;
 uint8_t kick;
 
 static void tx_task_function(UArg arg0, UArg arg1);
+void hex_to_ascii(char * buf, int input);
 
 void tx_task_init(void)
 {
@@ -65,6 +66,13 @@ static void tx_task_function(UArg arg0, UArg arg1)
 	int y;
 	for(y = 0; y < 8; y++) mac_address[y] = mac_address_int >> (8-1-y)*8;
 
+	char mac_address_ascii[13] = {0};
+	int i=0;
+	for(i=2; i < 8; i++)
+	{
+		hex_to_ascii(&mac_address_ascii[2*(i-2)], mac_address[i]);
+	}
+
 	Alien_log("Tx task initialized\n");
 
     while(1)
@@ -80,12 +88,12 @@ static void tx_task_function(UArg arg0, UArg arg1)
 
     		// add mac address to packet
 			uint8_t j;
-			for (j = 2; j < 8; j++)
+			for (j = 0; j < 13; j++)
 			{
-				packet_tx[j-1] = mac_address[j]; // TODO: in ascii konvertieren
+				packet_tx[j+1] = mac_address_ascii[j]; // TODO: in ascii konvertieren
 			}
 
-			RF_cmdPropTx.pktLen = 8;
+			RF_cmdPropTx.pktLen = 13;
 
 			/* Send packet */
 			// stop RX CMD
@@ -93,6 +101,10 @@ static void tx_task_function(UArg arg0, UArg arg1)
 			if(rx_cmd > 0)
 			{
 				r = RF_cancelCmd(RF_handle, rx_cmd, 1);
+				if(r!=RF_StatSuccess)
+				{
+					Alien_log("Tx: couldn't cancel rx command!\n");
+				}
 			}
 
 			// post TX CMD
@@ -119,7 +131,7 @@ static void tx_task_function(UArg arg0, UArg arg1)
         		packet_tx[0] = '4'; 	//Heartbeat
 
         		// add address to packet
-        		packet_tx[1] = '1';			//TODO: add address received at the login instead of static
+        		packet_tx[1] = node_address;			// address received at the login
 
 				RF_cmdPropTx.pktLen = 2;
 
@@ -129,6 +141,10 @@ static void tx_task_function(UArg arg0, UArg arg1)
         		if(rx_cmd > 0)
 				{
 					r = RF_cancelCmd(RF_handle, rx_cmd, 1);
+					if(r!=RF_StatSuccess)
+					{
+						Alien_log("Tx: couldn't cancel rx command!\n");
+					}
 				}
 
 				// post TX CMD
@@ -151,13 +167,8 @@ static void tx_task_function(UArg arg0, UArg arg1)
 				/* Create packet with command number, 6 Byte Mac, max of 12 Byte payload */
 				packet_tx[0] = '6';  //Kick
 
-				// add mac address to packet	//TODO: add address received at the login instead of mac
-//				uint8_t j;
-//				for (j = 2; j < 8; j++)
-//				{
-//					packet_tx[j-1] = mac_address[j];
-//				}
-				packet_tx[1] = '1'; 		//TODO: add address received at the login instead of static
+				// add mac address to packet
+				packet_tx[1] = node_address;			// address received at the login
 
 				// add payload to packet
 				uint8_t i;
@@ -175,6 +186,10 @@ static void tx_task_function(UArg arg0, UArg arg1)
 				if(rx_cmd > 0)
 				{
 					r = RF_cancelCmd(RF_handle, rx_cmd, 1);
+					if(r!=RF_StatSuccess)
+					{
+						Alien_log("Tx: couldn't cancel rx command!\n");
+					}
 				}
 
 				// post TX CMD
@@ -212,4 +227,23 @@ void set_new_kick_event_value(kick_vectors_t new_kick_values){
 	kick = TRUE;
 
 	Semaphore_post(sem_tx_handle);
+}
+
+// convert hex to ascii chars
+void hex_to_ascii(char * buf, int input){
+	int high = input / 16;
+	int low = input % 16;
+
+	if(high < 10){
+		*buf = high + 48; 	// convert hex to ascii number (0-9)
+	}
+	else{
+		*buf = high + 55; 	// convert hex to ascii leter (A-F)
+	}
+	if(low < 10){
+		*(buf + 1) = low + 48;
+	}
+	else{
+		*(buf + 1) = low + 55; 	// convert hex to ascii leter (A-F)
+	}
 }

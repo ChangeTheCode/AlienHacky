@@ -288,12 +288,16 @@ void sensor_task_fn(UArg arg0, UArg arg1){
 
 			light_pos ++;
 
-			if( (light_average * 100) / old_light_average >= LIGHT_LEVEL_IN_PROCENT ){
+			if( (light_average * 100) / old_light_average >= LIGHT_LEVEL_IN_PERCENT ){
 				send_gyro_data();
 			}
 
 		}else{
 			Alien_log("Read light sensor failed \n");
+			GPTimerCC26XX_start(timer_error_handle);
+					while(1)		// blink red led forever
+					{
+					}
 		}
 	}
 }
@@ -339,6 +343,11 @@ void send_gyro_data(){
 
 	if (! MPU9150_read(MPU_handel, i2c)){ // needs 750 µs
 		Alien_log("Gyro read failed \n");
+
+		GPTimerCC26XX_start(timer_error_handle);
+				while(1)		// blink red led forever
+				{
+				}
 		return;
 	}
 

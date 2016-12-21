@@ -66,6 +66,8 @@ extern uint8_t packet_rx_length;
 extern BOOLEAN login_ok;
 extern BOOLEAN login_sent;
 
+extern char node_address;
+
 void Alien_RF_init(void);
 void rx_task_init(void);
 void tx_task_init(void);
