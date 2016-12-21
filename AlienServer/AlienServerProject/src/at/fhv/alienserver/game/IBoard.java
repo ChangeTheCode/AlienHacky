@@ -1,7 +1,7 @@
 package at.fhv.alienserver.game;
 
-import at.fhv.alienserver.Common.CoordinateContainer;
-import at.fhv.alienserver.Common.Kick_Container;
+import at.fhv.alienserver.common.CoordinateContainer;
+import at.fhv.alienserver.common.Kick_Container;
 
 import java.util.ArrayList;
 

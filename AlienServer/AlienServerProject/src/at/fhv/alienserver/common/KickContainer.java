@@ -1,9 +1,9 @@
-package at.fhv.alienserver.Common;
+package at.fhv.alienserver.common;
 
 /**
  * Created by Jim on 08.12.2016.
  */
-public class Kick_Container {
+public class KickContainer {
 
     private long timestamp_of_kick = 0;
     private AccelerationContainer kick_direction_acc = null;
@@ -28,7 +28,7 @@ public class Kick_Container {
         this.kick_direction_acc = kick_direction_acc;
     }
 
-    public  Kick_Container(long timestamp, AccelerationContainer kick_direction){
+    public KickContainer(long timestamp, AccelerationContainer kick_direction){
         setTimestamp_of_kick(timestamp);
         setKick_direction_speed(kick_direction);
     }

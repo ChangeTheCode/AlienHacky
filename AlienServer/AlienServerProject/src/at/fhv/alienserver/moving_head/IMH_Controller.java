@@ -1,7 +1,7 @@
-package at.fhv.alienserver.movingHead;
+package at.fhv.alienserver.moving_head;
 
-import at.fhv.alienserver.Common.CoordinateContainer;
-import at.fhv.alienserver.Common.moving_head_color;
+import at.fhv.alienserver.common.CoordinateContainer;
+import at.fhv.alienserver.common.moving_head_color;
 
 /**
  * Created by Jim on 09.12.2016.

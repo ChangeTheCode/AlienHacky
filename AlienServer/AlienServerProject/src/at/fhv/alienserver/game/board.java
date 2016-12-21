@@ -1,9 +1,9 @@
 
 package at.fhv.alienserver.game;
 
-import at.fhv.alienserver.Common.*;
+import at.fhv.alienserver.common.*;
 import at.fhv.alienserver.calculator.Calculator;
-import at.fhv.alienserver.movingHead.MHControl;
+import at.fhv.alienserver.moving_head.MHControl;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,11 +11,11 @@ import java.util.ArrayList;
 /**
  * Created by Jim on 07.12.2016.
  */
-public class board implements Runnable, IBoard{
+public class Board implements Runnable, IBoard{
 
     //TODO: Spielstand einbauen
 
-    private board() {}
+    private Board() {}
 
     private static Thread _board_thread;
 
@@ -90,7 +90,7 @@ public class board implements Runnable, IBoard{
     public void start () {
         System.out.println("Starting Board Thread" );
         if (_board_thread == null) {
-            _board_thread = new Thread (this, "board");
+            _board_thread = new Thread (this, "Board");
             _board_thread.start ();
         }
     }
@@ -140,7 +140,7 @@ public class board implements Runnable, IBoard{
                     break; // jump out of the loop and start to get mh_control a new coordinate
                 }
 
-                // check, if you are still inside of the game board
+                // check, if you are still inside of the game Board
                 if(out_of_range){
                     out_of_range = false;
 

@@ -1,15 +1,14 @@
 package at.fhv.alienserver;
 
-import at.fhv.alienserver.Common.AccelerationContainer;
-import at.fhv.alienserver.Common.CoordinateContainer;
-import at.fhv.alienserver.Common.Kick_Container;
+import at.fhv.alienserver.common.AccelerationContainer;
+import at.fhv.alienserver.common.CoordinateContainer;
+import at.fhv.alienserver.common.Kick_Container;
 import at.fhv.alienserver.calculator.Calculator;
 import at.fhv.alienserver.game.board;
-import at.fhv.alienserver.movingHead.MHControl;
+import at.fhv.alienserver.moving_head.MHControl;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.lang.reflect.Array;
 
 import static java.lang.Thread.sleep;
 
@@ -88,7 +87,7 @@ public class Main {
         if(game_board_test) {
             board game_board = board.getInstance(0, 0, 2.4, 2.4, 3, 3);
             game_board.start();
-            //game_board.set_speed_kick_value(new Kick_Container(1222222, new AccelerationContainer(1, 1)), 1222222);
+            //game_board.set_speed_kick_value(new KickContainer(1222222, new AccelerationContainer(1, 1)), 1222222);
 
 
             double x;

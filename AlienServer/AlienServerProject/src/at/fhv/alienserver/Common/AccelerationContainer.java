@@ -1,4 +1,4 @@
-package at.fhv.alienserver.Common;
+package at.fhv.alienserver.common;
 
 public class AccelerationContainer {
     public double getX() {

@@ -1,4 +1,4 @@
-package at.fhv.alienserver.Console;
+package at.fhv.alienserver.console;
 
 import at.fhv.alienserver.game.*;
 
@@ -11,7 +11,7 @@ public interface IConsole {
     public boolean configuration_game_board();
 
 
-    // function for game board
+    // function for game Board
     public boolean start_game();
 
     public boolean stop_game();

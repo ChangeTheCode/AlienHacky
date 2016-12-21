@@ -1,4 +1,4 @@
-package at.fhv.alienserver.movingHead;
+package at.fhv.alienserver.moving_head;
 
 /**
  * DMX Class

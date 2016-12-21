@@ -1,9 +1,6 @@
 package at.fhv.alienserver.calculator;
 
-import at.fhv.alienserver.Common.*;
-
 import java.awt.*;
-import java.util.ArrayDeque;
 import java.util.ArrayList;
 
 import static java.lang.Math.signum;

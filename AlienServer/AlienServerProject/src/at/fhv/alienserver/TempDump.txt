@@ -3,7 +3,7 @@
 package at.fhv.alienserver;
 
 import at.fhv.alienserver.calculator.Calculator;
-import at.fhv.alienserver.movingHead.MHControl;
+import at.fhv.alienserver.moving_head.MHControl;
 
 import java.io.PrintWriter;
 import java.util.ArrayList;

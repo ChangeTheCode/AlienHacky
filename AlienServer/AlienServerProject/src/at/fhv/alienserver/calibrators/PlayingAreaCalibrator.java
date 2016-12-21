@@ -1,8 +1,8 @@
 package at.fhv.alienserver.calibrators;
 
-import at.fhv.alienserver.Common.CoordinateContainer;
+import at.fhv.alienserver.common.CoordinateContainer;
 import at.fhv.alienserver.config.Config;
-import at.fhv.alienserver.movingHead.MHControl;
+import at.fhv.alienserver.moving_head.MHControl;
 
 import javax.swing.*;
 import java.awt.*;

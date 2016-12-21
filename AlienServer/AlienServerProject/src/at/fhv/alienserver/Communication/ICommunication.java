@@ -1,6 +1,4 @@
-package at.fhv.alienserver.Communication;
-
-import at.fhv.alienserver.Common.*;
+package at.fhv.alienserver.communication;
 
 import java.util.ArrayList;
 

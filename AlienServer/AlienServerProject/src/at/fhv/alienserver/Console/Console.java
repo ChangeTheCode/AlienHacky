@@ -1,4 +1,4 @@
-package at.fhv.alienserver.Console;
+package at.fhv.alienserver.console;
 
 /**
  * Created by Jim on 15.12.2016.

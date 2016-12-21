@@ -1,9 +1,9 @@
-package at.fhv.alienserver.Common;
+package at.fhv.alienserver.common;
 
 /**
  * Created by Jim on 15.12.2016.
  */
-public class Alien_node {
+public class AlienNode {
 
     private String _name;
     private String _mac_address;
@@ -34,7 +34,7 @@ public class Alien_node {
         this._is_connected = _is_connected;
     }
 
-    public Alien_node( String name, String mac_addr , boolean connect ){
+    public AlienNode(String name, String mac_addr , boolean connect ){
         this._name = name;
         this._mac_address = mac_addr;
         this._is_connected = connect;
