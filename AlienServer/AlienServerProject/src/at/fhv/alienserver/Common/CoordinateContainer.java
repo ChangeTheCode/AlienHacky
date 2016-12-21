@@ -1,5 +1,7 @@
 package at.fhv.alienserver.common;
 
+
+
 public class CoordinateContainer {
     public double getX() {
         return this.x;
@@ -21,11 +23,11 @@ public class CoordinateContainer {
     private double y;
     //public double z;
 
-    public Coordinate_Name get_name() {
+    public CoordinateName get_name() {
         return _name;
     }
 
-    private Coordinate_Name _name ;
+    private CoordinateName _name ;
 
     public CoordinateContainer(){
         this.x = 0;
@@ -39,7 +41,7 @@ public class CoordinateContainer {
         //this.z = z;
     }
 
-    public CoordinateContainer(double x, double y, Coordinate_Name name){
+    public CoordinateContainer(double x, double y, CoordinateName name){
         this.x = x;
         this.y = y;
         //this.z = z;

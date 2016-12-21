@@ -2,9 +2,8 @@ package at.fhv.alienserver;
 
 import at.fhv.alienserver.common.AccelerationContainer;
 import at.fhv.alienserver.common.CoordinateContainer;
-import at.fhv.alienserver.common.Kick_Container;
-import at.fhv.alienserver.calculator.Calculator;
-import at.fhv.alienserver.game.board;
+import at.fhv.alienserver.common.KickContainer;
+import at.fhv.alienserver.game.Board;
 import at.fhv.alienserver.moving_head.MHControl;
 
 import java.io.BufferedReader;
@@ -26,6 +25,7 @@ public class Main {
 
         //noinspection ConstantConditions
         if(calcTest) {
+            Calcula
             Calculator myCalc =new Calculator();
             myCalc.init_Calculator(new CoordinateContainer(1.5, -1), new CoordinateContainer(1.5,1),
                     new CoordinateContainer(-1.5,-1),new CoordinateContainer(-1.5,1));

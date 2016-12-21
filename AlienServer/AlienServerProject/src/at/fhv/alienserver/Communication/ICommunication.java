@@ -1,5 +1,7 @@
 package at.fhv.alienserver.communication;
 
+import at.fhv.alienserver.common.*;
+
 import java.util.ArrayList;
 
 
@@ -9,7 +11,7 @@ import java.util.ArrayList;
  */
 public interface ICommunication {
 
-    public ArrayList<Alien_node> get_node_list();
+    public ArrayList<AlienNode> get_node_list();
 
     public boolean clear_node_list();
 
