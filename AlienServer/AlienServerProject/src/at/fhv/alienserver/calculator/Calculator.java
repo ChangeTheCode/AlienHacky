@@ -1,5 +1,7 @@
 package at.fhv.alienserver.calculator;
 
+import at.fhv.alienserver.common.*;
+
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -50,7 +52,7 @@ public class Calculator implements ICalculator{
     private CoordinateContainer bl; // bl = bottom left
     private CoordinateContainer br; // br = bottom right
 
-    private ArrayList< LongTuple<CoordinateContainer, SpeedContainer, AccelerationContainer, Long> > calcValues;
+    private ArrayList<LongTuple<CoordinateContainer, SpeedContainer, AccelerationContainer, Long>> calcValues;
     //private ArrayDeque< LongTuple<CoordinateContainer, SpeedContainer, AccelerationContainer, Long> > calcValues;
     private Polygon playField;
 
@@ -158,7 +160,7 @@ public class Calculator implements ICalculator{
     }
 
     @Override
-    public boolean kick(Kick_Container kick) {
+    public boolean kick(KickContainer kick) {
         //the following code isn't exactly easy to read.
         //we both know it, but we're gonna have to live with it
 

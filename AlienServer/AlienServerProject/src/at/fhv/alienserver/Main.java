@@ -1,5 +1,7 @@
 package at.fhv.alienserver;
 
+
+import at.fhv.alienserver.calculator.Calculator;
 import at.fhv.alienserver.common.AccelerationContainer;
 import at.fhv.alienserver.common.CoordinateContainer;
 import at.fhv.alienserver.common.KickContainer;
@@ -25,7 +27,6 @@ public class Main {
 
         //noinspection ConstantConditions
         if(calcTest) {
-            Calcula
             Calculator myCalc =new Calculator();
             myCalc.init_Calculator(new CoordinateContainer(1.5, -1), new CoordinateContainer(1.5,1),
                     new CoordinateContainer(-1.5,-1),new CoordinateContainer(-1.5,1));
@@ -38,17 +39,17 @@ public class Main {
             0.5 + 0.9 + 0.7 + 1.0 = 3.1
              */
 
-            myCalc.kick( new Kick_Container(0, new AccelerationContainer(27.27,14.16) ) );
+            myCalc.kick( new KickContainer(0, new AccelerationContainer(27.27,14.16) ) );
             CoordinateContainer test = myCalc.get_position(10);
             test= myCalc.get_position(500);
 
-            myCalc.kick( new Kick_Container(500, new AccelerationContainer(0, -1.5)) );
+            myCalc.kick( new KickContainer(500, new AccelerationContainer(0, -1.5)) );
             test = myCalc.get_position(1400);
 
-            myCalc.kick( new Kick_Container(1400, new AccelerationContainer(-2.5, 0)) );
+            myCalc.kick( new KickContainer(1400, new AccelerationContainer(-2.5, 0)) );
             test = myCalc.get_position(2100);
 
-            myCalc.kick( new Kick_Container( 2100, new AccelerationContainer(1.5, -1) ) );
+            myCalc.kick( new KickContainer( 2100, new AccelerationContainer(1.5, -1) ) );
             test = myCalc.get_position(3100);
 
             System.out.println(test.toString());
@@ -85,7 +86,7 @@ public class Main {
         }
 
         if(game_board_test) {
-            board game_board = board.getInstance(0, 0, 2.4, 2.4, 3, 3);
+            Board game_board = Board.getInstance(0, 0, 2.4, 2.4, 3, 3);
             game_board.start();
             //game_board.set_speed_kick_value(new KickContainer(1222222, new AccelerationContainer(1, 1)), 1222222);
 
@@ -106,7 +107,7 @@ public class Main {
                 }
                 x = Integer.parseInt(number[0]);
                 y = Integer.parseInt(number[1]);
-                game_board.set_speed_kick_value( new Kick_Container( System.currentTimeMillis(), new AccelerationContainer(x,y)));
+                game_board.set_speed_kick_value( new KickContainer( System.currentTimeMillis(), new AccelerationContainer(x,y)));
 
             }
 

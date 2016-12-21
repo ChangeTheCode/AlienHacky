@@ -1,7 +1,7 @@
 package at.fhv.alienserver.moving_head;
 
 import at.fhv.alienserver.common.CoordinateContainer;
-import at.fhv.alienserver.common.moving_head_color;
+import at.fhv.alienserver.common.MovingHeadColor;
 
 import java.io.IOException;
 import java.util.LinkedList;
@@ -92,15 +92,15 @@ public class MHControl implements IMH_Controller{
 
     @Override
     public void move_to(CoordinateContainer position, boolean exaggerate) {
-        _move_to_compendious(position, exaggerate, moving_head_color.PINK);
+        _move_to_compendious(position, exaggerate, MovingHeadColor.PINK);
     }
 
     @Override
-    public void move_to(CoordinateContainer position, boolean exaggerate, moving_head_color color) {
+    public void move_to(CoordinateContainer position, boolean exaggerate, MovingHeadColor color) {
         _move_to_compendious(position, exaggerate, color);
     }
 
-    private void _move_to_compendious(CoordinateContainer position, boolean exaggerate, moving_head_color color){
+    private void _move_to_compendious(CoordinateContainer position, boolean exaggerate, MovingHeadColor color){
         LinkedList<DMX> packets = new LinkedList<>();
 
         DMX dmxPacket = new DMX();
